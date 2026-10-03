@@ -265,7 +265,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "An atronach is a summoned elemental spirit.",
-      "detail": "Strengthens certain staff spells and summons. Potent flame/frost/storm atronachs and thralls use Better Vanilla Perks' strength. Staff and summon effects remain untested. Keep the one-summon limit.",
+      "detail": "Strengthens certain staff spells and summons. Potent atronachs and thralls use Better Vanilla Perks' level scaling. Staff and summon effects remain untested. Keep the one-summon limit.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -546,7 +546,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Start with one active summon per player.",
-      "detail": "Conjure Familiar has Better Vanilla Perks' effect. Potent flame/frost/storm atronachs and thralls use its strength. Quarantined racial summons, summoned copies, corpse raising and summon armies remain excluded. Exact four-player behavior is not tested yet.",
+      "detail": "Conjure Familiar keeps Mysticism's spell and wolf. Better Vanilla Perks supplies its text and look. Quarantined racial summons, summoned copies, corpse raising and summon armies remain excluded. Exact four-player behavior is not tested yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -704,7 +704,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Use direct attacks as the starting point for a mage.",
-      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each has one effect. Mysticism's extra effects are absent. Sparks casts using Better Vanilla Perks. Its strength and duration match Mysticism. Avoid friendly NPCs. Not tested in co-op yet.",
+      "detail": "Flames, Frostbite and Sparks keep Mysticism's extra effects. Flames damages and burns; Intense Flames can cause fear. Frostbite drains health and stamina, slows, and can freeze. Sparks damages; Disintegrate can trigger. Avoid friendly NPCs. Not tested in co-op yet.",
       "aliases": [
         "Flames",
         "Firebolt",
@@ -714,7 +714,7 @@
         "Lightning Bolt",
         "Destruction"
       ],
-      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "illusion-enemy-control",
