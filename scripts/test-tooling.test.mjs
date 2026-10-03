@@ -61,6 +61,14 @@ test('binary scans distinguish random path markers from readable metadata and se
   assert.ok(privacyFindings(Buffer.concat([noise, Buffer.from(secret), noise]), [secret]).includes('server/admin password'));
 });
 
+test('UNC scan requires a real share and does not mistake escaped regex classes for paths', () => {
+  const slash = String.fromCharCode(92);
+  const unc = slash.repeat(2) + ['machine', 'share', 'file'].join(slash);
+  for (const value of [unc, JSON.stringify(unc)]) assert.ok(privacyFindings(value, []).includes('local file path'));
+  const regexSource = '[' + slash.repeat(2) + 's' + slash.repeat(2) + 'S]*?';
+  assert.deepEqual(privacyFindings(regexSource, []), []);
+});
+
 test('identity parser cannot mistake embedded tabs for approved fields', () => {
   const hash = 'a'.repeat(40);
   const valid = [hash, identity.name, identity.email, identity.name, identity.email, ''].join('\0');
