@@ -6,7 +6,10 @@
   "description": "A small, public field guide for a shared Skyrim adventure.",
   "scripts": {
     "build": "node scripts/build-variants.mjs",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs && node scripts/check-shared-facts.mjs",
+    "check:shared-facts": "node scripts/check-shared-facts.mjs",
+    "test:tooling": "node --test scripts/test-tooling.test.mjs",
+    "publish:site": "node scripts/publish.mjs"
   },
   "engines": { "node": ">=22" }
 }
