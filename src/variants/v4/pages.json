@@ -145,7 +145,7 @@
           ],
           "sources": [
             [
-              "Mysticism",
+              "Mysticism spell additions",
               "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
             ]
           ]
@@ -605,7 +605,7 @@
                       "text": "Staff of the Atronach",
                       "href": "rules.html#rule-staff-of-atronach"
                     },
-                    " strengthens certain staff spells and summons. One active summon per player."
+                    " strengthens certain staff spells and summons. One active summon per player. Potent atronachs and their thralls use Better Vanilla Perks stats."
                   ]
                 ]
               ],
@@ -984,7 +984,7 @@
                   },
                   "Wizard",
                   "Elemental Potency only makes conjured atronachs stronger",
-                  "Strengthens certain spells. Atronachs scale (Better Vanilla Perks). One summon."
+                  "Strengthens certain spells. Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. One summon."
                 ]
               ]
             }
@@ -1397,7 +1397,7 @@
             },
             "Wizard",
             "Elemental Potency only makes conjured atronachs stronger",
-            "Strengthens certain spells. Atronachs scale (Better Vanilla Perks). One summon."
+            "Strengthens certain spells. Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. One summon."
           ]
         ]
       }

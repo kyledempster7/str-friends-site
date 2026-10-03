@@ -63,7 +63,8 @@ for (const name of (await readdir(path.join(output, 'v2b'))).filter((n) => n.end
       .replace(/data-search="[^"]*"/, `data-search="${escHtml([e.name, e.category, e.status, e.summary, e.detail, ...(e.aliases ?? [])].join(' '))}"`)
       .replace(/<span class="status status-[a-z]+">[^<]*<\/span>/, `<span class="status status-${e.status}">${labels[e.status]}</span>`)
       .replace(/<p class="rule-summary">[\s\S]*?<\/p>/, `<p class="rule-summary">${escHtml(e.summary)}</p>`)
-      .replace(/<p class="rule-detail">[\s\S]*?<\/p>/, `<p class="rule-detail">${escHtml(e.detail)}</p>`);
+      .replace(/<p class="rule-detail">[\s\S]*?<\/p>/, `<p class="rule-detail">${escHtml(e.detail)}</p>`)
+      .replace(/(<a class="rule-source" href=")[^"]+/, (_, prefix) => `${prefix}${escHtml(e.sourceUrl)}`);
     rules = rules.slice(0, start) + card + rules.slice(end);
   }
   await writeFile(rulesFile, rules);

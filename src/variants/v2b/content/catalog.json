@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Our selected spell overhaul: main package only.",
-      "detail": "Mark, Recall and corpse reanimation are quarantined (don't use yet). Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
+      "detail": "Some spells and summon stats come from Better Vanilla Perks. Mark, Recall and corpse reanimation are quarantined (don't use yet). Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -264,7 +264,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "A staff-build option; exact effects are not tested yet.",
-      "detail": "Staff and summon behavior needs checking. Keep the one-summon limit.",
+      "detail": "Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. Staff and summon behavior needs checking. Keep the one-summon limit.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -545,7 +545,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Start with one active summon per player.",
-      "detail": "Skyrim Together supports ordinary summon actors. This does not clear quarantined racial summons, copied actors, corpse raising or summon armies. Exact four-player behavior is not tested yet.",
+      "detail": "Conjure Familiar uses Better Vanilla Perks' magic effect. Potent flame, frost and storm atronachs and their thralls use its stats. Quarantined racial summons, copied actors, corpse raising and summon armies remain excluded. Exact four-player behavior is not tested yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -554,7 +554,7 @@
         "Conjure Storm Atronach",
         "summon"
       ],
-      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
     },
     {
       "id": "healing-hands",
@@ -703,7 +703,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Use direct attacks as the starting point for a mage.",
-      "detail": "Spells and projectiles have Skyrim Together support. Exact behavior with every spell in this pack is not tested yet. Aim clear of friendly NPCs.",
+      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each keeps one effect; Mysticism's extra effects are absent. Sparks uses Better Vanilla Perks casting settings. Its effect amounts and durations match Mysticism. Avoid friendly NPCs. Exact co-op behavior is not tested yet.",
       "aliases": [
         "Flames",
         "Firebolt",
@@ -713,7 +713,7 @@
         "Lightning Bolt",
         "Destruction"
       ],
-      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
     },
     {
       "id": "illusion-enemy-control",
