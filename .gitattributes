@@ -1,0 +1,2 @@
+# Frozen published bytes must survive Windows checkout without CRLF conversion.
+src/variants/frozen-v1/** -text

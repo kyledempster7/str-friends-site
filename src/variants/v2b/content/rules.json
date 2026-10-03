@@ -1,0 +1,440 @@
+{
+  "updated": "2026-10-03",
+  "sections": [
+    {
+      "id": "together",
+      "eyebrow": "A shared world",
+      "title": "What changes in multiplayer?",
+      "intro": "Your character, your save, one shared campaign.",
+      "quickAnswers": [
+        {
+          "label": "SAVES",
+          "text": "Everyone saves their own character.",
+          "icon": "book",
+          "href": "#saves"
+        },
+        {
+          "label": "LEADER",
+          "text": "One leader for the entire campaign.",
+          "icon": "compass",
+          "href": "#campaign-leader"
+        },
+        {
+          "label": "MENUS",
+          "text": "Danger keeps moving.",
+          "icon": "shield",
+          "href": "#live-menus"
+        },
+        {
+          "label": "DEATH",
+          "text": "Respawn; don't reload.",
+          "icon": "mountain",
+          "href": "#death-respawn"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Your save stays yours",
+              "text": "Save often. The server does not keep a replacement save for you.",
+              "icon": "book",
+              "id": "saves"
+            },
+            {
+              "title": "Follow the campaign leader",
+              "text": "The same leader handles quest dialogue, scenes and items, and enters locations first. Everyone can fight and solve puzzles together.",
+              "icon": "compass",
+              "id": "campaign-leader"
+            },
+            {
+              "title": "Get safe before opening menus",
+              "text": "Our setup does not pause. Step away from danger before choosing gear or a potion.",
+              "icon": "shield",
+              "id": "live-menus"
+            },
+            {
+              "title": "Death is a setback",
+              "text": "Normally respawn nearby outdoors or at the indoor entrance. Extra gold-loss penalty: zero. Crime bounties still apply. This exact party setup is not tested yet.",
+              "icon": "mountain",
+              "id": "death-respawn"
+            },
+            {
+              "title": "Master difficulty, shared combat experience",
+              "text": "Master is enforced. Enemies do not automatically scale with party size. Combat experience sharing is on; crafting is separate.",
+              "icon": "shield"
+            },
+            {
+              "title": "Protect friendly NPCs",
+              "text": "Player-versus-player damage and killcams are off. Lock-on targets hostiles only. Followers and townsfolk can still be hurt.",
+              "icon": "shield"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "Keep this campaign together",
+          "text": "Keep the party's characters together in level and quest progress. Use separate characters for other campaigns, including smaller-party nights. Finish Helgen offline before connecting."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Official play guide",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide"
+            },
+            {
+              "label": "Official features",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "eyebrow": "Skills and races",
+      "title": "Build your character",
+      "intro": "Eighteen skills, no fixed classes. Better Vanilla Perks changes trees; Imperious replaces racial packages.",
+      "quickAnswers": [
+        {
+          "label": "CHOICE",
+          "text": "Every race can learn every skill.",
+          "icon": "star",
+          "href": "#race-comparison"
+        },
+        {
+          "label": "COLLECTION",
+          "text": "Use only the agreed collection.",
+          "icon": "book",
+          "href": "rules.html#rule-bvp-main"
+        },
+        {
+          "label": "PERKS",
+          "text": "Read changed tooltips before spending.",
+          "icon": "book",
+          "href": "#perk-ranks"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "comparison",
+          "title": "Eighteen skills",
+          "columns": [
+            "Skill",
+            "Vanilla",
+            "Better Vanilla Perks"
+          ],
+          "rows": [
+            [
+              "Alchemy",
+              "Potions, poisons",
+              "Poison/resistance options."
+            ],
+            [
+              "Alteration",
+              "Protection, utility",
+              "Resistance options."
+            ],
+            [
+              "Archery",
+              "Ranged damage",
+              "Penetration/stagger. Entire Steady Hand branch held."
+            ],
+            [
+              "Block",
+              "Blocks, bashes",
+              "Strong Reflexes: rank 1 allowed; rank 2 held."
+            ],
+            [
+              "Conjuration",
+              "Summons, reanimation",
+              "One active summon per player. Corpse raising held."
+            ],
+            [
+              "Destruction",
+              "Elemental attacks",
+              "Elemental bonuses."
+            ],
+            [
+              "Enchanting",
+              "Enchant, recharge",
+              "Recharge from kills."
+            ],
+            [
+              "Heavy Armor",
+              "Protection",
+              "Armor-tier bonuses."
+            ],
+            [
+              "Illusion",
+              "Control, stealth",
+              "Arrow avoidance."
+            ],
+            [
+              "Light Armor",
+              "Mobile protection",
+              "Armor-tier bonuses."
+            ],
+            [
+              "Lockpicking",
+              "Locks",
+              "Torch auto-unlock held; pick manually."
+            ],
+            [
+              "One-Handed",
+              "Flexible melee",
+              "Weapon/critical bonuses."
+            ],
+            [
+              "Pickpocket",
+              "Theft",
+              "Arrow recovery."
+            ],
+            [
+              "Restoration",
+              "Healing, wards",
+              "Resurgence scaling untested."
+            ],
+            [
+              "Smithing",
+              "Forge, improve",
+              "Tempering; verify transfers."
+            ],
+            [
+              "Sneak",
+              "Ambushes",
+              "Sneak-damage options."
+            ],
+            [
+              "Speech",
+              "Trade, persuasion",
+              "Drum and merchant powers held."
+            ],
+            [
+              "Two-Handed",
+              "Heavy melee",
+              "Weapon bonuses; no guaranteed taunt."
+            ]
+          ]
+        },
+        {
+          "type": "comparison",
+          "title": "Ten races",
+          "columns": [
+            "Race",
+            "Vanilla",
+            "Imperious"
+          ],
+          "rows": [
+            [
+              "High Elf",
+              "Magicka; Highborn",
+              "Magical tradeoffs; Contingency held."
+            ],
+            [
+              "Argonian",
+              "Water breathing; Histskin",
+              "Swimming/recovery; Caustic Spit untested."
+            ],
+            [
+              "Wood Elf",
+              "Resistances; Command Animal",
+              "Hunting; Beast Tongue held. Harrier untested."
+            ],
+            [
+              "Breton",
+              "Magic resistance; Dragonskin",
+              "Magic defense; borrowed powers inherit holds."
+            ],
+            [
+              "Dark Elf",
+              "Fire resistance; Ancestor's Wrath",
+              "Ancestor traits; Spirit Walk held. Whispers untested."
+            ],
+            [
+              "Imperial",
+              "Gold; Voice of Emperor",
+              "Discipline: not healing; player aura untested."
+            ],
+            [
+              "Khajiit",
+              "Claws; Night Eye",
+              "Prowl leaps, not teleports; untested."
+            ],
+            [
+              "Nord",
+              "Frost resistance; Battle Cry",
+              "Frost defense, injured offense, Avatar recovery."
+            ],
+            [
+              "Orc",
+              "Stronghold access; Berserker Rage",
+              "Physical strengths; weaker enchantments."
+            ],
+            [
+              "Redguard",
+              "Poison resistance; Adrenaline Rush",
+              "Travel stamina; Red Sand Dance held."
+            ]
+          ],
+          "id": "race-comparison"
+        },
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "Replacement, not extra bonuses",
+          "text": "Imperious bonuses replace vanilla. Powers need racial objectives; NPCs receive abilities. Untested means not tested yet."
+        },
+        {
+          "type": "callout",
+          "tone": "hold",
+          "title": "Check exact ranks in search",
+          "text": "Hold Dark Souls 2; Dragonborn rank 4 drum/rank 5 merchant powers. Strong Reflexes: Block 30 rank 1 allowed; Block 50 rank 2 held.",
+          "id": "perk-ranks"
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Perk guide",
+              "url": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+            },
+            {
+              "label": "Race guide",
+              "url": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spells",
+      "eyebrow": "Spells and magic",
+      "title": "Find your kind of magic",
+      "intro": "Our spell mod is Mysticism. Earlier Apocalypse mentions are outdated for this pack.",
+      "quickAnswers": [
+        {
+          "label": "SCHOOLS",
+          "text": "Five schools; no new skill tree.",
+          "icon": "star",
+          "href": "#magic-schools"
+        },
+        {
+          "label": "SUMMONS",
+          "text": "One active summon per player.",
+          "icon": "shield",
+          "href": "#summon-limit"
+        },
+        {
+          "label": "HEALING",
+          "text": "Start with ordinary healing spells.",
+          "icon": "star",
+          "href": "#player-healing"
+        },
+        {
+          "label": "TRAVEL",
+          "text": "Mark and Recall are held.",
+          "status": "hold",
+          "icon": "compass",
+          "href": "#magic-holds"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Start with familiar spells",
+              "text": "Mysticism rebalances spells and adds choices. Buy tomes from usual vendors. Read each tooltip and try direct spells first.",
+              "icon": "book"
+            },
+            {
+              "title": "Conjure; don't raise bodies",
+              "text": "An ordinary conjured skeleton differs from a reanimated corpse. Our one-summon limit is a test budget, not an engine limit. Extra perk capacity does not override it.",
+              "icon": "shield",
+              "id": "summon-limit"
+            },
+            {
+              "title": "Heal a friend",
+              "text": "Start with Healing Hands, Heal Other or Grand Healing. Ordinary healing and Courage, Rally and Call to Arms have player-target support; exact targeting, experience and perk scaling are not tested yet.",
+              "icon": "star",
+              "id": "player-healing"
+            },
+            {
+              "title": "Know your support limits",
+              "text": "Custom auras and undead-healing spells are not automatically player heals. Imperial Discipline is not a heal. Staff builds are welcome; extra staff skill experience is not included.",
+              "icon": "book"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "title": "Five magic schools",
+          "columns": [
+            "School",
+            "Vanilla",
+            "Mysticism"
+          ],
+          "rows": [
+            [
+              "Alteration",
+              "Protection, utility",
+              "More debuffs; Mark and Recall held."
+            ],
+            [
+              "Conjuration",
+              "Bound weapons, summons, reanimation",
+              "More summons; corpse raising held."
+            ],
+            [
+              "Destruction",
+              "Elemental attacks",
+              "Expanded progression; Vampiric Bolt, Blood Lance."
+            ],
+            [
+              "Illusion",
+              "Stealth, morale, enemy control",
+              "Expanded choices; cannot control human players."
+            ],
+            [
+              "Restoration",
+              "Healing, wards, undead defense",
+              "More healing and support."
+            ]
+          ],
+          "id": "magic-schools"
+        },
+        {
+          "type": "callout",
+          "tone": "hold",
+          "title": "Main Mysticism only",
+          "text": "Hold Mark, Recall and corpse reanimation. Exclude NPC spell distribution and optional Jump, Survival, Ordinator and Slower Unlocks packages.",
+          "id": "magic-holds"
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Spell guide",
+              "url": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+            },
+            {
+              "label": "Healing support",
+              "url": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "eyebrow": "Before spending points",
+      "title": "Can I use this?",
+      "intro": "Check mod and rank. Every hold is adopted; unknown means unverified.",
+      "blocks": []
+    }
+  ]
+}

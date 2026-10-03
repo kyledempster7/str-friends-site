@@ -1,0 +1,525 @@
+{
+  "updated": "2026-10-03",
+  "sections": [
+    {
+      "id": "leave-now",
+      "eyebrow": "Real life comes first",
+      "title": "I have to go NOW",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "urgent",
+          "title": "Save. Disconnect. Go.",
+          "text": "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game. Quitting may still crash; no fix is proven."
+        },
+        {
+          "type": "text",
+          "text": "Unsaved progress may be lost. Tell the group later; no recap required."
+        },
+        {
+          "type": "text",
+          "text": "F2 means F two. This party's exit rehearsal is not tested yet."
+        }
+      ]
+    },
+    {
+      "id": "tonight",
+      "eyebrow": "A day in the life",
+      "title": "Join, play, and leave well",
+      "intro": "Meet up. Adventure together. Leave when you need.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "Before your first join",
+          "text": "Match the group's collection. Finish Helgen or Helgen Express offline; save outside. Separate campaigns need separate characters."
+        },
+        {
+          "type": "steps",
+          "id": "join",
+          "title": "Join tonight's game",
+          "items": [
+            "Launch Skyrim Together; load your latest campaign save.",
+            "Press F2 or Right Ctrl. Choose Connect; use the host's private details.",
+            "Check Player Manager: join the party with the usual leader.",
+            "No party? The fixed leader creates it. Join before progressing quests.",
+            "Meet up, ready a heal, and say or type READY."
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Arriving late",
+              "text": "Join the party and regroup. Do not catch up by questing alone."
+            },
+            {
+              "title": "First room",
+              "text": "Leader enters first. Ranger scouts; guardian intercepts; wizard attacks; healer keeps retreat space."
+            },
+            {
+              "title": "Need a minute?",
+              "text": "Type HOLD or BRB. Find safety; menus and chat do not pause danger."
+            },
+            {
+              "title": "If something disagrees",
+              "text": "Save before major scenes. If progress disagrees, stop and tell the host. Never reload while connected or repair quests alone."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "A normal goodbye",
+          "text": "Find safety. Save and let it finish. F2, Disconnect, Proceed; quit. Each person saves locally; the server cannot replace your save."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Connection controls",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/guides/client-setup/using-modorganizer2-mo2/playing-skyrim-together-reborn/connecting-to-a-server"
+            },
+            {
+              "label": "Questing and saves",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide"
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "F2",
+          "text": "Connect, then check the party.",
+          "href": "#join"
+        },
+        {
+          "label": "One leader",
+          "text": "Keep the same leader all campaign.",
+          "href": "party.html#leader"
+        },
+        {
+          "label": "READY",
+          "text": "Meet up before starting.",
+          "href": "#join"
+        },
+        {
+          "label": "Leaving?",
+          "text": "Save. Disconnect. Go.",
+          "href": "#leave-now"
+        }
+      ]
+    },
+    {
+      "id": "builds",
+      "eyebrow": "Unusual builds",
+      "title": "Make room for specialists",
+      "intro": "Choose a useful specialty; friends cover your gaps. These are flexible build ideas.",
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Healer or paladin",
+              "text": "Restoration first; add personal defense. A paladin swaps between shield, weapon and healing. Give: recovery. Ask: protect my casts. Ordinary robes or steel work; legendary gear can wait.",
+              "icon": "healer"
+            },
+            {
+              "title": "Two-handed guardian",
+              "text": "Greatsword, Heavy Armor and Block make space. Turn to protect a chased friend. Give: breathing room. Ask: answer distant casters. No guaranteed taunt; weapon blocking lacks shield-only defenses.",
+              "icon": "greatsword"
+            },
+            {
+              "title": "Stealth ranger",
+              "text": "Archery and Sneak find the opening. Keep moving and shooting after discovery. Give: scouting and focused damage. Ask: a quiet opening, then cover. Start with leather and a bow; sneak bonuses are not guaranteed.",
+              "icon": "bow"
+            },
+            {
+              "title": "Gandalf-style wizard",
+              "text": "Destruction and Alteration supply fire and protection; add backup Restoration. Earn a staff later. Give: ranged magic and guidance. Ask: casting space; warn me before scouting. Robes suffice. Extra costume mods need collection approval.",
+              "icon": "wizard"
+            },
+            {
+              "title": "Gravewarden",
+              "text": "Restoration first, Conjuration second. One conjured helper buys healing time; raising corpses is different. Give: recovery and distraction. Ask: room for the helper. Corpse raising stays held, even in a darker story.",
+              "icon": "gravewarden"
+            },
+            {
+              "title": "Storyteller or controller",
+              "text": "Speech, Restoration and a weapon suit a skald; enemy control needs a reliable damage fallback. Give: support and shared decisions. Ask: respect control calls. No promised instruments or buff songs. The quest face remains the fixed leader.",
+              "icon": "mask"
+            }
+          ],
+          "id": "roles"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Keep the role fun",
+              "text": "Keep a fallback. Revisit your specialty after two sessions; discuss major changes so someone still covers healing."
+            },
+            {
+              "title": "Not tested yet",
+              "text": "Healing experience, ally perk bonuses, added summons and full combinations are not tested yet. Check installed tooltips and the rules before spending points.",
+              "id": "build-testing"
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "Choose",
+          "text": "Friends cover your gaps.",
+          "href": "#roles"
+        },
+        {
+          "label": "Give and ask",
+          "text": "Every role helps and needs help.",
+          "href": "#roles"
+        },
+        {
+          "label": "Check first",
+          "text": "Ideas are not tested combinations.",
+          "href": "#build-testing"
+        }
+      ]
+    },
+    {
+      "id": "party",
+      "eyebrow": "Group dynamics",
+      "title": "Make room for everyone",
+      "intro": "Protect casting space. Finish threats. Give everyone a turn.",
+      "blocks": [
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "One leader per playthrough",
+          "text": "Keep one leader for the entire campaign: quest NPCs, scenes, items and entering locations first. Everyone can fight bosses and solve puzzles.",
+          "id": "leader"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Pass the story spotlight",
+              "text": "Share story choices without rotating leadership. A different leader needs a separate campaign and characters.",
+              "id": "story-spotlight"
+            },
+            {
+              "title": "On me",
+              "text": "A pursuer? Move toward the group; the frontliner intercepts. No permanent aggro promise."
+            },
+            {
+              "title": "Healing here",
+              "text": "Come within reach. Healing is not resurrection; wards do not guarantee group protection."
+            },
+            {
+              "title": "Caster first",
+              "text": "Focus the named threat. Keep a retreat route open."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "Typing counts",
+          "text": "F2 or Right Ctrl; click chat, type, then Enter. Ordinary messages are global. Try /party READY or /local Hello. Four-player delivery and readability are not tested yet.",
+          "id": "chat"
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "READY or HOLD",
+              "text": "READY: ready to proceed. HOLD: find safety and wait."
+            },
+            {
+              "title": "HELP or BRB",
+              "text": "HELP: help now; give location. BRB: taking a break."
+            },
+            {
+              "title": "Wait for typing",
+              "text": "Watch and acknowledge chat. Automatic text-to-speech is not promised."
+            },
+            {
+              "title": "Our shared setup",
+              "text": "Use matching mods. Menus stay live. Target lock selects hostiles; aim heals manually. Player friendly fire is off; neutral characters remain vulnerable. Review additions together.",
+              "id": "shared-setup"
+            }
+          ]
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Questing rules",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide#questing"
+            },
+            {
+              "label": "Chat commands",
+              "url": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/skyrim_ui/src/app/services/chat.service.ts"
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "One leader",
+          "text": "Fixed for the whole campaign.",
+          "href": "#leader"
+        },
+        {
+          "label": "Your turn",
+          "text": "Choose together; the leader handles quests.",
+          "href": "#story-spotlight"
+        },
+        {
+          "label": "Chat",
+          "text": "Typing gets time and acknowledgement.",
+          "href": "#chat"
+        },
+        {
+          "label": "Live world",
+          "text": "Menus and chat do not pause danger.",
+          "href": "#shared-setup"
+        }
+      ]
+    },
+    {
+      "id": "ownership",
+      "eyebrow": "What belongs to you",
+      "title": "Gear, gold and homes",
+      "intro": "Your save, pack and gold are personal.",
+      "blocks": [
+        {
+          "type": "cards",
+          "id": "belongings",
+          "items": [
+            {
+              "title": "Gear and loot",
+              "text": "Offer upgrades; leader takes quest items. Stop on missing or duplicate items."
+            },
+            {
+              "title": "Gold",
+              "text": "No party purse. Zero percentage death penalty; crime fines still apply."
+            },
+            {
+              "title": "Check home storage",
+              "text": "Recognized vanilla/DLC home chests should stay local. Test yours with a cheap item, save and rejoin. Privacy and permanence aren't guaranteed. Your friend's chest isn't a delivery box.",
+              "id": "storage"
+            },
+            {
+              "title": "Meeting place, not bank",
+              "text": "Shared containers aren't permanent banks. Check guild, outdoor and modded storage separately. Empty rooms before renovations replace containers."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "id": "trade",
+          "title": "Try a small hand-off",
+          "items": [
+            "Choose an unowned container outside a home; start with one cheap item.",
+            "Donor uses the full menu, deposits, then closes it.",
+            "Recipient opens the full menu and takes the agreed item.",
+            "Both check packs. Stop if counts disagree.",
+            "Save and check again after reconnecting."
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "note",
+          "title": "Trading is not tested yet",
+          "text": "One person at a time. Never trade floor drops. Gold, crafted items and QuickLoot transfers are not tested yet."
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Buy a city home",
+              "text": "Leader completes prerequisites; buy from the steward. Budget furnishings separately. Never repeat quests alone."
+            },
+            {
+              "title": "Build with Hearthfire",
+              "text": "Hearthfire land: 5,000 gold before building. Draft layouts, then use the carpenter's bench. Shared construction is not tested yet."
+            },
+            {
+              "title": "Check each character",
+              "text": "Nonleader payments, keys, access and furnishings are not tested yet. Promise neither one shared purchase nor four required payments."
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "Proposed: personal belongings",
+              "text": "Proposed, not accepted: our agreement, not the game's rules. Personal gear and gold; no spawning, duplication or reload-farming. Offer upgrades, alternate ties; no leader bonus. Leader handles quest NPCs and items."
+            },
+            {
+              "title": "Proposed: shared responsibilities",
+              "text": "Voluntary shared costs; pledges aren't payments. Name supply holders. Test personal storage. Earn homes; agree buyer and guests. Protect absent players' belongings and story."
+            },
+            {
+              "title": "Make the company yours",
+              "text": "Optional crafting roles or home goals. Mark supplies pledged, held or spent."
+            },
+            {
+              "title": "Not tested yet",
+              "text": "Family systems, horse ownership after reconnecting and custom-item supply chains."
+            }
+          ]
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "STR inventories and homes",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+            },
+            {
+              "label": "Home-storage setting",
+              "url": "https://wiki.tiltedphoques.com/tilted-online/guides/server-guide/server-configuration#bsyncplayerhomes"
+            },
+            {
+              "label": "House requirements",
+              "url": "https://en.uesp.net/wiki/Skyrim:Houses"
+            },
+            {
+              "label": "Hearthfire construction",
+              "url": "https://en.uesp.net/wiki/Skyrim:Construction"
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "Personal",
+          "text": "Your save, your gear, your gold.",
+          "href": "#belongings"
+        },
+        {
+          "label": "Home chest",
+          "text": "Test your exact chest before storing valuables.",
+          "href": "#storage"
+        },
+        {
+          "label": "Hand-offs",
+          "text": "Transfers are not tested yet.",
+          "href": "#trade"
+        }
+      ]
+    },
+    {
+      "id": "chronicle",
+      "eyebrow": "Campaign chronicle",
+      "title": "Our first adventure is still ahead",
+      "intro": "No sessions recorded yet.",
+      "blocks": [
+        {
+          "type": "cards",
+          "id": "chronicle-outline",
+          "items": [
+            {
+              "title": "Where we went",
+              "text": "A place, a choice, what changed."
+            },
+            {
+              "title": "Who made the moment",
+              "text": "A rescue, route call, joke or generous hand-off.",
+              "id": "spotlight"
+            },
+            {
+              "title": "What calls us back",
+              "text": "One unfinished thread and its next step.",
+              "id": "next-thread"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "items": [
+            {
+              "title": "A public journal",
+              "text": "Future recaps record real sessions and only details the group agrees to share publicly."
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "Sessions",
+          "text": "None recorded.",
+          "href": "#chronicle-outline"
+        },
+        {
+          "label": "Spotlight",
+          "text": "Rescues and route calls count.",
+          "href": "#spotlight"
+        },
+        {
+          "label": "Next chapter",
+          "text": "Our first adventure is still ahead.",
+          "href": "#next-thread"
+        }
+      ]
+    },
+    {
+      "id": "ledger",
+      "eyebrow": "Party ledger",
+      "title": "The company we are planning",
+      "intro": "Planned roles; no played characters or possessions recorded.",
+      "blocks": [
+        {
+          "type": "cards",
+          "id": "party-roles",
+          "items": [
+            {
+              "title": "Healer / paladin",
+              "text": "Brings recovery. Needs casting cover.",
+              "icon": "healer"
+            },
+            {
+              "title": "Two-handed tank",
+              "text": "Brings breathing room. Needs help against casters.",
+              "icon": "greatsword"
+            },
+            {
+              "title": "Stealth ranger",
+              "text": "Brings scouting and arrows. Needs a quiet opening.",
+              "icon": "bow"
+            },
+            {
+              "title": "Gandalf-style wizard",
+              "text": "Brings magic and support. Needs casting space.",
+              "icon": "wizard"
+            },
+            {
+              "title": "Waiting to be recorded",
+              "text": "Supplies, treasury, homes and personal goals: none recorded.",
+              "id": "unrecorded"
+            }
+          ]
+        }
+      ],
+      "quickAnswers": [
+        {
+          "label": "Plan",
+          "text": "Four roles, no played records.",
+          "href": "#party-roles"
+        },
+        {
+          "label": "Leader",
+          "text": "Confirm before the first shared quest.",
+          "href": "party.html#leader"
+        },
+        {
+          "label": "Possessions",
+          "text": "No items or balances recorded.",
+          "href": "#unrecorded"
+        }
+      ]
+    }
+  ]
+}

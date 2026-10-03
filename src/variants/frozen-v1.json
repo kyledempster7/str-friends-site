@@ -1,0 +1,24 @@
+{
+  "commit": "8871f1fb7fbb0eccc08c1a79dacca33ca8ecd1e6",
+  "provenance": "Exact published docs Git blobs; independently matched against live release HTTP bytes.",
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "404.html": "12bc0320cceb21705020c3f8ad7fcbe385ba8df610672b08af7d05c880e26828",
+    "assets/favicon.svg": "2d260523c5893b969d40280977473abe640ede136351b008d5080f4305ce7e8a",
+    "assets/north.svg": "ff5f1916954970d7ccaaa2ddb199c9373f8614a0786d6fc43eed23ee653dc727",
+    "assets/site.css": "a275b1db82c273d772e3dfec9dfa058cde7d67af598e2799ddb39782aee83456",
+    "assets/site.js": "7bad961ffbf82a731bccc9a8749276b571985ff3817f7e302df4eada9f5b9d95",
+    "builds.html": "b50b38a3608f0b1b01d4283f841efc394d586540eed0aed150109777ab449f7e",
+    "chronicle.html": "42d78c4688f285067b34bd9fe50c318a8db8ef1ee0b0551d49605d98ee95a6a9",
+    "index.html": "d24dcdff4ce2519880d71510cafcf51aa4e4fbcecbf20292546eed34d41b2f6a",
+    "leave-now.html": "cbd02fea2e4b682ec5f6cd61d56a0047d4de070757e5530e2d83ad96648426ac",
+    "ledger.html": "30de22ef92bfb63e3eb24487a4a06fea1396651896bf6dddf457c5398607c806",
+    "ownership.html": "a9010dde9a9ccd3daae77222a460729c9df525b1a8bb0817ffd63e04774f937f",
+    "party.html": "69f60436b26591eaaac8cda3adf3a3edabeba38a814ca9e271bfe1c0bd0ed806",
+    "rules.html": "c9f7e2a9070aaa86f7b42f60a9569f4d5bedde168c364742dc05c964e453f28a",
+    "skills.html": "ab271aeb925eebb18e34b974eee88e6c8d2b671a0c2c68a49ca48febe1a16eed",
+    "spells.html": "40abd6e04a7dc9e35179a03aa6fc8c53f53a4b13b764e79892f89197ac6ad0b8",
+    "together.html": "34a1971e7774f7e976fee40f6ab0bba5510b66f02122c86015bcbda66e35ba5b",
+    "tonight.html": "09b177c989debef3a2c8d11e1213305a8ccb50e76b3955d72a96e597b8db90db"
+  }
+}
