@@ -28,6 +28,13 @@ test('privacy scan redacts by category and catches encoded secrets, addresses an
   assert.ok(privacyFindings(JSON.stringify(local), []).includes('local file path'));
 });
 
+test('privacy scan catches form-encoded passwords and expanded IPv6 loopback', () => {
+  const secret = ['Synthetic', 'Password&42'].join(' ');
+  assert.ok(privacyFindings(new URLSearchParams({ password: secret }).toString(), [secret]).includes('server/admin password'));
+  const expanded = [0, 0, 0, 0, 0, 0, 0, 1].join(':');
+  assert.ok(privacyFindings(expanded, []).includes('private/local IP address'));
+});
+
 test('mirror removes stale output, preserves hidden files and proves bytes', async t => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'str-tooling-test-'));
   t.after(() => fs.rm(root, { recursive: true, force: true }));

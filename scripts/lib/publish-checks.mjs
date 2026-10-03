@@ -40,7 +40,8 @@ export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) 
   const labels = new Set();
   for (const text of variants) {
     for (const secret of secrets) {
-      const forms = [secret, encodeURIComponent(secret), JSON.stringify(secret).slice(1, -1), Buffer.from(secret).toString('base64')];
+      const formEncoded = new URLSearchParams({ value: secret }).toString().slice('value='.length);
+      const forms = [secret, encodeURIComponent(secret), formEncoded, JSON.stringify(secret).slice(1, -1), Buffer.from(secret).toString('base64')];
       if (forms.some(form => form && text.includes(form))) labels.add('server/admin password');
     }
     for (const match of text.matchAll(/[A-Za-z0-9_.+%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g)) {
@@ -54,8 +55,10 @@ export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) 
       if (a === 10 || a === 127 || a === 0 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 169 && b === 254) || (a === 100 && b >= 64 && b <= 127)) labels.add('private/local IP address');
     }
     for (const match of text.matchAll(/(?<![\w:])(?:[a-f0-9]{0,4}:){2,}[a-f0-9:.%]+/gi)) {
-      const ip = match[0].split('%')[0].toLowerCase();
+      let ip = match[0].split('%')[0].toLowerCase();
       if (isIP(ip) !== 6) continue;
+      // Expanded and compressed loopback/link-local forms are the same address.
+      ip = new URL(`http://[${ip}]/`).hostname.slice(1, -1);
       if (/^(?:f[cd]|fe[89ab])/.test(ip) || ip === ['', '', '1'].join(':') || ip === '::' || ip.startsWith('::ffff:')) labels.add('private/local IP address');
     }
   }
