@@ -251,12 +251,12 @@
               "text": "There is no automatic party purse. Shared combat experience is not shared money. The configured percentage death penalty is zero, but crime fines can still cost gold."
             },
             {
-              "title": "Private, safe home storage",
-              "text": "Keep valuables in a proper storage chest inside your owned vanilla or DLC home. Home-chest synchronization is off, so two friends can open the same chest and see different belongings. A friend's version is not a delivery box for yours."
+              "title": "Check your home storage",
+              "text": "Home synchronization is off. Recognized vanilla and DLC home containers are intended to stay local to each player, so a friend's chest is not a delivery box for yours. Test the exact chest with a cheap item, save, and check it after reconnecting before trusting it with valuables. This is not a blanket privacy or permanence guarantee."
             },
             {
               "title": "A meeting place is not a bank",
-              "text": "A home can be our social headquarters while everyone's storage stays private. Do not assume guild rooms, modded houses, outdoor barrels or floor piles share the same protection. Those storage cases are not tested yet."
+              "text": "A home can be our social headquarters while each player uses tested personal storage. Shared containers are not a permanent server bank. Guild rooms, modded houses, outdoor barrels and floor piles need separate checks. Empty a room before renovations: furnishings can replace or remove containers."
             }
           ]
         },
@@ -297,7 +297,7 @@
             "Offer real upgrades before selling. Prioritize someone who can use one now; alternate ties. The leader gets no bonus.",
             "Only the fixed leader handles quest NPCs and quest items, following the play guide.",
             "Shared costs are voluntary and have a named purpose. A pledge is not delivered gold.",
-            "A shared stash means named people holding earmarked supplies. Home chests stay private.",
+            "A shared stash means named people holding earmarked supplies. Use separately tested personal home storage.",
             "Earn homes normally. Name the buyer as the social owner and agree on guest use.",
             "Protect an absent player's belongings and story opportunities."
           ]
