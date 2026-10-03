@@ -63,7 +63,7 @@ export function verifyRemoteUrls(fetchUrl, pushUrls) {
 
 export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) {
   const raw = Buffer.isBuffer(bytes) ? bytes.toString('utf8') : String(bytes);
-  const variants = [raw, decode(raw), Buffer.isBuffer(bytes) ? bytes.toString('utf16le') : raw];
+  const variants = [raw, decode(raw), raw.replace(/\\\\/g, '\\'), Buffer.isBuffer(bytes) ? bytes.toString('utf16le') : raw];
   const labels = new Set();
   // Compressed audio/images can coincidentally contain a drive-letter marker.
   // Scan known secrets across all bytes, but scan generic PII in their readable
@@ -81,7 +81,7 @@ export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) 
     for (const match of text.matchAll(/[A-Za-z0-9_.+%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g)) {
       if (!(allowIdentity && match[0] === identity.email)) labels.add('email address');
     }
-    if (/(?:\b[A-Z]:[\\/]|file:\/\/|\/(?:Users|home|mnt|Volumes)\/|\\\\[A-Za-z0-9_.-]+\\)/i.test(text)) labels.add('local file path');
+    if (/(?:\b[A-Z]:[\\/]|file:\/\/|\/(?:Users|home|mnt|Volumes)\/|\\\\[A-Za-z0-9_.-]+\\[A-Za-z0-9_$.-]+)/i.test(text)) labels.add('local file path');
     if (/(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)/.test(text)) labels.add('credential token');
     for (const match of text.matchAll(/(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])/g)) {
       if (isIP(match[0]) !== 4) continue;
