@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Rebalances old spells and adds new ones; use the main package only.",
-      "detail": "Some spells and summon stats come from Better Vanilla Perks. Part of revision 6. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
+      "detail": "Better Vanilla Perks changes some spells and summon strength. Part of revision 6. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -263,8 +263,8 @@
       "name": "Staff of the Atronach — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Strengthens certain staff spells and summons; keep one active summon.",
-      "detail": "Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. Corpse raising stays quarantined (don't use yet); exact staff and summon bonuses are not tested in co-op yet.",
+      "summary": "An atronach is a summoned elemental spirit.",
+      "detail": "Strengthens certain staff spells and summons. Potent flame/frost/storm atronachs and thralls use Better Vanilla Perks' strength. One active summon. Corpse raising stays quarantined (don't use yet). Staff and summon bonuses remain untested in co-op.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -403,7 +403,7 @@
       "name": "Mark — Mysticism",
       "category": "spell",
       "status": "hold",
-      "summary": "Records a place for Recall.",
+      "summary": "Saves a place for Recall.",
       "detail": "An Expert Conjuration spell. Do not mark travel destinations in this campaign until the group clears Mark and Recall.",
       "aliases": [
         "Mark Recall",
@@ -530,7 +530,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons an undead archer; keep one active summon if obtained normally.",
-      "detail": "Exists in our main plugin, but ordinary availability is (not verified); the public list omits it. It is separate from Conjure Wrathman. Co-op behavior is untested.",
+      "detail": "In our game files; getting it normally is (not verified). The public list omits it. Separate from Conjure Wrathman. Not tested in co-op yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -545,7 +545,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Summon a creature to fight beside you; keep one active summon.",
-      "detail": "Conjure Familiar uses Better Vanilla Perks' magic effect. Potent flame, frost and storm atronachs and their thralls use its stats. Corpse raising and quarantined racial or Speech summons remain excluded. Not tested in co-op yet.",
+      "detail": "Conjure Familiar has Better Vanilla Perks' effect. Potent flame/frost/storm atronachs and thralls use its strength. Corpse raising and quarantined racial or Speech summons remain excluded. Not tested in co-op yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -703,7 +703,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Attack with fire, frost or shock.",
-      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each keeps one effect; Mysticism's extra effects are absent. Sparks uses Better Vanilla Perks casting settings. Its effect amounts and durations match Mysticism. Avoid friendly NPCs. Exact co-op behavior is not tested yet.",
+      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each has one effect. Mysticism's extra effects are absent. Sparks casts using Better Vanilla Perks. Its strength and duration match Mysticism. Avoid friendly NPCs. Not tested in co-op yet.",
       "aliases": [
         "Flames",
         "Firebolt",

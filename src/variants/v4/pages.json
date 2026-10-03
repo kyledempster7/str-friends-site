@@ -623,7 +623,7 @@
                       "text": "Staff of the Atronach",
                       "href": "rules.html#rule-staff-of-atronach"
                     },
-                    " strengthens certain staff spells and summons. One active summon per player. Potent atronachs and their thralls use Better Vanilla Perks stats."
+                    " strengthens certain staff spells and summons. One active summon per player. Potent atronachs and thralls use Better Vanilla Perks' strength."
                   ]
                 ]
               ],
@@ -1002,7 +1002,7 @@
                   },
                   "Wizard",
                   "Elemental Potency only makes conjured atronachs stronger",
-                  "Strengthens certain spells. Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. One summon."
+                  "Strengthens certain spells. Potent flame/frost/storm atronachs and thralls use Better Vanilla Perks' strength. One summon."
                 ]
               ]
             }
@@ -1415,7 +1415,7 @@
             },
             "Wizard",
             "Elemental Potency only makes conjured atronachs stronger",
-            "Strengthens certain spells. Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. One summon."
+            "Strengthens certain spells. Potent flame/frost/storm atronachs and thralls use Better Vanilla Perks' strength. One summon."
           ]
         ]
       }

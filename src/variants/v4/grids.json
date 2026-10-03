@@ -124,8 +124,8 @@
         ],
         [
           "Conjuration",
-          "Summoner increases casting distance. Twin Souls allows two summons. Elemental Potency strengthens atronachs.",
-          "Summoner and Puppeteer add summon slots. Twin Souls adds two. Staff of the Atronach strengthens certain spells. Potent atronachs and their thralls use Better Vanilla Perks stats.",
+          "Summoner increases casting distance. Twin Souls allows two summons. Elemental Potency strengthens atronachs. An atronach is a summoned elemental spirit.",
+          "Summoner and Puppeteer add summon slots. Twin Souls adds two. Staff of the Atronach strengthens certain spells. Potent atronachs and thralls use Better Vanilla Perks' strength.",
           "One active summon per player. Quarantined: corpse raising, Dark Souls 2 explosions. Don't use yet."
         ],
         [
@@ -285,7 +285,7 @@
     {
       "id": "spells",
       "title": "Spells by school",
-      "note": "Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. File checks do not verify co-op behavior. Collection revision 6.",
+      "note": "Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. Not tested in co-op yet. Collection revision 6.",
       "columns": [
         "School",
         "Vanilla",
@@ -296,19 +296,19 @@
         [
           "Alteration",
           "Flesh armor, light, detection, Telekinesis and Transmute. Paralyze and Mass Paralysis belong here.",
-          "Burden slows enemies. Corrode Armor weakens armor. Feather increases carrying capacity. Sea Stride allows water-walking. Paralysis moves to Illusion. Candlelight and its scroll last 120 seconds with Better Vanilla Perks.",
+          "Burden slows enemies. Corrode Armor weakens armor. Feather increases carrying capacity. Sea Stride allows water-walking. Paralysis moves to Illusion. Better Vanilla Perks: Candlelight and its scroll last 120 seconds.",
           "No named spell quarantine here. Mark and Recall belong to Conjuration."
         ],
         [
           "Conjuration",
           "Bound weapons, familiars, atronachs, Dremora and corpse raising. Dawnguard adds Soul Cairn undead summons.",
-          "Adds Skeleton summons, bound weapons and Daedric Cure for summons. Mark and Recall add Expert travel spells. Conjure Familiar uses Better Vanilla Perks' magic effect. Potent flame, frost and storm atronachs and their thralls use its stats.",
+          "Adds Skeleton summons, bound weapons and Daedric Cure for summons. Mark and Recall add Expert travel spells. Conjure Familiar has Better Vanilla Perks' effect. Potent flame/frost/storm atronachs and thralls use its strength.",
           "Quarantined (don't use yet): Mark, Recall and corpse raising. Keep one active summon per player."
         ],
         [
           "Destruction",
           "Fire, frost and shock attacks. Vampires can absorb Health using Vampiric Drain.",
-          "Burning Touch adds close-range fire. Greater Flames extends channelled attacks. Vampiric Touch, Vampiric Bolt, Blood Lance steal living enemies' Health. Flames and Frostbite keep one effect each with Better Vanilla Perks, in either hand. Mysticism's extra effects are absent. Sparks uses Better Vanilla Perks casting settings; its effect values match Mysticism.",
+          "Burning Touch adds close-range fire. Greater Flames extends continuous attacks. Vampiric Touch, Vampiric Bolt, Blood Lance steal living enemies' Health. Flames and Frostbite each have one effect. Either hand uses Better Vanilla Perks. Mysticism's extra effects are absent. Sparks casts using Better Vanilla Perks. Its strength and duration match Mysticism.",
           "No named spell quarantine. Exact co-op effects (not verified)."
         ],
         [
@@ -320,7 +320,7 @@
         [
           "Restoration",
           "Healing Hands channels healing onto NPCs. Heal Other gives an Adept burst. Grand Healing is an Expert area burst.",
-          "Heal Other becomes Apprentice. Close Greater Wounds adds Adept area healing. Grand Healing stays Expert but channels. Sunbeam damages undead. Circle of Life heals. Stendarr's Aura, its light and Poison Rune use Better Vanilla Perks effects.",
+          "Heal Other becomes Apprentice. Close Greater Wounds adds Adept area healing. Grand Healing stays Expert but channels. Sunbeam damages undead. Circle of Life heals. Stendarr's Aura, its light, Poison Rune: Better Vanilla Perks effects.",
           "Ordinary healing allowed. Player healing amounts, circle effects and Resurgence bonuses (not verified)."
         ]
       ]

@@ -21,7 +21,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Our selected spell overhaul: main package only.",
-      "detail": "Some spells and summon stats come from Better Vanilla Perks. Mark, Recall and corpse reanimation are quarantined (don't use yet). Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
+      "detail": "Better Vanilla Perks changes some spells and summon strength. Mark, Recall and corpse reanimation are quarantined (don't use yet). Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -140,7 +140,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Do not summon the merchant granted at Speech 80.",
-      "detail": "The merchant actor and barter behavior are not tested yet with the party. The rule concerns this granted power.",
+      "detail": "The merchant and trading remain untested with the party. The rule concerns this granted power.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 5",
@@ -185,8 +185,8 @@
       "name": "More than one active summon per player",
       "category": "mechanic",
       "status": "hold",
-      "summary": "Keep one active summoned actor per player.",
-      "detail": "Extra capacity from perks does not change this rule. The limit is our initial test budget, not a Skyrim Together engine limit. Corpse reanimation and quarantined special powers remain excluded.",
+      "summary": "Keep one active summon per player.",
+      "detail": "Extra capacity from perks does not change this rule. We're testing one summon each. Skyrim Together allows more. Corpse reanimation and quarantined special powers remain excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -202,7 +202,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
+      "detail": "The perk allows more summons. Our rule still forbids them. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Summoner30"
       ],
@@ -214,7 +214,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
+      "detail": "The perk allows more summons. Our rule still forbids them. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Summoner70"
       ],
@@ -226,7 +226,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
+      "detail": "The perk allows more summons. Our rule still forbids them. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "TwinSouls"
       ],
@@ -238,7 +238,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
+      "detail": "The perk allows more summons. Our rule still forbids them. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -264,8 +264,8 @@
       "name": "Staff of the Atronach — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "A staff-build option; exact effects are not tested yet.",
-      "detail": "Potent flame, frost and storm atronachs and their thralls use Better Vanilla Perks stats. Staff and summon behavior needs checking. Keep the one-summon limit.",
+      "summary": "An atronach is a summoned elemental spirit.",
+      "detail": "Strengthens certain staff spells and summons. Potent flame/frost/storm atronachs and thralls use Better Vanilla Perks' strength. Staff and summon effects remain untested. Keep the one-summon limit.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -456,7 +456,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -471,7 +471,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -486,7 +486,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -501,7 +501,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -516,7 +516,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -531,7 +531,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "detail": "Summoning a creature differs from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -546,7 +546,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Start with one active summon per player.",
-      "detail": "Conjure Familiar uses Better Vanilla Perks' magic effect. Potent flame, frost and storm atronachs and their thralls use its stats. Quarantined racial summons, copied actors, corpse raising and summon armies remain excluded. Exact four-player behavior is not tested yet.",
+      "detail": "Conjure Familiar has Better Vanilla Perks' effect. Potent flame/frost/storm atronachs and thralls use its strength. Quarantined racial summons, summoned copies, corpse raising and summon armies remain excluded. Exact four-player behavior is not tested yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -704,7 +704,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Use direct attacks as the starting point for a mage.",
-      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each keeps one effect; Mysticism's extra effects are absent. Sparks uses Better Vanilla Perks casting settings. Its effect amounts and durations match Mysticism. Avoid friendly NPCs. Exact co-op behavior is not tested yet.",
+      "detail": "Flames and Frostbite use Better Vanilla Perks in either hand. Each has one effect. Mysticism's extra effects are absent. Sparks casts using Better Vanilla Perks. Its strength and duration match Mysticism. Avoid friendly NPCs. Not tested in co-op yet.",
       "aliases": [
         "Flames",
         "Firebolt",
