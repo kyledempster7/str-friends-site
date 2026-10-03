@@ -11,7 +11,7 @@ const NEWEST = 'v4';
 const DESCRIBE = { v2b: 'the older card layout', v4: 'the current main site' };
 // D pages that have no page of the same name in B map to B's closest page.
 const EQUIVALENT = {
-  v2b: { 'mods.html': 'together.html', 'races.html': 'skills.html', 'cannot-use.html': 'skills.html', 'magic-friends.html': 'spells.html', 'setup.html': 'tonight.html', 'join.html': 'tonight.html', 'build-sheets.html': 'builds.html', 'lore-builds.html': 'builds.html', 'leader.html': 'party.html', 'chat.html': 'party.html', 'agreement.html': 'ownership.html' }
+  v2b: { 'mods.html': 'together.html', 'races.html': 'skills.html', 'cannot-use.html': 'skills.html', 'magic-friends.html': 'spells.html', 'setup.html': 'tonight.html', 'join.html': 'tonight.html', 'build-sheets.html': 'builds.html', 'lore-builds.html': 'builds.html', 'leader.html': 'party.html', 'chat.html': 'party.html', 'agreement.html': 'ownership.html', 'rules-perks.html': 'rules.html', 'rules-spells.html': 'rules.html', 'rules-powers.html': 'rules.html', 'rules-mods.html': 'rules.html' }
 };
 const BAR = /<nav class="all-versions"[^>]*>[\s\S]*?<\/nav>(?=<\/body>)/;
 export const stripVersionBar = (html) => html.replace(BAR, '');

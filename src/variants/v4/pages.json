@@ -9,6 +9,43 @@
     "chaptersTitle": "Start here",
     "chaptersIntro": "Seven topics, from multiplayer to owning a home."
   },
+  "rules": {
+    "pages": [
+      {
+        "file": "rules.html",
+        "title": "Search and statuses"
+      },
+      {
+        "file": "rules-perks.html",
+        "title": "Perks",
+        "categories": [
+          "perk"
+        ]
+      },
+      {
+        "file": "rules-spells.html",
+        "title": "Spells",
+        "categories": [
+          "spell"
+        ]
+      },
+      {
+        "file": "rules-powers.html",
+        "title": "Powers",
+        "categories": [
+          "race"
+        ]
+      },
+      {
+        "file": "rules-mods.html",
+        "title": "Mods and game rules",
+        "categories": [
+          "mod",
+          "mechanic"
+        ]
+      }
+    ]
+  },
   "chapters": [
     {
       "num": "01",

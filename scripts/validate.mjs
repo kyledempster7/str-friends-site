@@ -117,6 +117,32 @@ const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => St
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
 const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
+// Check the full lookup and each category grid against the same adopted records.
+function checkRenderedCatalog(catalogPath, catalogHtml, variantEntries) {
+  const renderedRuleIds = [...catalogHtml.matchAll(/<(?:article|tr)\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
+  if (renderedRuleIds.length !== variantEntries.length || renderedRuleIds.some(id => !variantEntries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from its catalog file`);
+  for (const entry of catalogHtml ? variantEntries : []) {
+    // The outer page article can contain the first rule card, so locate the
+    // uniquely identified opening tag, then bound it at its own closing tag.
+    const escapedId = String(entry.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const openings = [...catalogHtml.matchAll(new RegExp(`<(article|tr)\\b([^>]*\\bid=["']rule-${escapedId}["'][^>]*)>`, 'g'))];
+    if (openings.length !== 1) { fail(`${catalogPath}: ${entry.id} must render exactly once`); continue; }
+    const [whole, tag, attributes] = openings[0];
+    const opening = Object.assign([whole, attributes], { index: openings[0].index });
+    const end = catalogHtml.indexOf(`</${tag}>`, opening.index + opening[0].length);
+    if (end < 0) { fail(`Catalog ${entry.id}: rendered article is not closed`); continue; }
+    const body = catalogHtml.slice(opening.index + opening[0].length, end);
+    const visible = decode(body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
+    const status = opening[1].match(/\bdata-status=["']([^"']+)["']/)?.[1];
+    const search = decode(opening[1].match(/\bdata-search="([^"]*)"/)?.[1] ?? '');
+    for (const alias of entry.aliases ?? []) if (!search.includes(alias)) fail(`${catalogPath}: ${entry.id} missing searchable alias`);
+    if (status !== entry.status) fail(`Catalog ${entry.id}: rendered status does not match the source`);
+    for (const value of [entry.name, entry.summary, entry.detail, statusLabels[entry.status]]) {
+      if (typeof value !== 'string' || !visible.includes(value.replace(/\s+/g, ' ').trim())) fail(`Catalog ${entry.id}: visible name, status or guidance missing from rendered output`);
+    }
+    if (/\bhidden(?:\s|=|$)/.test(opening[1]) || /\baria-hidden=["']true["']/.test(opening[1])) fail(`Catalog ${entry.id}: rule hidden in static output`);
+  }
+}
 // Kyle (2026-10-03): "keep B and D, and delete the others". Only /v2b/ (B) and /v4/ (D) are published.
 const variantPaths = VERSIONS.map(([folder]) => folder);
 for (const gone of ['v1', 'v2a', 'v3']) if (fs.existsSync(path.join(dist, gone))) fail(`/${gone}/ must not be published`);
@@ -141,32 +167,36 @@ if (variant === 'v4') {
     else if (master.status !== item.status) fail(`${sourcePath}: ${item.id} is ruled differently from the adopted catalog`);
   }
 }
-const renderedRuleIds = [...catalogHtml.matchAll(/<(?:article|tr)\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
-if (renderedRuleIds.length !== variantEntries.length || renderedRuleIds.some(id => !variantEntries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from its catalog file`);
-for (const entry of catalogHtml ? variantEntries : []) {
-  // The outer page article can contain the first rule card, so locate the
-  // uniquely identified opening tag, then bound it at its own closing tag.
-  const escapedId = String(entry.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const openings = [...catalogHtml.matchAll(new RegExp(`<(article|tr)\\b([^>]*\\bid=["']rule-${escapedId}["'][^>]*)>`, 'g'))];
-  if (openings.length !== 1) { fail(`${catalogPath}: ${entry.id} must render exactly once`); continue; }
-  const [whole, tag, attributes] = openings[0];
-  const opening = Object.assign([whole, attributes], { index: openings[0].index });
-  const end = catalogHtml.indexOf(`</${tag}>`, opening.index + opening[0].length);
-  if (end < 0) { fail(`Catalog ${entry.id}: rendered article is not closed`); continue; }
-  const body = catalogHtml.slice(opening.index + opening[0].length, end);
-  const visible = decode(body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
-  const status = opening[1].match(/\bdata-status=["']([^"']+)["']/)?.[1];
-  const search = decode(opening[1].match(/\bdata-search="([^"]*)"/)?.[1] ?? '');
-  for (const alias of entry.aliases ?? []) if (!search.includes(alias)) fail(`${catalogPath}: ${entry.id} missing searchable alias`);
-  if (status !== entry.status) fail(`Catalog ${entry.id}: rendered status does not match the source`);
-  for (const value of [entry.name, entry.summary, entry.detail, statusLabels[entry.status]]) {
-    if (typeof value !== 'string' || !visible.includes(value.replace(/\s+/g, ' ').trim())) fail(`Catalog ${entry.id}: visible name, status or guidance missing from rendered output`);
+checkRenderedCatalog(catalogPath, catalogHtml, variantEntries);
+if (variant === 'v4') {
+  const categories = [
+    ['rules-perks.html', ['perk']], ['rules-spells.html', ['spell']],
+    ['rules-powers.html', ['race']], ['rules-mods.html', ['mod', 'mechanic']]
+  ];
+  for (const [file, types] of categories) {
+    const subset = variantEntries.filter(entry => types.includes(entry.category));
+    const html = documents.get(path.join(dist, variant, file)) ?? '';
+    checkRenderedCatalog(variant + '/' + file, html, subset);
   }
-  if (/\bhidden(?:\s|=|$)/.test(opening[1]) || /\baria-hidden=["']true["']/.test(opening[1])) fail(`Catalog ${entry.id}: rule hidden in static output`);
 }
 }
 for (const [file, html] of documents) {
   const relative = path.relative(dist, file);
+  if (path.dirname(file) === path.join(dist, 'v4')) {
+    const header = html.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? '';
+    const headerLinks = [...header.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>/g)];
+    if (!headerLinks.some(([, , href]) => href === 'join.html')) fail(`${relative}: header must include Joining and leaving`);
+    for (const [, attributes, href] of headerLinks) {
+      if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
+      if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);
+    }
+    if (!file.endsWith(`${path.sep}index.html`) && !/<aside class="d-side"[^>]*><details class="d-guide" open><summary class="d-side-title">/.test(html)) fail(`${relative}: shared collapsible guide missing`);
+    if (/rules(?:-(?:perks|spells|powers|mods))?\.html$/.test(file)) {
+      for (const route of ['rules.html', 'rules-perks.html', 'rules-spells.html', 'rules-powers.html', 'rules-mods.html']) {
+        if (!html.includes(`href="${route}"`)) fail(`${relative}: missing rules page link ${route}`);
+      }
+    }
+  }
   // Kyle: every page must reach every version.
   const bar = html.match(/<nav class="all-versions"[^>]*>([\s\S]*?)<\/nav><\/body>/);
   if (!bar) fail(`${relative}: missing the all-versions bar`);
