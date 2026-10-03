@@ -1,0 +1,211 @@
+{
+  "updated": "2026-10-03",
+  "home": {
+    "eyebrow": "Skyrim Together Reborn",
+    "titleBefore": "The North is better",
+    "titleAccent": "together.",
+    "intro": "Everything here is a grid: before is vanilla Skyrim on your own, after is our co-op setup.",
+    "guide": {
+      "id": "guide",
+      "title": "The guide",
+      "columns": ["Chapter", "Before and after for", "Open"],
+      "rows": [
+        ["01 A shared world", "Single player vs our co-op", "together.html"],
+        ["02 Skills and races", "Vanilla vs Better Vanilla Perks and Imperious", "skills.html"],
+        ["03 Spells", "Vanilla vs Mysticism", "spells.html"],
+        ["04 A night of play", "Joining, playing and leaving", "tonight.html"],
+        ["05 Builds", "Solo habits vs party roles", "builds.html"],
+        ["06 Group play", "Calls, chat and the party leader", "party.html"],
+        ["07 What belongs to you", "Gear, gold, chests and homes", "ownership.html"],
+        ["08 Our mods", "Without each mod vs with it", "mods.html"],
+        ["Can I use this?", "All 116 spells, perks, powers and mods we checked", "rules.html"]
+      ]
+    },
+    "answers": {
+      "id": "quick-answers",
+      "title": "Quick answers",
+      "columns": ["Question", "Short answer", "More"],
+      "rows": [
+        ["How do I join tonight?", "Launch Skyrim Together, load your campaign save, press F2, Connect, join the leader's party.", "tonight.html"],
+        ["Can I use this spell or perk?", "Check the grid. Holds mean don't use it yet.", "rules.html"],
+        ["I have to leave right now.", "Save if possible, F2, Disconnect, Proceed, quit.", "leave-now.html"],
+        ["What should I play?", "Pick one job the party needs: healer, guardian, ranger or wizard.", "builds.html"],
+        ["Where do I keep my things?", "Your own home chests, after a cheap-item test.", "ownership.html"],
+        ["What changes from single player?", "Shared world, one quest leader, nothing pauses, Master difficulty.", "together.html"]
+      ]
+    }
+  },
+  "pages": [
+    {
+      "file": "together.html",
+      "eyebrow": "01 · A shared world",
+      "title": "What changes in multiplayer",
+      "grids": ["multiplayer"],
+      "sources": [["Official play guide", "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide"], ["Official features", "https://wiki.tiltedphoques.com/tilted-online/general-information/features"]]
+    },
+    {
+      "file": "skills.html",
+      "eyebrow": "02 · Skills and races",
+      "title": "Skills and races, before and after",
+      "grids": ["skills", "races", "cannot-use"],
+      "sources": [["Better Vanilla Perks", "https://www.nexusmods.com/skyrimspecialedition/mods/3939"], ["Imperious", "https://www.nexusmods.com/skyrimspecialedition/mods/1315"]]
+    },
+    {
+      "file": "spells.html",
+      "eyebrow": "03 · Spells",
+      "title": "Spells, before and after",
+      "grids": ["spells", {
+        "id": "healing-friends",
+        "title": "Helping friends with magic, before and after",
+        "columns": ["Spell", "Before: single player", "After: our co-op"],
+        "rows": [
+          ["Ordinary healing spells", "Followers only", "Reach other players. Exact amounts not tested yet."],
+          ["Courage, Rally, Call to Arms", "Followers only", "Reach other players. Exact effect not tested yet."],
+          ["Custom auras from mods", "Work on you", "Not automatically player heals. Not tested yet."],
+          ["Enemy-control spells", "Control anyone", "Can't control players."],
+          ["Mark and Recall", "Teleport to a marked spot", "Hold."],
+          ["Raising corpses", "Raise the dead", "Hold. One active summon per player."]
+        ]
+      }],
+      "sources": [["Mysticism", "https://www.nexusmods.com/skyrimspecialedition/mods/27839"], ["Healing support in Skyrim Together", "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"]]
+    },
+    {
+      "file": "tonight.html",
+      "eyebrow": "04 · A night of play",
+      "title": "A night of play, before and after",
+      "grids": [{
+        "id": "join",
+        "title": "Joining",
+        "columns": ["Step", "Do this"],
+        "rows": [
+          ["Before your first join", "Match the group's collection. Finish Helgen or Helgen Express offline and save outside."],
+          ["1", "Launch Skyrim Together and load your latest campaign save."],
+          ["2", "Press F2 or Right Ctrl. Choose Connect and use the host's private details."],
+          ["3", "In Player Manager, join the party with the usual leader."],
+          ["4", "No party yet? The leader creates it. Join before doing any quests."],
+          ["5", "Meet up and say or type READY."]
+        ]
+      }, "night"],
+      "sources": [["Connecting", "https://wiki.tiltedphoques.com/tilted-online/guides/client-setup/using-modorganizer2-mo2/playing-skyrim-together-reborn/connecting-to-a-server"]]
+    },
+    {
+      "file": "leave-now.html",
+      "eyebrow": "Real life comes first",
+      "title": "I have to go NOW",
+      "grids": [{
+        "id": "leave-steps",
+        "title": "Leave in four steps",
+        "columns": ["Step", "Do this"],
+        "rows": [
+          ["1", "Save if possible. Let it finish."],
+          ["2", "Press F2 (the F two key)."],
+          ["3", "Choose Disconnect, then Proceed."],
+          ["4", "Quit the game."],
+          ["Heads-up", "Quitting may still crash; no fix is proven. Unsaved progress may be lost. Tell the group later; no recap needed."]
+        ]
+      }],
+      "sources": []
+    },
+    {
+      "file": "builds.html",
+      "eyebrow": "05 · Builds",
+      "title": "Builds, before and after",
+      "grids": ["builds", {
+        "id": "lineup",
+        "title": "Our planned party",
+        "columns": ["Role", "Brings", "Needs"],
+        "rows": [
+          ["Healer or paladin", "Recovery", "Casting cover"],
+          ["Two-handed guardian", "Breathing room", "Help against casters"],
+          ["Stealth ranger", "Scouting and arrows", "A quiet opening"],
+          ["Gandalf-style wizard", "Magic and support", "Casting space"]
+        ]
+      }],
+      "sources": []
+    },
+    {
+      "file": "party.html",
+      "eyebrow": "06 · Group play",
+      "title": "Group play, before and after",
+      "grids": ["party", {
+        "id": "leader",
+        "title": "The party leader",
+        "columns": ["Who", "Does"],
+        "rows": [
+          ["The leader (one for the whole playthrough)", "Talks to quest people, handles scenes and quest items, enters places first."],
+          ["Everyone", "Fights bosses, clears dungeons, solves puzzles."],
+          ["A different leader", "Means a separate campaign with separate characters."]
+        ]
+      }, {
+        "id": "chat",
+        "title": "Chat codes",
+        "columns": ["Type", "Means"],
+        "rows": [
+          ["READY", "Ready to go."],
+          ["HOLD", "Find safety and wait."],
+          ["HELP", "Help now; add your location."],
+          ["BRB", "Taking a break."],
+          ["/party or /local", "Message only the party, or only nearby players. F2 or Right Ctrl opens chat."]
+        ]
+      }],
+      "sources": [["Questing rules", "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide#questing"]]
+    },
+    {
+      "file": "ownership.html",
+      "eyebrow": "07 · What belongs to you",
+      "title": "Ownership, before and after",
+      "grids": ["ownership", {
+        "id": "compact",
+        "title": "Proposed party agreement (not the game's rules)",
+        "columns": ["Topic", "Proposed agreement"],
+        "rows": [
+          ["Your stuff", "Your gear and gold. No spawning, duplication or reload-farming."],
+          ["Upgrades", "Offer upgrades; alternate ties. No leader bonus."],
+          ["Quest items", "The leader handles quest people and items."],
+          ["Shared costs", "Voluntary. A pledge is not a payment."],
+          ["Supplies", "Name who holds supplies. Test personal storage first."],
+          ["Homes", "Earn them; agree who buys and who visits."],
+          ["Absent friends", "Protect their belongings and their story."]
+        ]
+      }],
+      "sources": [["Inventories and homes", "https://wiki.tiltedphoques.com/tilted-online/general-information/features"]]
+    },
+    {
+      "file": "mods.html",
+      "eyebrow": "08 · Our mods",
+      "title": "Our mods, before and after",
+      "grids": ["mods"],
+      "sources": []
+    },
+    {
+      "file": "chronicle.html",
+      "eyebrow": "Our story",
+      "title": "Our first adventure is still ahead",
+      "grids": [{
+        "id": "sessions",
+        "title": "Sessions",
+        "columns": ["Session", "Where we went", "Who made the moment", "What calls us back"],
+        "rows": [["None yet", "—", "—", "—"]]
+      }],
+      "sources": []
+    },
+    {
+      "file": "ledger.html",
+      "eyebrow": "Party ledger",
+      "title": "The company we are planning",
+      "grids": ["lineup-ref", {
+        "id": "records",
+        "title": "Records",
+        "columns": ["Record", "Status"],
+        "rows": [
+          ["Leader", "Confirm once, before shared quests."],
+          ["Supplies", "None recorded."],
+          ["Treasury", "None recorded."],
+          ["Homes", "None recorded."],
+          ["Personal goals", "None recorded."]
+        ]
+      }],
+      "sources": []
+    }
+  ]
+}

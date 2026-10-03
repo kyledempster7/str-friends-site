@@ -132,7 +132,7 @@ const variantPaths = fs.existsSync(path.join(root, 'src/variants/frozen-v1.json'
 if (variantPaths.length > 1) {
   const frozen = readJson('src/variants/frozen-v1.json');
   if (frozen) for (const location of ['', 'v1']) {
-    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b', 'v3'] }); }
+    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b', 'v3', 'v4'] }); }
     catch (error) { fail(error.message); }
   }
 }

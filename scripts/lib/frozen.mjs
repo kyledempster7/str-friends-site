@@ -37,7 +37,7 @@ export async function assertFrozen(directory, manifest, { excludedDirectories = 
 export async function materializeFrozen(root, output, manifest) {
   const source = path.join(root, 'src/variants/frozen-v1');
   await assertFrozen(source, manifest);
-  await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3'], allowMissing: true, bytes: false });
+  await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3', 'v4'], allowMissing: true, bytes: false });
   await assertFrozen(path.join(output, 'v1'), manifest, { allowMissing: true, bytes: false });
   const originals = new Map();
   for (const name of Object.keys(manifest.files)) {

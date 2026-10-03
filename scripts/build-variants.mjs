@@ -4,6 +4,7 @@ import path from 'node:path';
 import { assertFrozen, materializeFrozen } from './lib/frozen.mjs';
 import { renderVariant } from './lib/render-variant.mjs';
 import { renderV3 } from './lib/render-v3.mjs';
+import { renderV4 } from './lib/render-v4.mjs';
 
 // Frozen root/v1 come from the canonical published byte snapshot, never from
 // templates or platform-dependent working-tree copies of the original assets.
@@ -46,7 +47,16 @@ for (const [name, content] of await renderV3(root)) {
 }
 await writeFile(path.join(output, 'v3', 'assets/favicon.svg'), original.get('assets/favicon.svg'));
 
-await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3'] });
+// Version D (/v4/): every piece of content as a grid, on the original v1 look.
+for (const [name, content] of await renderV4(root)) {
+  const destination = path.join(output, 'v4', name);
+  await mkdir(path.dirname(destination), { recursive: true });
+  await writeFile(destination, content);
+}
+for (const name of ['assets/site.css', 'assets/north.svg', 'assets/favicon.svg']) await writeFile(path.join(output, 'v4', name), original.get(name));
+await writeFile(path.join(output, 'v4', '.nojekyll'), '');
+
+await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3', 'v4'] });
 await assertFrozen(path.join(output, 'v1'), manifest);
 console.log(`Frozen root and /v1 verified against ${manifest.commit}.`);
 console.log('Built complete /v2a and /v2b variants with all 116 adopted catalog records.');

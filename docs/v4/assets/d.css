@@ -1,0 +1,22 @@
+/* Version D: grids on the original look. */
+.hero h1 em,em{font-style:normal}
+.d-hero .hero-inner{grid-template-columns:minmax(0,1fr);padding-top:72px;padding-bottom:64px}
+.d-page{max-width:1236px;margin:auto;padding:48px 42px 64px}
+.d-page h1{font-size:clamp(2.2rem,4vw,3.2rem);letter-spacing:-.035em;margin:.4rem 0 .6rem}
+.d-section{margin-top:48px}.d-section:first-of-type{margin-top:24px}
+.d-section h2{font-size:1.6rem;margin:0 0 .8rem}
+.d-wrap{overflow-x:auto}
+.d-grid{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.55}
+.d-grid th,.d-grid td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+.d-grid thead th{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-dark);white-space:nowrap}
+.d-grid tbody th{font-weight:600;color:#f6f2e9;width:22%}
+.d-grid.cols-3 td:nth-child(2){color:#b2bfc2;width:28%}
+.d-grid a{color:var(--gold)}
+.d-grid caption{text-align:left;caption-side:top;padding:0 0 10px;color:#b2bfc2;font-size:.9rem}
+.d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
+.s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
+.d-filter{display:block;margin:0 0 16px;color:#b2bfc2;font-size:.95rem}
+.d-filter input{display:block;margin-top:6px;width:100%;max-width:28rem;padding:8px 0;background:transparent;color:inherit;border:0;border-bottom:1px solid var(--gold-dark);font:inherit}
+.d-sources{margin-top:40px;font-size:.85rem;color:#b2bfc2}.d-sources a{margin-right:16px;color:var(--gold)}
+.d-versions{max-width:1236px;margin:auto;padding:0 0 18px;font-size:.85rem;color:#b2bfc2}.d-versions a{margin-right:12px;color:var(--gold)}
+@media (max-width:700px){.d-page{padding:32px 16px 48px}.d-grid,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}.d-versions{padding:0 16px 18px}}
