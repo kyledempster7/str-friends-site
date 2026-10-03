@@ -50,6 +50,17 @@ test('privacy scan decodes common entities and percent runs beside ordinary perc
   assert.ok(privacyFindings(unicodeEscaped, [secret]).includes('server/admin password'));
 });
 
+test('binary scans distinguish random path markers from readable metadata and secrets', () => {
+  const marker = ['C:', ''].join('\\');
+  const noise = Buffer.concat([Buffer.from([255, 3]), Buffer.from(marker), Buffer.from([255, 3])]);
+  assert.deepEqual(privacyFindings(noise, []), []);
+  const local = ['C:', 'Users', 'example', 'file'].join('\\');
+  const metadata = Buffer.concat([Buffer.from([255, 3]), Buffer.from(local), Buffer.from([255])]);
+  assert.ok(privacyFindings(metadata, []).includes('local file path'));
+  const secret = 'Synthetic42';
+  assert.ok(privacyFindings(Buffer.concat([noise, Buffer.from(secret), noise]), [secret]).includes('server/admin password'));
+});
+
 test('identity parser cannot mistake embedded tabs for approved fields', () => {
   const hash = 'a'.repeat(40);
   const valid = [hash, identity.name, identity.email, identity.name, identity.email, ''].join('\0');
