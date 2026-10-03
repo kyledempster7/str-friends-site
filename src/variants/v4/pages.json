@@ -5,14 +5,14 @@
     "eyebrow": "Skyrim Together Reborn",
     "titleBefore": "The North is better",
     "titleAccent": "together.",
-    "intro": "Seven chapters, in order. Each one shows what you did before, in single-player Skyrim, and what you do now, with friends.",
-    "chaptersTitle": "Start here: seven chapters",
-    "chaptersIntro": "Begin at 01 and work through to 07."
+    "intro": "See what changes with friends and our installed mods.",
+    "chaptersTitle": "Start here",
+    "chaptersIntro": "Seven topics, from multiplayer to owning a home."
   },
   "chapters": [
     {
       "num": "01",
-      "label": "A shared world",
+      "label": "Multiplayer and mods",
       "headline": "What changes in multiplayer",
       "icon": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z\"/>",
       "pages": [
@@ -21,7 +21,7 @@
           "title": "What changes in multiplayer",
           "quick": [
             "What changes from single player?",
-            "One shared world: one quest leader, nothing pauses, and Master difficulty for everyone. The chart below has the details."
+            "One quest leader. Nothing pauses. Master difficulty for everyone."
           ],
           "grids": [
             "multiplayer"
@@ -119,11 +119,11 @@
           "grids": [
             {
               "id": "healing-friends",
-              "title": "Helping friends with magic, before and after",
+              "title": "Helping friends with magic",
               "columns": [
                 "Spell",
-                "Before: single player",
-                "After: our co-op"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
@@ -172,7 +172,7 @@
                 [
                   "Calm, Fear, Frenzy",
                   "Work on enemies and other NPCs",
-                  "Still work on enemies; they can't control players."
+                  "Still work on enemies. They can't control players."
                 ],
                 [
                   [
@@ -211,8 +211,8 @@
     },
     {
       "num": "04",
-      "label": "A night of adventure",
-      "headline": "Join, play, and leave well",
+      "label": "Joining and leaving",
+      "headline": "Set up, join, play, leave",
       "icon": "<path d=\"M20 15.5A8.7 8.7 0 0 1 8.5 4 9 9 0 1 0 20 15.5Z\"/>",
       "pages": [
         {
@@ -221,59 +221,59 @@
           "grids": [
             {
               "id": "setup",
-              "title": "Setting up the first time, before and after",
-              "note": "Do this once. The full steps and installer choices are on our Nexus collection page.",
+              "title": "Setting up the first time",
+              "note": "Follow our Nexus collection page for installer choices.",
               "columns": [
                 "Step",
-                "Before: single player",
-                "After: our co-op"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
-                  "Get the game",
+                  "Get Skyrim on Steam",
                   "Skyrim Special Edition on Steam",
-                  "The same. You don't need the Anniversary upgrade."
+                  "Special Edition. You don't need the Anniversary upgrade."
                 ],
                 [
-                  "Prepare the game",
+                  "Run the cleanup kit",
                   "Nothing to do",
-                  "Run the Friend Kit's Creation Club cleanup from our Nexus page and follow its README. Never use Steam's \"Verify integrity\" afterwards."
+                  "Run the Friend Kit's Creation Club cleanup from Nexus. Follow its README. Never use Steam's \"Verify integrity\" afterwards."
                 ],
                 [
-                  "Install Vortex",
+                  "Set up Vortex",
                   "Optional",
                   {
-                    "text": "Get Vortex from Nexus, sign in, turn on Profile Management, and create an STR profile",
+                    "text": "Install Vortex. Sign in. Enable Profile Management. Create an STR profile.",
                     "href": "https://www.nexusmods.com/vortex"
                   }
                 ],
                 [
-                  "Install the mods",
+                  "Add our mod collection",
                   "Optional, one at a time",
                   {
-                    "text": "Click Add collection on our Nexus page and pick the installer options it lists",
+                    "text": "On Nexus, click Add collection. Follow the listed installer choices.",
                     "href": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
                   }
                 ],
                 [
-                  "Check five plugins",
+                  "Enable five plugins",
                   "Not needed",
-                  "In Vortex's Plugins view, turn on SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                  "In Vortex's Plugins view, enable: SkyrimTogether.esp; SkyrimTogetherQuestPatches.esp; MysticismMagic.esp; better vanilla perks.esp; Imperious - Races of Skyrim.esp."
                 ],
                 [
-                  "Start the game",
+                  "Launch the co-op game",
                   "Steam's Play button",
-                  "Launch Skyrim Together (SkyrimTogether.exe). Steam's Play button doesn't start the co-op client."
+                  "Launch Skyrim Together (SkyrimTogether.exe). Steam's Play button starts the single-player game."
                 ],
                 [
-                  "Make your character",
+                  "Save your new character",
                   "Play through Helgen",
-                  "Finish Helgen Express offline, then save outside before you ever connect."
+                  "Finish Helgen Express offline. Save outside before connecting."
                 ],
                 [
-                  "You're ready when",
+                  "Check setup is complete",
                   "The main menu loads",
-                  "Skyrim Together reaches the main menu, and you have a character saved outside Helgen."
+                  "Skyrim Together reaches the main menu. Your character is saved outside Helgen."
                 ]
               ]
             }
@@ -290,52 +290,57 @@
           "title": "Joining a session",
           "quick": [
             "How do I join tonight?",
-            "Launch Skyrim Together, load your campaign character, press F2 and choose Connect, check you're in the leader's party, then type READY."
+            "Launch Skyrim Together. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
           ],
           "grids": [
             {
               "id": "join",
-              "title": "Joining, before and after",
+              "title": "Joining",
               "columns": [
                 "Step",
-                "Before: single player",
-                "After: our co-op"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
-                  "Start",
+                  "Launch the co-op game",
                   "Press Play on Steam",
                   "Launch Skyrim Together (SkyrimTogether.exe)."
                 ],
                 [
-                  "Load",
+                  "Load your campaign character",
                   "Load any save",
                   "Load your campaign character, never a solo save."
                 ],
                 [
-                  "Connect",
+                  "Connect to our server",
                   "Not needed",
-                  "Press F2 or Right Ctrl and choose Connect. Use the server address and password the host sends you privately. If the host asked you to run a connection app from our Nexus page, start it first."
+                  "Start any connection app the host requested through Nexus. Press F2 or Right Ctrl. Choose Connect. Enter the server details sent privately by the host."
                 ],
                 [
-                  "Party",
+                  "Create the party (leader)",
                   "Not needed",
-                  "The leader presses F2, clicks Player Manager, then the Party Menu tab, and clicks Launch party. Everyone else joins automatically once connected."
+                  "Leader: press F2. Open Player Manager, then Party Menu. Click Launch party. Connected players join automatically."
                 ],
                 [
-                  "Check your party",
+                  "Find everyone in the party",
                   "Not needed",
-                  "Press F2, click Player Manager, then the Party Menu tab. It lists your party by Name, Lv. and Location. If the leader or you are missing, tell the leader before you start."
+                  "Press F2. Open Player Manager, then Party Menu. Check Name, Lv. (level) and Location for everyone. Missing someone? Tell the leader."
                 ],
                 [
-                  "Meet up",
+                  "Accept a missing invitation",
+                  "Not needed",
+                  "In Player Manager, open Invites. Choose \"Accept invite from\" your leader. Still missing? Tell the leader."
+                ],
+                [
+                  "Meet and say READY",
                   "Just play",
-                  "Go to the spot the host names on Discord. Then open chat with F2 or Right Ctrl, type READY and press Enter."
+                  "Go to the spot the host names on Discord. Press F2 or Right Ctrl. Type READY. Press Enter."
                 ],
                 [
-                  "If it fails",
+                  "Report a connection problem",
                   "Reload or restart",
-                  "Stop and send the host the exact error message. Never post the server details publicly."
+                  "Stop. Send the host the exact error message. Keep server details private."
                 ]
               ]
             }
@@ -369,11 +374,11 @@
           "grids": [
             {
               "id": "leave",
-              "title": "Leaving, before and after",
+              "title": "Leaving",
               "columns": [
                 "Situation",
-                "Before: single player",
-                "After: our co-op"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
@@ -389,7 +394,7 @@
                 [
                   "Everyone else",
                   "Keep playing",
-                  "Stop advancing quests until they're back, especially if the leader left. Resume together."
+                  "Pause quests until they return, especially if the leader left. Resume together."
                 ],
                 [
                   "Coming back",
@@ -408,13 +413,13 @@
     },
     {
       "num": "05",
-      "label": "Unusual builds",
-      "headline": "Bring something unexpected",
+      "label": "Build ideas",
+      "headline": "Choose your skills",
       "icon": "<circle cx=\"9\" cy=\"7\" r=\"3\"/><path d=\"M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3\"/>",
       "pages": [
         {
           "file": "builds.html",
-          "title": "Builds",
+          "title": "Build ideas",
           "quick": [
             "What should I play?",
             [
@@ -434,54 +439,126 @@
           "grids": [
             {
               "id": "builds",
-              "title": "Builds, before and after",
+              "title": "Build ideas",
               "columns": [
                 "Build",
-                "Before: single player",
-                "After: our party"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
                   "Healer",
                   "Heal yourself and your follower",
-                  "Restoration first, Alteration for protection. Keep friends standing, and keep a weapon or spell for yourself."
+                  "Restoration heals friends. Alteration protects you. Keep a weapon or attack spell."
                 ],
                 [
                   "Paladin",
                   "Sword, shield, heal yourself",
-                  "One-handed, Block and Restoration. Switch between holding the line and emergency heals."
+                  "One-handed, Block and Restoration. Block enemies, then switch to healing."
                 ],
                 [
                   "Necromancer-healer",
                   "Raise the dead",
-                  "Restoration first, Conjuration second. Summon one helper; never raise corpses."
+                  "Restoration first, Conjuration second. Summon one helper. Never raise corpses."
                 ],
                 [
                   "Death knight",
                   "A lone heavy warrior",
-                  "Two-handed and Heavy Armor up front, one summoned helper, enough Restoration for yourself."
+                  "Two-handed and Heavy Armor. One summoned helper. Restoration heals you."
                 ],
                 [
                   "Two-handed guardian",
                   "Protect yourself and your follower",
-                  "Two-handed, Block and Heavy Armor. Stand between enemies and friends; there's no taunt, so stay close."
+                  "Two-handed, Block and Heavy Armor. Protect nearby friends. There's no taunt."
                 ],
                 [
                   "Stealth ranger",
                   "Sneak and shoot everything",
-                  "Archery and Sneak find the opening. Keep moving and shooting after you're spotted."
+                  "Archery and Sneak. Scout first. Keep shooting when spotted."
                 ],
                 [
                   "Gandalf-style wizard",
                   "Fragile on your own",
-                  "Destruction and Alteration for fire and protection, backup Restoration. Earn a staff later."
+                  "Destruction attacks. Alteration protects. Restoration heals. Earn a staff later."
                 ],
                 [
                   "Storyteller",
                   "Talk your way through",
-                  "Speech, Restoration and a weapon. Keep a reliable damage fallback."
+                  "Speech, Restoration and a weapon. Keep a damage option."
+                ],
+                [
+                  "Blood mage",
+                  "Drain Health to survive alone",
+                  [
+                    {
+                      "text": "Vampiric Bolt",
+                      "href": "rules.html#rule-vampiric-bolt"
+                    },
+                    " steals Health at range. ",
+                    {
+                      "text": "Vampiric Touch",
+                      "href": "rules.html#rule-vampiric-touch"
+                    },
+                    " drains nearby enemies."
+                  ]
+                ],
+                [
+                  "Undead hunter",
+                  "Fight undead with weapons",
+                  [
+                    {
+                      "text": "Sunbeam",
+                      "href": "rules.html#rule-sunbeam"
+                    },
+                    " burns undead. Restoration also heals friends. Carry a weapon."
+                  ]
+                ],
+                [
+                  "Battlefield supporter",
+                  "Boost your followers",
+                  [
+                    {
+                      "text": "Courage",
+                      "href": "rules.html#rule-courage"
+                    },
+                    " strengthens nearby allies. Add Restoration and a weapon."
+                  ]
+                ],
+                [
+                  "Skeleton archer commander",
+                  "Fight beside one summoned helper",
+                  [
+                    {
+                      "text": "Conjure Skeleton Archer",
+                      "href": "rules.html#rule-conjure-skeleton-archer"
+                    },
+                    " supports your bow. One active summon per player. Never raise corpses."
+                  ]
+                ],
+                [
+                  "Night scout",
+                  "Rely on racial night vision",
+                  [
+                    {
+                      "text": "Night Eye",
+                      "href": "rules.html#rule-night-eye"
+                    },
+                    " helps you see. Sneak and Archery help you scout."
+                  ]
+                ],
+                [
+                  "Staff summoner",
+                  "Use a staff beside your summon",
+                  [
+                    {
+                      "text": "Staff of the Atronach",
+                      "href": "rules.html#rule-staff-of-atronach"
+                    },
+                    " strengthens certain staff spells and summons. One active summon per player."
+                  ]
                 ]
-              ]
+              ],
+              "note": "Suggestions using our installed mods. Co-op effects remain untested."
             }
           ],
           "sources": []
@@ -547,6 +624,42 @@
                   "Speech, Restoration, a weapon skill",
                   "Your choice",
                   "Your choice"
+                ],
+                [
+                  "Blood mage",
+                  "Destruction, Alteration",
+                  "Breton or Dark Elf",
+                  "Mage, later Lord"
+                ],
+                [
+                  "Undead hunter",
+                  "Restoration, One-handed, Block",
+                  "Imperial or Breton",
+                  "Warrior, later Lord"
+                ],
+                [
+                  "Battlefield supporter",
+                  "Illusion, Restoration, a weapon skill",
+                  "Your choice",
+                  "Your choice"
+                ],
+                [
+                  "Skeleton archer commander",
+                  "Conjuration, Archery",
+                  "Wood Elf or Breton",
+                  "Your choice"
+                ],
+                [
+                  "Night scout",
+                  "Illusion, Sneak, Archery",
+                  "Your choice",
+                  "Thief, later Lord"
+                ],
+                [
+                  "Staff summoner",
+                  "Conjuration, Enchanting",
+                  "Breton or High Elf",
+                  "Mage, later Lord"
                 ]
               ],
               "note": "Suggestions only. Mix and change them freely."
@@ -569,17 +682,17 @@
               "rows": [
                 [
                   "Vigilant of Stendarr",
-                  "Inspired by the Vigil of Stendarr, an order in Skyrim that hunts undead and Daedra worshippers",
-                  "Paladin: Restoration, heavy armor, sword and shield (our take, not their usual gear)"
+                  "The Vigil of Stendarr hunts undead and Daedra worshippers.",
+                  "Restoration, heavy armor, sword and shield. Our gear choice."
                 ],
                 [
                   "Gravewarden of Arkay",
-                  "Our own idea, built around Arkay, god of the cycle of life and death",
-                  "Necromancer-healer who calls willing spirits and never raises bodies"
+                  "Our idea: Arkay guards life and death.",
+                  "Restoration with one summoned spirit. Never raise corpses."
                 ],
                 [
                   "Meridia's champion",
-                  "Meridia, a Daedric Prince of light who hates the undead (quest: The Break of Dawn)",
+                  "Meridia hates undead. Her quest: The Break of Dawn.",
                   "Paladin who earns Dawnbreaker"
                 ]
               ]
@@ -594,12 +707,12 @@
           "grids": [
             {
               "id": "party-options",
-              "title": "One possible party, before and after",
+              "title": "One possible party",
               "note": "Recommendations, not assignments. Mix and overlap roles however you like.",
               "columns": [
                 "Role",
-                "Before: single player",
-                "After: our party",
+                "Single player",
+                "Co-op",
                 "Other options to consider"
               ],
               "rows": [
@@ -607,37 +720,37 @@
                   "Healer or paladin",
                   "Heal yourself and your follower",
                   "Keeps the party standing",
-                  "Necromancer-healer with one summon; Vigilant of Stendarr; Meridia's champion"
+                  "Necromancer-healer with one summon. Vigilant of Stendarr. Meridia's champion"
                 ],
                 [
                   "Two-handed guardian",
                   "Fight beside your follower",
                   "Stands between enemies and friends",
-                  "Death knight with one summon; shield-first paladin"
+                  "Death knight with one summon. Shield-first paladin"
                 ],
                 [
                   "Stealth ranger",
                   "Sneak and shoot everything",
                   "Scouts and opens the fight",
-                  "Wood Elf hunter; Khajiit prowler"
+                  "Wood Elf hunter. Khajiit prowler"
                 ],
                 [
                   "Gandalf-style wizard",
                   "Fragile on your own",
                   "Fire, light and protection from range",
-                  "Blood mage with drain spells; storyteller with Speech"
+                  "Blood mage with drain spells. Storyteller with Speech"
                 ]
               ]
             },
             {
               "id": "things-to-try",
-              "title": "Things to try, before and after",
-              "note": "Recommendations, not rules. Most of these are new with our mods and haven't been tested in co-op yet, so tell the group what you find.",
+              "title": "Things to try",
+              "note": "Suggestions only. Most are untested in co-op. Report your results.",
               "columns": [
                 "Try this",
                 "Good for",
-                "Before: vanilla",
-                "After: with our mods"
+                "Vanilla",
+                "Mods"
               ],
               "rows": [
                 [
@@ -672,7 +785,7 @@
                   ],
                   "Healer",
                   "Grand Healing is the late burst",
-                  "Later burst heals; Grand Healing becomes a held channel (Mysticism)"
+                  "Later burst heals. Grand Healing needs continuous casting (Mysticism)."
                 ],
                 [
                   {
@@ -690,7 +803,7 @@
                   },
                   "Paladin",
                   "Guardian Circle heals only you",
-                  "A healing circle to fall back to. Healing other players is not tested yet (Mysticism)"
+                  "A healing circle (Mysticism). Healing other players is untested."
                 ],
                 [
                   [
@@ -706,7 +819,7 @@
                   ],
                   "Necromancer-healer, death knight",
                   "Familiar or Flame Atronach early",
-                  "Undead helpers from the start. One summon each; never raise corpses (Mysticism)"
+                  "Undead helpers (Mysticism). One summon each. Never raise corpses."
                 ],
                 [
                   [
@@ -806,7 +919,7 @@
                   },
                   "Shield users, paladin",
                   "Vanilla Quick Reflexes slows time while you block",
-                  "Less power-attack damage while shield blocking; rank 2 stays quarantined (don't use yet) (Better Vanilla Perks)"
+                  "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
                 ],
                 [
                   {
@@ -815,7 +928,7 @@
                   },
                   "Wizard",
                   "Elemental Potency only makes conjured atronachs stronger",
-                  "Strengthens certain spells and makes atronachs scale; keep one summon (Better Vanilla Perks)"
+                  "Strengthens certain spells. Atronachs scale (Better Vanilla Perks). One summon."
                 ]
               ]
             }
@@ -844,17 +957,17 @@
           "grids": [
             {
               "id": "leader",
-              "title": "Quests, before and after",
+              "title": "Quests",
               "columns": [
                 "Who",
-                "Before: single player",
-                "After: our party"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
                   "The leader (one for the whole playthrough)",
                   "You do everything",
-                  "Talks to quest people, handles scenes and quest items, and enters places first."
+                  "Handles quest dialogue, scenes and items. Enters places first."
                 ],
                 [
                   "Everyone else",
@@ -882,37 +995,37 @@
           "grids": [
             {
               "id": "chat",
-              "title": "Talking, before and after",
+              "title": "Talking",
               "columns": [
                 "Type or say",
-                "Before: single player",
-                "After: our party"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
-                  "READY",
+                  "Say you are ready: READY",
                   "Just go",
                   "Ready to go."
                 ],
                 [
-                  "HOLD",
+                  "Ask everyone to wait: HOLD",
                   "Pause the game",
                   "Find safety and wait."
                 ],
                 [
-                  "HELP",
+                  "Ask for help: HELP",
                   "Drink a potion or run",
-                  "Help me now; add where you are."
+                  "Help me now. Add where you are."
                 ],
                 [
-                  "BRB",
+                  "Say you need a break: BRB",
                   "Pause the game",
                   "Taking a break."
                 ],
                 [
-                  "/party or /local",
+                  "Choose who receives your message",
                   "No one to message",
-                  "Message only the party, or only nearby players. Press F2 or Right Ctrl to open chat."
+                  "Press F2 or Right Ctrl. Type /party for party chat. Type /local for nearby players."
                 ]
               ]
             }
@@ -932,7 +1045,7 @@
           "title": "Ownership",
           "quick": [
             "Where do I keep my things?",
-            "In your pack until you have a home. Then in your own home's chests, after testing one with a cheap item."
+            "Use your pack until you own a home. Test home chests with a cheap item first."
           ],
           "grids": [
             "ownership"
@@ -953,8 +1066,8 @@
               "title": "Proposed party agreement, not the game's rules",
               "columns": [
                 "Topic",
-                "Before: single player",
-                "After: proposed for our party"
+                "Single player",
+                "Co-op"
               ],
               "rows": [
                 [
@@ -965,7 +1078,7 @@
                 [
                   "Upgrades",
                   "Keep them",
-                  "Offer upgrades to whoever needs them; alternate ties. No leader bonus."
+                  "Offer upgrades to whoever needs them. Alternate ties. No leader bonus."
                 ],
                 [
                   "Quest items",
@@ -985,7 +1098,7 @@
                 [
                   "Homes",
                   "Buy whatever you like",
-                  "Earn them; agree who buys and who visits."
+                  "Earn them. Agree who buys and who visits."
                 ],
                 [
                   "Absent friends",
@@ -1007,12 +1120,12 @@
     "grids": [
       {
         "id": "party-options",
-        "title": "One possible party, before and after",
+        "title": "One possible party",
         "note": "Recommendations, not assignments. Mix and overlap roles however you like.",
         "columns": [
           "Role",
-          "Before: single player",
-          "After: our party",
+          "Single player",
+          "Co-op",
           "Other options to consider"
         ],
         "rows": [
@@ -1020,37 +1133,37 @@
             "Healer or paladin",
             "Heal yourself and your follower",
             "Keeps the party standing",
-            "Necromancer-healer with one summon; Vigilant of Stendarr; Meridia's champion"
+            "Necromancer-healer with one summon. Vigilant of Stendarr. Meridia's champion"
           ],
           [
             "Two-handed guardian",
-            "Fight alone",
+            "Fight beside your follower",
             "Stands between enemies and friends",
-            "Death knight with one summon; shield-first paladin"
+            "Death knight with one summon. Shield-first paladin"
           ],
           [
             "Stealth ranger",
             "Sneak and shoot everything",
             "Scouts and opens the fight",
-            "Wood Elf hunter; Khajiit prowler"
+            "Wood Elf hunter. Khajiit prowler"
           ],
           [
             "Gandalf-style wizard",
             "Fragile on your own",
             "Fire, light and protection from range",
-            "Blood mage with drain spells; storyteller with Speech"
+            "Blood mage with drain spells. Storyteller with Speech"
           ]
         ]
       },
       {
         "id": "things-to-try",
-        "title": "Things to try, before and after",
-        "note": "Recommendations, not rules. Most of these are new with our mods and haven't been tested in co-op yet, so tell the group what you find.",
+        "title": "Things to try",
+        "note": "Suggestions only. Most are untested in co-op. Report your results.",
         "columns": [
           "Try this",
           "Good for",
-          "Before: vanilla",
-          "After: with our mods"
+          "Vanilla",
+          "Mods"
         ],
         "rows": [
           [
@@ -1059,47 +1172,80 @@
               "href": "rules.html#rule-heal-other"
             },
             "Healer, paladin",
-            "Healing Hands is your first heal for others",
+            "An Adept spell in vanilla",
             "Available earlier, at Apprentice tier (Mysticism)"
           ],
           [
-            "Close Greater Wounds",
+            {
+              "text": "Close Greater Wounds",
+              "href": "rules.html#rule-close-greater-wounds"
+            },
             "Healer",
             "Grand Healing is the only area heal",
             "An area burst heal (Mysticism)"
           ],
           [
-            "Breath of Life, Stendarr's Mercy",
+            [
+              {
+                "text": "Breath of Life",
+                "href": "rules.html#rule-breath-of-life"
+              },
+              ", ",
+              {
+                "text": "Stendarr's Mercy",
+                "href": "rules.html#rule-stendarrs-mercy"
+              }
+            ],
             "Healer",
             "Grand Healing is the late burst",
-            "Later burst heals; Grand Healing becomes a held channel (Mysticism)"
+            "Later burst heals. Grand Healing needs continuous casting (Mysticism)."
           ],
           [
-            "Sunbeam",
+            {
+              "text": "Sunbeam",
+              "href": "rules.html#rule-sunbeam"
+            },
             "Paladin, Vigilant",
             "Sun Fire only arrives with Dawnguard",
             "An early anti-undead spell (Mysticism)"
           ],
           [
-            "Circle of Life",
+            {
+              "text": "Circle of Life",
+              "href": "rules.html#rule-circle-of-life"
+            },
             "Paladin",
-            "No rally-point heal",
-            "A later rally point to fall back to (Mysticism)"
+            "Guardian Circle heals only you",
+            "A healing circle (Mysticism). Healing other players is untested."
           ],
           [
-            {
-              "text": "Conjure Skeleton, then Skeleton Archer",
-              "href": "rules.html#rule-conjure-skeleton"
-            },
+            [
+              {
+                "text": "Conjure Skeleton",
+                "href": "rules.html#rule-conjure-skeleton"
+              },
+              ", then ",
+              {
+                "text": "Skeleton Archer",
+                "href": "rules.html#rule-conjure-skeleton-archer"
+              }
+            ],
             "Necromancer-healer, death knight",
             "Familiar or Flame Atronach early",
-            "Undead helpers from the start. One summon each; never raise corpses (Mysticism)"
+            "Undead helpers (Mysticism). One summon each. Never raise corpses."
           ],
           [
-            {
-              "text": "Vampiric Bolt, Blood Lance",
-              "href": "rules.html#rule-vampiric-bolt"
-            },
+            [
+              {
+                "text": "Vampiric Bolt",
+                "href": "rules.html#rule-vampiric-bolt"
+              },
+              ", ",
+              {
+                "text": "Blood Lance",
+                "href": "rules.html#rule-blood-lance"
+              }
+            ],
             "Wizard, blood mage",
             "Flames and Firebolt",
             "New drain spells in Destruction (Mysticism)"
@@ -1123,16 +1269,31 @@
             "Invisibility that refreshes after it breaks (Mysticism)"
           ],
           [
-            "Night Eye",
+            {
+              "text": "Night Eye",
+              "href": "rules.html#rule-night-eye"
+            },
             "Ranger",
             "Khajiit and vampires only",
             "A night-vision spell anyone can learn (Mysticism)"
           ],
           [
-            {
-              "text": "Courage, Rally, Call to Arms",
-              "href": "rules.html#rule-courage"
-            },
+            [
+              {
+                "text": "Courage",
+                "href": "rules.html#rule-courage"
+              },
+              ", ",
+              {
+                "text": "Rally",
+                "href": "rules.html#rule-rally"
+              },
+              ", ",
+              {
+                "text": "Call to Arms",
+                "href": "rules.html#rule-call-to-arms"
+              }
+            ],
             "Healer, storyteller",
             "Buff your followers",
             "Skyrim Together sends these to other players too"
@@ -1171,7 +1332,7 @@
             },
             "Shield users, paladin",
             "Vanilla Quick Reflexes slows time while you block",
-            "Less power-attack damage while shield blocking; rank 2 stays quarantined (don't use yet) (Better Vanilla Perks)"
+            "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
           ],
           [
             {
@@ -1179,8 +1340,8 @@
               "href": "rules.html#rule-staff-of-atronach"
             },
             "Wizard",
-            "No perks for staves",
-            "A staff-build perk; keep one summon (Better Vanilla Perks)"
+            "Elemental Potency only makes conjured atronachs stronger",
+            "Strengthens certain spells. Atronachs scale (Better Vanilla Perks). One summon."
           ]
         ]
       }

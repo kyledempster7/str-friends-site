@@ -4,40 +4,40 @@
   "grids": [
     {
       "id": "multiplayer",
-      "title": "What changes in multiplayer, before and after",
+      "title": "What changes in multiplayer",
       "columns": [
         "Topic",
-        "Before: single player",
-        "After: our co-op"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
-          "Saves",
+          "Saving your progress",
           "One save, reload any time",
-          "Everyone keeps their own save. The server holds no copy. Save often; never reload while connected."
+          "Everyone keeps their own save. The server holds no copy. Save often. Never reload while connected."
         ],
         [
-          "Quests",
+          "Following quests together",
           "You talk to everyone",
-          "One party leader for the whole playthrough handles quest people, scenes and quest items, and enters places first. Everyone fights bosses and solves puzzles."
+          "Keep one party leader for the whole playthrough. They handle quest dialogue, scenes and items. They enter first. Everyone fights bosses and solves puzzles."
         ],
         [
-          "Starting",
+          "Finishing the introduction",
           "Helgen intro",
           "Finish Helgen or Helgen Express offline, save outside, then connect."
         ],
         [
-          "Menus",
+          "Opening menus",
           "Opening a menu pauses the game",
-          "Skyrim Souls RE keeps most menus live, and nothing pauses for the party. Get out of danger first."
+          "Skyrim Souls RE keeps most menus live. Nothing pauses for the party. Get out of danger first."
         ],
         [
-          "Dying",
+          "Dying and respawning",
           "Reload a save",
           "You respawn nearby, or at the entrance indoors. No gold lost. Crime bounties still apply."
         ],
         [
-          "Difficulty",
+          "Choosing difficulty",
           "Your choice",
           "Master for everyone, set by the server. Enemies do not scale with party size."
         ],
@@ -47,34 +47,34 @@
           "Players can't hurt players. Followers and townsfolk can still be hurt."
         ],
         [
-          "Lock-on",
-          "No target lock-on; you aim and turn yourself.",
+          "Locking onto enemies",
+          "No target lock-on. You aim and turn yourself.",
           "True Directional Movement adds lock-on. Our setting targets hostiles only."
         ],
         [
-          "Killcams",
+          "Watching kill animations",
           "On",
           "Off."
         ],
         [
-          "Experience",
+          "Earning skill experience",
           "You earn your own experience",
-          "When anyone gains combat experience, everyone gets the same amount in their own last-used combat skill. Crafting experience is not shared."
+          "When someone earns combat experience, everyone gets that amount. Each player's last-used combat skill gains it. Crafting experience isn't shared."
         ],
         [
-          "Other nights",
+          "Playing with fewer friends",
           "One save",
           "A smaller-party night uses separate characters."
         ],
         [
-          "Talking",
+          "Talking to friends",
           "No other players",
-          "Voice, or text chat: F2 or Right Ctrl, type, Enter. /party and /local work."
+          "Press F2 or Right Ctrl. Type, press Enter. /party, /local and voice work."
         ],
         [
-          "Followers",
+          "Recruiting followers",
           "Recruit an NPC companion to fight and carry items.",
-          "Official advice: avoid followers except for quests; they can wander away."
+          "Official advice: avoid followers except for quests. They can wander."
         ],
         [
           "Waiting and sleeping",
@@ -82,257 +82,257 @@
           "The server controls time. Waiting and sleeping cannot advance it."
         ],
         [
-          "Reconnecting after a crash",
+          "Rejoining after a crash",
           "Restart and load your latest save.",
-          "Load your latest campaign save, reconnect, check the usual leader, and regroup before questing. Progress recovery in this setup (not verified)."
+          "Load your latest campaign save. Reconnect. Check the usual leader. Regroup before questing. Progress recovery remains unverified."
         ]
       ]
     },
     {
       "id": "skills",
-      "title": "Skills, before and after",
+      "title": "Skills",
       "columns": [
         "Skill",
-        "Before: vanilla",
-        "After: Better Vanilla Perks",
+        "Vanilla",
+        "Mods",
         "Our rule"
       ],
       "rows": [
         [
           "Alchemy",
-          "Alchemist strengthens crafted potions and poisons; Snakeblood grants poison resistance.",
-          "Alchemist adds poison damage to weapon attacks; Snakeblood adds waterbreathing; Poisoner makes melee poison doses last longer.",
-          "—"
+          "Alchemist strengthens crafted potions and poisons. Snakeblood grants poison resistance.",
+          "Alchemist adds poison damage to weapon attacks. Snakeblood adds waterbreathing. Poisoner makes melee poison doses last longer.",
+          "No extra rule"
         ],
         [
           "Alteration",
-          "Novice through Master perks reduce spell costs; Magic Resistance provides separate magic defense.",
-          "Novice Alteration adds poison resistance; Apprentice adds frost resistance, Adept fire, Expert shock, and Master disease resistance.",
-          "—"
+          "Novice through Master perks reduce spell costs. Magic Resistance provides separate magic defense.",
+          "Novice adds poison resistance. Apprentice: frost. Adept: fire. Expert: shock. Master: disease.",
+          "No extra rule"
         ],
         [
           "Archery",
-          "Overdraw raises bow damage; Power Shot adds stagger; Steady Hand slows time while zooming.",
-          "Overdraw adds armor penetration and longer arrow poisons; Power Shot adds penetration; Bullseye adds critical damage and disarming.",
-          "Quarantined (don't use yet): the whole Steady Hand branch, starting at Archery 40."
+          "Overdraw raises bow damage. Power Shot adds stagger. Steady Hand slows time while zooming.",
+          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming.",
+          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet."
         ],
         [
           "Block",
-          "Shield Wall improves blocking; Quick Reflexes slows time while blocking a power attack.",
-          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking; rank 2 adds slowdown.",
+          "Shield Wall improves blocking. Quick Reflexes slows time while blocking a power attack.",
+          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking. Rank 2 adds slowdown.",
           "Quarantined (don't use yet): Strong Reflexes rank 2, Block 50. Rank 1, Block 30, is allowed."
         ],
         [
           "Conjuration",
-          "Summoner increases casting distance; Twin Souls allows two summons; Elemental Potency strengthens atronachs.",
-          "Summoner and Puppeteer add summon slots; Twin Souls adds two. Staff of the Atronach strengthens certain spells and makes atronachs scale.",
-          "One active summon per player. Quarantined (don't use yet): corpse raising and Dark Souls 2 explosions."
+          "Summoner increases casting distance. Twin Souls allows two summons. Elemental Potency strengthens atronachs.",
+          "Summoner and Puppeteer add summon slots. Twin Souls adds two. Staff of the Atronach strengthens certain spells and scales atronachs.",
+          "One active summon per player. Quarantined: corpse raising, Dark Souls 2 explosions. Don't use yet."
         ],
         [
           "Destruction",
-          "Augmented Flames, Frost and Shock add equal damage bonuses; Rune Master increases placement range.",
-          "Augmented Flames/Frost/Shock rank 1 adds 20/30/40% damage and reduces spell costs; Rune Master also doubles rune capacity.",
-          "—"
+          "Augmented Flames, Frost and Shock add equal damage bonuses. Rune Master increases placement range.",
+          "Augmented Flames/Frost/Shock rank 1: 20/30/40% more damage, cheaper spells. Rune Master also doubles rune capacity.",
+          "No extra rule"
         ],
         [
           "Enchanting",
-          "Enchanter strengthens new enchantments; Soul Siphon recharges weapons from creature kills.",
-          "Enchanter also recharges weapons from nearby kills; Corpus Enchanter strengthens additional enchantments; Soul Siphon stacks with Enchanter.",
-          "—"
+          "Enchanter strengthens new enchantments. Soul Siphon recharges weapons from creature kills.",
+          "Enchanter also recharges weapons from nearby kills. Corpus Enchanter strengthens additional enchantments. Soul Siphon stacks with Enchanter.",
+          "No extra rule"
         ],
         [
           "Heavy Armor",
-          "Juggernaut raises armor rating; Well Fitted needs heavy armor on head, chest, hands and feet.",
-          "Juggernaut adds material-specific arrow, stagger or magic protection. Well Fitted and Matching Set need three pieces, freeing your helmet choice.",
-          "—"
+          "Juggernaut raises armor rating. Well Fitted requires head, chest, hands and feet armored.",
+          "Juggernaut adds material-specific arrow, stagger or magic protection. Well Fitted and Matching Set require three pieces. Choose any helmet.",
+          "No extra rule"
         ],
         [
           "Illusion",
-          "Novice Illusion reduces spell cost; Quiet Casting requires the Animage and Kindred Mage path.",
-          "Novice Illusion adds arrow avoidance. Quiet Casting needs 50 Illusion or Sneak, with no earlier perks, and works while sneaking.",
+          "Novice Illusion reduces spell cost. Quiet Casting requires the Animage and Kindred Mage path.",
+          "Novice Illusion adds arrow avoidance. Quiet Casting: 50 Illusion or Sneak, no earlier perks. Only works while sneaking.",
           "Enemy-control spells do not control players."
         ],
         [
           "Light Armor",
-          "Agile Defender raises armor rating; Custom Fit requires light armor on head, chest, hands and feet.",
-          "Agile Defender adds material-specific benefits, including cheaper power attacks or stagger resistance. Custom Fit and Matching Set need only three pieces.",
-          "—"
+          "Agile Defender raises armor rating. Custom Fit requires head, chest, hands and feet armored.",
+          "Agile Defender adds material-specific bonuses: cheaper power attacks, stagger resistance. Custom Fit and Matching Set need only three pieces.",
+          "No extra rule"
         ],
         [
           "Lockpicking",
-          "Novice through Master Locks make their lock difficulties easier to pick.",
-          "Novice through Master Locks also bypass matching locks with a torch outside combat. Quick Hands no longer needs earlier perks.",
+          "Novice through Master Locks make matching locks easier to pick.",
+          "Novice through Master Locks bypass matching locks outside combat. Requires a torch. Quick Hands no longer needs earlier perks.",
           "Quarantined (don't use yet): torch auto-unlock. Use lockpicks manually."
         ],
         [
           "One-Handed",
-          "Armsman raises weapon damage; Bladesman adds sword critical hits; Hack and Slash makes axes bleed targets.",
-          "Armsman also adds critical chance; Bladesman adds bleeding; Hack and Slash boosts axe power attacks. Flurry speeds main-hand attacks.",
-          "—"
+          "Armsman raises weapon damage. Bladesman adds sword critical hits. Hack and Slash makes axes bleed targets.",
+          "Armsman also adds critical chance. Bladesman adds bleeding. Hack and Slash boosts axe power attacks. Flurry speeds main-hand attacks.",
+          "No extra rule"
         ],
         [
           "Pickpocket",
-          "Light Fingers improves theft chances; Extra Pockets adds 100 carrying capacity.",
-          "Light Fingers also improves arrow recovery; Extra Pockets gains additional ranks, reaching 300 extra carrying capacity.",
+          "Light Fingers improves theft chances. Extra Pockets adds 100 carrying capacity.",
+          "Light Fingers also improves arrow recovery. Extra Pockets gains additional ranks, reaching 300 extra carrying capacity.",
           "Coordinate theft and shared loot."
         ],
         [
           "Restoration",
-          "Regeneration strengthens healing by 50%; Recovery improves Magicka regeneration.",
-          "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration; Recovery also improves Stamina regeneration.",
-          "Quarantined (don't use yet): Resurgence until the group's first healer test."
+          "Regeneration strengthens healing by 50%. Recovery improves Magicka regeneration.",
+          "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
+          "Resurgence: quarantined until our first healer test. Don't use yet."
         ],
         [
           "Smithing",
-          "Steel Smithing improves steel equipment; Arcane Blacksmith enables tempering enchanted equipment.",
-          "Basic Smithing also improves iron; Thalmor Smithing adds Falmer crafting; Arcane Blacksmith improves enchanted gear, leather, hide and faction armor.",
-          "—"
+          "Steel Smithing improves steel equipment. Arcane Blacksmith enables tempering enchanted equipment.",
+          "Basic Smithing also improves iron. Thalmor Smithing adds Falmer crafting. Arcane Blacksmith improves enchanted gear, leather, hide and faction armor.",
+          "No extra rule"
         ],
         [
           "Sneak",
-          "Backstab boosts one-handed sneak attacks; Shadow Warrior briefly breaks detection when crouching in combat.",
-          "Backstab extends bonuses to melee and spell attacks. Shadow Warrior adds night vision and greatsword sneak damage; its second rank adds combat invisibility.",
-          "—"
+          "Backstab boosts one-handed sneak attacks. Shadow Warrior briefly breaks detection when crouching in combat.",
+          "Backstab extends bonuses to melee and spell attacks. Shadow Warrior adds night vision and greatsword sneak damage. Its second rank adds combat invisibility.",
+          "No extra rule"
         ],
         [
           "Speech",
-          "Haggling improves prices; Intimidation improves threatening dialogue.",
-          "Haggling becomes Dragonborn: better prices plus skill-book, summon, steam, drum and merchant benefits. Intimidation also grants Battlecry.",
-          "Quarantined (don't use yet): Dragonborn rank 4's drum and rank 5's merchant. Rank 2 does not increase our one-summon limit."
+          "Haggling improves prices. Intimidation improves threatening dialogue.",
+          "Dragonborn replaces Haggling: prices, skill-books, summons, steam, drum, merchant. Intimidation also grants Battlecry.",
+          "Quarantined: Dragonborn rank 4's drum and rank 5's merchant. Don't use yet. Rank 2 keeps our one-summon limit."
         ],
         [
           "Two-Handed",
-          "Barbarian raises damage; Limbsplitter makes battleaxes bleed targets; Skullcrusher ignores armor.",
-          "Barbarian adds armor penetration and greatsword bleeding; Limbsplitter boosts axe power attacks; Skullcrusher adds damage against undead.",
-          "—"
+          "Barbarian raises damage. Limbsplitter makes battleaxes bleed targets. Skullcrusher ignores armor.",
+          "Barbarian adds armor penetration and greatsword bleeding. Limbsplitter boosts axe power attacks. Skullcrusher adds damage against undead.",
+          "No extra rule"
         ]
       ],
       "note": "Better Vanilla Perks is part of our collection (revision 6)."
     },
     {
       "id": "races",
-      "title": "Races, before and after",
+      "title": "Races",
       "columns": [
         "Race",
-        "Before: vanilla",
-        "After: Imperious",
+        "Vanilla",
+        "Mods",
         "Our rule"
       ],
       "rows": [
         [
           "High Elf",
-          "+10 Illusion; +5 Alteration, Conjuration, Destruction, Enchanting, Restoration; +50 Magicka. Highborn rapidly restores Magicka for one minute.",
-          "Level-100 skills improve; low Magicka/Stamina recover faster but weaken defenses; gear weakens, enchantments strengthen. Contingency stores spells for automatic casting.",
+          "+10 Illusion. +5 Alteration, Conjuration, Destruction, Enchanting, Restoration. +50 Magicka. Highborn rapidly restores Magicka for one minute.",
+          "Level-100 skills improve. Low Magicka/Stamina recover faster but weaken defenses. Gear weakens, enchantments strengthen. Contingency stores spells for automatic casting.",
           "Quarantined (don't use yet): Contingency. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Argonian",
-          "+10 Lockpicking; +5 Alteration, Light Armor, Pickpocket, Restoration, Sneak; disease resistance, waterbreathing, stronger punches. Histskin rapidly restores Health.",
+          "+10 Lockpicking. +5 Alteration, Light Armor, Pickpocket, Restoration, Sneak. Disease resistance, waterbreathing, stronger punches. Histskin rapidly restores Health.",
           "Faster swimming, waterbreathing, post-swim stealth/speed, low-resource recovery. Caustic Spit strips armor and magic resistance. Innate disease resistance is gone.",
-          "No quarantined power; co-op racial effects and unlocks (not verified)."
+          "No quarantined power. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Wood Elf",
-          "+10 Archery; +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak; poison/disease resistance. Command Animal temporarily recruits an animal.",
-          "Eat corpses for attributes; Harrier marks prey and weakens foes; sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance.",
+          "+10 Archery. +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak. Poison/disease resistance. Command Animal temporarily recruits an animal.",
+          "Eat corpses for attributes. Harrier marks prey and weakens foes. Sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance.",
           "Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
         ],
         [
           "Breton",
-          "+10 Conjuration; +5 Alchemy, Alteration, Illusion, Restoration, Speech; 25% magic resistance, Conjure Familiar. Dragonskin temporarily absorbs hostile spells.",
-          "15% magic resistance, low-Magicka absorption; special standing-stone bonuses; Grail boosts recovery. Shared Ancestry borrows human or elven racial powers.",
+          "+10 Conjuration. +5 Alchemy, Alteration, Illusion, Restoration, Speech. 25% magic resistance, Conjure Familiar. Dragonskin temporarily absorbs hostile spells.",
+          "15% magic resistance, low-Magicka absorption. Special standing-stone bonuses. Grail boosts recovery. Shared Ancestry borrows human or elven racial powers.",
           "Borrowed powers keep their quarantines. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Dark Elf",
-          "+10 Destruction; +5 Alchemy, Alteration, Illusion, Light Armor, Sneak; 50% fire resistance, Sparks. Ancestor's Wrath burns nearby enemies.",
-          "25% fire resistance; spending Spirit Favor grants armor and further resistance. Whispers marks victims for rewards. Spirit Walk spends Favor to summon ancestors.",
+          "+10 Destruction. +5 Alchemy, Alteration, Illusion, Light Armor, Sneak. 50% fire resistance, Sparks. Ancestor's Wrath burns nearby enemies.",
+          "25% fire resistance. Spending Spirit Favor grants armor and further resistance. Whispers marks victims for rewards. Spirit Walk spends Favor to summon ancestors.",
           "Quarantined (don't use yet): Spirit Walk. Whispers rewards and racial unlocks in co-op (not verified)."
         ],
         [
           "Imperial",
-          "+10 Restoration; +5 Block, Destruction, Enchanting, Heavy Armor, One-Handed; Imperial Luck finds gold. Voice of the Emperor calms nearby people.",
-          "Discipline boosts nearby allies' armor/damage; random resource regeneration in combat; permanent attribute/resistance/skill tradeoffs. Colovian Star refills and temporarily boosts Magicka and Stamina.",
-          "Discipline's benefit to players (not verified); do not count on it as a party buff."
+          "+10 Restoration. +5 Block, Destruction, Enchanting, Heavy Armor, One-Handed. Imperial Luck finds gold. Voice of the Emperor calms nearby people.",
+          "Discipline boosts nearby allies' armor/damage. Random resource regeneration in combat. Permanent attribute/resistance/skill tradeoffs. Colovian Star refills and temporarily boosts Magicka and Stamina.",
+          "Discipline's benefit to players (not verified). Do not count on it as a party buff."
         ],
         [
           "Khajiit",
-          "+10 Sneak; +5 Alchemy, Archery, Lockpicking, Pickpocket, One-Handed; stronger claws. Night Eye grants repeatable night vision.",
-          "Faster movement; sprinting costs extra Stamina. Quieter sneaking, Prowl leaps, stronger claw power attacks. Perception grants night vision and dampens sounds.",
-          "No quarantined power; co-op movement and racial unlocks (not verified)."
+          "+10 Sneak. +5 Alchemy, Archery, Lockpicking, Pickpocket, One-Handed. Stronger claws. Night Eye grants repeatable night vision.",
+          "Faster movement. Sprinting costs extra Stamina. Quieter sneaking, Prowl leaps, stronger claw power attacks. Perception grants night vision and dampens sounds.",
+          "No quarantined power. Co-op movement and racial unlocks (not verified)."
         ],
         [
           "Nord",
-          "+10 Two-Handed; +5 Block, Light Armor, One-Handed, Smithing, Speech; 50% frost resistance. Battle Cry makes nearby enemies flee.",
-          "25% frost resistance; choose racial enemies for damage bonuses; missing Health strengthens attacks/spells. Avatar restores Magicka/Stamina and adds frost resistance.",
-          "No quarantined power; co-op racial effects and unlocks (not verified)."
+          "+10 Two-Handed. +5 Block, Light Armor, One-Handed, Smithing, Speech. 50% frost resistance. Battle Cry makes nearby enemies flee.",
+          "25% frost resistance. Choose racial enemies for damage bonuses. Missing Health strengthens attacks/spells. Avatar restores Magicka/Stamina and adds frost resistance.",
+          "No quarantined power. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Orc",
-          "+10 Heavy Armor; +5 Block, Enchanting, One-Handed, Smithing, Two-Handed; stronghold access. Berserker Rage doubles physical damage dealt and halves damage received.",
-          "Bloodlust briefly boosts speed/recovery; Shockwave staggers; gear strengthens but enchantments weaken. Berserk boosts attacks and reduces spell costs; may trigger randomly.",
-          "No quarantined power; co-op racial effects and unlocks (not verified)."
+          "+10 Heavy Armor. +5 Block, Enchanting, One-Handed, Smithing, Two-Handed. Stronghold access. Berserker Rage doubles physical damage dealt and halves damage received.",
+          "Bloodlust briefly boosts speed/recovery. Shockwave staggers. Gear strengthens but enchantments weaken. Berserk boosts attacks and reduces spell costs. May trigger randomly.",
+          "No quarantined power. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Redguard",
-          "+10 One-Handed; +5 Alteration, Archery, Block, Destruction, Smithing; 50% poison resistance. Adrenaline Rush rapidly restores Stamina.",
-          "Disease resistance replaces poison resistance; unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting.",
+          "+10 One-Handed. +5 Alteration, Archery, Block, Destruction, Smithing. 50% poison resistance. Adrenaline Rush rapidly restores Stamina.",
+          "Disease resistance replaces poison resistance. Unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting.",
           "Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Imperious is part of our collection (revision 6). Its racial powers unlock through racial objectives, not at character creation."
+      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers."
     },
     {
       "id": "spells",
-      "title": "Spells by school, before and after",
-      "note": "Our spell mod is Mysticism, not Apocalypse. It is part of our collection (revision 6).",
+      "title": "Spells by school",
+      "note": "Mysticism changes all five spell schools. Collection revision 6.",
       "columns": [
         "School",
-        "Before: vanilla",
-        "After: Mysticism",
+        "Vanilla",
+        "Mods",
         "Our rule"
       ],
       "rows": [
         [
           "Alteration",
-          "Flesh armor, light, detection, Telekinesis and Transmute; Paralyze and Mass Paralysis belong here.",
-          "Burden slows enemies; Corrode Armor weakens armor; Feather increases carrying capacity; Sea Stride allows water-walking. Paralysis moves to Illusion.",
+          "Flesh armor, light, detection, Telekinesis and Transmute. Paralyze and Mass Paralysis belong here.",
+          "Burden slows enemies. Corrode Armor weakens armor. Feather increases carrying capacity. Sea Stride allows water-walking. Paralysis moves to Illusion.",
           "No named spell quarantine here. Mark and Recall belong to Conjuration."
         ],
         [
           "Conjuration",
-          "Bound weapons, familiars, atronachs, Dremora and corpse raising; Dawnguard adds Soul Cairn undead summons.",
-          "Adds Skeleton summons, more bound weapons, Daedric Cure for summons, and Expert travel spells Mark and Recall.",
+          "Bound weapons, familiars, atronachs, Dremora and corpse raising. Dawnguard adds Soul Cairn undead summons.",
+          "Adds Skeleton summons, bound weapons and Daedric Cure for summons. Mark and Recall add Expert travel spells.",
           "Quarantined (don't use yet): Mark, Recall and corpse raising. Keep one active summon per player."
         ],
         [
           "Destruction",
-          "Fire, frost and shock attacks; vampires can absorb Health using Vampiric Drain.",
-          "Burning Touch adds close-range fire; Greater Flames extends channelled attacks. Vampiric Touch, Vampiric Bolt and Blood Lance steal living enemies' Health.",
-          "No named spell quarantine; exact co-op effects (not verified)."
+          "Fire, frost and shock attacks. Vampires can absorb Health using Vampiric Drain.",
+          "Burning Touch adds close-range fire. Greater Flames extends channelled attacks. Vampiric Touch, Vampiric Bolt, Blood Lance steal living enemies' Health.",
+          "No named spell quarantine. Exact co-op effects (not verified)."
         ],
         [
           "Illusion",
-          "Calm, fear, frenzy, morale, Muffle and Invisibility; paralysis is an Alteration effect.",
-          "Paralyze moves here; Silence stops enemy casting; Command controls NPCs; Night Eye grants dark vision; Ghostwalk refreshes invisibility after it breaks.",
+          "Calm, fear, frenzy, morale, Muffle and Invisibility. Paralysis is an Alteration effect.",
+          "Paralyze moves here. Silence stops enemy casting. Command controls NPCs. Night Eye grants dark vision. Ghostwalk refreshes invisibility after it breaks.",
           "Enemy-control spells cannot control human players. Exact co-op effects (not verified)."
         ],
         [
           "Restoration",
-          "Healing Hands channels healing onto NPCs; Heal Other gives an Adept burst. Grand Healing is an Expert area burst.",
-          "Heal Other becomes Apprentice; Close Greater Wounds adds Adept area healing. Grand Healing stays Expert but channels. Sunbeam damages undead; Circle of Life heals.",
+          "Healing Hands channels healing onto NPCs. Heal Other gives an Adept burst. Grand Healing is an Expert area burst.",
+          "Heal Other becomes Apprentice. Close Greater Wounds adds Adept area healing. Grand Healing stays Expert but channels. Sunbeam damages undead. Circle of Life heals.",
           "Ordinary healing allowed. Player healing amounts, circle effects and Resurgence bonuses (not verified)."
         ]
       ]
     },
     {
       "id": "cannot-use",
-      "title": "Quarantined perks and powers, before and after",
-      "note": "Quarantined: don't use these until we test them together. Spell quarantines are in chapter 03, and everything is on Can I use this?",
+      "title": "Quarantined perks and powers",
+      "note": "Quarantined: don't use these until we test them together. Check Spells for spell restrictions. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
-        "Before: single player",
-        "After: our rule"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
@@ -340,7 +340,7 @@
             "text": "Strong Reflexes rank 2 (Block 50)",
             "href": "rules.html#rule-strong-reflexes-2"
           },
-          "Halves damage while blocking and slows time when blocking enemy power attacks with melee gear.",
+          "Halves blocking damage. Melee blocks against power attacks slow time.",
           "Quarantined (don't use yet): rank 2. Rank 1's shield protection at Block 30 is allowed."
         ],
         [
@@ -348,7 +348,7 @@
             "text": "Steady Hand, whole branch (from Archery 40)",
             "href": "rules.html#rule-steady-hand-1"
           },
-          "Rank 1 slows time while zooming and adds critical chance; rank 2 adds critical chance and protection against disarming.",
+          "Rank 1 slows time while zooming and adds critical chance. Rank 2 adds critical chance and protection against disarming.",
           "Quarantined (don't use yet): both ranks. Rank 2 does not clear the first rank's slowdown."
         ],
         [
@@ -364,15 +364,15 @@
             "text": "Contingency (High Elf)",
             "href": "rules.html#rule-contingency"
           },
-          "Stores equipped spells and casts them free when your chosen condition occurs.",
-          "Quarantined (don't use yet): automatic spell casting through this racial power."
+          "Stores equipped spells. Casts them free when your chosen condition occurs.",
+          "Quarantined: automatic spell casting through this power. Don't use yet."
         ],
         [
           {
             "text": "Beast Tongue (Wood Elf)",
             "href": "rules.html#rule-beast-tongue"
           },
-          "Turns the nearest carnivorous animal into an ally; allows one animal companion.",
+          "Turns the nearest carnivorous animal into an ally. Allows one animal companion.",
           "Quarantined (don't use yet): this animal-recruiting power."
         ],
         [
@@ -380,16 +380,16 @@
             "text": "Spirit Walk (Dark Elf)",
             "href": "rules.html#rule-spirit-walk"
           },
-          "Spends two Spirit Favor to summon two invulnerable ancestors for 45 seconds.",
-          "Quarantined (don't use yet): this power, even if you have no other summon."
+          "Spends two Spirit Favor. Summons two invulnerable ancestors for 45 seconds.",
+          "Quarantined even with no other summon. Don't use yet."
         ],
         [
           {
             "text": "Extra active summons",
             "href": "rules.html#rule-extra-summons"
           },
-          "BVP's Summoner, Puppeteer, Twin Souls and Dragonborn rank 2 increase how many helpers you can control.",
-          "Keep one active summon per player, regardless of unlocked capacity. Held summons and corpse raising remain excluded."
+          "Summoner, Puppeteer, Twin Souls, Dragonborn rank 2 increase summon capacity.",
+          "Keep one active summon per player, regardless of unlocked capacity. Quarantined summons and corpse raising remain excluded."
         ],
         [
           {
@@ -404,7 +404,7 @@
             "text": "Dragonborn rank 4: spectral drum (Speech 60)",
             "href": "rules.html#rule-dragonborn-4-drum"
           },
-          "Grants a summoned spectral drum that restores followers' Stamina, alongside better trading prices.",
+          "Summons a spectral drum that restores followers' Stamina. Improves prices.",
           "Quarantined (don't use yet): the drum power. Its effect on other players (not verified)."
         ],
         [
@@ -412,7 +412,7 @@
             "text": "Dragonborn rank 5: Dremora Merchant (Speech 80)",
             "href": "rules.html#rule-dragonborn-5-merchant"
           },
-          "Grants a summonable Dremora to buy and sell goods, alongside better trading prices.",
+          "Summons a Dremora to buy and sell goods. Improves prices.",
           "Quarantined (don't use yet): the merchant power."
         ],
         [
@@ -420,7 +420,7 @@
             "text": "Torch auto-unlock (Lockpicking)",
             "href": "rules.html#rule-torch-auto-unlock"
           },
-          "Novice through Master Locks can open matching locks while you hold a torch outside combat.",
+          "Novice through Master Locks open matching locks outside combat. Requires a torch.",
           "Quarantined (don't use yet): automatic unlocking. Use lockpicks manually."
         ],
         [
@@ -435,11 +435,11 @@
     },
     {
       "id": "night",
-      "title": "During the night, before and after",
+      "title": "During the night",
       "columns": [
         "Moment",
-        "Before: single player",
-        "After: our co-op"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
@@ -448,30 +448,30 @@
           "Join the party and regroup. Don't quest alone to catch up."
         ],
         [
-          "Need a minute",
+          "Taking a break",
           "Pause",
           "Type HOLD or BRB and get somewhere safe. Nothing pauses."
         ],
         [
-          "Saving",
+          "Saving progress",
           "Save whenever",
-          "Each player saves their own game. Save before big scenes and quest turn-ins."
+          "Save your own game before big scenes and quest turn-ins."
         ],
         [
-          "Something looks wrong",
+          "Reporting a problem",
           "Reload",
-          "Stop and tell the host. Never reload while connected or fix quests alone."
+          "Stop. Tell the host. Never reload while connected or fix quests alone."
         ]
       ],
-      "note": "What each of our 19 mods changes is in chapter 01, on the Our mods page."
+      "note": "Our mods lists all 19 installed mods and their changes."
     },
     {
       "id": "builds",
-      "title": "Builds, before and after",
+      "title": "Builds",
       "columns": [
         "Role",
-        "Before: single player",
-        "After: our party"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
@@ -508,17 +508,17 @@
     },
     {
       "id": "party",
-      "title": "Group play, before and after",
+      "title": "Group play",
       "columns": [
         "Situation",
-        "Before: single player",
-        "After: our party"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
           "Chased",
           "Run or fight",
-          "Say \"On me\". Move toward the group; the frontliner steps in."
+          "Say \"On me\". Move toward the group. The frontliner steps in."
         ],
         [
           "Hurt",
@@ -549,22 +549,22 @@
     },
     {
       "id": "ownership",
-      "title": "Ownership, before and after",
+      "title": "Ownership",
       "columns": [
         "Thing",
-        "Before: single player",
-        "After: our co-op"
+        "Single player",
+        "Co-op"
       ],
       "rows": [
         [
           "Before you own a home",
-          "Keep valuables in your pack or in a container that doesn't reset",
+          "Use your pack or a container that never resets.",
           "Keep valuables in your pack. Containers you don't own can reset."
         ],
         [
           "Carried inventory",
           "Gear and supplies travel with your character and save.",
-          "Each player carries their own items; equipped gear and inventories synchronize."
+          "Each player carries their own items. Equipment and inventories synchronize."
         ],
         [
           "World and chest loot",
@@ -574,54 +574,54 @@
         [
           "Gold",
           "You hold and spend your own gold.",
-          "Personal purses; no death gold penalty in our setup. Crime bounties still cost gold."
+          "Your gold stays yours. No death gold penalty. Crime bounties still cost gold."
         ],
         [
           "Private home chests",
-          "Owned homes provide personal storage; choose a safe container.",
-          "Vanilla/DLC home chests are unsynced. Test your chosen chest with cheap items; persistence here (not verified)."
+          "Owned homes provide personal storage. Choose a safe container.",
+          "Vanilla/DLC home chests are unsynced. Test your chest with cheap items. Persistence here is unverified."
         ],
         [
           "Shared storage and trading",
-          "Containers store items; some containers reset and are unsafe for lasting storage.",
-          "Shared chest transfers synchronize. Test a cheap transfer first; lasting storage and reconnect results (not verified)."
+          "Containers store items. Some containers reset and are unsafe for lasting storage.",
+          "Shared chest transfers synchronize. Test a cheap transfer first. Lasting storage and reconnect results remain unverified."
         ],
         [
           "Dropped items",
           "You can drop an item and pick it up again.",
-          "Dropped items aren't shared on our server. Hand things over through a tested shared chest."
+          "Dropped items aren't shared on our server. Trade through a tested shared chest."
         ],
         [
           "Quest items",
-          "You take items such as the Golden Claw and advance the quest yourself.",
-          "Only the party leader takes quest items and handles quest dialogue."
+          "Take quest items like the Golden Claw. Advance quests yourself.",
+          "The party leader takes quest items and handles quest dialogue."
         ],
         [
           "Buying a home as a non-leader",
           "Meet the city's requirements, then pay its steward.",
-          "The leader handles prerequisite quests. Non-leader payment, keys and ownership (not verified); do not assume another player's purchase buys you a home."
+          "The leader handles prerequisite quests. Non-leader payment, keys and ownership remain unverified. Another player's purchase may not buy you a home."
         ],
         [
           "Hearthfire building and furnishing",
           "Buy a plot, gather materials and build your own house.",
-          "Vanilla/DLC interiors are personal. Building, steward purchases and visits with this party (not verified)."
+          "Vanilla/DLC interiors are personal. Building, steward purchases and party visits remain unverified."
         ]
       ]
     },
     {
       "id": "mods",
-      "title": "Our mods, before and after",
-      "note": "The base mods that run the server (Skyrim Together, SKSE, Address Library) are not listed. Our collection, revision 6, includes everything here.",
+      "title": "Our mods",
+      "note": "19 installed mods, including three foundations. Collection revision 6.",
       "columns": [
         "Mod",
-        "Before: without it",
-        "After: with it"
+        "Vanilla",
+        "Mods"
       ],
       "rows": [
         [
           "Helgen Express",
           "The long Helgen intro",
-          "A quick start screen: pick race, sign, gear, spells and helper."
+          "Quick choices for race, sign, gear, spells and helper."
         ],
         [
           "SkyUI",
@@ -631,7 +631,7 @@
         [
           "Skyrim Souls RE",
           "Menus pause the game",
-          "Menus don't pause. You can be hit while in your bag."
+          "Menus stay open during play. Enemies can still hit you."
         ],
         [
           "SSE Display Tweaks",
@@ -650,18 +650,18 @@
         ],
         [
           "True Directional Movement",
-          "Tank controls",
-          "Modern movement. Middle mouse locks onto hostiles; scroll switches target."
+          "Manual turning",
+          "Move freely. Press middle mouse to lock onto hostiles. Scroll to switch targets."
         ],
         [
           "Better Third Person Selection",
           "Aim the tiny crosshair",
-          "Walk up and press E on what's highlighted."
+          "Walk up. Press E on what's highlighted."
         ],
         [
           "MCM Helper",
           "Some mod menus missing",
-          "Precision, TDM and other menus appear in Mod Configuration."
+          "Supports mod settings in the Mod Configuration menu."
         ],
         [
           "TrueHUD",
@@ -671,7 +671,7 @@
         [
           "QuickLoot IE",
           "Open every container",
-          "A loot list pops up beside chests and bodies. E takes one, R takes all."
+          "Chests and bodies show loot. Press E for one item. Press R for all."
         ],
         [
           "moreHUD",
@@ -706,6 +706,21 @@
             "text": "Every perk tree reworked. See Skills",
             "href": "skills.html"
           }
+        ],
+        [
+          "Skyrim Together Reborn",
+          "Play alone",
+          "Adds co-op connections, parties, chat and shared quests."
+        ],
+        [
+          "Skyrim Script Extender (SKSE)",
+          "Standard game scripting",
+          "Adds scripting support needed by our mods."
+        ],
+        [
+          "Address Library for SKSE Plugins",
+          "No SKSE plugin support library",
+          "Helps SKSE plugins work with the game."
         ]
       ]
     }

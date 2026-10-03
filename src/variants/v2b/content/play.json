@@ -63,7 +63,7 @@
           "type": "comparison",
           "id": "our-mods",
           "title": "The mods in our game",
-          "note": "The base mods that run the server (Skyrim Together, SKSE, Address Library) are not listed. Our collection, revision 6, includes everything here.",
+          "note": "19 installed mods, including three foundations. Collection revision 6.",
           "columns": [
             "Mod",
             "Without it",
@@ -113,7 +113,7 @@
             [
               "MCM Helper",
               "Some mod menus missing",
-              "Precision, TDM and other menus appear in Mod Configuration."
+              "Supports mod settings in the Mod Configuration menu."
             ],
             [
               "TrueHUD",
@@ -149,6 +149,21 @@
               "Better Vanilla Perks",
               "Vanilla perk trees",
               "Every perk tree reworked. See Skills"
+            ],
+            [
+              "Skyrim Together Reborn",
+              "Play alone",
+              "Adds co-op connections, parties, chat and shared quests."
+            ],
+            [
+              "Skyrim Script Extender (SKSE)",
+              "Standard game scripting",
+              "Adds scripting support needed by our mods."
+            ],
+            [
+              "Address Library for SKSE Plugins",
+              "No SKSE plugin support library",
+              "Helps SKSE plugins work with the game."
             ]
           ]
         },
@@ -191,7 +206,7 @@
     },
     {
       "id": "builds",
-      "eyebrow": "Unusual builds",
+      "eyebrow": "Build ideas",
       "title": "Make room for specialists",
       "intro": "Choose a useful specialty; friends cover your gaps. These are flexible build ideas.",
       "blocks": [
@@ -538,7 +553,7 @@
           "href": "#spotlight"
         },
         {
-          "label": "Next chapter",
+          "label": "Next topic",
           "text": "Our first adventure is still ahead.",
           "href": "#next-thread"
         }

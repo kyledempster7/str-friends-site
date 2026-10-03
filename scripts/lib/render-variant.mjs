@@ -119,7 +119,7 @@ export async function renderVariant({root,variant,originals}) {
   }
 
   function nav(current) {
-    return `<aside class="chapter-nav"><span class="eyebrow">The field guide</span><nav aria-label="Guide chapters">${home.guide.items.map((item,i)=>`<a href="${item.id}.html"${current===item.id ? ' aria-current="page"' : ''}><span aria-hidden="true">0${i+1}</span>${esc(item.label)}</a>`).join('')}<a href="rules.html"${current==='rules' ? ' aria-current="page"' : ''}>${icon('search')}Can I use this?</a></nav></aside>`;
+    return `<aside class="chapter-nav"><span class="eyebrow">The field guide</span><nav aria-label="Guide topics">${home.guide.items.map((item,i)=>`<a href="${item.id}.html"${current===item.id ? ' aria-current="page"' : ''}><span aria-hidden="true">0${i+1}</span>${esc(item.label)}</a>`).join('')}<a href="rules.html"${current==='rules' ? ' aria-current="page"' : ''}>${icon('search')}Can I use this?</a></nav></aside>`;
   }
 
   function chapter(section) {
@@ -132,7 +132,7 @@ export async function renderVariant({root,variant,originals}) {
     const heading=`<div class="page-heading"><a class="breadcrumb" href="index.html">${icon('arrow')} Back to the campfire</a><p class="eyebrow">${esc(section.eyebrow)}</p><h1>${esc(section.title)}</h1>${section.intro ? `<p class="page-intro">${esc(section.intro)}</p>` : ''}${isB ? `<div class="horizon horizon-${index+1}" aria-hidden="true"></div>` : ''}</div>`;
     let artwork='';
     if (isB && section.id==='chronicle') artwork=`<figure class="unlit campfire-empty">${originals.get('campfire-inline')?.toString('utf8') || ''}<figcaption>Our first adventure is still ahead.</figcaption></figure>`;
-    return `<div class="page-layout${['chronicle','ledger'].includes(section.id) ? ' story-layout' : ''}">${nav(section.id)}<article class="page-content">${heading}${quickAnswers(section)}${artwork}<div class="prose">${content}</div>${hasExit ? `<div class="exit-section">${exitCard()}</div>` : ''}${next ? `<nav class="next-chapter" aria-label="Next chapter"><span class="eyebrow">Next chapter</span><a href="${next.id}.html">0${index+2} ${esc(next.label)} ${arrow}</a></nav>` : index===chapterIds.length-1 ? `<nav class="next-chapter" aria-label="End of the guide"><span class="eyebrow">You've reached the end</span><a href="index.html#guide">Back to the chapters ${arrow}</a></nav>` : ''}</article></div>`;
+    return `<div class="page-layout${['chronicle','ledger'].includes(section.id) ? ' story-layout' : ''}">${nav(section.id)}<article class="page-content">${heading}${quickAnswers(section)}${artwork}<div class="prose">${content}</div>${hasExit ? `<div class="exit-section">${exitCard()}</div>` : ''}${next ? `<nav class="next-chapter" aria-label="Next topic"><span class="eyebrow">Next topic</span><a href="${next.id}.html">0${index+2} ${esc(next.label)} ${arrow}</a></nav>` : index===chapterIds.length-1 ? `<nav class="next-chapter" aria-label="End of the guide"><span class="eyebrow">You've reached the end</span><a href="index.html#guide">Back to the guide ${arrow}</a></nav>` : ''}</article></div>`;
   }
   pages.set('index.html',shell('index.html',homePage()));
   for (const section of sections.filter(section=>section.id!=='leave-now')) pages.set(`${section.id}.html`,shell(`${section.id}.html`,chapter(section)));

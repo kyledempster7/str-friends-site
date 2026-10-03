@@ -90,7 +90,7 @@
   },
   "guide": {
     "eyebrow": "Keep this close",
-    "title": "Seven chapters.",
+    "title": "Seven topics.",
     "text": "Each opens on its quick answers.",
     "items": [
       {
@@ -113,14 +113,14 @@
       },
       {
         "id": "tonight",
-        "label": "A night of adventure",
-        "title": "Join, play, and leave well",
+        "label": "Joining and leaving",
+        "title": "Set up, join, play, leave",
         "text": ""
       },
       {
         "id": "builds",
-        "label": "Unusual builds",
-        "title": "Bring something unexpected",
+        "label": "Build ideas",
+        "title": "Choose your skills",
         "text": ""
       },
       {
