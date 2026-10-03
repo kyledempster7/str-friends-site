@@ -34,7 +34,7 @@ function decode(text) {
       const point = parseInt(hex ?? dec, hex ? 16 : 10);
       return point <= 0x10ffff ? String.fromCodePoint(point) : '';
     }).replace(/&([a-z]+);/gi, (original, name) => entities[name.toLowerCase()] ?? original);
-    result = result.replace(/\\u([0-9a-f]{4})/gi, (_, hex) => String.fromCharCodePoint(parseInt(hex, 16))).replace(/\\\\/g, '\\');
+    result = result.replace(/\\u([0-9a-f]{4})/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16))).replace(/\\\\/g, '\\');
     result = result.replace(/(?:%[0-9a-f]{2})+/gi, value => {
       try { return decodeURIComponent(value); } catch { return value; }
     });
