@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, unlink, rm, readdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, unlink, rm, readdir, cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { materializeFrozen } from './lib/frozen.mjs';
@@ -77,6 +77,8 @@ for (const [name, content] of await renderV4(root)) {
   await writeFile(destination, content);
 }
 for (const name of ['assets/site.css', 'assets/north.svg', 'assets/favicon.svg']) await writeFile(path.join(output, 'v4', name), original.get(name));
+// Same-origin, repository-owned audio; no external media service or API.
+await cp(path.join(root, 'src/variants/v4/audio'), path.join(output, 'v4/audio'), { recursive: true });
 
 // The original release (root and /v1/) is no longer published. The root forwards to D.
 for (const name of original.keys()) await rm(path.join(output, name), { force: true });

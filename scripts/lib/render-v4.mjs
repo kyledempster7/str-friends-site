@@ -21,6 +21,8 @@ const mark = svg('<path d="m2 20 7-13 4 7 3-5 6 11H2Z"/><path d="m6.5 11.5 2.5 2
 const joinIcon = svg('<path d="M15 4h5v16h-5M3 12h11m-4-5 5 5-5 5"/>');
 const searchIcon = svg('<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>');
 const arrowIcon = svg('<path d="M4 12h15m-6-6 6 6-6 6"/>');
+const playIcon = svg('<path d="m9 5 11 7-11 7Z" fill="currentColor"/>', 'icon d-audio-play-icon');
+const pauseIcon = svg('<path d="M8 5v14M16 5v14" stroke-width="4"/>', 'icon d-audio-pause-icon');
 
 const css = `/* Version D: grids on the original look. */
 .hero h1 em,em{font-style:normal}
@@ -83,6 +85,19 @@ const css = `/* Version D: grids on the original look. */
 .d-pager a{color:var(--gold);text-decoration:none}.d-pager a:hover{color:#f6f2e9}
 .d-pager .d-next{margin-left:auto;text-align:right}
 .d-join{display:inline-flex;align-items:center;gap:8px}.d-join small{font-size:.75rem;opacity:.8}
+.d-audio{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 16px;margin:24px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.d-audio[data-enhanced]{grid-template-columns:56px minmax(0,1fr) auto}
+.d-audio [hidden]{display:none!important}.d-audio-main{min-width:0}.d-audio-kicker{margin:0 0 3px;color:var(--gold);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}
+.d-audio h2{margin:0;font:400 1.15rem/1.3 Georgia,'Times New Roman',serif;color:var(--bright);overflow-wrap:anywhere}
+.d-audio button{font:inherit;cursor:pointer}.d-audio-play{display:flex;align-items:center;justify-content:center;width:56px;height:56px;padding:0;border:0;border-radius:50%;background:var(--gold);color:var(--bg)}
+.d-audio-play:hover{background:var(--bright)}.d-audio-play .icon{width:24px;height:24px}.d-audio-pause-icon{display:none}.d-audio[data-playing="true"] .d-audio-play-icon{display:none}.d-audio[data-playing="true"] .d-audio-pause-icon{display:block}
+.d-audio-timeline{margin-top:6px}.d-audio input[type="range"]{display:block;width:100%;min-width:0;height:24px;margin:0;accent-color:var(--gold);cursor:pointer}.d-audio input:disabled{cursor:default;opacity:.55}
+.d-audio-time{display:flex;justify-content:space-between;gap:8px;color:#b2bfc2;font-size:.75rem;font-variant-numeric:tabular-nums;line-height:1.4}
+.d-audio-actions{display:flex;flex-direction:column;align-items:center;gap:2px}.d-audio-speed{min-width:48px;min-height:44px;padding:4px 8px;border:1px solid var(--gold-dark);border-radius:3px;color:var(--gold);background:transparent}
+.d-audio-transcript-link{display:flex;align-items:center;min-height:44px;color:var(--gold);font-size:.8rem}.d-audio audio{grid-column:1/-1;width:100%;max-width:420px}.d-audio-status{grid-column:1/-1;margin:0;color:#b2bfc2;font-size:.9rem}
+.d-audio button:focus-visible,.d-audio input:focus-visible,.d-audio a:focus-visible,.d-transcript summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
+@media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:900px){.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
@@ -112,11 +127,19 @@ ${rows}
 };
 const quickGrid = (q) => q ? grid({ id: 'quick-answer', quick: true, title: 'Quick answer', columns: ['Question', 'Short answer'], rows: [q] }) : '';
 const sources = (list) => list?.length ? `<p class="d-sources">Sources: ${list.map(([label, url]) => `<a href="${esc(url)}">${esc(label)}</a>`).join('')}</p>` : '';
+const audioTime = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+const audioBar = (audio) => audio ? `<section class="d-audio" aria-labelledby="audio-title" data-transcript="${esc(audio.transcriptAnchor)}">
+<button type="button" class="d-audio-play" data-audio-play data-audio-custom hidden aria-label="Play ${esc(audio.title)}" aria-controls="listen-audio">${playIcon}${pauseIcon}</button>
+<div class="d-audio-main"><p class="d-audio-kicker">Listen along</p><h2 id="audio-title">${esc(audio.title)}</h2><div class="d-audio-timeline" data-audio-custom hidden><input type="range" data-audio-seek min="0" max="${esc(audio.duration)}" step="0.1" value="0" disabled aria-label="Seek audio (available after pressing Play)" aria-controls="listen-audio"><div class="d-audio-time" aria-hidden="true"><span data-audio-elapsed>0:00</span><span data-audio-total>${audioTime(audio.duration)}</span></div></div></div>
+<div class="d-audio-actions"><button type="button" class="d-audio-speed" data-audio-speed data-audio-custom hidden aria-label="Playback speed: 1 times. Change speed" aria-controls="listen-audio">1×</button><a class="d-audio-transcript-link" href="#${esc(audio.transcriptAnchor)}">Transcript</a></div>
+<audio id="listen-audio" controls preload="none" src="${esc(audio.src)}" aria-label="Listen to ${esc(audio.title)}"></audio><p class="d-audio-status" role="status" hidden></p></section>` : '';
+const audioTranscript = (audio) => audio ? `<details class="d-transcript" id="${esc(audio.transcriptAnchor)}"><summary>Audio transcript: ${esc(audio.title)}</summary>${audio.transcript.map(p => `<p>${esc(p)}</p>`).join('')}</details>` : '';
 
 export async function renderV4(root) {
   const shared = JSON.parse(await readFile(path.join(root, 'src/variants/v4/grids.json'), 'utf8'));
   const data = JSON.parse(await readFile(path.join(root, 'src/variants/v4/pages.json'), 'utf8'));
   const catalog = JSON.parse(await readFile(path.join(root, 'src/variants/v4/content/catalog.json'), 'utf8'));
+  const audioScript = await readFile(path.join(root, 'scripts/lib/v4-audio.js'), 'utf8');
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
     const found = typeof g === 'string' ? byId.get(g) : g;
@@ -151,8 +174,8 @@ ${body}
     title: 'The North is better together', current: '',
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><p class="eyebrow">${esc(h.eyebrow)}</p><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1><p class="hero-intro">${esc(h.intro)}</p></div></div></section>
-<div class="d-page">${searchForm('home-search')}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><p>${esc(h.chaptersIntro)}</p></div><div class="d-chapters">${tiles}</div></section></div>`
+<div class="d-page">${audioBar(h.audio)}${searchForm('home-search')}
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><p>${esc(h.chaptersIntro)}</p></div><div class="d-chapters">${tiles}</div></section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
   // Topic subpages: the shared guide, then links within this topic and a sequential pager.
@@ -176,10 +199,12 @@ ${body}
         title: p.title, current: p.file === 'join.html' ? 'join' : p.file === 'ledger.html' ? 'ledger' : p.file === 'mods.html' ? 'mods' : '',
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
         body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${subpages}
+${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g))).join('\n')}
+${audioTranscript(p.audio)}
 ${sources(p.sources)}
-${pager}</div></div>`
+${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
       }));
     });
   });
@@ -203,21 +228,23 @@ ${ruleRows(list)}
 ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means unchecked. Ask the host before using it.</td></tr>' : ''}
 </tbody></table></div></section>`;
   const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1><p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
+  const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
   pages.set('rules.html', shell({
     title: 'Can I use this?', current: 'rules',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
 ${pageLinks(data.rules.pages, 'rules.html', 'Rules')}
+${audioBar(rulesAudio)}
 ${ruleGrid(entries, { search: true })}
 ${quickGrid(['Can I use this spell or perk?', "Quarantined: don't use yet. Allowed: go ahead. Conditional: follow the stated limit. Unlisted: ask the host."])}
 <section class="d-section" aria-labelledby="key"><h2 id="key">What the statuses mean</h2><div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Status</th><th scope="col">How many</th><th scope="col">Means</th></tr></thead><tbody>${keyRows}</tbody></table></div></section>
-</div></div>`
+${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}</script>` : ''}`
   }));
   for (const p of data.rules.pages.filter(p => p.categories)) {
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
       title: p.title, current: 'rules', description: `${p.title}: what you can use in our campaign.`,
-      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageLinks(data.rules.pages, p.file, 'Rules')}${ruleGrid(list)}</div></div>`
+      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageLinks(data.rules.pages, p.file, 'Rules')}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
 

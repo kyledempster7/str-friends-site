@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { assertFrozen } from './lib/frozen.mjs';
 import { stripVersionBar, VERSIONS } from './lib/version-bar.mjs';
 
@@ -60,8 +61,31 @@ function privacy(relative, value) {
   }
 }
 
+const mediaMetadata = new Map();
 const allFiles = walk(root);
-for (const file of allFiles) privacy(path.relative(root, file), fs.readFileSync(file).toString('utf8'));
+for (const file of allFiles) {
+  const relative = path.relative(root, file);
+  if (!/\.mp3$/i.test(file)) {
+    privacy(relative, fs.readFileSync(file).toString('utf8'));
+    continue;
+  }
+  // Compressed audio is not UTF-8: random frame bytes can resemble device paths.
+  // Inspect every MP3's actual metadata; its spoken transcript is scanned as JSON
+  // and rendered HTML by the unchanged text checks above. Probe failures fail closed.
+  const probe = spawnSync(process.env.FFPROBE_PATH || 'ffprobe', [
+    '-v', 'error', '-show_entries', 'format=duration:format_tags:stream=codec_type:stream_tags', '-of', 'json', file
+  ], { encoding: 'utf8', windowsHide: true, timeout: 15_000 });
+  if (probe.error || probe.status !== 0) {
+    fail(`${relative}: cannot inspect audio; install ffprobe or set FFPROBE_PATH to its executable`);
+    continue;
+  }
+  try {
+    const metadata = JSON.parse(probe.stdout);
+    privacy(relative, JSON.stringify(metadata));
+    if (metadata.streams?.some(stream => stream.codec_type !== 'audio')) fail(`${relative}: MP3 must contain only audio`);
+    mediaMetadata.set(file, metadata);
+  } catch { fail(`${relative}: invalid ffprobe result`); }
+}
 const rules = readJson('src/content/rules.json');
 const play = readJson('src/content/play.json');
 const catalog = readJson('src/content/catalog.json');
@@ -116,6 +140,69 @@ if (published.reduce((total, file) => total + fs.statSync(file).size, 0) > 2 * 1
 const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
+// Probe real media rather than trusting the declared player duration. Keep the
+// existing total site budget; these are additional per-clip publication limits.
+const audioPages = readJson('src/variants/v4/pages.json');
+const declaredAudio = new Set();
+const audioMetadata = new Map();
+const audioSource = path.join(root, 'src/variants/v4/audio');
+const audioOutput = path.join(dist, 'v4/audio');
+const audioFiles = walk(audioSource);
+for (const file of audioFiles) {
+  const label = path.relative(root, file);
+  if (!file.endsWith('.mp3')) { fail(`${label}: only MP3 audio is supported`); continue; }
+  if (fs.statSync(file).size > 10_000_000) fail(`${label}: audio exceeds 10 MB`);
+  const metadata = mediaMetadata.get(file);
+  if (!metadata) continue;
+  const duration = Number(metadata.format?.duration);
+  if (!metadata.streams?.some(stream => stream.codec_type === 'audio') || !Number.isFinite(duration) || duration <= 0) fail(`${label}: no valid audio duration`);
+  else {
+    if (duration > 600) fail(`${label}: audio exceeds 10 minutes`);
+    audioMetadata.set(file, duration);
+  }
+  const outputFile = path.join(audioOutput, path.relative(audioSource, file));
+  if (!fs.existsSync(outputFile) || !fs.readFileSync(file).equals(fs.readFileSync(outputFile))) fail(`${label}: built audio is missing or differs from its source; rebuild`);
+}
+const compactText = value => value.replace(/\s+/g, ' ').trim();
+for (const page of [
+  { ...audioPages?.home, file: 'index.html' },
+  ...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []),
+  ...(audioPages?.rules?.pages ?? [])
+]) {
+  if (!page.audio) continue;
+  const audio = page.audio;
+  const label = `v4/${page.file}: audio`;
+  if (typeof audio.title !== 'string' || !audio.title.trim()) fail(`${label}: missing title`);
+  if (typeof audio.duration !== 'number' || !Number.isFinite(audio.duration) || audio.duration <= 0 || audio.duration > 600) fail(`${label}: duration must be seconds between 0 and 600`);
+  if (typeof audio.src !== 'string' || !/^audio\/[a-z0-9]+(?:-[a-z0-9]+)*\.mp3$/.test(audio.src)) fail(`${label}: src must name an MP3 in audio/`);
+  else {
+    const file = path.join(root, 'src/variants/v4', audio.src);
+    declaredAudio.add(file);
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) fail(`${label}: missing audio file ${audio.src}`);
+    const duration = audioMetadata.get(file);
+    if (duration !== undefined && Math.abs(duration - audio.duration) > 1) fail(`${label}: declared duration differs from the MP3`);
+  }
+  const paragraphs = audio.transcript;
+  if (!Array.isArray(paragraphs) || !paragraphs.length || paragraphs.some(text => typeof text !== 'string' || !text.trim())) {
+    fail(`${label}: missing transcript text`);
+    continue;
+  }
+  if (typeof audio.transcriptAnchor !== 'string' || !/^[a-z][a-z0-9-]*$/.test(audio.transcriptAnchor)) {
+    fail(`${label}: missing or invalid transcript anchor`);
+    continue;
+  }
+  const html = documents.get(path.join(dist, 'v4', page.file)) ?? '';
+  const transcript = html.match(new RegExp(`<details class="d-transcript" id="${audio.transcriptAnchor}">([\\s\\S]*?)<\\/details>`));
+  const renderedParagraphs = [...(transcript?.[1] ?? '').matchAll(/<p>([\s\S]*?)<\/p>/g)]
+    .map(match => compactText(decode(match[1].replace(/<[^>]*>/g, ' '))));
+  if (!transcript || JSON.stringify(renderedParagraphs) !== JSON.stringify(paragraphs.map(compactText))) fail(`${label}: matching transcript text must be on the same page`);
+  const audioTag = html.match(/<audio\b[^>]*>/)?.[0] ?? '';
+  if (!audioTag.includes(`src="${audio.src}"`) || !/\bcontrols(?:\s|>)/.test(audioTag) || !audioTag.includes('preload="none"')) fail(`${label}: native fallback with preload="none" is required`);
+}
+for (const file of audioFiles) if (!declaredAudio.has(file)) fail(`${path.relative(root, file)}: audio needs a page with a transcript`);
+for (const file of walk(audioOutput)) {
+  if (!audioFiles.includes(path.join(audioSource, path.relative(audioOutput, file)))) fail(`${path.relative(dist, file)}: audio has no source with a transcript`);
+}
 const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
 // Check the full lookup and each category grid against the same adopted records.
 function checkRenderedCatalog(catalogPath, catalogHtml, variantEntries) {
