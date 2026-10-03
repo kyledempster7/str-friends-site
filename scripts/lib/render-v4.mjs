@@ -87,7 +87,7 @@ const css = `/* Version D: grids on the original look. */
 @media (min-width:900px){.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
 @media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
-@media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
+@media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid caption,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
 
 // A cell is text, a link {text, href}, or a list of both (one link per named ability).
 const cell = (value) => {
@@ -128,7 +128,7 @@ export async function renderV4(root) {
   for (const c of chapters) if (!c.pages.length || c.pages.length > 5) throw new Error(`Chapter ${c.num} must have 1 to 5 pages`);
 
   const shell = ({ title, description, body, current }) => {
-    const nav = [['mods.html', 'Our mods', 'mods'], ['rules.html', 'Can I use this?', 'rules'], ['ledger.html', 'Party ledger', 'ledger'], ['join.html', 'Joining and leaving', 'join']]
+    const nav = [['mods.html', 'Our mods', 'mods'], ['rules.html', 'Can I use this?', 'rules'], ['ledger.html', 'Party ledger', 'ledger'], ['join.html', 'Joining a session', 'join']]
       .map(([href, label, key]) => `<a href="${href}"${key === current ? ' aria-current="page"' : ''}>${label}</a>`).join('');
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
@@ -173,7 +173,7 @@ ${body}
           : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
       const pager = `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`;
       pages.set(p.file, shell({
-        title: p.title, current: ['leave-now.html', 'join.html', 'setup.html', 'tonight.html'].includes(p.file) ? 'join' : p.file === 'ledger.html' ? 'ledger' : p.file === 'mods.html' ? 'mods' : '',
+        title: p.title, current: p.file === 'join.html' ? 'join' : p.file === 'ledger.html' ? 'ledger' : p.file === 'mods.html' ? 'mods' : '',
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
         body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${subpages}
 ${quickGrid(p.quick)}
@@ -224,7 +224,7 @@ ${quickGrid(['Can I use this spell or perk?', "Quarantined: don't use yet. Allow
   pages.set('404.html', shell({
     title: 'Page not found', current: '',
     description: 'This page does not exist.',
-    body: `<div class="d-layout">${sidebar('404.html')}<div class="d-page"><h1>Page not found</h1>${grid({ id: 'try', title: 'Try one of these', columns: ['Go to', 'What it is'], rows: [[{ text: 'The field guide', href: 'index.html#topics' }, 'Seven topics, start to finish'], [{ text: 'Can I use this?', href: 'rules.html' }, 'Check a spell, perk, power or mod'], [{ text: 'Joining and leaving', href: 'join.html' }, 'How to join or leave a session']] })}</div></div>`
+    body: `<div class="d-layout">${sidebar('404.html')}<div class="d-page"><h1>Page not found</h1>${grid({ id: 'try', title: 'Try one of these', columns: ['Go to', 'What it is'], rows: [[{ text: 'The field guide', href: 'index.html#topics' }, 'Seven topics, start to finish'], [{ text: 'Can I use this?', href: 'rules.html' }, 'Check a spell, perk, power or mod'], [{ text: 'Joining a session', href: 'join.html' }, 'How to join a session']] })}</div></div>`
   }));
 
   pages.set('assets/d.css', css);

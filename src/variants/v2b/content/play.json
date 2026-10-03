@@ -10,11 +10,11 @@
           "type": "callout",
           "tone": "urgent",
           "title": "Save. Disconnect. Quit.",
-          "text": "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game. If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
+          "text": "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game (Esc → System → Quit). If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
         },
         {
           "type": "text",
-          "text": "Unsaved progress may be lost. Tell the group later; no recap needed."
+          "text": "Unsaved progress may be lost. Tell the group later; no recap needed. Short break: pause quests until everyone returns. Done tonight: save and stop this campaign. Resume together next session."
         }
       ]
     },
@@ -35,8 +35,8 @@
           "id": "join",
           "title": "Join tonight's game",
           "items": [
-            "Launch Skyrim Together; load your latest campaign save.",
-            "Press F2 or Right Ctrl. Choose Connect; use the details the host sent you privately.",
+            "Double-click your configured SkyrimTogether.exe shortcut. Load your latest campaign save.",
+            "The host will tell you on Discord before the session. Follow their private connection instructions. Press F2 or Right Ctrl. Choose Connect; use the details the host sent you privately.",
             "Check your party: press F2, click Player Manager, then the Party Menu tab. It lists your party by Name, Lv. and Location. Make sure the leader is there.",
             "Not listed? The leader clicks Launch party in the Party Menu, and you join automatically. Still missing? Look under Invites for \"Accept invite from\" the leader, or tell the leader.",
             "Go to the spot the host names on Discord. Then open chat with F2 or Right Ctrl, type READY and press Enter."

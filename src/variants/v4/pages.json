@@ -248,7 +248,7 @@
     },
     {
       "num": "04",
-      "label": "Joining and leaving",
+      "label": "Setup, joining and leaving",
       "headline": "Set up, join, play, leave",
       "icon": "<path d=\"M20 15.5A8.7 8.7 0 0 1 8.5 4 9 9 0 1 0 20 15.5Z\"/>",
       "pages": [
@@ -258,7 +258,7 @@
           "grids": [
             {
               "id": "setup",
-              "title": "Setting up the first time",
+              "title": "First-time setup",
               "note": "Follow our Nexus collection page for installer choices.",
               "columns": [
                 "Step",
@@ -269,18 +269,23 @@
                 [
                   "Get Skyrim on Steam",
                   "Skyrim Special Edition on Steam",
-                  "Special Edition. You don't need the Anniversary upgrade."
+                  "Special Edition. You don't need the Anniversary Upgrade. Already own it? Steam → DLC: disable the Anniversary Upgrade."
+                ],
+                [
+                  "Open the normal Skyrim launcher once",
+                  "Choose display settings before playing",
+                  "Choose display settings. Reach the main menu, then quit. Do this before the cleanup below."
                 ],
                 [
                   "Run the cleanup kit",
                   "Nothing to do",
-                  "Run the Friend Kit's Creation Club cleanup from Nexus. Follow its README. Never use Steam's \"Verify integrity\" afterwards."
+                  "Nexus → Friend Kit: Download ZIP, then Extract All. Close Skyrim. Run the Creation Club cleanup. Read its result and README before continuing. It backs up the four bundled Creation Club add-ons. Never use Steam's \"Verify integrity\" afterwards."
                 ],
                 [
                   "Set up Vortex",
                   "Optional",
                   {
-                    "text": "Install Vortex. Sign in. Enable Profile Management. Create an STR profile.",
+                    "text": "Install Vortex. Sign in. Settings → Interface → Profile Management: enable it. Create and enable an STR profile. Choose own game settings.",
                     "href": "https://www.nexusmods.com/vortex"
                   }
                 ],
@@ -300,7 +305,7 @@
                 [
                   "Launch the co-op game",
                   "Steam's Play button",
-                  "Launch Skyrim Together (SkyrimTogether.exe). Steam's Play button starts the single-player game."
+                  "Double-click your configured SkyrimTogether.exe shortcut. Steam's Play button starts the single-player game."
                 ],
                 [
                   "Save your new character",
@@ -327,12 +332,12 @@
           "title": "Joining a session",
           "quick": [
             "How do I join tonight?",
-            "Launch Skyrim Together. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
+            "Double-click your configured SkyrimTogether.exe shortcut. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
           ],
           "grids": [
             {
               "id": "join",
-              "title": "Joining",
+              "title": "Joining a session",
               "columns": [
                 "Step",
                 "Single player",
@@ -342,7 +347,7 @@
                 [
                   "Launch the co-op game",
                   "Press Play on Steam",
-                  "Launch Skyrim Together (SkyrimTogether.exe)."
+                  "Double-click your configured SkyrimTogether.exe shortcut."
                 ],
                 [
                   "Load your campaign character",
@@ -350,9 +355,14 @@
                   "Load your campaign character, never a solo save."
                 ],
                 [
-                  "Connect to our server",
+                  "Get connection instructions on Discord",
                   "Not needed",
-                  "Start any connection app the host requested through Nexus. Press F2 or Right Ctrl. Choose Connect. Enter the server details sent privately by the host."
+                  "The host will tell you on Discord before the session. Follow their private connection instructions. Only install a networking app if they request it."
+                ],
+                [
+                  "F2 → Connect",
+                  "Not needed",
+                  "Press F2 or Right Ctrl. Choose Connect. Enter the server details the host sends privately on Discord."
                 ],
                 [
                   "Create the party (leader)",
@@ -384,6 +394,10 @@
           ],
           "sources": [
             [
+              "Our collection on Nexus",
+              "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
+            ],
+            [
               "Connecting to a server",
               "https://wiki.tiltedphoques.com/tilted-online/guides/client-setup/using-modorganizer2-mo2/playing-skyrim-together-reborn/connecting-to-a-server"
             ],
@@ -406,7 +420,7 @@
           "title": "Leaving",
           "quick": [
             "I have to leave right now.",
-            "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game."
+            "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game (Esc → System → Quit)."
           ],
           "grids": [
             {
@@ -420,18 +434,18 @@
               "rows": [
                 [
                   "Leaving, now or later",
-                  "Save and quit",
-                  "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game. If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
+                  "Esc → Save. Esc → System → Quit.",
+                  "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game (Esc → System → Quit). If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
                 ],
                 [
                   "Telling the group",
                   "Nobody to tell",
-                  "Type BRB, or tell the group later. No recap needed."
+                  "Short break: type BRB. Done tonight: say so. Tell the group later if needed. No recap needed."
                 ],
                 [
                   "Everyone else",
                   "Keep playing",
-                  "Pause quests until they return, especially if the leader left. Resume together."
+                  "Short break: pause quests until everyone returns. Done tonight: save and stop this campaign. Resume together next session."
                 ],
                 [
                   "Coming back",
@@ -506,7 +520,7 @@
                 [
                   "Two-handed guardian",
                   "Protect yourself and your follower",
-                  "Two-handed, Block and Heavy Armor. Protect nearby friends. There's no taunt."
+                  "Two-handed, Block and Heavy Armor. Protect nearby friends. No way to force enemies to attack you."
                 ],
                 [
                   "Stealth ranger",
@@ -618,43 +632,43 @@
                   "Healer",
                   "Restoration, Alteration",
                   "Breton or Imperial",
-                  "Mage, later Lord"
+                  "Mage; switch to Lord later"
                 ],
                 [
                   "Paladin",
                   "One-handed, Block, Restoration",
                   "Imperial or Breton",
-                  "Warrior, later Lord"
+                  "Warrior; switch to Lord later"
                 ],
                 [
                   "Necromancer-healer",
                   "Restoration, then Conjuration",
                   "Breton or Dark Elf",
-                  "Mage, later Lord"
+                  "Mage; switch to Lord later"
                 ],
                 [
                   "Death knight",
                   "Two-handed, Heavy Armor, some Conjuration",
                   "Nord or Orc",
-                  "Warrior, later Lord"
+                  "Warrior; switch to Lord later"
                 ],
                 [
                   "Two-handed guardian",
                   "Two-handed, Block, Heavy Armor",
                   "Orc or Nord",
-                  "Warrior, later Lord"
+                  "Warrior; switch to Lord later"
                 ],
                 [
                   "Stealth ranger",
                   "Archery, Sneak, Light Armor",
                   "Wood Elf or Nord",
-                  "Thief, later Lord"
+                  "Thief; switch to Lord later"
                 ],
                 [
                   "Gandalf-style wizard",
                   "Destruction, Alteration, some Restoration",
                   "Breton or High Elf",
-                  "Mage, later Lord"
+                  "Mage; switch to Lord later"
                 ],
                 [
                   "Storyteller",
@@ -666,13 +680,13 @@
                   "Blood mage",
                   "Destruction, Alteration",
                   "Breton or Dark Elf",
-                  "Mage, later Lord"
+                  "Mage; switch to Lord later"
                 ],
                 [
                   "Undead hunter",
                   "Restoration, One-handed, Block",
                   "Imperial or Breton",
-                  "Warrior, later Lord"
+                  "Warrior; switch to Lord later"
                 ],
                 [
                   "Battlefield supporter",
@@ -690,19 +704,24 @@
                   "Night scout",
                   "Illusion, Sneak, Archery",
                   "Your choice",
-                  "Thief, later Lord"
+                  "Thief; switch to Lord later"
                 ],
                 [
                   "Staff summoner",
                   "Conjuration, Enchanting",
                   "Breton or High Elf",
-                  "Mage, later Lord"
+                  "Mage; switch to Lord later"
                 ]
               ],
-              "note": "Suggestions only. Mix and change them freely."
+              "note": "Standing stones grant bonuses: activate one in the world. Find Mage, Warrior and Thief southwest of Riverwood. Suggestions only."
             }
           ],
-          "sources": []
+          "sources": [
+            [
+              "Standing stones",
+              "https://en.uesp.net/wiki/Skyrim:Standing_Stone"
+            ]
+          ]
         },
         {
           "file": "lore-builds.html",
