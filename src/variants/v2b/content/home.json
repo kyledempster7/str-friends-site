@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "eyebrow": "Skyrim Together Reborn",
+    "title": "The North is better together.",
+    "intro": "A few friends. A whole province. Find your place and share the adventure together.",
+    "buttonLabel": "Join tonight's game"
+  },
+  "routes": {
+    "eyebrow": "What do you need?",
+    "title": "Start with your question.",
+    "text": "Choose the answer you need.",
+    "items": [
+      {
+        "eyebrow": "01 / Join",
+        "title": "How do I join tonight?",
+        "text": "Five steps to your party.",
+        "cta": "Join tonight's game",
+        "href": "tonight.html#join",
+        "icon": "door"
+      },
+      {
+        "eyebrow": "02 / Rules",
+        "title": "Can I use this spell or perk?",
+        "text": "Find the ruling before trying it.",
+        "cta": "Check rules",
+        "href": "rules.html",
+        "icon": "search"
+      },
+      {
+        "eyebrow": "03 / Leave",
+        "title": "I have to leave right now.",
+        "text": "The exit steps, whenever you need them.",
+        "cta": "Leave well",
+        "href": "tonight.html#leave-now",
+        "icon": "exit"
+      },
+      {
+        "eyebrow": "04 / Role",
+        "title": "What should I play?",
+        "text": "Six roles with room for you.",
+        "cta": "Find your role",
+        "href": "builds.html#roles",
+        "icon": "helm"
+      },
+      {
+        "eyebrow": "05 / Stuff",
+        "title": "Where do I keep my things?",
+        "text": "Personal storage needs a small test.",
+        "cta": "Check storage",
+        "href": "ownership.html#storage",
+        "icon": "chest"
+      },
+      {
+        "eyebrow": "06 / Different",
+        "title": "What changes from single player?",
+        "text": "Saves, leaders, menus and death change.",
+        "cta": "Get bearings",
+        "href": "together.html",
+        "icon": "compass"
+      }
+    ]
+  },
+  "lookup": {
+    "eyebrow": "Before you spend that perk point",
+    "title": "Can I use this?",
+    "text": "Search a spell, perk, power or mod. Unknown results are unverified.",
+    "buttonLabel": "Check",
+    "placeholder": "Try Strong Reflexes or Ghostwalk"
+  },
+  "story": {
+    "eyebrow": "Around the campfire",
+    "title": "This will be our story.",
+    "text": "Our story starts with our first session.",
+    "items": [
+      {
+        "eyebrow": "The campaign chronicle",
+        "title": "Our first adventure is still ahead.",
+        "text": "No sessions recorded yet.",
+        "cta": "Open the chronicle",
+        "href": "chronicle.html"
+      },
+      {
+        "eyebrow": "The party ledger",
+        "title": "People before damage numbers.",
+        "text": "Four planned roles. No possessions recorded.",
+        "cta": "Meet the party",
+        "href": "ledger.html"
+      }
+    ]
+  },
+  "guide": {
+    "eyebrow": "Keep this close",
+    "title": "Seven chapters.",
+    "text": "Each opens on its quick answers.",
+    "items": [
+      {
+        "id": "together",
+        "label": "A shared world",
+        "title": "What changes in multiplayer",
+        "text": ""
+      },
+      {
+        "id": "skills",
+        "label": "Skills and races",
+        "title": "Make your character your own",
+        "text": ""
+      },
+      {
+        "id": "spells",
+        "label": "Spells and magic",
+        "title": "Find your kind of magic",
+        "text": ""
+      },
+      {
+        "id": "tonight",
+        "label": "A night of adventure",
+        "title": "Join, play, and leave well",
+        "text": ""
+      },
+      {
+        "id": "builds",
+        "label": "Unusual builds",
+        "title": "Bring something unexpected",
+        "text": ""
+      },
+      {
+        "id": "party",
+        "label": "Playing as a party",
+        "title": "Make room for everyone",
+        "text": ""
+      },
+      {
+        "id": "ownership",
+        "label": "What belongs to you",
+        "title": "Gear, gold and a home",
+        "text": ""
+      }
+    ]
+  }
+}

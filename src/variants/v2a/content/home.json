@@ -1,0 +1,116 @@
+{
+  "hero": {
+    "eyebrow": "Skyrim Together Reborn",
+    "title": "The North is better together.",
+    "intro": "A few friends. A whole province. Find your place and share the adventure together.",
+    "buttonLabel": "Join tonight's game"
+  },
+  "routes": {
+    "eyebrow": "Choose your path",
+    "title": "A good place to begin.",
+    "text": "Start with tonight's question.",
+    "items": [
+      {
+        "eyebrow": "01 / Get ready",
+        "title": "A familiar world. A different rhythm.",
+        "text": "Your saves, your leader, our shared world.",
+        "cta": "Get your bearings",
+        "href": "together.html",
+        "icon": "compass"
+      },
+      {
+        "eyebrow": "02 / Play tonight",
+        "title": "From joining in to heading home.",
+        "text": "Connect, check the party, then meet up.",
+        "cta": "Join the party",
+        "href": "tonight.html#join",
+        "icon": "moon"
+      },
+      {
+        "eyebrow": "03 / Find your role",
+        "title": "Be someone you haven't been.",
+        "text": "Six ways to make the party stronger.",
+        "cta": "Find your role",
+        "href": "builds.html",
+        "icon": "people"
+      }
+    ]
+  },
+  "lookup": {
+    "eyebrow": "Before you spend that perk point",
+    "title": "Can I use this?",
+    "text": "Check a spell, perk, power or mod.",
+    "buttonLabel": "Check the rules",
+    "placeholder": "Try Strong Reflexes or Ghostwalk"
+  },
+  "story": {
+    "eyebrow": "Around the campfire",
+    "title": "This will be our story.",
+    "text": "Our story starts with our first session.",
+    "items": [
+      {
+        "eyebrow": "The campaign chronicle",
+        "title": "Our first adventure is still ahead.",
+        "text": "No sessions recorded yet.",
+        "cta": "Open the chronicle",
+        "href": "chronicle.html"
+      },
+      {
+        "eyebrow": "The party ledger",
+        "title": "People before damage numbers.",
+        "text": "Four planned roles. No possessions recorded.",
+        "cta": "Meet the party",
+        "href": "ledger.html"
+      }
+    ]
+  },
+  "guide": {
+    "eyebrow": "Keep this close",
+    "title": "Your field guide.",
+    "text": "Seven chapters for the road ahead.",
+    "items": [
+      {
+        "id": "together",
+        "label": "A shared world",
+        "title": "What changes in multiplayer",
+        "text": "Saves, leaders, menus and death."
+      },
+      {
+        "id": "skills",
+        "label": "Skills and races",
+        "title": "Make your character your own",
+        "text": "Choose your skills and racial abilities."
+      },
+      {
+        "id": "spells",
+        "label": "Spells and magic",
+        "title": "Find your kind of magic",
+        "text": "Healing, damage and the rules that matter."
+      },
+      {
+        "id": "tonight",
+        "label": "A night of adventure",
+        "title": "Join, play, and leave well",
+        "text": "The steps for tonight's game."
+      },
+      {
+        "id": "builds",
+        "label": "Unusual builds",
+        "title": "Bring something unexpected",
+        "text": "Six useful specialties to explore."
+      },
+      {
+        "id": "party",
+        "label": "Playing as a party",
+        "title": "Make room for everyone",
+        "text": "Roles, questing and a turn for typing."
+      },
+      {
+        "id": "ownership",
+        "label": "What belongs to you",
+        "title": "Gear, gold and a home",
+        "text": "Personal belongings, tested storage and proposed agreements."
+      }
+    ]
+  }
+}

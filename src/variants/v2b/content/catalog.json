@@ -1,0 +1,1611 @@
+{
+  "updated": "2026-10-03",
+  "entries": [
+    {
+      "id": "bvp-main",
+      "name": "Better Vanilla Perks",
+      "category": "mod",
+      "status": "allowed",
+      "summary": "Our selected perk overhaul; follow its held-perk list.",
+      "detail": "Use the agreed collection. Not every perk has been tested with four players. Do not combine this with Ordinator.",
+      "aliases": [
+        "BVP",
+        "Better Vanilla Perks Anniversary Edition 2023"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "mysticism-main",
+      "name": "Mysticism",
+      "category": "mod",
+      "status": "allowed",
+      "summary": "Our selected spell overhaul: main package only.",
+      "detail": "Mark, Recall and corpse reanimation are held. Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
+      "aliases": [
+        "magic overhaul",
+        "Mysticism 2.5"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "imperious-main",
+      "name": "Imperious — Races of Skyrim",
+      "category": "mod",
+      "status": "allowed",
+      "summary": "Our selected race overhaul, with four held powers.",
+      "detail": "Hold Red Sand Dance, Contingency, Beast Tongue and Spirit Walk. Other racial effects and personal unlock progress are not tested yet in this party. NPCs also receive racial abilities.",
+      "aliases": [
+        "Imperious",
+        "race overhaul"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "strong-reflexes-1",
+      "name": "Strong Reflexes rank 1 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "allowed",
+      "summary": "The Block 30 shield-protection rank is allowed.",
+      "detail": "This rank reduces damage from power attacks while shield blocking. It is not the time-slow rank. Stop before rank 2; exact four-player behavior is not tested yet.",
+      "aliases": [
+        "Strong Reflexes",
+        "Quick Reflexes",
+        "Block 30",
+        "Strong Reflexes 1",
+        "QuickReflexes"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "strong-reflexes-2",
+      "name": "Strong Reflexes rank 2 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Skip this perk at Block 50.",
+      "detail": "It slows time when blocking power attacks. Slow time can synchronize across the party; this is a shared-pacing hold until tested.",
+      "aliases": [
+        "Strong Reflexes",
+        "Strong Reflexes 2",
+        "Quick Reflexes 2",
+        "QuickReflexes2",
+        "Block 50"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "steady-hand-1",
+      "name": "Steady Hand rank 1 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Skip this perk at Archery 40.",
+      "detail": "Aiming with zoom slows time. It can affect everybody's fight. The entire Steady Hand branch stays held until tested.",
+      "aliases": [
+        "Steady Hand",
+        "Steady Hand 1",
+        "Archery 40",
+        "bow slow time",
+        "zoom"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "steady-hand-2",
+      "name": "Steady Hand rank 2 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Keep the whole Steady Hand branch unselected.",
+      "detail": "The second rank's tooltip does not establish that the first rank's slowdown disappears. Do not use it to bypass the rank 1 hold.",
+      "aliases": [
+        "Steady Hand",
+        "Steady Hand 2",
+        "Archery 60"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "dark-souls-2",
+      "name": "Dark Souls 2 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use exploding reanimated corpses.",
+      "detail": "This perk adds an explosion to corpse-based reanimation, which is itself held. Exact party behavior is not tested yet.",
+      "aliases": [
+        "Dark Souls",
+        "Dark Souls II",
+        "exploding corpses",
+        "corpse explosion"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "dragonborn-4-drum",
+      "name": "Dragonborn rank 4: spectral drum — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use the spectral drum power from Speech 60.",
+      "detail": "Its follower stamina effect is not a verified player buff. The power is held until tested; the rule concerns the granted power.",
+      "aliases": [
+        "Dragonborn",
+        "Dragonborn 4",
+        "spectral drum",
+        "Speech 60",
+        "bard drum"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "dragonborn-5-merchant",
+      "name": "Dragonborn rank 5: Dremora Merchant — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not summon the merchant granted at Speech 80.",
+      "detail": "The merchant actor and barter behavior are not tested yet with the party. The rule concerns this granted power.",
+      "aliases": [
+        "Dragonborn",
+        "Dragonborn 5",
+        "Dremora Merchant",
+        "Speech 80",
+        "spectral merchant"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "torch-auto-unlock",
+      "name": "Torch-assisted automatic unlocking — Better Vanilla Perks",
+      "category": "mechanic",
+      "status": "hold",
+      "summary": "Pick locks by hand for now.",
+      "detail": "The automatic torch-based opening needs observation on both clients. Normal manual lockpicking remains allowed.",
+      "aliases": [
+        "torch",
+        "auto unlock",
+        "auto-unlock",
+        "automatic lockpicking",
+        "torch unlocking"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "manual-lockpicking",
+      "name": "Manual lockpicking",
+      "category": "mechanic",
+      "status": "allowed",
+      "summary": "Use lockpicks normally, and coordinate shared containers.",
+      "detail": "Ordinary lock state is supported by Skyrim Together. This does not clear the held torch-assisted automatic unlocking.",
+      "aliases": [
+        "locks",
+        "pick locks",
+        "lockpicks"
+      ],
+      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+    },
+    {
+      "id": "extra-summons",
+      "name": "More than one active summon per player",
+      "category": "mechanic",
+      "status": "hold",
+      "summary": "Keep one active summoned actor per player.",
+      "detail": "Extra capacity from perks does not change this rule. The limit is our initial test budget, not a Skyrim Together engine limit. Corpse reanimation and held special powers remain excluded.",
+      "aliases": [
+        "summon limit",
+        "summon army",
+        "extra summons",
+        "multiple summons",
+        "two summons"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "summoner",
+      "name": "Summoner — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "Extra summon capacity stays unused: one active summon per player.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "aliases": [
+        "Summoner30"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "puppeteer",
+      "name": "Puppeteer — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "Extra summon capacity stays unused: one active summon per player.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "aliases": [
+        "Summoner70"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "twin-souls",
+      "name": "Twin Souls — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "Extra summon capacity stays unused: one active summon per player.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "aliases": [
+        "TwinSouls"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "dragonborn-2",
+      "name": "Dragonborn rank 2 — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "Extra summon capacity stays unused: one active summon per player.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "aliases": [
+        "Dragonborn 2",
+        "Speech 20"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "resurgence",
+      "name": "Resurgence — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "Allowed, but its player-healing bonus needs measurement.",
+      "detail": "The tooltip and Skyrim Together's healing code use different bonus values for this perk. The final result is not tested yet; do not promise an exact healing multiplier.",
+      "aliases": [
+        "Regeneration",
+        "Restoration healing bonus",
+        "healing scaling"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "staff-of-atronach",
+      "name": "Staff of the Atronach — Better Vanilla Perks",
+      "category": "perk",
+      "status": "conditional",
+      "summary": "A staff-build option; exact effects are not tested yet.",
+      "detail": "Staff and summon behavior needs checking. Keep the one-summon limit. Extra staff skill experience from Scrambled Bugs is not included.",
+      "aliases": [
+        "Elemental Potency",
+        "staff perks"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+    },
+    {
+      "id": "red-sand-dance",
+      "name": "Red Sand Dance — Imperious",
+      "category": "race",
+      "status": "hold",
+      "summary": "Do not use this racial power in our campaign.",
+      "detail": "The Redguard power slows time and can change everyone's fight. This is an adopted hold until tested.",
+      "aliases": [
+        "Redguard",
+        "time slow",
+        "sprinting slow time"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "contingency",
+      "name": "Contingency — Imperious",
+      "category": "race",
+      "status": "hold",
+      "summary": "Do not use this racial power in our campaign.",
+      "detail": "The High Elf power automatically casts stored spells; the stored effect and remote result are not tested yet. This is an adopted hold until tested.",
+      "aliases": [
+        "Altmer",
+        "High Elf",
+        "autocast",
+        "auto cast"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "beast-tongue",
+      "name": "Beast Tongue — Imperious",
+      "category": "race",
+      "status": "hold",
+      "summary": "Do not use this racial power in our campaign.",
+      "detail": "The Wood Elf power adds an animal companion; its ownership and behavior are not tested yet. This is an adopted hold until tested.",
+      "aliases": [
+        "Bosmer",
+        "Wood Elf",
+        "animal companion"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "spirit-walk",
+      "name": "Spirit Walk — Imperious",
+      "category": "race",
+      "status": "hold",
+      "summary": "Do not use this racial power in our campaign.",
+      "detail": "The Dark Elf power summons ancestors through a special racial system; it is not cleared by the ordinary one-summon allowance. This is an adopted hold until tested.",
+      "aliases": [
+        "Dunmer",
+        "Dark Elf",
+        "ancestor summon"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "imperial-discipline",
+      "name": "Discipline — Imperious",
+      "category": "race",
+      "status": "conditional",
+      "summary": "Choose an Imperial without relying on a party aura.",
+      "detail": "Discipline affects armor and damage; it is not a healing aura. Its effect on human players is not tested yet. Racial abilities also apply to NPCs.",
+      "aliases": [
+        "Imperial",
+        "aura",
+        "Imperial healing"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "bosmer-harrier",
+      "name": "Harrier — Imperious",
+      "category": "race",
+      "status": "conditional",
+      "summary": "The Wood Elf marking effect needs observation on both clients.",
+      "detail": "This passive is not a cleared party-wide debuff. Its exact behavior and racial progression are not tested yet.",
+      "aliases": [
+        "Bosmer",
+        "Wood Elf",
+        "bird",
+        "marked prey"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "dunmer-whispers",
+      "name": "Whispers — Imperious",
+      "category": "race",
+      "status": "conditional",
+      "summary": "The Dark Elf marking and reward system needs observation.",
+      "detail": "Its exact behavior and personal racial progression are not tested yet. Spirit Walk remains held.",
+      "aliases": [
+        "Dunmer",
+        "Dark Elf",
+        "marked targets"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "khajiit-prowl",
+      "name": "Prowl — Imperious",
+      "category": "race",
+      "status": "conditional",
+      "summary": "This is a leap, not a teleport.",
+      "detail": "Movement behavior in this exact party is not tested yet. Stay with the group and report differences between players' screens.",
+      "aliases": [
+        "Khajiit",
+        "leap",
+        "jump"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "shared-ancestry",
+      "name": "Shared Ancestry — Imperious",
+      "category": "race",
+      "status": "conditional",
+      "summary": "Borrowing a racial power does not bypass its hold.",
+      "detail": "Apply the same held-power rules to any borrowed ability. Exact behavior with the party is not tested yet.",
+      "aliases": [
+        "Breton",
+        "borrow racial power"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+    },
+    {
+      "id": "mark",
+      "name": "Mark — Mysticism",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use this travel spell in our campaign.",
+      "detail": "Mark and Recall alter travel state and need a separate multiplayer test. Their current co-op behavior is not tested yet.",
+      "aliases": [
+        "Mark Recall",
+        "Mark/Recall",
+        "teleport",
+        "travel"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "recall",
+      "name": "Recall — Mysticism",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use this travel spell in our campaign.",
+      "detail": "Mark and Recall alter travel state and need a separate multiplayer test. Their current co-op behavior is not tested yet.",
+      "aliases": [
+        "Mark Recall",
+        "Mark/Recall",
+        "teleport",
+        "travel"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "corpse-reanimation",
+      "name": "Corpse reanimation",
+      "category": "mechanic",
+      "status": "hold",
+      "summary": "Do not raise dead bodies in this campaign.",
+      "detail": "This applies to corpse-raising spells, staves and scrolls, including Raise Zombie, Reanimate Corpse, Revenant, Dread Zombie and Dead Thrall. Ordinary conjured undead are a separate, limited option.",
+      "aliases": [
+        "reanimate",
+        "reanimation",
+        "raise dead",
+        "raise zombie",
+        "reanimate corpse",
+        "revenant",
+        "dread zombie",
+        "dead thrall",
+        "necromancy",
+        "corpse raising"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-skeleton",
+      "name": "Conjure Skeleton — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-skeleton-warrior",
+      "name": "Conjure Skeleton Warrior — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-skeleton-archer",
+      "name": "Conjure Skeleton Archer — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-skeleton-mage",
+      "name": "Conjure Skeleton Mage — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-skeleton-champion",
+      "name": "Conjure Skeleton Champion — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-wrathman-marksman",
+      "name": "Conjure Wrathman Marksman — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "An ordinary summon candidate; keep one active summon per player.",
+      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "aliases": [
+        "summoned undead",
+        "conjured undead",
+        "necromancer",
+        "skeleton"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "ordinary-summons",
+      "name": "Ordinary creature summons",
+      "category": "mechanic",
+      "status": "conditional",
+      "summary": "Start with one active summon per player.",
+      "detail": "Skyrim Together supports ordinary summon actors. This does not clear held racial summons, copied actors, corpse raising or summon armies. Exact four-player behavior is not tested yet.",
+      "aliases": [
+        "atronach",
+        "Conjure Familiar",
+        "Conjure Flame Atronach",
+        "Conjure Frost Atronach",
+        "Conjure Storm Atronach",
+        "summon"
+      ],
+      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+    },
+    {
+      "id": "healing-hands",
+      "name": "Healing Hands — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "An approved starting option for healing another player.",
+      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "aliases": [
+        "Restoration",
+        "heal player",
+        "healer"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "heal-other",
+      "name": "Heal Other — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "An approved starting option for healing another player.",
+      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "aliases": [
+        "Restoration",
+        "heal player",
+        "healer"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "grand-healing",
+      "name": "Grand Healing — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "An approved starting option for healing another player.",
+      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "aliases": [
+        "Restoration",
+        "heal player",
+        "healer"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "self-healing",
+      "name": "Ordinary self-healing spells",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Personal healing is part of the shared setup.",
+      "detail": "Use the version in the collection. This does not mean every custom healing aura can heal friends, or that a healing spell can resurrect a player.",
+      "aliases": [
+        "Healing",
+        "Fast Healing",
+        "Close Wounds",
+        "self heal"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "courage",
+      "name": "Courage",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Skyrim Together has explicit player-target support for this buff.",
+      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "aliases": [
+        "Illusion",
+        "morale",
+        "buff"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "rally",
+      "name": "Rally",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Skyrim Together has explicit player-target support for this buff.",
+      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "aliases": [
+        "Illusion",
+        "morale",
+        "buff"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "call-to-arms",
+      "name": "Call to Arms",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Skyrim Together has explicit player-target support for this buff.",
+      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "aliases": [
+        "Illusion",
+        "morale",
+        "buff"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+    },
+    {
+      "id": "vampiric-touch",
+      "name": "Vampiric Touch — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "A direct offensive spell option for a blood mage.",
+      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "aliases": [
+        "blood magic",
+        "death knight",
+        "drain health"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "vampiric-bolt",
+      "name": "Vampiric Bolt — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "A direct offensive spell option for a blood mage.",
+      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "aliases": [
+        "blood magic",
+        "death knight",
+        "drain health"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "blood-lance",
+      "name": "Blood Lance — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "A direct offensive spell option for a blood mage.",
+      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "aliases": [
+        "blood magic",
+        "death knight",
+        "drain health"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "direct-elemental-spells",
+      "name": "Direct fire, frost and shock spells",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Use direct attacks as the starting point for a mage.",
+      "detail": "Spells and projectiles have Skyrim Together support. Exact behavior with every spell in this pack is not tested yet. Aim clear of friendly NPCs.",
+      "aliases": [
+        "Flames",
+        "Firebolt",
+        "Frostbite",
+        "Ice Spike",
+        "Sparks",
+        "Lightning Bolt",
+        "Destruction"
+      ],
+      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+    },
+    {
+      "id": "illusion-enemy-control",
+      "name": "Calm, Fear and Frenzy on enemies",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Use enemy-control spells against valid NPC targets.",
+      "detail": "AI-driven spells do not control other human players. Exact limits and behavior with our spell changes are not tested yet.",
+      "aliases": [
+        "Calm",
+        "Fear",
+        "Frenzy",
+        "Pacify",
+        "Rout",
+        "Harmony",
+        "enemy control"
+      ],
+      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+    },
+    {
+      "id": "undead-healing",
+      "name": "Conjurer's Cure and other undead-healing effects",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Do not assume an undead heal works on a player.",
+      "detail": "Some undead-healing effects lack the ordinary health-restoration marker. Player targeting is not tested yet. Build party healing around Healing Hands, Heal Other or Grand Healing.",
+      "aliases": [
+        "Conjurer's Cure",
+        "Dark Deal",
+        "heal undead",
+        "necromantic healing"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "mysticism-ghostwalk",
+      "name": "Ghostwalk — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Check the mod name: this is not Apocalypse's travel spell.",
+      "detail": "Mysticism 2.5 describes refreshing invisibility after it breaks. Its exact co-op behavior is not tested yet; the Apocalypse travel hold is a different spell.",
+      "aliases": [
+        "Ghostwalk",
+        "invisibility"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "mysticism-npc-spells",
+      "name": "Mysticism Spells for NPCs",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Do not add this NPC spell-distribution addon.",
+      "detail": "Distribution has an adverse multiplayer report distinct from main Mysticism, and its distributor has an unresolved runtime gate. Main Mysticism is the selected spell mod.",
+      "aliases": [
+        "SPID Mysticism",
+        "NPC spell distribution"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/195"
+    },
+    {
+      "id": "mysticism-jump",
+      "name": "Mysticism Jump Spells",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Keep this optional package out of the shared setup.",
+      "detail": "The optional movement addon is outside our chosen setup and its multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Jump Spells",
+        "jump addon"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "mysticism-survival",
+      "name": "Mysticism Survival Spells",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Keep this optional package out of the shared setup.",
+      "detail": "It depends on Survival Mode content that our setup removes.",
+      "aliases": [
+        "Survival Spells",
+        "warmth spells"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "mysticism-ordinator-patch",
+      "name": "Mysticism Ordinator patch",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Keep this optional package out of the shared setup.",
+      "detail": "Ordinator is not selected. A Mysticism patch does not make Ordinator compatible with Better Vanilla Perks.",
+      "aliases": [
+        "MysticOrdinator",
+        "Ordinator patch"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "mysticism-slower-unlocks",
+      "name": "Mysticism Slower Unlocks",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Keep this optional package out of the shared setup.",
+      "detail": "It was excluded by the group's installer choice; this is not a claim of a broken dependency.",
+      "aliases": [
+        "Slower Spell Unlocks",
+        "Slower Unlocks"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "ordinator-mod",
+      "name": "Ordinator",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "This campaign uses Better Vanilla Perks instead.",
+      "detail": "Do not combine both perk overhauls. The listed Ordinator holds remain adopted rules for any later test; no unrestricted switch is approved.",
+      "aliases": [
+        "Ordinator Perks of Skyrim"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-bone-collector",
+      "name": "Bone Collector — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Historical reports describe duplicated skeletons and invisible hostility. This skeleton system is held; the exact current combination is not tested yet.",
+      "aliases": [
+        "Bone Collector",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-dead-tide",
+      "name": "Dead Tide — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Historical reports describe duplicated skeletons and invisible hostility. This skeleton system is held; the exact current combination is not tested yet.",
+      "aliases": [
+        "Dead Tide",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-skeleton-mages",
+      "name": "Skeleton Mages — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Historical reports describe duplicated skeletons and invisible hostility. This skeleton system is held; the exact current combination is not tested yet.",
+      "aliases": [
+        "Skeleton Mages",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-king-of-bones",
+      "name": "King of Bones — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Historical reports describe duplicated skeletons and invisible hostility. This skeleton system is held; the exact current combination is not tested yet.",
+      "aliases": [
+        "King of Bones",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-dwarven-autocannon",
+      "name": "Dwarven Autocannon — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "A 2024 report found peer crashes when Rat King and Dwarven Autocannon were combined; each reportedly worked alone. Both remain held for this group, not declared universally broken.",
+      "aliases": [
+        "Dwarven Autocannon",
+        "Ordinator",
+        "Lock Cannon",
+        "Dwarven cannon",
+        "autocannon"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-rat-king",
+      "name": "Rat King — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "A 2024 report found peer crashes when Rat King and Dwarven Autocannon were combined; each reportedly worked alone. Both remain held for this group, not declared universally broken.",
+      "aliases": [
+        "Rat King",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-false-light",
+      "name": "False Light — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "A 2024 report found this offensive-healing mechanic failed for the nonhost. Do not base a build on it or dependent offensive-healing effects.",
+      "aliases": [
+        "False Light",
+        "Ordinator",
+        "Lightwielder",
+        "offensive healing"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-bear-traps",
+      "name": "Bear Traps — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Bear Traps",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-tripwire",
+      "name": "Tripwire — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Tripwire",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-backup-plan",
+      "name": "Backup Plan — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Backup Plan",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-rallying-standard",
+      "name": "Rallying Standard — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Rallying Standard",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-warbringer",
+      "name": "Warbringer — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Warbringer",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-home-mythal",
+      "name": "Home Mythal — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Home Mythal",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-dimension-door",
+      "name": "Dimension Door — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Dimension Door",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-advanced-lab",
+      "name": "Advanced Lab — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Advanced Lab",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-advanced-workshop",
+      "name": "Advanced Workshop — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "This is a precautionary hold on placed objects, changed workstations or travel state. A specific current failure is not established; multiplayer behavior is not tested yet.",
+      "aliases": [
+        "Advanced Workshop",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-quick-reflexes",
+      "name": "Quick Reflexes — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Time effects can alter everyone's fight. This is an adopted pacing and testing hold, not a claim that Skyrim Together cannot sync slow time.",
+      "aliases": [
+        "Quick Reflexes",
+        "Ordinator",
+        "Block 40"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-steady-hand",
+      "name": "Steady Hand — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Time effects can alter everyone's fight. This is an adopted pacing and testing hold, not a claim that Skyrim Together cannot sync slow time.",
+      "aliases": [
+        "Steady Hand",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-hawkeye",
+      "name": "Hawkeye — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Time effects can alter everyone's fight. This is an adopted pacing and testing hold, not a claim that Skyrim Together cannot sync slow time.",
+      "aliases": [
+        "Hawkeye",
+        "Ordinator",
+        "Archery 80"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137"
+    },
+    {
+      "id": "ordinator-spellscribe",
+      "name": "Spellscribe — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Spellscribe",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-power-echoes",
+      "name": "Power Echoes — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Power Echoes",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-lion-s-arrow",
+      "name": "Lion's Arrow — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Lion's Arrow",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-earthquake-drum",
+      "name": "Earthquake Drum — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Earthquake Drum",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-witching-rhythm",
+      "name": "Witching Rhythm — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Witching Rhythm",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-war-drummer",
+      "name": "War Drummer — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "War Drummer",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-sacred-guardian",
+      "name": "Sacred Guardian — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Sacred Guardian",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "ordinator-under-my-wings",
+      "name": "Under my Wings — Ordinator",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Do not use; Ordinator is also outside this campaign's pack.",
+      "detail": "Stored spells, drum effects or custom support need a focused test. Lion's Arrow has a positive historical report, so the hold is not proof every autocast is broken.",
+      "aliases": [
+        "Under my Wings",
+        "Ordinator"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/71"
+    },
+    {
+      "id": "apocalypse-mod",
+      "name": "Apocalypse",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Our selected spell mod is Mysticism.",
+      "detail": "Apocalypse was mentioned earlier but is not in the selected campaign pack. Do not install it to follow an older spell guide.",
+      "aliases": [
+        "Apocalypse Magic of Skyrim"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-prepare-for-adventure",
+      "name": "Prepare for Adventure — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "Historical reports describe temporary equipment persisting or duplicating. This is an evidence-backed hold.",
+      "aliases": [
+        "Prepare for Adventure",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/93"
+    },
+    {
+      "id": "apocalypse-pale-shadow",
+      "name": "Pale Shadow — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "There is a historical peer-crash report. A positive 2026 report did not retest this spell, so the hold remains.",
+      "aliases": [
+        "Pale Shadow",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/93"
+    },
+    {
+      "id": "apocalypse-rift-bolt",
+      "name": "Rift Bolt — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Rift Bolt",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-milestones",
+      "name": "Milestones — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Milestones",
+        "Apocalypse",
+        "Milestone"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-ghostwalk",
+      "name": "Ghostwalk — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Ghostwalk",
+        "Apocalypse",
+        "teleport"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-entomb",
+      "name": "Entomb — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Entomb",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-raise-wall",
+      "name": "Raise Wall — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Raise Wall",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-welloc-s-instant-forest",
+      "name": "Welloc's Instant Forest — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for displacement, travel anchors, burial or barriers. A specific current co-op failure is not established; exact behavior is not tested yet.",
+      "aliases": [
+        "Welloc's Instant Forest",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-spectral-warband",
+      "name": "Spectral Warband — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for complex actors, reanimation, nested summons or slow time. Exact current co-op behavior is not tested yet.",
+      "aliases": [
+        "Spectral Warband",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-necrowitch",
+      "name": "Necrowitch — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for complex actors, reanimation, nested summons or slow time. Exact current co-op behavior is not tested yet.",
+      "aliases": [
+        "Necrowitch",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-conjure-nether-lich",
+      "name": "Conjure Nether Lich — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for complex actors, reanimation, nested summons or slow time. Exact current co-op behavior is not tested yet.",
+      "aliases": [
+        "Conjure Nether Lich",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-grace-of-water",
+      "name": "Grace of Water — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "A precautionary hold for complex actors, reanimation, nested summons or slow time. Exact current co-op behavior is not tested yet.",
+      "aliases": [
+        "Grace of Water",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-ocato-s-recital",
+      "name": "Ocato's Recital — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "Cast buffs manually for the initial test. Stored spells and chained effects need separate checks. Current Apocalypse stores one spell in Ocato's Recital, not three; no verified safe-versus-crash spell-count threshold exists.",
+      "aliases": [
+        "Ocato's Recital",
+        "Apocalypse",
+        "Ocato",
+        "Ocatos Recital"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-medora-s-memory",
+      "name": "Medora's Memory — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "Cast buffs manually for the initial test. Stored spells and chained effects need separate checks. Current Apocalypse stores one spell in Ocato's Recital, not three; no verified safe-versus-crash spell-count threshold exists.",
+      "aliases": [
+        "Medora's Memory",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-silmane-s-spell-sentinel",
+      "name": "Silmane's Spell Sentinel — Apocalypse",
+      "category": "spell",
+      "status": "hold",
+      "summary": "Do not use; Apocalypse is also outside the selected pack.",
+      "detail": "Cast buffs manually for the initial test. Stored spells and chained effects need separate checks. Current Apocalypse stores one spell in Ocato's Recital, not three; no verified safe-versus-crash spell-count threshold exists.",
+      "aliases": [
+        "Silmane's Spell Sentinel",
+        "Apocalypse"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "apocalypse-longstride",
+      "name": "Longstride — Apocalypse",
+      "category": "spell",
+      "status": "blocked",
+      "summary": "Outside this pack; not a confirmed incompatibility.",
+      "detail": "It is a sustained movement-speed and carry-weight buff, not teleportation or slow time. No direct failure report was found by the validator. Do not install Apocalypse to use it.",
+      "aliases": [
+        "Longstride",
+        "carry weight",
+        "movement speed"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090"
+    },
+    {
+      "id": "mco-adxp",
+      "name": "MCO / ADXP",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Hold this attack framework.",
+      "detail": "The exact package and dependency chain have not been cleared for the group's runtime and multiplayer setup. Do not combine competing attack frameworks.",
+      "aliases": [
+        "MCO",
+        "ADXP",
+        "attack framework"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/117115"
+    },
+    {
+      "id": "bfco",
+      "name": "BFCO",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Hold this attack framework despite its own runtime update.",
+      "detail": "Its linked dependency chain is not cleared. A framework update does not certify every required component or remote animation.",
+      "aliases": [
+        "BFCO",
+        "BFCO 3.100.11"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/117052"
+    },
+    {
+      "id": "scrambled-bugs",
+      "name": "Scrambled Bugs",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Hold until the runtime requirement is satisfied.",
+      "detail": "The validator did not establish explicit support for the group's current game runtime. This is a support-evidence gap, not a proven crash claim.",
+      "aliases": [
+        "staff XP",
+        "staff experience",
+        "Scrambled Bugs 21"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/43532"
+    },
+    {
+      "id": "spid",
+      "name": "Spell Perk Item Distributor",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Hold the distributor and untested spell-distribution setup.",
+      "detail": "Runtime support was unresolved in the validator, and NPC spell distribution has separate multiplayer concerns. Identical configuration alone does not prove matching outcomes.",
+      "aliases": [
+        "SPID",
+        "Spell Perk Item Distributor",
+        "Spell Perk Item"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/36869"
+    },
+    {
+      "id": "ied",
+      "name": "Immersive Equipment Displays",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Hold until a supported core runtime update is verified.",
+      "detail": "The newer optional Conditions addon does not clear the core mod's hold. Historical remote displays can show different weapon selections. Exact current behavior is not tested yet.",
+      "aliases": [
+        "IED",
+        "OAR IED Conditions",
+        "visible favorited weapons"
+      ],
+      "sourceUrl": "https://github.com/SlavicPotato/ied-dev/issues/82"
+    },
+    {
+      "id": "allgud",
+      "name": "All Geared Up Derivative",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Keep outside the first campaign.",
+      "detail": "Do not substitute it for held IED without separate validation. Generated meshes, skeleton compatibility, body slots and remote behavior need checking.",
+      "aliases": [
+        "AllGUD",
+        "AGUD"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/28833"
+    },
+    {
+      "id": "vfg",
+      "name": "Visible Favorited Gear",
+      "category": "mod",
+      "status": "hold",
+      "summary": "Outside this campaign's validated setup.",
+      "detail": "This is an older fallback, not proof of a current compatible replacement. Runtime details and remote appearance are not tested yet.",
+      "aliases": [
+        "VFG",
+        "favorite weapons on back"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3903"
+    },
+    {
+      "id": "sds",
+      "name": "Simple Dual Sheath",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "A later test candidate, not an installed full-display solution.",
+      "detail": "It shows equipped left-hand weapons, staves and optionally a shield. It does not supply the full unequipped bow, sword and dagger display. A supported skeleton and multiplayer test are still needed.",
+      "aliases": [
+        "SDS",
+        "dual sheath"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/50049"
+    },
+    {
+      "id": "become-bard",
+      "name": "Become a Bard",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Outside our selected campaign setup.",
+      "detail": "An older variant had unsynced music and stuck-menu reports. The current version's fix status is not tested yet; do not promise music other players can hear.",
+      "aliases": [
+        "Become a Bard",
+        "bard music",
+        "perform music"
+      ],
+      "sourceUrl": "https://github.com/tiltedphoques/Mod-Compatibility/issues/144"
+    },
+    {
+      "id": "bards-reborn",
+      "name": "Bards Reborn: Student of Song",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Outside our selected campaign setup.",
+      "detail": "It needs Become a Bard. Its quest changes, Spellsongs, player buffs and remote audio are not tested yet.",
+      "aliases": [
+        "Bards Reborn",
+        "Student of Song",
+        "Spellsongs"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/47994"
+    },
+    {
+      "id": "no-time-slow-patch",
+      "name": "Spells Shouts Perks No Time Slow Together",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Do not add a patch variant on your own.",
+      "detail": "The validator found no Better Vanilla Perks-specific variant. A vanilla patch is not assumed to cover BVP's added Strong Reflexes rank 2.",
+      "aliases": [
+        "No Time Slow",
+        "No Time Slow Together",
+        "121611"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/121611"
+    },
+    {
+      "id": "adamant",
+      "name": "Adamant",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Outside this setup; use Better Vanilla Perks.",
+      "detail": "The current group notes keep its dependency route blocked. This is not an additional perk tree to install alongside the selected overhaul.",
+      "aliases": [
+        "Adamant perks"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/30191"
+    },
+    {
+      "id": "blade-and-blunt",
+      "name": "Blade and Blunt",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Outside the selected combat setup.",
+      "detail": "The group's dependency requirements remain unresolved. Do not add it independently.",
+      "aliases": [
+        "Blade & Blunt"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/34549"
+    },
+    {
+      "id": "valhalla",
+      "name": "Valhalla Combat",
+      "category": "mod",
+      "status": "blocked",
+      "summary": "Outside the selected combat setup.",
+      "detail": "The group is holding it pending a verified compatible runtime build.",
+      "aliases": [
+        "Valhalla"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/64741"
+    }
+  ]
+}
