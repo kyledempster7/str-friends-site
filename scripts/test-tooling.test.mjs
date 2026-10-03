@@ -5,8 +5,54 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { parsePasswords, privacyFindings, sha256, treeManifest, mirrorDist, manifestDifference, compareLive, identity, repository, verifyIdentityLog, verifyRemoteUrls } from './lib/publish-checks.mjs';
-import { proseHolds, compareSharedFacts, readSharedFacts } from './check-shared-facts.mjs';
+import { proseHolds, compareSharedFacts, readSharedFacts, catalogRevisions } from './check-shared-facts.mjs';
 import { checkCommittedDocs } from './publish.mjs';
+import { outputBudgetFindings } from './lib/output-budgets.mjs';
+
+test('audio clips do not consume the 2 MiB static output budget', () => {
+  assert.deepEqual(outputBudgetFindings([
+    { name: 'v4/index.html', size: 2 * 1024 * 1024 },
+    { name: 'v4/audio/first.mp3', size: 913_000 },
+    { name: 'v4/audio/second.mp3', size: 913_000 },
+  ]), []);
+});
+
+test('non-audio output still fails at one byte over 2 MiB, including files in audio directories', () => {
+  assert.deepEqual(outputBudgetFindings([
+    { name: 'v4/index.html', size: 2 * 1024 * 1024 },
+    { name: 'v4/audio/transcript.txt', size: 1 },
+    { name: 'v4/audio/first.mp3', size: 913_000 },
+  ]), ['Non-audio static output exceeds the two-megabyte budget']);
+});
+
+test('all published audio shares an inclusive 300 MB budget across directories', () => {
+  const clips = Array.from({ length: 30 }, (_, i) => ({ name: `v${i % 2 ? '4' : '2b'}/audio/clip-${i}.mp3`, size: 10_000_000 }));
+  assert.deepEqual(outputBudgetFindings(clips), []);
+  assert.deepEqual(outputBudgetFindings([...clips, { name: 'extra.MP3', size: 1 }]), ['Total audio output exceeds 300 MB']);
+});
+
+test('both output budget violations are reported independently', () => {
+  assert.deepEqual(outputBudgetFindings([
+    { name: 'index.html', size: 2 * 1024 * 1024 + 1 },
+    { name: 'audio.mp3', size: 300_000_001 },
+  ]), ['Non-audio static output exceeds the two-megabyte budget', 'Total audio output exceeds 300 MB']);
+});
+
+test('catalog revision metadata supplements prose without hiding conflicts', () => {
+  assert.deepEqual(catalogRevisions({ collectionRevision: 6, entries: [] }), [6]);
+  assert.deepEqual(catalogRevisions({ entries: [{ detail: 'Our revision 6 perk overhaul.' }] }), [6]);
+  assert.deepEqual(catalogRevisions({ collectionRevision: 6, entries: [{ detail: 'revision 6' }] }), [6]);
+  assert.deepEqual(catalogRevisions({ collectionRevision: 6, entries: [{ detail: 'revision 5 and revision 10' }] }), [5, 6, 10]);
+  for (const value of [0, -1, 6.5, '6', null]) assert.throws(() => catalogRevisions({ collectionRevision: value, entries: [] }));
+});
+
+test('B and D catalog revisions agree and B no longer has a missing-revision finding', () => {
+  const input = readSharedFacts({ artifacts: path.join(os.tmpdir(), 'absent-str-artifacts'), brain: path.join(os.tmpdir(), 'absent-str-brain') });
+  const label = 'src/variants/v2b/content/catalog.json';
+  assert.deepEqual(input.sources.find(source => source.label === label).revisions, [6]);
+  assert.deepEqual(input.sources.find(source => source.label === 'src/variants/v4/content/catalog.json').revisions, [6]);
+  assert.ok(!compareSharedFacts(input).findings.some(finding => finding.source === label && finding.fact === 'collection revision'));
+});
 
 test('INI password reading includes quoted punctuation and rejects absent/empty credentials', () => {
   assert.deepEqual(parsePasswords('[general]\nsPassword = "dummy;#pass" ; comment\nsAdminPassword = another-test\n'), ['dummy;#pass', 'another-test']);

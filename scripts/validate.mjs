@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { assertFrozen } from './lib/frozen.mjs';
 import { stripVersionBar, VERSIONS } from './lib/version-bar.mjs';
+import { outputBudgetFindings } from './lib/output-budgets.mjs';
 
 // Independently transcribed campaign restrictions. A named hold must remain
 // searchable and may not be weakened to an allowed/conditional search result.
@@ -136,12 +137,12 @@ const dist = path.join(root, 'dist');
 const published = walk(dist);
 const htmlFiles = published.filter((file) => file.endsWith('.html'));
 if (!htmlFiles.length) fail('Build dist before validation; no HTML output exists');
-if (published.reduce((total, file) => total + fs.statSync(file).size, 0) > 2 * 1024 * 1024) fail('Static output exceeds the two-megabyte budget');
+for (const finding of outputBudgetFindings(published.map(file => ({ name: file, size: fs.statSync(file).size })))) fail(finding);
 const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
-// Probe real media rather than trusting the declared player duration. Keep the
-// existing total site budget; these are additional per-clip publication limits.
+// Probe real media rather than trusting the declared player duration. These
+// per-clip limits apply in addition to the separate total audio budget.
 const audioPages = readJson('src/variants/v4/pages.json');
 const declaredAudio = new Set();
 const audioMetadata = new Map();

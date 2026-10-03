@@ -87,7 +87,13 @@ function firstColumn(markdown, header) {
   return result;
 }
 
-const revisions = value => sorted([...plain(value).matchAll(/\brevision\s+(\d+)\b/gi)].map(match => Number(match[1])));
+const revisions = value => [...new Set([...plain(value).matchAll(/\brevision\s+(\d+)\b/gi)].map(match => Number(match[1])))].sort((a, b) => a - b);
+export function catalogRevisions(catalog) {
+  const explicit = catalog.collectionRevision;
+  if (explicit !== undefined && (!Number.isInteger(explicit) || explicit < 1)) throw new Error('Invalid collection revision');
+  // Keep prose evidence too, so metadata cannot hide a contradictory revision.
+  return [...new Set([...revisions(catalog.entries), ...(explicit === undefined ? [] : [explicit])])].sort((a, b) => a - b);
+}
 const source = (label, facts) => ({ label, ...facts });
 
 export function readSharedFacts({ root = repoRoot, artifacts = process.env.STR_ARTIFACTS_ROOT ?? path.join(os.homedir(), '.traycer', 'epics', epicId, 'artifacts'), brain = process.env.STR_BRAIN_ROOT ?? path.join(process.env.SystemDrive ?? 'C:', path.sep, 'Modding', 'STR-Kit', 'brain') } = {}) {
@@ -104,7 +110,7 @@ export function readSharedFacts({ root = repoRoot, artifacts = process.env.STR_A
     read(filename, path.join(root, filename), catalog => ({
       mods: catalog.entries.filter(entry => entry.category === 'mod').map(entry => canonicalMod(entry.name)),
       holds: sorted(catalog.entries.filter(entry => entry.status === 'hold').map(entry => entry.id)),
-      revisions: revisions(catalog.entries),
+      revisions: catalogRevisions(catalog),
       catalog: catalog.entries.map(({ id, name, category, status }) => ({ id, name, category, status })),
       scope: 'catalog mod records (a partial index is reported as a coverage gap)',
     }), true);
