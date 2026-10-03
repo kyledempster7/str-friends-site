@@ -78,7 +78,11 @@ const css = `/* Version D: grids on the original look. */
 .d-side li a{display:block;padding:8px 10px;color:#c2cdcd;text-decoration:none;border-left:2px solid transparent}
 .d-side li a:hover{color:#f6f2e9}
 .d-side li a[aria-current]{color:#f6f2e9;border-left-color:var(--gold)}
-.d-subpages{display:flex;flex-wrap:wrap;gap:8px 18px;margin:12px 0 24px;font-size:.9rem}.d-subpages a{color:var(--gold)}.d-subpages a[aria-current]{color:#f6f2e9;text-decoration:none}
+.d-side .d-side-subpages{margin:0 0 8px 16px;font-size:.85rem}
+.d-side-subpages a[aria-current="page"]{font-weight:700}
+.d-page-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}
+.d-page-strip a{color:var(--gold);text-underline-offset:3px}.d-page-strip a:hover{color:#f6f2e9}
+.d-page-strip strong{color:#f6f2e9}.d-page-count{white-space:nowrap}.d-page-next{margin-left:4px}
 .d-footer{max-width:1236px;margin:auto;padding:16px 42px;font-size:.8rem;color:#b2bfc2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}.d-footer a{color:var(--gold)}
 .d-side-home{margin:14px 0 0;font-size:.85rem}.d-side-home a{color:var(--gold);text-decoration:none;padding:0 10px}
 .d-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
@@ -162,9 +166,34 @@ ${body}
 
   const searchForm = (id) => `<p class="d-search-hint" id="${id}-hint">Check if a spell, perk, power or mod is allowed.</p><form class="d-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="${id}">Can I use this?</label><div class="d-search-row"><input id="${id}" name="q" type="search" placeholder="Type a spell, perk, power or mod" aria-describedby="${id}-hint" autocomplete="off"><button type="submit">Search</button></div></form>`;
   const pages = new Map();
-  // One identical set of guide links, including the standalone catalog and 404.
-  const sidebar = (file) => `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${chapters.map((c) => `<li><a href="${esc(c.pages[0].file)}"${c.pages.some(p => p.file === file) ? ' aria-current="location"' : ''}>${esc(c.num)} · ${esc(c.label)}</a></li>`).join('')}<li><a href="rules.html"${data.rules.pages.some(p => p.file === file) ? ' aria-current="location"' : ''}>Can I use this?</a></li></ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
-  const pageLinks = (group, file, label) => `<nav class="d-subpages" aria-label="${esc(label)} pages">${group.map(p => `<a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a>`).join('')}</nav>`;
+  // The same topic order powers the sidebar and top strip, including the lookup.
+  const groups = [...chapters, { label: 'Can I use this?', pages: data.rules.pages }];
+  const sidebar = (file) => {
+    const topics = groups.map(group => {
+      const active = group.pages.some(p => p.file === file);
+      const expanded = active && group.pages.length > 1;
+      const current = active ? ` aria-current="${expanded ? 'location' : 'page'}"` : '';
+      const children = expanded ? `<ol class="d-side-subpages" aria-label="${esc(group.label)} pages">${group.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ol>` : '';
+      return `<li><a href="${esc(group.pages[0].file)}"${current}>${group.num ? `${esc(group.num)} · ` : ''}${esc(group.label)}</a>${children}</li>`;
+    }).join('');
+    return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
+  };
+  const pageStrip = (file) => {
+    const gi = groups.findIndex(group => group.pages.some(p => p.file === file));
+    const group = groups[gi];
+    if (!group || group.pages.length < 2) return '';
+    const pi = group.pages.findIndex(p => p.file === file);
+    const links = group.pages.map(p => p.file === file
+      ? `<strong aria-current="page">${esc(p.title)}</strong>`
+      : `<a href="${esc(p.file)}">${esc(p.title)}</a>`).join(' <span aria-hidden="true">·</span> ');
+    // After topic 07, continue to the lookup; after the lookup, restart the guide.
+    const nextGroup = groups[(gi + 1) % groups.length];
+    const nextPage = group.pages[pi + 1];
+    const next = nextPage
+      ? `<a class="d-page-next" href="${esc(nextPage.file)}">Next: ${esc(nextPage.title)} →</a>`
+      : `<a class="d-page-next" href="${esc(nextGroup.pages[0].file)}">Next topic: ${esc(nextGroup.label)} →</a>`;
+    return `<nav class="d-page-strip" aria-label="${esc(group.label)} pages"><span class="d-page-count">Page ${pi + 1} of ${group.pages.length}:</span> ${links} ${next}</nav>`;
+  };
 
   // Homepage: title banner, then search and seven topics within Start here.
   const h = data.home;
@@ -177,7 +206,7 @@ ${body}
 <section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2></div>${searchForm('home-search')}<div class="d-chapters">${tiles}</div></section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
-  // Topic subpages: the shared guide and a sequential pager, without duplicate sibling links.
+  // Topic subpages: expanded guide, numbered page strip and the bottom pager.
   chapters.forEach((c, ci) => {
     c.pages.forEach((p, pi) => {
       const side = sidebar(p.file);
@@ -196,7 +225,7 @@ ${body}
       pages.set(p.file, shell({
         title: p.title,
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
-        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>
+        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g))).join('\n')}
@@ -225,13 +254,12 @@ ${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
 ${ruleRows(list)}
 ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means unchecked. Ask the host before using it.</td></tr>' : ''}
 </tbody></table></div></section>`;
-  const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1><p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
+  const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1>${pageStrip('rules.html')}<p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
   const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
   pages.set('rules.html', shell({
     title: 'Can I use this?',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
-${pageLinks(data.rules.pages, 'rules.html', 'Rules')}
 ${audioBar(rulesAudio)}
 ${ruleGrid(entries, { search: true })}
 ${quickGrid(['Can I use this spell or perk?', "Quarantined: don't use yet. Allowed: go ahead. Conditional: follow the stated limit. Unlisted: ask the host."])}
@@ -242,7 +270,7 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
       title: p.title, description: `${p.title}: what you can use in our campaign.`,
-      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageLinks(data.rules.pages, p.file, 'Rules')}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
+      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
 

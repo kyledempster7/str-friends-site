@@ -165,6 +165,49 @@ for (const file of audioFiles) {
   if (!fs.existsSync(outputFile) || !fs.readFileSync(file).equals(fs.readFileSync(outputFile))) fail(`${label}: built audio is missing or differs from its source; rebuild`);
 }
 const compactText = value => value.replace(/\s+/g, ' ').trim();
+// Check navigation where it is rendered, so unrelated links elsewhere cannot
+// conceal a missing sidebar list or numbered strip. Single-page topics omit both.
+const guideGroups = [...(audioPages?.chapters ?? []), { label: 'Can I use this?', pages: audioPages?.rules?.pages ?? [] }];
+const visibleText = value => compactText(decode(value.replace(/<[^>]*>/g, ' ')));
+const navLinks = html => [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, attributes, body]) => ({
+  href: decode(attributes.match(/\bhref="([^"]*)"/)?.[1] ?? ''),
+  current: attributes.match(/\baria-current="([^"]*)"/)?.[1],
+  text: visibleText(body)
+}));
+for (const [gi, group] of guideGroups.entries()) {
+  for (const [pi, page] of group.pages.entries()) {
+    const label = `v4/${page.file}`;
+    const html = documents.get(path.join(dist, 'v4', page.file)) ?? '';
+    const aside = html.match(/<aside class="d-side"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
+    const expanded = [...aside.matchAll(/<ol class="d-side-subpages"[^>]*>([\s\S]*?)<\/ol>/g)];
+    const strips = [...html.matchAll(/<nav class="d-page-strip"[^>]*>([\s\S]*?)<\/nav>/g)];
+    if (group.pages.length < 2) {
+      if (strips.length || expanded.length) fail(`${label}: single-page topic must not render a page strip or duplicate sidebar list`);
+      continue;
+    }
+    if (expanded.length !== 1) fail(`${label}: exactly the current topic must expand in the sidebar`);
+    const sideLinks = navLinks(expanded[0]?.[1] ?? '');
+    if (sideLinks.length !== group.pages.length || group.pages.some((p, i) => sideLinks[i]?.href !== p.file || sideLinks[i]?.text !== p.title || sideLinks[i]?.current !== (i === pi ? 'page' : undefined))) {
+      fail(`${label}: expanded sidebar must list every sibling in order and mark only the current page`);
+    }
+    if (strips.length !== 1 || !/<\/h1>\s*<nav class="d-page-strip"/.test(html)) fail(`${label}: a numbered page strip is required directly under the H1`);
+    const strip = strips[0]?.[1] ?? '';
+    const count = strip.match(/<span class="d-page-count">([^<]*)<\/span>/)?.[1];
+    if (count !== `Page ${pi + 1} of ${group.pages.length}:`) fail(`${label}: page strip has the wrong position or total`);
+    const current = [...strip.matchAll(/<strong aria-current="page">([^<]*)<\/strong>/g)];
+    if (current.length !== 1 || decode(current[0]?.[1] ?? '') !== page.title) fail(`${label}: page strip must mark the current page in bold`);
+    const links = navLinks(strip);
+    const siblings = group.pages.filter(p => p.file !== page.file);
+    if (links.length !== siblings.length + 1 || siblings.some((p, i) => links[i]?.href !== p.file || links[i]?.text !== p.title) || links.some(link => link.href === page.file || link.current)) {
+      fail(`${label}: page strip must link every other sibling, with no link on the current page`);
+    }
+    const nextGroup = guideGroups[(gi + 1) % guideGroups.length];
+    const nextPage = group.pages[pi + 1];
+    const nextHref = nextPage?.file ?? nextGroup.pages[0]?.file;
+    const nextText = nextPage ? `Next: ${nextPage.title} →` : `Next topic: ${nextGroup.label} →`;
+    if (links.at(-1)?.href !== nextHref || links.at(-1)?.text !== nextText) fail(`${label}: page strip must end with the next page or topic link`);
+  }
+}
 for (const page of [
   { ...audioPages?.home, file: 'index.html' },
   ...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []),
