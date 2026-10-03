@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
-import { identity, repository, liveBase, parsePasswords, privacyFindings, treeManifest, manifestDifference, mirrorDist, compareLive } from './lib/publish-checks.mjs';
+import { identity, repository, liveBase, parsePasswords, privacyFindings, treeManifest, manifestDifference, mirrorDist, compareLive, sha256, verifyIdentityLog, verifyRemoteUrls } from './lib/publish-checks.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const env = { ...process.env, GIT_AUTHOR_NAME: identity.name, GIT_AUTHOR_EMAIL: identity.email, GIT_COMMITTER_NAME: identity.name, GIT_COMMITTER_EMAIL: identity.email, GIT_TERMINAL_PROMPT: '0', GH_PROMPT_DISABLED: '1' };
@@ -67,7 +67,7 @@ async function serverIni(explicit) {
 
 function origin(cwd) {
   const url = git(cwd, ['remote', 'get-url', 'origin']);
-  if (![ `https://github.com/${repository}.git`, `https://github.com/${repository}`, `${'git'}@${'github.com'}:${repository}.git` ].includes(url)) throw new Error('origin must be the friends-site GitHub repository.');
+  verifyRemoteUrls(url, git(cwd, ['remote', 'get-url', '--push', '--all', 'origin']).split('\n'));
   return url;
 }
 function clean(cwd) {
@@ -75,16 +75,29 @@ function clean(cwd) {
 }
 function fetchMain(cwd) {
   git(cwd, ['fetch', '--no-tags', 'origin', 'main:refs/remotes/origin/main']);
-  git(cwd, ['merge-base', '--is-ancestor', 'origin/main', 'HEAD']);
+  try { git(cwd, ['merge-base', '--is-ancestor', 'origin/main', 'HEAD']); }
+  catch { throw new Error('origin/main is not an ancestor of feature HEAD; fast-forward-only publication refused.'); }
   return git(cwd, ['rev-parse', 'origin/main']);
 }
 function checkIdentities(cwd) {
-  const commits = git(cwd, ['log', 'origin/main..HEAD', '--format=%H%x09%an%x09%ae%x09%cn%x09%ce']).split('\n').filter(Boolean);
-  for (const row of commits) {
-    const [hash, author, email, committer, committerEmail] = row.split('\t');
-    if ([author, committer].some(name => name !== identity.name) || [email, committerEmail].some(address => address !== identity.email)) throw new Error(`New commit ${hash.slice(0, 12)} has an unapproved author or committer; identities withheld.`);
-  }
-  return commits.length;
+  return verifyIdentityLog(git(cwd, ['log', '-z', 'origin/main..HEAD', '--format=%H%x00%an%x00%ae%x00%cn%x00%ce']));
+}
+function gitBlob(cwd, hash) {
+  const result = spawnSync('git', ['cat-file', 'blob', hash], { cwd, env, windowsHide: true, maxBuffer: 64 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error('Cannot inspect public Git content.');
+  return result.stdout;
+}
+function gitTree(cwd, tree) {
+  return git(cwd, ['ls-tree', '-rz', tree]).split('\0').filter(Boolean).map(entry => {
+    const tab = entry.indexOf('\t');
+    const [mode, type, hash] = entry.slice(0, tab).split(' ');
+    if (tab < 0 || type !== 'blob' || mode === '120000') throw new Error('Publication history contains an unsupported tree entry.');
+    return { hash, filename: entry.slice(tab + 1) };
+  });
+}
+export function checkCommittedDocs(cwd, release, manifest) {
+  const committed = new Map(gitTree(cwd, `${release}:docs`).map(({ hash, filename }) => [filename, sha256(gitBlob(cwd, hash))]));
+  if (manifestDifference(manifest, committed).length) throw new Error('Committed docs bytes differ from dist; check Git attributes/clean filters before any push.');
 }
 async function scanDocs(cwd, manifest) {
   let scanned = 0;
@@ -101,16 +114,10 @@ function scanHistory(cwd) {
   for (const commit of commits) {
     const message = git(cwd, ['show', '-s', '--format=%B', commit]);
     if (privacyFindings(message, secrets, { allowIdentity: true }).length) throw new Error('New commit message failed privacy scan; contents withheld.');
-    const tree = git(cwd, ['ls-tree', '-rz', commit]).split('\0').filter(Boolean);
-    for (const entry of tree) {
-      const [metadata, filename] = entry.split('\t');
-      const [mode, type, hash] = metadata.split(' ');
-      if (type !== 'blob' || mode === '120000') throw new Error('Publication history contains a symlink or submodule; audit required.');
+    for (const { hash, filename } of gitTree(cwd, commit)) {
       if (privacyFindings(filename, secrets, { allowIdentity: true }).length) throw new Error('New public filename failed privacy scan; filename withheld.');
       if (checked.has(hash)) continue;
-      const bytes = spawnSync('git', ['cat-file', 'blob', hash], { cwd, env, windowsHide: true, maxBuffer: 64 * 1024 * 1024 });
-      if (bytes.status !== 0) throw new Error('Cannot inspect new public Git content.');
-      if (privacyFindings(bytes.stdout, secrets, { allowIdentity: true }).length) throw new Error('New public Git content failed privacy scan; values and filename withheld.');
+      if (privacyFindings(gitBlob(cwd, hash), secrets, { allowIdentity: true }).length) throw new Error('New public Git content failed privacy scan; values and filename withheld.');
       checked.add(hash);
     }
   }
@@ -181,6 +188,8 @@ async function main() {
   git(cwd, ['-c', `user.name=${identity.name}`, '-c', `user.email=${identity.email}`, 'commit', '--allow-empty', '-m', 'Publish friends site build', '--only', '--', 'docs']);
   const release = git(cwd, ['rev-parse', 'HEAD']);
   receipt.releaseCommit = release;
+  checkCommittedDocs(cwd, release, manifest);
+  receipt.committedByteParity = true;
   phase('fast-forward and public-history checks');
   fetchMain(cwd);
   receipt.checkedCommits = checkIdentities(cwd);
@@ -188,14 +197,15 @@ async function main() {
   if (manifestDifference(manifest, await treeManifest(path.join(cwd, 'docs'))).length) throw new Error('docs changed after privacy scan.');
   clean(cwd);
   if (config.dryRun) {
-    phase('read-only live HTML comparison (deployment skipped)');
-    const result = await compareLive(manifest, { deadline: Date.now() + config.timeout * 1000 });
-    receipt.live = { matched: result.matched, total: result.total, status: result.failures.length ? 'DIFFERENT_OR_UNAVAILABLE_NOT_PUBLISHED' : 'MATCH', failures: result.failures };
+    phase('read-only live build comparison (deployment skipped)');
+    const result = await compareLive(manifest, { deadline: Date.now() + config.timeout * 1000, allPublicFiles: true });
+    receipt.live = { ...result, status: result.failures.length ? 'DIFFERENT_OR_UNAVAILABLE_NOT_PUBLISHED' : 'MATCH' };
     receipt.result = 'PASS_LOCAL';
     receipt.skipped = ['branch push', 'PR creation', 'main push', 'deployment wait'];
     return;
   }
   phase('push feature branch');
+  origin(cwd);
   git(cwd, ['push', '-u', 'origin', `HEAD:refs/heads/${branch}`]);
   receipt.pushed = true;
   phase('create PR record');
@@ -207,17 +217,18 @@ async function main() {
   fetchMain(cwd);
   checkIdentities(cwd);
   if (git(cwd, ['rev-parse', 'HEAD']) !== release) throw new Error('Release HEAD moved before publication.');
+  origin(cwd);
   // No force flag, merge API, merge commit or local main checkout. A concurrent
   // main update that breaks ancestry is rejected by Git itself.
   git(cwd, ['push', 'origin', 'HEAD:main']);
   receipt.mainPushed = true;
   if (git(cwd, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s+/)[0] !== release) throw new Error('Remote main no longer equals the release commit.');
-  phase('wait for live HTML parity');
+  phase('wait for live build and HTML parity');
   const deadline = Date.now() + config.timeout * 1000;
   while (true) {
-    const result = await compareLive(manifest, { deadline });
-    receipt.live = { matched: result.matched, total: result.total, failures: result.failures };
-    console.log(`[publish] Live HTML ${result.matched}/${result.total} matches.`);
+    const result = await compareLive(manifest, { deadline, allPublicFiles: true });
+    receipt.live = result;
+    console.log(`[publish] Live files ${result.matched}/${result.total}; HTML ${result.htmlMatched}/${result.htmlTotal} matches.`);
     if (!result.failures.length) break;
     if (Date.now() >= deadline) throw new Error('Deployment did not reach full HTML parity before the deadline; publication occurred, verification failed.');
     await delay(Math.min(10000, deadline - Date.now()));
@@ -226,6 +237,7 @@ async function main() {
   receipt.result = 'PUBLISHED_AND_VERIFIED';
 }
 
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 try { await main(); }
 catch (error) {
   receipt.error = redacted(error.message);
@@ -244,4 +256,5 @@ catch (error) {
   }
   if (lockHandle) { await lockHandle.close(); await fs.unlink(lock); }
   if (receipt.result !== 'HELP') console.log(`[publish] RECEIPT ${JSON.stringify(receipt)}`);
+}
 }

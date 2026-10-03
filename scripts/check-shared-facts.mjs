@@ -45,12 +45,22 @@ const holdDefinitions = [
 const holdName = id => holdDefinitions.find(([key]) => key === id)?.[1] ?? id;
 const restrictionLanguage = /\b(?:held|holds?|quarantin\w*|skip|don't use|remain excluded)\b|one (?:controlled |active )?summon per player|summon limit remains one|locks (?:are |remain )?(?:manually picked|picked manually)/i;
 
-export function proseHolds(blocks) {
+export function proseHolds(blocks, { warnings = [] } = {}) {
   const found = new Set();
-  for (const block of blocks.map(plain)) {
+  for (const input of blocks) {
+    const block = plain(typeof input === 'string' ? input : input.text);
     if (/^\s*-?\s*still untested:/i.test(block)) continue;
-    if (!restrictionLanguage.test(block)) continue;
-    for (const [id, , expression] of holdDefinitions) if (expression.test(block)) found.add(id);
+    for (const clause of block.split(/[.;\n]|\s+but\s+/i)) {
+      const mentioned = holdDefinitions.filter(([, , expression]) => expression.test(clause));
+      if (!mentioned.length) continue;
+      const cleared = /(?:no longer|not) (?:held|quarantined)|(?:hold|quarantine)(?: has been| is)? (?:lifted|removed)|\b(?:cleared|unquarantined)\b|(?<!not )\ballowed\b/i.test(clause);
+      if (cleared) {
+        if (mentioned.length > 1 && restrictionLanguage.test(clause)) warnings.push(`Mixed restriction wording for ${mentioned.map(([, name]) => name).join(', ')}; quarantine membership not inferred from that clause.`);
+        continue;
+      }
+      if (!restrictionLanguage.test(clause) && !input.impliedHold) continue;
+      for (const [id] of mentioned) found.add(id);
+    }
   }
   return sorted(found);
 }
@@ -105,33 +115,45 @@ export function readSharedFacts({ root = repoRoot, artifacts = process.env.STR_A
     // Only labels and co-op rules, never vanilla effect descriptions.
     const blocks = document.grids.filter(grid => ['skills', 'races', 'spells', 'cannot-use'].includes(grid.id))
       .flatMap(grid => grid.rows.map(row => textOf([row[0], row.at(-1)])));
+    const notes = [];
     return { mods: mods.rows.map(row => canonicalMod(textOf(row[0]))), count: Number(plain(mods.note).match(/(\d+) installed mods/)?.[1]),
-      holds: proseHolds(blocks), revisions: revisions(document.grids.map(grid => grid.note ?? '')) };
+      holds: proseHolds(blocks, { warnings: notes }), revisions: revisions(document.grids.map(grid => grid.note ?? '')), notes };
   }, true);
-  read('installed mod list', path.join(artifacts, 'delivery-plan', '06-mod-list-v1', 'index.md'), markdown => ({
-    mods: firstColumn(section(markdown, 'Installed release'), 'Installed mod').map(canonicalMod),
-    count: Number(plain(markdown).match(/installed campaign pack is (\d+) mods/i)?.[1]),
-    holds: proseHolds(section(markdown, 'Adopted campaign restrictions').split(/\r?\n/)),
-    revisions: revisions(markdown.split(/^## /m)[0]),
-  }));
+  read('installed mod list', path.join(artifacts, 'delivery-plan', '06-mod-list-v1', 'index.md'), markdown => {
+    const notes = [];
+    return { mods: firstColumn(section(markdown, 'Installed release'), 'Installed mod').map(canonicalMod),
+      count: Number(plain(markdown).match(/installed campaign pack is (\d+) mods/i)?.[1]),
+      holds: proseHolds(section(markdown, 'Adopted campaign restrictions').split(/\r?\n/), { warnings: notes }),
+      revisions: revisions(markdown.split(/^## /m)[0]), notes };
+  });
   read('mod guide', path.join(artifacts, 'mod-guide', 'index.md'), markdown => {
     const grid = section(markdown, 'Grid');
     const intro = markdown.split(/^## /m)[0];
     // The guide intentionally omits foundation rows; count named exclusions too.
     const exclusions = plain(intro).match(/server run \(([^)]+)\)/i)?.[1]?.split(',').map(x => canonicalMod(x.trim())) ?? [];
     const published = plain(intro).match(/revision (\d+)[^;.]*?\bis published/i);
+    const notes = /strong reflexes/i.test(grid) && !/strong reflexes(?:\*\*)? rank 2/i.test(grid)
+      ? ['Strong Reflexes is named without rank 2; Block 50 alone does not identify the quarantined rank.'] : [];
     return { mods: [...firstColumn(grid, 'Mod').map(canonicalMod), ...exclusions],
       count: Number(plain(intro).match(/revision 6 \((\d+) mods\)/i)?.[1]),
-      holds: proseHolds(grid.split(/\r?\n/)), revisions: published ? [Number(published[1])] : revisions(intro),
-      notes: /strong reflexes/i.test(grid) && !/strong reflexes(?:\*\*)? rank 2/i.test(grid)
-        ? ['Strong Reflexes is named without rank 2; Block 50 alone does not identify the quarantined rank.'] : [] };
+      holds: proseHolds(grid.split(/\r?\n/), { warnings: notes }), revisions: published ? [Number(published[1])] : revisions(intro), notes };
   });
-  read('STR-Kit brain/BRAIN.md', path.join(brain, 'BRAIN.md'), markdown => ({
-    mods: firstColumn(section(markdown, 'Installed baseline'), 'Installed mod').map(canonicalMod),
-    count: Number(plain(section(markdown, 'Current release')).match(/(\d+) mods/)?.[1]),
-    holds: proseHolds(section(markdown, 'Gameplay holds').split(/\r?\n/)),
-    revisions: revisions(section(markdown, 'Current release').split(/Revision 5 is historical/i)[0]),
-  }));
+  read('STR-Kit brain/BRAIN.md', path.join(brain, 'BRAIN.md'), markdown => {
+    const notes = [];
+    const blocks = section(markdown, 'Gameplay holds').split(/\r?\n/).flatMap(line => {
+      // This bullet lists adopted BVP holds in its first sentence without
+      // repeating "held" for each semicolon item. Later commentary is explicit.
+      if (/^- \*\*Better Vanilla Perks:\*\*/.test(line)) {
+        const dot = line.indexOf('.');
+        return [{ text: line.slice(0, dot < 0 ? undefined : dot), impliedHold: true }, dot < 0 ? '' : line.slice(dot + 1)];
+      }
+      return [line];
+    });
+    return { mods: firstColumn(section(markdown, 'Installed baseline'), 'Installed mod').map(canonicalMod),
+      count: Number(plain(section(markdown, 'Current release')).match(/(\d+) mods/)?.[1]),
+      holds: proseHolds(blocks, { warnings: notes }),
+      revisions: revisions(section(markdown, 'Current release').split(/Revision 5 is historical/i)[0]), notes };
+  });
   read('STR-Kit brain/SESSIONS.md', path.join(brain, 'SESSIONS.md'), markdown => {
     // Historical revisions elsewhere in the log are not current-state claims.
     const release = section(markdown, 'Release published');
