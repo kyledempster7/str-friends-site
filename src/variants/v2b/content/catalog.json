@@ -6,7 +6,7 @@
       "name": "Better Vanilla Perks",
       "category": "mod",
       "status": "allowed",
-      "summary": "Our selected perk overhaul; follow its held-perk list.",
+      "summary": "Our selected perk overhaul; follow its quarantine list.",
       "detail": "Use the agreed collection. Not every perk has been tested with four players.",
       "aliases": [
         "BVP",
@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Our selected spell overhaul: main package only.",
-      "detail": "Mark, Recall and corpse reanimation are held. Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
+      "detail": "Mark, Recall and corpse reanimation are quarantined (don't use yet). Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -32,8 +32,8 @@
       "name": "Imperious — Races of Skyrim",
       "category": "mod",
       "status": "allowed",
-      "summary": "Our selected race overhaul, with four held powers.",
-      "detail": "Hold Red Sand Dance, Contingency, Beast Tongue and Spirit Walk. Other racial effects and personal unlock progress are not tested yet in this party. NPCs also receive racial abilities.",
+      "summary": "Our selected race overhaul, with four quarantined powers.",
+      "detail": "Quarantined (don't use yet): Red Sand Dance, Contingency, Beast Tongue and Spirit Walk. Other racial effects and personal unlock progress are not tested yet in this party. NPCs also receive racial abilities.",
       "aliases": [
         "Imperious",
         "race overhaul"
@@ -62,7 +62,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Skip this perk at Block 50.",
-      "detail": "It slows time when blocking power attacks. Slow time can synchronize across the party; this is a shared-pacing hold until tested.",
+      "detail": "It slows time when blocking power attacks. Slow time can synchronize across the party; this is a shared-pacing quarantine until tested.",
       "aliases": [
         "Strong Reflexes",
         "Strong Reflexes 2",
@@ -78,7 +78,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Skip this perk at Archery 40.",
-      "detail": "Aiming with zoom slows time. It can affect everybody's fight. The entire Steady Hand branch stays held until tested.",
+      "detail": "Aiming with zoom slows time. It can affect everybody's fight. The entire Steady Hand branch stays quarantined (don't use yet) until tested.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 1",
@@ -94,7 +94,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Keep the whole Steady Hand branch unselected.",
-      "detail": "The second rank's tooltip does not establish that the first rank's slowdown disappears. Do not use it to bypass the rank 1 hold.",
+      "detail": "The second rank's tooltip does not establish that the first rank's slowdown disappears. Do not use it to bypass the rank 1 quarantine.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 2",
@@ -108,7 +108,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Do not use exploding reanimated corpses.",
-      "detail": "This perk adds an explosion to corpse-based reanimation, which is itself held. Exact party behavior is not tested yet.",
+      "detail": "This perk adds an explosion to corpse-based reanimation, which is itself quarantined (don't use yet). Exact party behavior is not tested yet.",
       "aliases": [
         "Dark Souls",
         "Dark Souls II",
@@ -123,7 +123,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Do not use the spectral drum power from Speech 60.",
-      "detail": "Its follower stamina effect is not a verified player buff. The power is held until tested; the rule concerns the granted power.",
+      "detail": "Its follower stamina effect is not a verified player buff. The power is quarantined (don't use yet) until tested; the rule concerns the granted power.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 4",
@@ -171,7 +171,7 @@
       "category": "mechanic",
       "status": "allowed",
       "summary": "Use lockpicks normally, and coordinate shared containers.",
-      "detail": "Ordinary lock state is supported by Skyrim Together. This does not clear the held torch-assisted automatic unlocking.",
+      "detail": "Ordinary lock state is supported by Skyrim Together. This does not clear the quarantined torch-assisted automatic unlocking.",
       "aliases": [
         "locks",
         "pick locks",
@@ -185,7 +185,7 @@
       "category": "mechanic",
       "status": "hold",
       "summary": "Keep one active summoned actor per player.",
-      "detail": "Extra capacity from perks does not change this rule. The limit is our initial test budget, not a Skyrim Together engine limit. Corpse reanimation and held special powers remain excluded.",
+      "detail": "Extra capacity from perks does not change this rule. The limit is our initial test budget, not a Skyrim Together engine limit. Corpse reanimation and quarantined special powers remain excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -201,7 +201,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Summoner30"
       ],
@@ -213,7 +213,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Summoner70"
       ],
@@ -225,7 +225,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "TwinSouls"
       ],
@@ -237,7 +237,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -249,7 +249,7 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Hold until the group's first healer test.",
+      "summary": "Quarantined (don't use yet) until the group's first healer test.",
       "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
@@ -277,7 +277,7 @@
       "category": "race",
       "status": "hold",
       "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Redguard power slows time and can change everyone's fight. This is an adopted hold until tested.",
+      "detail": "The Redguard power slows time and can change everyone's fight. This is quarantined until we test it together.",
       "aliases": [
         "Redguard",
         "time slow",
@@ -291,7 +291,7 @@
       "category": "race",
       "status": "hold",
       "summary": "Do not use this racial power in our campaign.",
-      "detail": "The High Elf power automatically casts stored spells; the stored effect and remote result are not tested yet. This is an adopted hold until tested.",
+      "detail": "The High Elf power automatically casts stored spells; the stored effect and remote result are not tested yet. This is quarantined until we test it together.",
       "aliases": [
         "Altmer",
         "High Elf",
@@ -306,7 +306,7 @@
       "category": "race",
       "status": "hold",
       "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Wood Elf power adds an animal companion; its ownership and behavior are not tested yet. This is an adopted hold until tested.",
+      "detail": "The Wood Elf power adds an animal companion; its ownership and behavior are not tested yet. This is quarantined until we test it together.",
       "aliases": [
         "Bosmer",
         "Wood Elf",
@@ -320,7 +320,7 @@
       "category": "race",
       "status": "hold",
       "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Dark Elf power summons ancestors through a special racial system; it is not cleared by the ordinary one-summon allowance. This is an adopted hold until tested.",
+      "detail": "The Dark Elf power summons ancestors through a special racial system; it is not cleared by the ordinary one-summon allowance. This is quarantined until we test it together.",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -363,7 +363,7 @@
       "category": "race",
       "status": "conditional",
       "summary": "The Dark Elf marking and reward system needs observation.",
-      "detail": "Its exact behavior and personal racial progression are not tested yet. Spirit Walk remains held.",
+      "detail": "Its exact behavior and personal racial progression are not tested yet. Spirit Walk remains quarantined (don't use yet).",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -390,8 +390,8 @@
       "name": "Shared Ancestry — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "Borrowing a racial power does not bypass its hold.",
-      "detail": "Apply the same held-power rules to any borrowed ability. Exact behavior with the party is not tested yet.",
+      "summary": "Borrowing a racial power does not bypass its quarantine.",
+      "detail": "Apply the same quarantine rules to any borrowed ability. Exact behavior with the party is not tested yet.",
       "aliases": [
         "Breton",
         "borrow racial power"
@@ -545,7 +545,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Start with one active summon per player.",
-      "detail": "Skyrim Together supports ordinary summon actors. This does not clear held racial summons, copied actors, corpse raising or summon armies. Exact four-player behavior is not tested yet.",
+      "detail": "Skyrim Together supports ordinary summon actors. This does not clear quarantined racial summons, copied actors, corpse raising or summon armies. Exact four-player behavior is not tested yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",

@@ -86,7 +86,7 @@
         },
         {
           "file": "cannot-use.html",
-          "title": "Perks and powers on hold",
+          "title": "Quarantined perks and powers",
           "grids": [
             "cannot-use"
           ],
@@ -187,7 +187,7 @@
                     }
                   ],
                   "Teleport back to a marked spot",
-                  "Hold."
+                  "Quarantined: don't use it until we test it together."
                 ],
                 [
                   {
@@ -195,7 +195,7 @@
                     "href": "rules.html#rule-corpse-reanimation"
                   },
                   "Raise the dead to fight for you",
-                  "Hold. One active summon per player instead."
+                  "Quarantined: don't use it until we test it together. One active summon per player instead."
                 ]
               ]
             }
@@ -330,7 +330,7 @@
                 [
                   "Meet up",
                   "Just play",
-                  "Open chat with F2 or Right Ctrl, type READY and press Enter."
+                  "Go to the spot the host names on Discord. Then open chat with F2 or Right Ctrl, type READY and press Enter."
                 ],
                 [
                   "If it fails",
@@ -806,7 +806,7 @@
                   },
                   "Shield users, paladin",
                   "Vanilla Quick Reflexes slows time while you block",
-                  "Less power-attack damage while shield blocking; rank 2 stays on hold (Better Vanilla Perks)"
+                  "Less power-attack damage while shield blocking; rank 2 stays quarantined (don't use yet) (Better Vanilla Perks)"
                 ],
                 [
                   {
@@ -1171,7 +1171,7 @@
             },
             "Shield users, paladin",
             "Vanilla Quick Reflexes slows time while you block",
-            "Less power-attack damage while shield blocking; rank 2 stays on hold (Better Vanilla Perks)"
+            "Less power-attack damage while shield blocking; rank 2 stays quarantined (don't use yet) (Better Vanilla Perks)"
           ],
           [
             {

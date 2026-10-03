@@ -50,7 +50,7 @@ for (const name of (await readdir(path.join(output, 'v2b'))).filter((n) => n.end
 // so a ruling changed in the catalog (for example Resurgence becoming a hold) shows in B as well.
 {
   const bCatalog = JSON.parse(await readFile(path.join(root, 'src/variants/v2b/content/catalog.json'), 'utf8'));
-  const labels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
+  const labels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
   const escHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   const rulesFile = path.join(output, 'v2b', 'rules.html');
   let rules = await readFile(rulesFile, 'utf8');

@@ -7,9 +7,9 @@ import path from 'node:path';
 // lists only that chapter's subpages (five at most). Quick answers live on the subpage that owns them.
 // The big header button is Join, linking to the Nexus collection.
 const esc = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
+const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
 const statusMeaning = {
-  hold: "Don't use it yet. We'll test it together first.",
+  hold: "Don't use it until we've tested it together in co-op.",
   blocked: "Not part of our setup. Don't install it on your own.",
   conditional: 'Fine within the limit stated. Not tested in co-op yet.',
   allowed: 'Go ahead. Not every one has been tested with four players.'
@@ -179,7 +179,7 @@ ${pager}</div></div>`
     title: 'Can I use this?', current: 'rules',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-page"><p class="eyebrow">Before you spend a perk point</p><h1>Can I use this?</h1>
-${quickGrid(['Can I use this spell or perk?', 'Search below. Hold means not yet; Allowed means go ahead. If it isn\'t listed, we haven\'t checked it, so ask the host.'])}
+${quickGrid(['Can I use this spell or perk?', 'Search below. Quarantined means don\'t use it until we test it together; Allowed means go ahead. If it isn\'t listed, we haven\'t checked it, so ask the host.'])}
 <form class="d-search" role="search" onsubmit="return false"><label for="filter">Search the ${catalog.entries.length} spells, perks, powers and mods we've checked</label><div class="d-search-row"><input id="filter" name="q" type="search" placeholder="Type a spell, perk, power or mod" autocomplete="off"></div><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></form>
 <section class="d-section" aria-labelledby="key"><h2 id="key">What the statuses mean</h2><div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Status</th><th scope="col">How many</th><th scope="col">Means</th></tr></thead><tbody>${keyRows}</tbody></table></div></section>
 <section class="d-section" aria-labelledby="all"><h2 id="all">Everything we've checked</h2>

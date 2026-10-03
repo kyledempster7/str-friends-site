@@ -39,7 +39,7 @@
             "Press F2 or Right Ctrl. Choose Connect; use the details the host sent you privately.",
             "Check your party: press F2, click Player Manager, then the Party Menu tab. It lists your party by Name, Lv. and Location. Make sure the leader is there.",
             "Not listed? The leader clicks Launch party in the Party Menu, and you join automatically. Still missing? Look under Invites for \"Accept invite from\" the leader, or tell the leader.",
-            "Meet up, then open chat with F2 or Right Ctrl, type READY and press Enter."
+            "Go to the spot the host names on Discord. Then open chat with F2 or Right Ctrl, type READY and press Enter."
           ]
         },
         {
@@ -57,6 +57,99 @@
               "title": "Something looks wrong",
               "text": "Stop and tell the host. Never reload while connected or try to fix quests alone. Save before big scenes."
             }
+          ]
+        },
+        {
+          "type": "comparison",
+          "id": "our-mods",
+          "title": "The mods in our game",
+          "note": "The base mods that run the server (Skyrim Together, SKSE, Address Library) are not listed. Our collection, revision 6, includes everything here.",
+          "columns": [
+            "Mod",
+            "Without it",
+            "With it"
+          ],
+          "rows": [
+            [
+              "Helgen Express",
+              "The long Helgen intro",
+              "A quick start screen: pick race, sign, gear, spells and helper."
+            ],
+            [
+              "SkyUI",
+              "Old inventory menus",
+              "Sortable menus and the Mod Configuration menu."
+            ],
+            [
+              "Skyrim Souls RE",
+              "Menus pause the game",
+              "Menus don't pause. You can be hit while in your bag."
+            ],
+            [
+              "SSE Display Tweaks",
+              "60 FPS, cursor escapes",
+              "Borderless window, higher frame rates, cursor stays in the game."
+            ],
+            [
+              "Mortal Enemies",
+              "Enemies spin mid-swing",
+              "Enemies commit to swings, so you can sidestep and punish."
+            ],
+            [
+              "Precision",
+              "Fuzzy hit detection",
+              "Real weapon hitboxes. Wide swings hit several enemies."
+            ],
+            [
+              "True Directional Movement",
+              "Tank controls",
+              "Modern movement. Middle mouse locks onto hostiles; scroll switches target."
+            ],
+            [
+              "Better Third Person Selection",
+              "Aim the tiny crosshair",
+              "Walk up and press E on what's highlighted."
+            ],
+            [
+              "MCM Helper",
+              "Some mod menus missing",
+              "Precision, TDM and other menus appear in Mod Configuration."
+            ],
+            [
+              "TrueHUD",
+              "One health bar for your current target",
+              "Health bars over enemies and a boss bar."
+            ],
+            [
+              "QuickLoot IE",
+              "Open every container",
+              "A loot list pops up beside chests and bodies. E takes one, R takes all."
+            ],
+            [
+              "moreHUD",
+              "Guess what you know",
+              "Shows known enchantments, read books, value and weight."
+            ],
+            [
+              "Atlas Map Markers",
+              "Sparse map",
+              "Hundreds of extra map markers."
+            ],
+            [
+              "Mysticism",
+              "Vanilla spells",
+              "Every school reworked, many new spells. See Spells by school"
+            ],
+            [
+              "Imperious",
+              "Vanilla racial bonuses",
+              "New powers and passives for every race. See Races"
+            ],
+            [
+              "Better Vanilla Perks",
+              "Vanilla perk trees",
+              "Every perk tree reworked. See Skills"
+            ]
           ]
         },
         {
@@ -86,7 +179,7 @@
         },
         {
           "label": "READY",
-          "text": "Meet up before starting.",
+          "text": "Meet where the host says, then type READY.",
           "href": "#join"
         },
         {
@@ -127,7 +220,7 @@
             },
             {
               "title": "Gravewarden",
-              "text": "Restoration first, Conjuration second. One conjured helper buys healing time; raising corpses is different. Give: recovery and distraction. Ask: room for the helper. Corpse raising stays held, even in a darker story.",
+              "text": "Restoration first, Conjuration second. One conjured helper buys healing time; raising corpses is different. Give: recovery and distraction. Ask: room for the helper. Corpse raising stays quarantined (don't use yet), even in a darker story.",
               "icon": "gravewarden"
             },
             {

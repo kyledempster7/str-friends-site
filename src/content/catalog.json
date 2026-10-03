@@ -6,7 +6,7 @@
       "name": "Better Vanilla Perks",
       "category": "mod",
       "status": "allowed",
-      "summary": "Reworks skill perks; use it with the group's named holds.",
+      "summary": "Reworks skill perks; use it with the group's named quarantines.",
       "detail": "Our revision 6 perk overhaul adds weapon, armor, crafting and magic bonuses. Exact effects with this party are not tested in co-op yet.",
       "aliases": [
         "BVP",
@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Rebalances old spells and adds new ones; use the main package only.",
-      "detail": "Part of revision 6. Mark, Recall and corpse raising stay held; one active summon each. Optional addons are outside our setup.",
+      "detail": "Part of revision 6. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -32,8 +32,8 @@
       "name": "Imperious — Races of Skyrim",
       "category": "mod",
       "status": "allowed",
-      "summary": "Gives each race distinct abilities and an unlockable power; four powers stay held.",
-      "detail": "Part of revision 6. Hold Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
+      "summary": "Gives each race distinct abilities and an unlockable power; four powers stay quarantined (don't use yet).",
+      "detail": "Part of revision 6. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
       "aliases": [
         "Imperious",
         "race overhaul"
@@ -46,7 +46,7 @@
       "category": "perk",
       "status": "allowed",
       "summary": "Halve power-attack damage while blocking with a shield.",
-      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 remains held. Not tested in co-op yet.",
+      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Strong Reflexes",
         "Quick Reflexes",
@@ -108,7 +108,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Reanimated bodies can explode when combat starts.",
-      "detail": "Do not take this perk or use its corpse explosions. Raising the body is also held.",
+      "detail": "Do not take this perk or use its corpse explosions. Raising the body is also quarantined (don't use yet).",
       "aliases": [
         "Dark Souls",
         "Dark Souls II",
@@ -122,7 +122,7 @@
       "name": "Dragonborn rank 4: spectral drum — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Hold the Speech 60 power: its spectral drum restores followers' Stamina.",
+      "summary": "Quarantined (don't use yet): the Speech 60 power: its spectral drum restores followers' Stamina.",
       "detail": "Dragonborn rank 4 also improves prices. The drum's effect on friends is not verified; do not summon it.",
       "aliases": [
         "Dragonborn",
@@ -138,7 +138,7 @@
       "name": "Dragonborn rank 5: Dremora Merchant — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Hold the Speech 80 power: it summons a merchant for trading.",
+      "summary": "Quarantined (don't use yet): the Speech 80 power: it summons a merchant for trading.",
       "detail": "Dragonborn rank 5 also improves prices. Do not summon its Dremora Merchant until the group clears the power.",
       "aliases": [
         "Dragonborn",
@@ -171,7 +171,7 @@
       "category": "mechanic",
       "status": "allowed",
       "summary": "Open locks with lockpicks.",
-      "detail": "Opened locks synchronize. Torch-assisted automatic opening remains held.",
+      "detail": "Opened locks synchronize. Torch-assisted automatic opening remains quarantined (don't use yet).",
       "aliases": [
         "locks",
         "pick locks",
@@ -184,8 +184,8 @@
       "name": "More than one active summon per player",
       "category": "mechanic",
       "status": "hold",
-      "summary": "Hold extra helpers; keep one active summon per player.",
-      "detail": "BVP perks add capacity, but our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the held Speech powers remain excluded.",
+      "summary": "Quarantined (don't use yet): extra helpers; keep one active summon per player.",
+      "detail": "BVP perks add capacity, but our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the quarantined Speech powers remain excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -201,7 +201,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Adds a summon slot and doubles casting distance; keep one active summon.",
-      "detail": "The extra slot stays unused under our party rule. Corpse raising remains held. Not tested in co-op yet.",
+      "detail": "The extra slot stays unused under our party rule. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Summoner30"
       ],
@@ -213,7 +213,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Adds a summon slot and triples casting distance; keep one active summon.",
-      "detail": "The extra slot stays unused under our party rule. Corpse raising remains held. Not tested in co-op yet.",
+      "detail": "The extra slot stays unused under our party rule. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Summoner70"
       ],
@@ -225,7 +225,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Adds two summon slots; keep one active summon.",
-      "detail": "Extra capacity stacks with other perks, but our party limit stays one. Corpse raising remains held. Not tested in co-op yet.",
+      "detail": "Extra capacity stacks with other perks, but our party limit stays one. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "TwinSouls"
       ],
@@ -237,7 +237,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Improves prices and adds a summon slot; keep one active summon.",
-      "detail": "The Speech 20 rank gives 15% better prices. Leave its extra summon capacity unused; corpse raising remains held.",
+      "detail": "The Speech 20 rank gives 15% better prices. Leave its extra summon capacity unused; corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -249,7 +249,7 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Hold until the group's first healer test.",
+      "summary": "Quarantined (don't use yet) until the group's first healer test.",
       "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
@@ -264,7 +264,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Strengthens certain staff spells and summons; keep one active summon.",
-      "detail": "Potent atronachs scale with your level. Corpse raising stays held; exact staff and summon bonuses are not tested in co-op yet.",
+      "detail": "Potent atronachs scale with your level. Corpse raising stays quarantined (don't use yet); exact staff and summon bonuses are not tested in co-op yet.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -363,7 +363,7 @@
       "category": "race",
       "status": "conditional",
       "summary": "Ancestors mark enemies for gold and Spirit Favor.",
-      "detail": "Slay marked humanoids to earn the reward. Personal progress is not tested in co-op yet; Spirit Walk remains held.",
+      "detail": "Slay marked humanoids to earn the reward. Personal progress is not tested in co-op yet; Spirit Walk remains quarantined (don't use yet).",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -390,8 +390,8 @@
       "name": "Shared Ancestry — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "Borrow a human or elf's racial power; all existing holds still apply.",
-      "detail": "The Breton power borrows a living target's racial power for five minutes. Never use it to bypass held powers. Not tested in co-op yet.",
+      "summary": "Borrow a human or elf's racial power; all existing quarantines still apply.",
+      "detail": "The Breton power borrows a living target's racial power for five minutes. Never use it to bypass quarantined powers. Not tested in co-op yet.",
       "aliases": [
         "Breton",
         "borrow racial power"
@@ -455,7 +455,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a basic skeleton; keep one active summon.",
-      "detail": "Novice Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains held.",
+      "detail": "Novice Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -470,7 +470,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton warrior; keep one active summon.",
-      "detail": "Expert Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains held.",
+      "detail": "Expert Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -545,7 +545,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Summon a creature to fight beside you; keep one active summon.",
-      "detail": "Familiar-style creatures and atronachs are options. Corpse raising and held racial or Speech summons remain excluded. Not tested in co-op yet.",
+      "detail": "Familiar-style creatures and atronachs are options. Corpse raising and quarantined racial or Speech summons remain excluded. Not tested in co-op yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -739,7 +739,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Heal nearby summoned helpers; use on your one allowed summon.",
-      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays held. Not tested in co-op yet.",
+      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Conjurer's Cure",
         "Dark Deal",

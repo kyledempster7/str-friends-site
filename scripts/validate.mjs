@@ -116,7 +116,7 @@ if (published.reduce((total, file) => total + fs.statSync(file).size, 0) > 2 * 1
 const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
-const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
+const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
 // Kyle (2026-10-03): "keep B and D, and delete the others". Only /v2b/ (B) and /v4/ (D) are published.
 const variantPaths = VERSIONS.map(([folder]) => folder);
 for (const gone of ['v1', 'v2a', 'v3']) if (fs.existsSync(path.join(dist, gone))) fail(`/${gone}/ must not be published`);
