@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assertFrozen } from './lib/frozen.mjs';
 
 // Independently transcribed campaign restrictions. A named hold must remain
 // searchable and may not be weakened to an allowed/conditional search result.
@@ -126,25 +127,52 @@ if (published.reduce((total, file) => total + fs.statSync(file).size, 0) > 2 * 1
 const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
-const catalogHtml = documents.get(path.join(dist, 'rules.html')) ?? '';
 const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
+const variantPaths = fs.existsSync(path.join(root, 'src/variants/frozen-v1.json')) ? ['', 'v1', 'v2a', 'v2b'] : [''];
+if (variantPaths.length > 1) {
+  const frozen = readJson('src/variants/frozen-v1.json');
+  if (frozen) for (const location of ['', 'v1']) {
+    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b'] }); }
+    catch (error) { fail(error.message); }
+  }
+}
+for (const variant of variantPaths) {
+const catalogPath = path.join(variant, 'rules.html');
+const catalogHtml = documents.get(path.join(dist, catalogPath)) ?? '';
+if (!catalogHtml) fail(`${catalogPath}: missing rendered catalog`);
+const renderedRuleIds = [...catalogHtml.matchAll(/<article\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
+if (renderedRuleIds.length !== entries?.length || renderedRuleIds.some(id => !entries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from adopted rules`);
+if (variant === 'v2a' || variant === 'v2b') {
+  const sourcePath = `src/variants/${variant}/content/catalog.json`;
+  if (fs.existsSync(path.join(root, sourcePath))) {
+    const source = readJson(sourcePath);
+    if (source?.entries?.length !== entries?.length) fail(`${sourcePath}: expected all ${entries.length} adopted entries`);
+    for (const entry of entries ?? []) {
+      const matches = source?.entries?.filter(item => item.id === entry.id) ?? [];
+      if (matches.length !== 1 || Object.keys(entry).some(key => JSON.stringify(matches[0][key]) !== JSON.stringify(entry[key]))) fail(`${sourcePath}: adopted record changed: ${entry.id}`);
+    }
+  }
+}
 for (const entry of catalogHtml ? entries ?? [] : []) {
   // The outer page article can contain the first rule card, so locate the
   // uniquely identified opening tag, then bound it at its own closing tag.
   const escapedId = String(entry.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const openings = [...catalogHtml.matchAll(new RegExp(`<article\\b([^>]*\\bid=["']rule-${escapedId}["'][^>]*)>`, 'g'))];
-  if (openings.length !== 1) { fail(`Catalog ${entry.id}: must render exactly once in rules.html`); continue; }
+  if (openings.length !== 1) { fail(`${catalogPath}: ${entry.id} must render exactly once`); continue; }
   const opening = openings[0];
   const end = catalogHtml.indexOf('</article>', opening.index + opening[0].length);
   if (end < 0) { fail(`Catalog ${entry.id}: rendered article is not closed`); continue; }
   const body = catalogHtml.slice(opening.index + opening[0].length, end);
   const visible = decode(body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
   const status = opening[1].match(/\bdata-status=["']([^"']+)["']/)?.[1];
+  const search = decode(opening[1].match(/\bdata-search="([^"]*)"/)?.[1] ?? '');
+  for (const alias of entry.aliases ?? []) if (!search.includes(alias)) fail(`${catalogPath}: ${entry.id} missing searchable alias`);
   if (status !== entry.status) fail(`Catalog ${entry.id}: rendered status does not match the source`);
   for (const value of [entry.name, entry.summary, entry.detail, statusLabels[entry.status]]) {
     if (typeof value !== 'string' || !visible.includes(value.replace(/\s+/g, ' ').trim())) fail(`Catalog ${entry.id}: visible name, status or guidance missing from rendered output`);
   }
   if (/\bhidden(?:\s|=|$)/.test(opening[1]) || /\baria-hidden=["']true["']/.test(opening[1])) fail(`Catalog ${entry.id}: rule hidden in static output`);
+}
 }
 for (const [file, html] of documents) {
   const relative = path.relative(dist, file);

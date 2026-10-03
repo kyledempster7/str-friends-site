@@ -10,22 +10,26 @@
         {
           "label": "SAVES",
           "text": "Everyone saves their own character.",
-          "icon": "book"
+          "icon": "book",
+          "href": "#saves"
         },
         {
           "label": "LEADER",
           "text": "One leader for the entire campaign.",
-          "icon": "compass"
+          "icon": "compass",
+          "href": "#campaign-leader"
         },
         {
           "label": "MENUS",
           "text": "Danger keeps moving.",
-          "icon": "shield"
+          "icon": "shield",
+          "href": "#live-menus"
         },
         {
           "label": "DEATH",
           "text": "Respawn; don't reload.",
-          "icon": "mountain"
+          "icon": "mountain",
+          "href": "#death-respawn"
         }
       ],
       "blocks": [
@@ -35,22 +39,26 @@
             {
               "title": "Your save stays yours",
               "text": "Save often. The server does not keep a replacement save for you.",
-              "icon": "book"
+              "icon": "book",
+              "id": "saves"
             },
             {
               "title": "Follow the campaign leader",
               "text": "The same leader handles quest dialogue, scenes and items, and enters locations first. Everyone can fight and solve puzzles together.",
-              "icon": "compass"
+              "icon": "compass",
+              "id": "campaign-leader"
             },
             {
               "title": "Get safe before opening menus",
               "text": "Our setup does not pause. Step away from danger before choosing gear or a potion.",
-              "icon": "shield"
+              "icon": "shield",
+              "id": "live-menus"
             },
             {
               "title": "Death is a setback",
               "text": "Normally respawn nearby outdoors or at the indoor entrance. Extra gold-loss penalty: zero. Crime bounties still apply. This exact party setup is not tested yet.",
-              "icon": "mountain"
+              "icon": "mountain",
+              "id": "death-respawn"
             },
             {
               "title": "Master difficulty, shared combat experience",
@@ -94,17 +102,20 @@
         {
           "label": "CHOICE",
           "text": "Every race can learn every skill.",
-          "icon": "star"
+          "icon": "star",
+          "href": "#race-comparison"
         },
         {
           "label": "COLLECTION",
           "text": "Use only the agreed collection.",
-          "icon": "book"
+          "icon": "book",
+          "href": "rules.html#rule-bvp-main"
         },
         {
           "label": "PERKS",
           "text": "Read changed tooltips before spending.",
-          "icon": "book"
+          "icon": "book",
+          "href": "#perk-ranks"
         }
       ],
       "blocks": [
@@ -268,7 +279,8 @@
               "Poison resistance; Adrenaline Rush",
               "Travel stamina; Red Sand Dance held."
             ]
-          ]
+          ],
+          "id": "race-comparison"
         },
         {
           "type": "callout",
@@ -280,7 +292,8 @@
           "type": "callout",
           "tone": "hold",
           "title": "Check exact ranks in search",
-          "text": "Hold Dark Souls 2; Dragonborn rank 4 drum/rank 5 merchant powers. Strong Reflexes: Block 30 rank 1 allowed; Block 50 rank 2 held."
+          "text": "Hold Dark Souls 2; Dragonborn rank 4 drum/rank 5 merchant powers. Strong Reflexes: Block 30 rank 1 allowed; Block 50 rank 2 held.",
+          "id": "perk-ranks"
         },
         {
           "type": "links",
@@ -306,23 +319,27 @@
         {
           "label": "SCHOOLS",
           "text": "Five schools; no new skill tree.",
-          "icon": "star"
+          "icon": "star",
+          "href": "#magic-schools"
         },
         {
           "label": "SUMMONS",
           "text": "One active summon per player.",
-          "icon": "shield"
+          "icon": "shield",
+          "href": "#summon-limit"
         },
         {
           "label": "HEALING",
           "text": "Start with ordinary healing spells.",
-          "icon": "star"
+          "icon": "star",
+          "href": "#player-healing"
         },
         {
           "label": "TRAVEL",
           "text": "Mark and Recall are held.",
           "status": "hold",
-          "icon": "compass"
+          "icon": "compass",
+          "href": "#magic-holds"
         }
       ],
       "blocks": [
@@ -337,12 +354,14 @@
             {
               "title": "Conjure; don't raise bodies",
               "text": "An ordinary conjured skeleton differs from a reanimated corpse. Our one-summon limit is a test budget, not an engine limit. Extra perk capacity does not override it.",
-              "icon": "shield"
+              "icon": "shield",
+              "id": "summon-limit"
             },
             {
               "title": "Heal a friend",
               "text": "Start with Healing Hands, Heal Other or Grand Healing. Ordinary healing and Courage, Rally and Call to Arms have player-target support; exact targeting, experience and perk scaling are not tested yet.",
-              "icon": "star"
+              "icon": "star",
+              "id": "player-healing"
             },
             {
               "title": "Know your support limits",
@@ -385,13 +404,15 @@
               "Healing, wards, undead defense",
               "More healing and support."
             ]
-          ]
+          ],
+          "id": "magic-schools"
         },
         {
           "type": "callout",
           "tone": "hold",
           "title": "Main Mysticism only",
-          "text": "Hold Mark, Recall and corpse reanimation. Exclude NPC spell distribution and optional Jump, Survival, Ordinator and Slower Unlocks packages."
+          "text": "Hold Mark, Recall and corpse reanimation. Exclude NPC spell distribution and optional Jump, Survival, Ordinator and Slower Unlocks packages.",
+          "id": "magic-holds"
         },
         {
           "type": "links",

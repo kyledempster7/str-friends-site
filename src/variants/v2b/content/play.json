@@ -60,6 +60,10 @@
             {
               "title": "Need a minute?",
               "text": "Type HOLD or BRB. Find safety; menus and chat do not pause danger."
+            },
+            {
+              "title": "If something disagrees",
+              "text": "Save before major scenes. If progress disagrees, stop and tell the host. Never reload while connected or repair quests alone."
             }
           ]
         },
@@ -68,15 +72,6 @@
           "tone": "note",
           "title": "A normal goodbye",
           "text": "Find safety. Save and let it finish. F2, Disconnect, Proceed; quit. Each person saves locally; the server cannot replace your save."
-        },
-        {
-          "type": "cards",
-          "items": [
-            {
-              "title": "If something disagrees",
-              "text": "Save before major scenes. If progress disagrees, stop and tell the host. Never reload while connected or repair quests alone."
-            }
-          ]
         },
         {
           "type": "links",
@@ -95,19 +90,23 @@
       "quickAnswers": [
         {
           "label": "F2",
-          "text": "Connect, then check the party."
+          "text": "Connect, then check the party.",
+          "href": "#join"
         },
         {
           "label": "One leader",
-          "text": "Keep the same leader all campaign."
+          "text": "Keep the same leader all campaign.",
+          "href": "party.html#leader"
         },
         {
           "label": "READY",
-          "text": "Meet up before starting."
+          "text": "Meet up before starting.",
+          "href": "#join"
         },
         {
           "label": "Leaving?",
-          "text": "Save. Disconnect. Go."
+          "text": "Save. Disconnect. Go.",
+          "href": "#leave-now"
         }
       ]
     },
@@ -162,7 +161,8 @@
             },
             {
               "title": "Not tested yet",
-              "text": "Healing experience, ally perk bonuses, added summons and full combinations are not tested yet. Check installed tooltips and the rules before spending points."
+              "text": "Healing experience, ally perk bonuses, added summons and full combinations are not tested yet. Check installed tooltips and the rules before spending points.",
+              "id": "build-testing"
             }
           ]
         }
@@ -170,15 +170,18 @@
       "quickAnswers": [
         {
           "label": "Choose",
-          "text": "Friends cover your gaps."
+          "text": "Friends cover your gaps.",
+          "href": "#roles"
         },
         {
           "label": "Give and ask",
-          "text": "Every role helps and needs help."
+          "text": "Every role helps and needs help.",
+          "href": "#roles"
         },
         {
           "label": "Check first",
-          "text": "Ideas are not tested combinations."
+          "text": "Ideas are not tested combinations.",
+          "href": "#build-testing"
         }
       ]
     },
@@ -192,14 +195,16 @@
           "type": "callout",
           "tone": "note",
           "title": "One leader per playthrough",
-          "text": "Keep one leader for the entire campaign: quest NPCs, scenes, items and entering locations first. Everyone can fight bosses and solve puzzles."
+          "text": "Keep one leader for the entire campaign: quest NPCs, scenes, items and entering locations first. Everyone can fight bosses and solve puzzles.",
+          "id": "leader"
         },
         {
           "type": "cards",
           "items": [
             {
               "title": "Pass the story spotlight",
-              "text": "Share story choices without rotating leadership. A different leader needs a separate campaign and characters."
+              "text": "Share story choices without rotating leadership. A different leader needs a separate campaign and characters.",
+              "id": "story-spotlight"
             },
             {
               "title": "On me",
@@ -219,7 +224,8 @@
           "type": "callout",
           "tone": "note",
           "title": "Typing counts",
-          "text": "F2 or Right Ctrl; click chat, type, then Enter. Ordinary messages are global. Try /party READY or /local Hello. Four-player delivery and readability are not tested yet."
+          "text": "F2 or Right Ctrl; click chat, type, then Enter. Ordinary messages are global. Try /party READY or /local Hello. Four-player delivery and readability are not tested yet.",
+          "id": "chat"
         },
         {
           "type": "cards",
@@ -238,7 +244,8 @@
             },
             {
               "title": "Our shared setup",
-              "text": "Use matching mods. Menus stay live. Target lock selects hostiles; aim heals manually. Player friendly fire is off; neutral characters remain vulnerable. Review additions together."
+              "text": "Use matching mods. Menus stay live. Target lock selects hostiles; aim heals manually. Player friendly fire is off; neutral characters remain vulnerable. Review additions together.",
+              "id": "shared-setup"
             }
           ]
         },
@@ -259,19 +266,23 @@
       "quickAnswers": [
         {
           "label": "One leader",
-          "text": "Fixed for the whole campaign."
+          "text": "Fixed for the whole campaign.",
+          "href": "#leader"
         },
         {
           "label": "Your turn",
-          "text": "Choose together; the leader handles quests."
+          "text": "Choose together; the leader handles quests.",
+          "href": "#story-spotlight"
         },
         {
           "label": "Chat",
-          "text": "Typing gets time and acknowledgement."
+          "text": "Typing gets time and acknowledgement.",
+          "href": "#chat"
         },
         {
           "label": "Live world",
-          "text": "Menus and chat do not pause danger."
+          "text": "Menus and chat do not pause danger.",
+          "href": "#shared-setup"
         }
       ]
     },
@@ -283,6 +294,7 @@
       "blocks": [
         {
           "type": "cards",
+          "id": "belongings",
           "items": [
             {
               "title": "Gear and loot",
@@ -384,15 +396,18 @@
       "quickAnswers": [
         {
           "label": "Personal",
-          "text": "Your save, your gear, your gold."
+          "text": "Your save, your gear, your gold.",
+          "href": "#belongings"
         },
         {
           "label": "Home chest",
-          "text": "Test your exact chest before storing valuables."
+          "text": "Test your exact chest before storing valuables.",
+          "href": "#storage"
         },
         {
           "label": "Hand-offs",
-          "text": "Transfers are not tested yet."
+          "text": "Transfers are not tested yet.",
+          "href": "#trade"
         }
       ]
     },
@@ -404,6 +419,7 @@
       "blocks": [
         {
           "type": "cards",
+          "id": "chronicle-outline",
           "items": [
             {
               "title": "Where we went",
@@ -411,11 +427,13 @@
             },
             {
               "title": "Who made the moment",
-              "text": "A rescue, route call, joke or generous hand-off."
+              "text": "A rescue, route call, joke or generous hand-off.",
+              "id": "spotlight"
             },
             {
               "title": "What calls us back",
-              "text": "One unfinished thread and its next step."
+              "text": "One unfinished thread and its next step.",
+              "id": "next-thread"
             }
           ]
         },
@@ -432,15 +450,18 @@
       "quickAnswers": [
         {
           "label": "Sessions",
-          "text": "None recorded."
+          "text": "None recorded.",
+          "href": "#chronicle-outline"
         },
         {
           "label": "Spotlight",
-          "text": "Rescues and route calls count."
+          "text": "Rescues and route calls count.",
+          "href": "#spotlight"
         },
         {
           "label": "Next chapter",
-          "text": "Our first adventure is still ahead."
+          "text": "Our first adventure is still ahead.",
+          "href": "#next-thread"
         }
       ]
     },
@@ -476,7 +497,8 @@
             },
             {
               "title": "Waiting to be recorded",
-              "text": "Supplies, treasury, homes and personal goals: none recorded."
+              "text": "Supplies, treasury, homes and personal goals: none recorded.",
+              "id": "unrecorded"
             }
           ]
         }
@@ -484,15 +506,18 @@
       "quickAnswers": [
         {
           "label": "Plan",
-          "text": "Four roles, no played records."
+          "text": "Four roles, no played records.",
+          "href": "#party-roles"
         },
         {
           "label": "Leader",
-          "text": "Confirm before the first shared quest."
+          "text": "Confirm before the first shared quest.",
+          "href": "party.html#leader"
         },
         {
           "label": "Possessions",
-          "text": "No items or balances recorded."
+          "text": "No items or balances recorded.",
+          "href": "#unrecorded"
         }
       ]
     }
