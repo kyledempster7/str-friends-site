@@ -77,8 +77,11 @@ for (const [name, content] of await renderV4(root)) {
   await writeFile(destination, content);
 }
 for (const name of ['assets/site.css', 'assets/north.svg', 'assets/favicon.svg']) await writeFile(path.join(output, 'v4', name), original.get(name));
-// Same-origin, repository-owned audio; no external media service or API.
-await cp(path.join(root, 'src/variants/v4/audio'), path.join(output, 'v4/audio'), { recursive: true });
+// Same-origin, repository-owned audio. A fresh checkout may have no clips yet.
+const v4Source = path.join(root, 'src/variants/v4');
+if ((await readdir(v4Source)).includes('audio')) {
+  await cp(path.join(v4Source, 'audio'), path.join(output, 'v4/audio'), { recursive: true });
+}
 
 // The original release (root and /v1/) is no longer published. The root forwards to D.
 for (const name of original.keys()) await rm(path.join(output, name), { force: true });

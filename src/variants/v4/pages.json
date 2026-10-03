@@ -2,12 +2,9 @@
   "updated": "2026-10-03",
   "collectionUrl": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy",
   "home": {
-    "eyebrow": "Skyrim Together Reborn",
     "titleBefore": "The North is better",
     "titleAccent": "together.",
-    "intro": "See what changes with friends and our installed mods.",
-    "chaptersTitle": "Start here",
-    "chaptersIntro": "Seven topics, from multiplayer to owning a home."
+    "chaptersTitle": "Start here"
   },
   "rules": {
     "pages": [
@@ -330,24 +327,6 @@
         {
           "file": "join.html",
           "title": "Joining a session",
-          "audio": {
-            "src": "audio/joining-a-session.mp3",
-            "title": "Joining a session",
-            "duration": 91.225397,
-            "transcriptAnchor": "join-transcript",
-            "transcript": [
-              "How do I join tonight? Double-click your configured SkyrimTogether.exe shortcut. Load your campaign character. Press F2. Choose Connect. Follow the party steps below.",
-              "Double-click your configured SkyrimTogether.exe shortcut.",
-              "Load your campaign character, never a solo save.",
-              "The host will tell you on Discord before the session. Follow their private connection instructions. Only install a networking app if they request it.",
-              "Press F2 or Right Ctrl. Choose Connect. Enter the server details the host sends privately on Discord.",
-              "Leader: press F2. Open Player Manager, then Party Menu. Click Launch party. Connected players join automatically.",
-              "Press F2. Open Player Manager, then Party Menu. Check Name, Lv. (level) and Location for everyone. Missing someone? Tell the leader.",
-              "In Player Manager, open Invites. Choose \"Accept invite from\" your leader. Still missing? Tell the leader.",
-              "Go to the spot the host names on Discord. Press F2 or Right Ctrl. Type READY. Press Enter.",
-              "Stop. Send the host the exact error message. Keep server details private."
-            ]
-          },
           "quick": [
             "How do I join tonight?",
             "Double-click your configured SkyrimTogether.exe shortcut. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
@@ -427,7 +406,7 @@
         },
         {
           "file": "tonight.html",
-          "title": "During the night",
+          "title": "While playing",
           "grids": [
             "night"
           ],

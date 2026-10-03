@@ -272,8 +272,10 @@ for (const [file, html] of documents) {
   const relative = path.relative(dist, file);
   if (path.dirname(file) === path.join(dist, 'v4')) {
     const header = html.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? '';
-    const headerLinks = [...header.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>/g)];
-    if (!headerLinks.some(([, , href]) => href === 'join.html')) fail(`${relative}: header must include Joining and leaving`);
+    const headerLinks = [...header.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+    if (headerLinks.length !== 2) fail(`${relative}: header must contain only the home brand and Nexus join link`);
+    if (!headerLinks.some(([, attributes, href]) => /class="brand"/.test(attributes) && href === 'index.html')) fail(`${relative}: header brand must link home`);
+    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · setup on Nexus')) fail(`${relative}: header must retain Join us · setup on Nexus and its collection link`);
     for (const [, attributes, href] of headerLinks) {
       if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
       if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);

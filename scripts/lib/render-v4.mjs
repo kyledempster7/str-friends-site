@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 // Version D (/v4/): the original look, with before-and-after grids.
-// Structure per Kyle (2026-10-03): the homepage is the banner, the "Can I use this?" search and the
+// Structure per Kyle (2026-10-03): the homepage is the title banner, then Start here with search and the
 // seven numbered topics, walked first to last. Every subpage uses the same guide navigation.
 // Quick answers live on the subpage that owns them.
 // The big header button is Join, linking to the Nexus collection.
@@ -42,7 +42,7 @@ const css = `/* Version D: grids on the original look. */
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
 .d-quick .d-grid tbody th{width:32%}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
-.d-search{margin:8px 0 8px}.d-search label{display:block;font:400 1.6rem/1.25 Georgia,'Times New Roman',serif;color:#f6f2e9;margin-bottom:10px}
+.d-search{margin:8px 0 32px}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
 .d-search-row{display:flex;gap:8px;max-width:40rem}
 .d-search input{flex:1;min-width:0;padding:12px 14px;background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem}
 .d-search input:focus{outline:2px solid var(--gold);outline-offset:1px}
@@ -59,7 +59,7 @@ const css = `/* Version D: grids on the original look. */
 .d-lookup .d-count{flex-basis:100%;margin:-12px 0 0}
 .d-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .d-sources{margin-top:32px;font-size:.85rem;color:#b2bfc2}.d-sources a{margin-right:16px;color:var(--gold)}
-.d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:48px 0 20px}
+.d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:0 0 16px}
 .d-chapters-head h2{margin:0;font-size:1.8rem}.d-chapters-head p{margin:0;color:#b2bfc2}
 .d-chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .d-chapter{display:flex;flex-direction:column;min-width:0;min-height:168px;padding:24px;border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;background:#16242b;text-decoration:none;color:inherit}
@@ -84,7 +84,7 @@ const css = `/* Version D: grids on the original look. */
 .d-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
 .d-pager a{color:var(--gold);text-decoration:none}.d-pager a:hover{color:#f6f2e9}
 .d-pager .d-next{margin-left:auto;text-align:right}
-.d-join{display:inline-flex;align-items:center;gap:8px}.d-join small{font-size:.75rem;opacity:.8}
+.d-join{display:inline-flex;align-items:center;gap:8px;margin-left:auto}.d-join small{font-size:.75rem;opacity:.8}
 .d-audio{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 16px;margin:24px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .d-audio[data-enhanced]{grid-template-columns:56px minmax(0,1fr) auto}
 .d-audio [hidden]{display:none!important}.d-audio-main{min-width:0}.d-audio-kicker{margin:0 0 3px;color:var(--gold);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}
@@ -100,6 +100,7 @@ const css = `/* Version D: grids on the original look. */
 @media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:900px){.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
+@media (max-width:820px){.header-inner{min-height:80px;padding-top:12px;padding-bottom:12px}}
 @media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
 @media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
 @media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid caption,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
@@ -150,39 +151,36 @@ export async function renderV4(root) {
   if (chapters.length !== 7) throw new Error('Version D must have exactly seven chapters');
   for (const c of chapters) if (!c.pages.length || c.pages.length > 5) throw new Error(`Chapter ${c.num} must have 1 to 5 pages`);
 
-  const shell = ({ title, description, body, current }) => {
-    const nav = [['mods.html', 'Our mods', 'mods'], ['rules.html', 'Can I use this?', 'rules'], ['ledger.html', 'Party ledger', 'ledger'], ['join.html', 'Joining a session', 'join']]
-      .map(([href, label, key]) => `<a href="${href}"${key === current ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const shell = ({ title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a><nav class="primary-nav" aria-label="Main navigation">${nav}</nav><a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a><a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
 ${body}
 </main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><a href="#top">Back to top ↑</a></footer></body></html>
 `;
   };
 
-  const searchForm = (id) => `<form class="d-search" action="rules.html" method="get" role="search"><label for="${id}">Can I use this?</label><div class="d-search-row"><input id="${id}" name="q" type="search" placeholder="Type a spell, perk, power or mod" autocomplete="off"><button type="submit">Search</button></div></form>`;
+  const searchForm = (id) => `<p class="d-search-hint" id="${id}-hint">Check if a spell, perk, power or mod is allowed.</p><form class="d-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="${id}">Can I use this?</label><div class="d-search-row"><input id="${id}" name="q" type="search" placeholder="Type a spell, perk, power or mod" aria-describedby="${id}-hint" autocomplete="off"><button type="submit">Search</button></div></form>`;
   const pages = new Map();
   // One identical set of guide links, including the standalone catalog and 404.
   const sidebar = (file) => `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${chapters.map((c) => `<li><a href="${esc(c.pages[0].file)}"${c.pages.some(p => p.file === file) ? ' aria-current="location"' : ''}>${esc(c.num)} · ${esc(c.label)}</a></li>`).join('')}<li><a href="rules.html"${data.rules.pages.some(p => p.file === file) ? ' aria-current="location"' : ''}>Can I use this?</a></li></ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
   const pageLinks = (group, file, label) => `<nav class="d-subpages" aria-label="${esc(label)} pages">${group.map(p => `<a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a>`).join('')}</nav>`;
 
-  // Homepage: banner, search, seven chapters in order. Nothing else.
+  // Homepage: title banner, then search and seven topics within Start here.
   const h = data.home;
   const tiles = chapters.map((c) => `<a class="d-chapter" href="${esc(c.pages[0].file)}"><span class="d-chapter-num">${esc(c.num)}</span><span class="d-chapter-label">${esc(c.label)}</span><h3>${esc(c.headline)}</h3>${svg(c.icon)}</a>`).join('');
   pages.set('index.html', shell({
-    title: 'The North is better together', current: '',
+    title: 'The North is better together',
     description: 'Compare single player with co-op, and vanilla with our mods.',
-    body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><p class="eyebrow">${esc(h.eyebrow)}</p><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1><p class="hero-intro">${esc(h.intro)}</p></div></div></section>
-<div class="d-page">${audioBar(h.audio)}${searchForm('home-search')}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><p>${esc(h.chaptersIntro)}</p></div><div class="d-chapters">${tiles}</div></section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
+    body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
+<div class="d-page">${audioBar(h.audio)}
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2></div>${searchForm('home-search')}<div class="d-chapters">${tiles}</div></section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
-  // Topic subpages: the shared guide, then links within this topic and a sequential pager.
+  // Topic subpages: the shared guide and a sequential pager, without duplicate sibling links.
   chapters.forEach((c, ci) => {
     c.pages.forEach((p, pi) => {
       const side = sidebar(p.file);
-      const subpages = pageLinks(c.pages, p.file, c.label);
       const prevChapter = ci > 0 ? chapters[ci - 1] : null;
       const prev = pi > 0
         ? `<a href="${esc(c.pages[pi - 1].file)}">← Previous page: ${esc(c.pages[pi - 1].title)}</a>`
@@ -196,9 +194,9 @@ ${body}
           : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
       const pager = `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`;
       pages.set(p.file, shell({
-        title: p.title, current: p.file === 'join.html' ? 'join' : p.file === 'ledger.html' ? 'ledger' : p.file === 'mods.html' ? 'mods' : '',
+        title: p.title,
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
-        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${subpages}
+        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g))).join('\n')}
@@ -209,7 +207,7 @@ ${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     });
   });
 
-  // The party ledger is the last page of chapter 05 (rendered above), with a header shortcut.
+  // The party ledger is the last page of chapter 05 (rendered above).
   if (!chapters.some((c) => c.pages.some((p) => p.file === 'ledger.html'))) throw new Error('Version D: the party ledger must belong to a chapter');
 
   // Keep every legacy rules.html#rule-* target in the searchable HTML. Category pages
@@ -230,7 +228,7 @@ ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means un
   const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1><p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
   const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
   pages.set('rules.html', shell({
-    title: 'Can I use this?', current: 'rules',
+    title: 'Can I use this?',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
 ${pageLinks(data.rules.pages, 'rules.html', 'Rules')}
@@ -243,13 +241,13 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
   for (const p of data.rules.pages.filter(p => p.categories)) {
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
-      title: p.title, current: 'rules', description: `${p.title}: what you can use in our campaign.`,
+      title: p.title, description: `${p.title}: what you can use in our campaign.`,
       body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageLinks(data.rules.pages, p.file, 'Rules')}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
 
   pages.set('404.html', shell({
-    title: 'Page not found', current: '',
+    title: 'Page not found',
     description: 'This page does not exist.',
     body: `<div class="d-layout">${sidebar('404.html')}<div class="d-page"><h1>Page not found</h1>${grid({ id: 'try', title: 'Try one of these', columns: ['Go to', 'What it is'], rows: [[{ text: 'The field guide', href: 'index.html#topics' }, 'Seven topics, start to finish'], [{ text: 'Can I use this?', href: 'rules.html' }, 'Check a spell, perk, power or mod'], [{ text: 'Joining a session', href: 'join.html' }, 'How to join a session']] })}</div></div>`
   }));
