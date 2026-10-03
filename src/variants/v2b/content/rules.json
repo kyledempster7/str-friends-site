@@ -411,7 +411,7 @@
           "type": "callout",
           "tone": "hold",
           "title": "Main Mysticism only",
-          "text": "Hold Mark, Recall and corpse reanimation. Exclude NPC spell distribution and optional Jump, Survival, Ordinator and Slower Unlocks packages.",
+          "text": "Hold Mark, Recall and corpse reanimation.",
           "id": "magic-holds"
         },
         {

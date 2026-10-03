@@ -4,7 +4,8 @@ import path from 'node:path';
 // One version bar at the bottom of EVERY page in EVERY version (Kyle: every page must reach
 // every version). Inserted immediately before </body> with no extra whitespace, so stripping
 // it restores the frozen original bytes exactly.
-export const VERSIONS = [['', 'v1'], ['v2a', 'A'], ['v2b', 'B'], ['v3', 'C'], ['v4', 'D']];
+// Kyle (2026-10-03): "keep B and D, and delete the others."
+export const VERSIONS = [['v2b', 'B'], ['v4', 'D']];
 const BAR = /<nav class="all-versions"[^>]*>[\s\S]*?<\/nav>(?=<\/body>)/;
 export const stripVersionBar = (html) => html.replace(BAR, '');
 
@@ -18,15 +19,15 @@ async function htmlFiles(dir) {
 export async function addVersionBars(output) {
   const pagesByVersion = new Map();
   for (const [folder] of VERSIONS) pagesByVersion.set(folder, new Set(await htmlFiles(path.join(output, folder))));
-  for (const location of ['', 'v1', 'v2a', 'v2b', 'v3', 'v4']) {
-    const current = location === 'v1' ? '' : location;
+  for (const location of ['', ...VERSIONS.map(([folder]) => folder)]) {
+    const current = location;
     const prefix = location ? '../' : '';
     for (const name of await htmlFiles(path.join(output, location))) {
       const file = path.join(output, location, name);
       let html = (await readFile(file, 'utf8')).replace(/<nav class="version-switcher"[\s\S]*?<\/nav>/, '');
       const links = VERSIONS.map(([folder, label]) => {
         const target = pagesByVersion.get(folder).has(name) && name !== '404.html' ? name : 'index.html';
-        const href = prefix + (folder ? `${folder}/` : '') + target;
+        const href = prefix + `${folder}/` + target;
         return folder === current
           ? `<strong style="color:#f6f2e9">${label}</strong>`
           : `<a href="${href}" style="color:#d8bc87;margin:0 2px">${label}</a>`;

@@ -13,27 +13,13 @@ export const requiredHolds = [
   ['Dragonborn 5', 'Dragonborn rank 5', 'Dremora Merchant'],
   ['extra summons', 'extra summon capacity'],
   ['torch auto-unlock', 'automatic unlock', 'auto-unlock', 'torch unlocking'],
-  ['Bone Collector'], ['Dead Tide'], ['Skeleton Mages'], ['King of Bones'],
-  ['Dwarven Autocannon'], ['Rat King'], ['False Light'],
-  ['Bear Traps'], ['Tripwire'], ['Backup Plan'], ['Rallying Standard'],
-  ['Warbringer'], ['Home Mythal'], ['Dimension Door'],
-  ['Advanced Lab'], ['Advanced Workshop'], ['Quick Reflexes — Ordinator'], ['Hawkeye'],
-  ['Spellscribe'], ['Power Echoes'], ["Lion's Arrow"], ['Earthquake Drum'],
-  ['Witching Rhythm'], ['War Drummer'], ['Sacred Guardian'], ['Under my Wings'],
-  ['Prepare for Adventure'], ['Pale Shadow'], ['Rift Bolt'], ['Milestones'],
-  ['Ghostwalk — Apocalypse'], ['Entomb'], ['Raise Wall'], ["Welloc's Instant Forest"],
-  ['Spectral Warband'], ['Necrowitch'], ['Conjure Nether Lich'], ['Grace of Water'],
-  ["Ocato's Recital"], ["Medora's Memory"], ["Silmane's Spell Sentinel"],
   ['Red Sand Dance'], ['Contingency'], ['Beast Tongue'], ['Spirit Walk'],
   ['Mark'], ['Recall'],
   ['corpse reanimation', 'reanimation', 'raise dead', 'corpse raising'],
-  ['Mysticism Spells for NPCs'],
-  ['Mysticism Survival', 'Survival spells'], ['Mysticism Jump', 'Jump spells'],
-  ['Mysticism Slower Unlocks', 'Slower Unlocks'],
-  ['MCO', 'ADXP'], ['BFCO'], ['Scrambled Bugs'], ['SPID', 'Spell Perk Item Distributor'],
-  ['Immersive Equipment Displays', 'IED'], ['All Geared Up Derivative', 'AllGUD'],
-  ['Visible Favorited Gear', 'VFG'], ['Become a Bard'], ['Bards Reborn'],
 ];
+// Kyle (2026-10-03): only things actually in our game belong in "Can I use this?".
+// Mods we don't run (Ordinator, Apocalypse, combat and display mods) must not appear.
+const notInOurGame = /\b(Ordinator|Apocalypse|BFCO|MCO|ADXP|Scrambled Bugs|Spell Perk Item Distributor|Immersive Equipment Displays|All Geared Up|Visible Favorited Gear|Simple Dual Sheath|Become a Bard|Bards Reborn|Adamant|Blade and Blunt|Valhalla)\b/;
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
@@ -97,6 +83,7 @@ else {
     if (!['spell', 'perk', 'race', 'mod', 'mechanic'].includes(entry.category)) fail(`Catalog ${entry.id}: invalid category`);
     if (!Array.isArray(entry.aliases) || entry.aliases.some((alias) => typeof alias !== 'string')) fail(`Catalog ${entry.id}: aliases must be text array`);
     if (entry.sourceUrl && !/^https:\/\//.test(entry.sourceUrl)) fail(`Catalog ${entry.id}: source URL must be public HTTPS`);
+    if (notInOurGame.test(entry.name)) fail(`Catalog ${entry.id}: lists a mod we don't run`);
   }
   for (const alternatives of requiredHolds) {
     const matches = entries.filter((entry) => [entry.name, ...(entry.aliases ?? [])].some((name) => alternatives.some((term) => mentions(name, term))));
@@ -129,21 +116,16 @@ const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => St
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
 const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
-const variantPaths = fs.existsSync(path.join(root, 'src/variants/frozen-v1.json')) ? ['', 'v1', 'v2a', 'v2b'] : [''];
-if (variantPaths.length > 1) {
-  const frozen = readJson('src/variants/frozen-v1.json');
-  if (frozen) for (const location of ['', 'v1']) {
-    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b', 'v3', 'v4'], normalize: stripVersionBar }); }
-    catch (error) { fail(error.message); }
-  }
-}
+// Kyle (2026-10-03): "keep B and D, and delete the others". Only /v2b/ (B) and /v4/ (D) are published.
+const variantPaths = VERSIONS.map(([folder]) => folder);
+for (const gone of ['v1', 'v2a', 'v3']) if (fs.existsSync(path.join(dist, gone))) fail(`/${gone}/ must not be published`);
 for (const variant of variantPaths) {
 const catalogPath = path.join(variant, 'rules.html');
 const catalogHtml = documents.get(path.join(dist, catalogPath)) ?? '';
 if (!catalogHtml) fail(`${catalogPath}: missing rendered catalog`);
-const renderedRuleIds = [...catalogHtml.matchAll(/<article\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
+const renderedRuleIds = [...catalogHtml.matchAll(/<(?:article|tr)\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
 if (renderedRuleIds.length !== entries?.length || renderedRuleIds.some(id => !entries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from adopted rules`);
-if (variant === 'v2a' || variant === 'v2b') {
+{
   const sourcePath = `src/variants/${variant}/content/catalog.json`;
   if (fs.existsSync(path.join(root, sourcePath))) {
     const source = readJson(sourcePath);
@@ -158,10 +140,11 @@ for (const entry of catalogHtml ? entries ?? [] : []) {
   // The outer page article can contain the first rule card, so locate the
   // uniquely identified opening tag, then bound it at its own closing tag.
   const escapedId = String(entry.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const openings = [...catalogHtml.matchAll(new RegExp(`<article\\b([^>]*\\bid=["']rule-${escapedId}["'][^>]*)>`, 'g'))];
+  const openings = [...catalogHtml.matchAll(new RegExp(`<(article|tr)\\b([^>]*\\bid=["']rule-${escapedId}["'][^>]*)>`, 'g'))];
   if (openings.length !== 1) { fail(`${catalogPath}: ${entry.id} must render exactly once`); continue; }
-  const opening = openings[0];
-  const end = catalogHtml.indexOf('</article>', opening.index + opening[0].length);
+  const [whole, tag, attributes] = openings[0];
+  const opening = Object.assign([whole, attributes], { index: openings[0].index });
+  const end = catalogHtml.indexOf(`</${tag}>`, opening.index + opening[0].length);
   if (end < 0) { fail(`Catalog ${entry.id}: rendered article is not closed`); continue; }
   const body = catalogHtml.slice(opening.index + opening[0].length, end);
   const visible = decode(body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
