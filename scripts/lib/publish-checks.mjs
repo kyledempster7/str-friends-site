@@ -25,13 +25,39 @@ export function parsePasswords(ini) {
 }
 
 function decode(text) {
-  let result = text.replace(/&#(?:x([0-9a-f]+)|(\d+));/gi, (_, hex, dec) => {
-    const point = parseInt(hex ?? dec, hex ? 16 : 10);
-    return point <= 0x10ffff ? String.fromCodePoint(point) : '';
-  }).replace(/&(?:commat|colon|sol|bsol|period);/gi, value => ({ '&commat;': '@', '&colon;': ':', '&sol;': '/', '&bsol;': '\\', '&period;': '.' })[value.toLowerCase()]);
-  result = result.replace(/\\u([0-9a-f]{4})/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16))).replace(/\\\\/g, '\\');
-  try { result = decodeURIComponent(result); } catch { /* Unencoded percent signs are ordinary prose. */ }
+  let result = text;
+  const entities = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ', commat: '@', colon: ':', sol: '/', bsol: '\\', period: '.' };
+  // Decode locally: ordinary percentages elsewhere in a page must not disable
+  // decoding of an encoded address. Multiple layers occur in escaped markup.
+  for (let pass = 0; pass < 3; pass++) {
+    result = result.replace(/&#(?:x([0-9a-f]+)|(\d+));/gi, (_, hex, dec) => {
+      const point = parseInt(hex ?? dec, hex ? 16 : 10);
+      return point <= 0x10ffff ? String.fromCodePoint(point) : '';
+    }).replace(/&([a-z]+);/gi, (original, name) => entities[name.toLowerCase()] ?? original);
+    result = result.replace(/\\u([0-9a-f]{4})/gi, (_, hex) => String.fromCharCodePoint(parseInt(hex, 16))).replace(/\\\\/g, '\\');
+    result = result.replace(/(?:%[0-9a-f]{2})+/gi, value => {
+      try { return decodeURIComponent(value); } catch { return value; }
+    });
+  }
   return result;
+}
+
+export function verifyIdentityLog(log) {
+  const fields = log.split('\0');
+  if (fields.at(-1) === '') fields.pop();
+  if (fields.length % 5) throw new Error('Cannot parse commit identities.');
+  for (let offset = 0; offset < fields.length; offset += 5) {
+    const [hash, author, email, committer, committerEmail] = fields.slice(offset, offset + 5);
+    if (!/^[a-f0-9]{40,64}$/.test(hash) || [author, committer].some(name => name !== identity.name) || [email, committerEmail].some(address => address !== identity.email)) {
+      throw new Error('New commit has an unapproved author or committer; identities withheld.');
+    }
+  }
+  return fields.length / 5;
+}
+
+export function verifyRemoteUrls(fetchUrl, pushUrls) {
+  const allowed = [`https://github.com/${repository}.git`, `https://github.com/${repository}`, `${'git'}@${'github.com'}:${repository}.git`];
+  if (!allowed.includes(fetchUrl) || pushUrls.length !== 1 || !allowed.includes(pushUrls[0])) throw new Error('Fetch and the single effective push URL must both be the friends-site GitHub repository.');
 }
 
 export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) {
@@ -103,15 +129,17 @@ export async function mirrorDist(root) {
   return expected;
 }
 
-export async function compareLive(manifest, { base = liveBase, fetcher = fetch, deadline = Date.now() + 60000 } = {}) {
-  const html = [...manifest].filter(([name]) => name.endsWith('.html'));
+export async function compareLive(manifest, { base = liveBase, fetcher = fetch, deadline = Date.now() + 60000, allPublicFiles = false } = {}) {
+  // .nojekyll controls Pages but is not served as a public resource. Every other
+  // output file participates, so an asset-only change cannot certify old HTML.
+  const files = [...manifest].filter(([name]) => allPublicFiles ? name !== '.nojekyll' : name.endsWith('.html'));
   const failures = [];
-  let matched = 0;
+  let matched = 0, htmlMatched = 0;
   // Bounded concurrency keeps a full 41-page pass quick without hammering Pages.
   let cursor = 0;
-  await Promise.all(Array.from({ length: Math.min(4, html.length) }, async () => {
-    while (cursor < html.length) {
-      const [name, hash] = html[cursor++];
+  await Promise.all(Array.from({ length: Math.min(4, files.length) }, async () => {
+    while (cursor < files.length) {
+      const [name, hash] = files[cursor++];
       const url = new URL(name.split('/').map(encodeURIComponent).join('/'), base);
       url.searchParams.set('build', hash);
       try {
@@ -120,10 +148,10 @@ export async function compareLive(manifest, { base = liveBase, fetcher = fetch, 
         const response = await fetcher(url, { headers: { 'Cache-Control': 'no-cache' }, redirect: 'error', signal: AbortSignal.timeout(Math.min(15000, remaining)) });
         // GitHub Pages serves the real custom error document with status 404.
         if (!response.ok && !(name === '404.html' && response.status === 404)) throw new Error('HTTP failure');
-        if (sha256(Buffer.from(await response.arrayBuffer())) === hash) matched++;
+        if (sha256(Buffer.from(await response.arrayBuffer())) === hash) { matched++; if (name.endsWith('.html')) htmlMatched++; }
         else failures.push(name);
       } catch { failures.push(name); }
     }
   }));
-  return { total: html.length, matched, failures: failures.sort() };
+  return { total: files.length, matched, htmlTotal: files.filter(([name]) => name.endsWith('.html')).length, htmlMatched, failures: failures.sort() };
 }
