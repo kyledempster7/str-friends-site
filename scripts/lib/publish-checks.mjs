@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { isIP } from 'node:net';
+import { isUtf8 } from 'node:buffer';
 
 export const account = 'kyledempster7';
 export const identity = { name: account, email: `${account}@${'users.noreply.github.com'}` };
@@ -64,12 +65,19 @@ export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) 
   const raw = Buffer.isBuffer(bytes) ? bytes.toString('utf8') : String(bytes);
   const variants = [raw, decode(raw), Buffer.isBuffer(bytes) ? bytes.toString('utf16le') : raw];
   const labels = new Set();
+  // Compressed audio/images can coincidentally contain a drive-letter marker.
+  // Scan known secrets across all bytes, but scan generic PII in their readable
+  // UTF-8/UTF-16 metadata strings instead of random compressed data.
+  const binary = Buffer.isBuffer(bytes) && (!isUtf8(bytes) || bytes.includes(0));
+  const metadata = binary ? variants.flatMap(text => text.match(/[\x20-\x7e\t]{8,}/g) ?? []) : variants;
   for (const text of variants) {
     for (const secret of secrets) {
       const formEncoded = new URLSearchParams({ value: secret }).toString().slice('value='.length);
       const forms = [secret, encodeURIComponent(secret), formEncoded, JSON.stringify(secret).slice(1, -1), Buffer.from(secret).toString('base64')];
       if (forms.some(form => form && text.includes(form))) labels.add('server/admin password');
     }
+  }
+  for (const text of metadata) {
     for (const match of text.matchAll(/[A-Za-z0-9_.+%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g)) {
       if (!(allowIdentity && match[0] === identity.email)) labels.add('email address');
     }
