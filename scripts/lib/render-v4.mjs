@@ -84,7 +84,7 @@ const grid = (g) => {
   const cls = g.columns.length === 3 ? ' cols-3' : '';
   const head = g.columns.map((c) => `<th scope="col">${esc(c)}</th>`).join('');
   const rows = g.rows.map((r) => {
-    const urgent = /^Leave NOW$/.test(plain(r[0])) ? ' class="d-urgent"' : '';
+    const urgent = /^(Leave NOW|Leaving, now or later)$/.test(plain(r[0])) ? ' class="d-urgent"' : '';
     const cells = r.slice(1).map((value, i) => `<td data-label="${esc(g.columns[i + 1])}">${cell(value)}</td>`).join('');
     return `<tr${urgent}><th scope="row">${cell(r[0])}</th>${cells}</tr>`;
   }).join('\n');

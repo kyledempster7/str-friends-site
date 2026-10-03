@@ -320,7 +320,12 @@
                 [
                   "Party",
                   "Not needed",
-                  "The leader creates the party first: F2, Player Manager, Launch Party. Everyone else joins it automatically once connected. Check the leader and everyone's names in Player Manager before you start."
+                  "The leader presses F2, clicks Player Manager, then the Party Menu tab, and clicks Launch party. Everyone else joins automatically once connected."
+                ],
+                [
+                  "Check your party",
+                  "Not needed",
+                  "Press F2, click Player Manager, then the Party Menu tab. It lists your party by Name, Lv. and Location. If the leader or you are missing, tell the leader before you start."
                 ],
                 [
                   "Meet up",
@@ -372,14 +377,9 @@
               ],
               "rows": [
                 [
-                  "Leave NOW",
-                  "Quit",
-                  "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game. Quitting may still crash; no fix is proven."
-                ],
-                [
-                  "Normal goodbye",
+                  "Leaving, now or later",
                   "Save and quit",
-                  "Get somewhere safe. Save and let it finish. Press F2, choose Disconnect, then Proceed. Quit the game."
+                  "Save if possible. Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game. If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
                 ],
                 [
                   "Telling the group",
