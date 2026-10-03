@@ -1,0 +1,134 @@
+{
+  "updated": "2026-10-03",
+  "sections": [
+    {
+      "id": "together",
+      "eyebrow": "A familiar world, shared",
+      "title": "What changes when we play together?",
+      "intro": "You still build your own Skyrim character. The adventure follows one party leader, and everyone keeps their own save.",
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            {"title": "Your character, your save", "text": "In solo Skyrim, your save holds your adventure. Here, each player still saves their own character. The server does not keep a replacement save for you. Save often."},
+            {"title": "One leader for the campaign", "text": "In solo play, you make every quest choice. Here, the same party leader handles quest dialogue, quest scenes and quest items, and enters locations first. Everyone can fight and solve puzzles together."},
+            {"title": "Menus are not a safe place", "text": "Solo menus usually pause the world. Our Skyrim Souls setup keeps it moving. Step out of danger before sorting gear or choosing a potion."},
+            {"title": "Death is a setback", "text": "Instead of loading your last save, Skyrim Together normally respawns you nearby outdoors, or at the entrance indoors. Our extra gold-loss penalty is zero; crime bounties are still paid. This exact party setup is not tested yet."},
+            {"title": "Master difficulty for everyone", "text": "The server enforces Master difficulty. Enemies do not automatically scale with party size. Combat experience sharing is on; crafting experience is separate."},
+            {"title": "Co-op combat", "text": "Player-versus-player damage is off. Killcams are off. Target lock is set to hostile targets only. Followers and townsfolk can still be hurt, so watch your swings."}
+          ]
+        },
+        {"type": "callout", "tone": "note", "title": "Keep this adventure together", "text": "Use separate characters for a different campaign, including a two-player night. Keep the main party's characters together in level and quest progress. Finish the Helgen start offline before connecting."},
+        {"type": "links", "items": [
+          {"label": "Skyrim Together play guide", "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide"},
+          {"label": "Skyrim Together features and death rules", "url": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"}
+        ]}
+      ]
+    },
+    {
+      "id": "skills",
+      "eyebrow": "Build the person you want to play",
+      "title": "Skills and races: familiar foundations, new choices",
+      "intro": "There are still eighteen skills and no fixed classes. Better Vanilla Perks changes the existing trees. Imperious replaces racial abilities. Every race can learn every skill.",
+      "blocks": [
+        {"type": "callout", "tone": "note", "title": "Follow the shared collection", "text": "These are the selected perk, race and spell mods for our campaign. Install the collection revision the group is using. A mod being mentioned here is not permission to add it yourself."},
+        {"type": "text", "text": "Read the current perk tooltip before spending a point. Familiar names can have changed effects. Pick a few skills that support your role; you do not need to invest in every skill you use."},
+        {
+          "type": "table",
+          "columns": ["Skill", "Vanilla foundation", "With Better Vanilla Perks"],
+          "rows": [
+            ["Alchemy", "Potions and poisons", "More poison and resistance options."],
+            ["Alteration", "Protection and utility", "More resistance options; Mysticism expands the spell choices."],
+            ["Archery", "Bows, aiming and ranged damage", "More penetration, poison and stagger options. Hold Steady Hand."],
+            ["Block", "Shields, weapon blocks and bashes", "Stronger defensive choices. Strong Reflexes rank 1 is allowed; rank 2 is held."],
+            ["Conjuration", "Summons, bound weapons and raised corpses", "More summon capacity. Our limit stays one active summon per player; corpse raising is held."],
+            ["Destruction", "Fire, frost and shock", "More elemental bonuses alongside Mysticism's spell progression."],
+            ["Enchanting", "Enchant and recharge gear", "Recharge benefits from nearby kills."],
+            ["Heavy Armor", "Protection and armor perks", "More armor-tier bonuses for the frontline."],
+            ["Illusion", "Stealth, morale and enemy control", "Additional defensive options, including arrow avoidance."],
+            ["Light Armor", "Protection and mobility", "More armor-tier bonuses for mobile builds."],
+            ["Lockpicking", "Open locks", "Torch-assisted unlocking exists, but is held. Pick locks by hand."],
+            ["One-Handed", "Weapon, shield or spell combinations", "More weapon and critical-hit choices."],
+            ["Pickpocket", "Theft and utility", "Changes include arrow recovery. Agree before starting trouble in town."],
+            ["Restoration", "Healing, wards and anti-undead magic", "Regeneration and spell bonuses. Resurgence's effect on player healing is not tested yet."],
+            ["Smithing", "Forge and improve equipment", "Broader tempering options. Check transferred gear before supplying the whole party."],
+            ["Sneak", "Hidden movement and ambushes", "More sneak-damage choices. Coordinate the opening attack."],
+            ["Speech", "Trading and persuasion", "Extra utility and summon-related perks. Spectral drum and merchant powers are held."],
+            ["Two-Handed", "Heavy attacks and weapon blocking", "More weapon-specific damage options. No guaranteed taunt."]
+          ]
+        },
+        {"type": "text", "text": "In vanilla Skyrim, each race has a small set of advantages and powers. Imperious replaces that package with different traits, attributes and a power unlocked through a racial objective. Do not add the old and new bonuses together. Some changes also affect NPCs."},
+        {
+          "type": "table",
+          "columns": ["Race", "Vanilla signature", "Imperious direction and group limits"],
+          "rows": [
+            ["High Elf / Altmer", "Extra magicka; Highborn", "Magical strengths with defensive tradeoffs. Contingency autocasting is held."],
+            ["Argonian", "Water breathing; Histskin", "Swimming and recovery traits; Caustic Spit debuff. Exact co-op effects not tested yet."],
+            ["Wood Elf / Bosmer", "Resistances; Command Animal", "Hunting and marked prey. Beast Tongue is held; Harrier needs observation."],
+            ["Breton", "Magic resistance; Dragonskin", "Magic defense and standing-stone choices. Shared Ancestry must not bypass a held power."],
+            ["Dark Elf / Dunmer", "Fire resistance; Ancestor's Wrath", "Ancestor-themed traits. Spirit Walk is held; Whispers needs observation."],
+            ["Imperial", "Extra gold; Voice of the Emperor", "Resource and ally bonuses. Discipline is not a heal, and its effect on players is not tested yet."],
+            ["Khajiit", "Claws; Night Eye", "Movement, stealth and claws. Prowl is a leap, not a teleport; co-op behavior not tested yet."],
+            ["Nord", "Frost resistance; Battle Cry", "Frost defense and fighting when injured. Avatar provides resource recovery."],
+            ["Orc / Orsimer", "Stronghold access; Berserker Rage", "Physical combat and gear strengths with enchantment tradeoffs."],
+            ["Redguard", "Poison resistance; Adrenaline Rush", "Travel stamina and combat momentum. Red Sand Dance is held."]
+          ]
+        },
+        {"type": "callout", "tone": "hold", "title": "The perk and power shortlist to skip", "text": "Hold means do not use it in this campaign until the group changes the rule after testing.", "items": [
+          "Strong Reflexes rank 2 at Block 50. Rank 1 at Block 30 is a different, allowed effect.",
+          "Steady Hand rank 1 at Archery 40, and the rest of that branch.",
+          "Dark Souls 2 and its exploding reanimated corpses.",
+          "Dragonborn's spectral drum at Speech rank 4 and Dremora Merchant at rank 5.",
+          "Torch-assisted automatic unlocking and any use of extra summon capacity beyond one active summon per player.",
+          "Imperious powers: Red Sand Dance, Contingency, Beast Tongue and Spirit Walk."
+        ]},
+        {"type": "links", "items": [
+          {"label": "Better Vanilla Perks author page", "url": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"},
+          {"label": "Imperious race guide", "url": "https://www.nexusmods.com/skyrimspecialedition/mods/1315"}
+        ]}
+      ]
+    },
+    {
+      "id": "spells",
+      "eyebrow": "A spell for your role",
+      "title": "Our magic mod is Mysticism",
+      "intro": "You may have heard Apocalypse mentioned earlier. The selected spell mod is Mysticism. It rebalances familiar spells and adds new choices across the five magic schools; it does not add a new skill tree.",
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            {"title": "Alteration", "text": "Vanilla: protection and utility. Mysticism: more ways to weaken enemies and solve problems. Mark and Recall travel are held."},
+            {"title": "Conjuration", "text": "Vanilla: bound weapons, summoned creatures and raised corpses. Mysticism: more summoned allies, including skeletons. Start with one active summon per player. Raising a dead body is held."},
+            {"title": "Destruction", "text": "Vanilla: elemental attacks. Mysticism: expanded progression and drain spells, such as Vampiric Bolt and Blood Lance. Direct attacks are a starting point for a battle mage."},
+            {"title": "Illusion", "text": "Vanilla: stealth, morale and mind-affecting magic. Mysticism expands those choices. Enemy-control spells do not make another human player obey you."},
+            {"title": "Restoration", "text": "Vanilla: healing, wards and undead defense. Mysticism broadens healing and support. Healing Hands, Heal Other and Grand Healing are our first player-healing options."}
+          ]
+        },
+        {"type": "text", "text": "Find spell tomes through the usual vendors. Try direct spells first and read the tooltip. Staff builds are welcome, but extra staff skill experience from a separate mod is not part of this setup."},
+        {"type": "callout", "tone": "note", "title": "A healing effect is not a completed party test", "text": "Skyrim Together has support for ordinary health-restoring spells and the named buffs Courage, Rally and Call to Arms. Their exact behavior with this pack is not tested yet. Healing experience, perk scaling and custom auras need separate checks. An undead-healing spell is not automatically a player heal."},
+        {"type": "callout", "tone": "hold", "title": "Magic we are holding", "text": "Skip Mark, Recall and all corpse-reanimation spells. A conjured skeleton is different from raising a body. Use only the main Mysticism package: the NPC spell-distribution addon and the optional Jump, Survival, Ordinator and Slower Unlocks files are outside this setup."},
+        {"type": "links", "items": [
+          {"label": "Mysticism spell guide", "url": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"},
+          {"label": "Skyrim Together player-healing support", "url": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"}
+        ]}
+      ]
+    },
+    {
+      "id": "rules",
+      "eyebrow": "Check before you spend the point",
+      "title": "Can I use this?",
+      "intro": "Search a spell, perk, racial power or mod. Every hold from the group's safety check is adopted. A hold is a rule for our campaign, not a claim that the ability always crashes the game.",
+      "blocks": [
+        {"type": "list", "ordered": false, "items": [
+          "Allowed: permitted for the stated use. Read any limits; this does not promise a flawless multiplayer test.",
+          "Hold: do not use it in this campaign until testing and a group rule update.",
+          "Conditional: use only within the stated limits; the uncertain behavior is not tested yet.",
+          "Blocked: outside this shared setup. Do not install it independently.",
+          "No result: not checked here. Do not treat a missing entry as approval."
+        ]},
+        {"type": "callout", "tone": "note", "title": "Why hold slow time?", "text": "Skyrim Together can synchronize slow-time effects. The held perks and powers can therefore change everyone's fight. We are holding them for shared pacing and testing, not because all slow time is proven to break synchronization."},
+        {"type": "text", "text": "Ordinator and Apocalypse results are included so older build guides do not lead you astray. Neither mod is selected for this campaign. A familiar name can refer to different abilities in different mods; check the result's mod name."}
+      ]
+    }
+  ]
+}

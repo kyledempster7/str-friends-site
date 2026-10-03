@@ -1,0 +1,12 @@
+{
+  "name": "str-friends-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small, public field guide for a shared Skyrim adventure.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
