@@ -123,20 +123,26 @@ for (const variant of variantPaths) {
 const catalogPath = path.join(variant, 'rules.html');
 const catalogHtml = documents.get(path.join(dist, catalogPath)) ?? '';
 if (!catalogHtml) fail(`${catalogPath}: missing rendered catalog`);
-const renderedRuleIds = [...catalogHtml.matchAll(/<(?:article|tr)\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
-if (renderedRuleIds.length !== entries?.length || renderedRuleIds.some(id => !entries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from adopted rules`);
-{
-  const sourcePath = `src/variants/${variant}/content/catalog.json`;
-  if (fs.existsSync(path.join(root, sourcePath))) {
-    const source = readJson(sourcePath);
-    if (source?.entries?.length !== entries?.length) fail(`${sourcePath}: expected all ${entries.length} adopted entries`);
-    for (const entry of entries ?? []) {
-      const matches = source?.entries?.filter(item => item.id === entry.id) ?? [];
-      if (matches.length !== 1 || Object.keys(entry).some(key => JSON.stringify(matches[0][key]) !== JSON.stringify(entry[key]))) fail(`${sourcePath}: adopted record changed: ${entry.id}`);
-    }
+// Each version renders its own catalog file. D (the main site) must equal the adopted master exactly;
+// B (the older layout) keeps its own wording but may not list anything the master lacks or rule it differently.
+const sourcePath = `src/variants/${variant}/content/catalog.json`;
+const variantEntries = readJson(sourcePath)?.entries ?? [];
+if (variant === 'v4') {
+  if (variantEntries.length !== entries?.length) fail(`${sourcePath}: expected all ${entries?.length} adopted entries`);
+  for (const entry of entries ?? []) {
+    const matches = variantEntries.filter(item => item.id === entry.id);
+    if (matches.length !== 1 || Object.keys(entry).some(key => JSON.stringify(matches[0][key]) !== JSON.stringify(entry[key]))) fail(`${sourcePath}: adopted record changed: ${entry.id}`);
+  }
+} else {
+  for (const item of variantEntries) {
+    const master = entries?.find(entry => entry.id === item.id);
+    if (!master) fail(`${sourcePath}: ${item.id} is not in the adopted catalog`);
+    else if (master.status !== item.status) fail(`${sourcePath}: ${item.id} is ruled differently from the adopted catalog`);
   }
 }
-for (const entry of catalogHtml ? entries ?? [] : []) {
+const renderedRuleIds = [...catalogHtml.matchAll(/<(?:article|tr)\b[^>]*\bid=["']rule-([^"']+)["'][^>]*>/g)].map(match => match[1]);
+if (renderedRuleIds.length !== variantEntries.length || renderedRuleIds.some(id => !variantEntries.some(entry => entry.id === id))) fail(`${catalogPath}: rendered catalog inventory differs from its catalog file`);
+for (const entry of catalogHtml ? variantEntries : []) {
   // The outer page article can contain the first rule card, so locate the
   // uniquely identified opening tag, then bound it at its own closing tag.
   const escapedId = String(entry.id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

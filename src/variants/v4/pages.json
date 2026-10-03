@@ -127,25 +127,47 @@
               ],
               "rows": [
                 [
-                  {
-                    "text": "Healing Hands, Heal Other",
-                    "href": "rules.html#rule-heal-other"
-                  },
+                  [
+                    {
+                      "text": "Healing Hands",
+                      "href": "rules.html#rule-healing-hands"
+                    },
+                    ", ",
+                    {
+                      "text": "Heal Other",
+                      "href": "rules.html#rule-heal-other"
+                    }
+                  ],
                   "Heal NPCs such as your follower",
                   "Also reach other players. Exact amounts not tested yet."
                 ],
                 [
-                  {
-                    "text": "Courage, Rally, Call to Arms",
-                    "href": "rules.html#rule-courage"
-                  },
+                  [
+                    {
+                      "text": "Courage",
+                      "href": "rules.html#rule-courage"
+                    },
+                    ", ",
+                    {
+                      "text": "Rally",
+                      "href": "rules.html#rule-rally"
+                    },
+                    ", ",
+                    {
+                      "text": "Call to Arms",
+                      "href": "rules.html#rule-call-to-arms"
+                    }
+                  ],
                   "Buff your followers",
                   "Skyrim Together sends these to other players too. Exact effect not tested yet."
                 ],
                 [
-                  "Custom auras from mods",
-                  "Work on you and your follower",
-                  "Not automatically shared with players. Not tested yet."
+                  {
+                    "text": "Circle of Life",
+                    "href": "rules.html#rule-circle-of-life"
+                  },
+                  "Guardian Circle heals only you",
+                  "A healing circle. Healing other players is not tested yet."
                 ],
                 [
                   "Calm, Fear, Frenzy",
@@ -153,10 +175,17 @@
                   "Still work on enemies; they can't control players."
                 ],
                 [
-                  {
-                    "text": "Mark and Recall",
-                    "href": "rules.html#rule-mark"
-                  },
+                  [
+                    {
+                      "text": "Mark",
+                      "href": "rules.html#rule-mark"
+                    },
+                    " and ",
+                    {
+                      "text": "Recall",
+                      "href": "rules.html#rule-recall"
+                    }
+                  ],
                   "Teleport back to a marked spot",
                   "Hold."
                 ],
@@ -208,30 +237,40 @@
                 [
                   "Prepare the game",
                   "Nothing to do",
-                  "Run the Friend Kit from our Nexus page once. It moves four built-in add-ons aside. Never use Steam's \"Verify integrity\" afterwards."
+                  "Run the Friend Kit's Creation Club cleanup from our Nexus page and follow its README. Never use Steam's \"Verify integrity\" afterwards."
                 ],
                 [
-                  "Install mods",
+                  "Install Vortex",
+                  "Optional",
+                  "Use the Download App button on our Nexus page. Sign in, turn on Profile Management, and create an STR profile."
+                ],
+                [
+                  "Install the mods",
                   "Optional, one at a time",
                   {
-                    "text": "Install our whole collection with Vortex from our Nexus page, picking the options it lists",
+                    "text": "Click Add collection on our Nexus page and pick the installer options it lists",
                     "href": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
                   }
                 ],
                 [
-                  "Check two switches",
+                  "Check five plugins",
                   "Not needed",
-                  "In Vortex, make sure SkyrimTogether.esp and SkyrimTogetherQuestPatches.esp are turned on."
+                  "In Vortex's Plugins view, turn on SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                 ],
                 [
                   "Start the game",
                   "Steam's Play button",
-                  "Launch Skyrim Together (SkyrimTogether.exe). Steam's Play button skips the mods."
+                  "Launch Skyrim Together (SkyrimTogether.exe). Steam's Play button doesn't start the co-op client."
                 ],
                 [
                   "Make your character",
                   "Play through Helgen",
                   "Finish Helgen Express offline, then save outside before you ever connect."
+                ],
+                [
+                  "You're ready when",
+                  "The main menu loads",
+                  "Skyrim Together reaches the main menu, and you have a character saved outside Helgen."
                 ]
               ]
             }
@@ -248,7 +287,7 @@
           "title": "Joining a session",
           "quick": [
             "How do I join tonight?",
-            "Launch Skyrim Together, load your campaign character, press F2, choose Connect, then type READY."
+            "Launch Skyrim Together, load your campaign character, press F2 and choose Connect, check you're in the leader's party, then type READY."
           ],
           "grids": [
             {
@@ -278,12 +317,17 @@
                 [
                   "Party",
                   "Not needed",
-                  "The leader opens F2, Player Manager, Launch Party. Everyone else joins it automatically once connected."
+                  "The leader creates the party first: F2, Player Manager, Launch Party. Everyone else joins it automatically once connected. Check the leader and everyone's names in Player Manager before you start."
                 ],
                 [
                   "Meet up",
                   "Just play",
-                  "Meet the group and type READY."
+                  "Open chat with F2 or Right Ctrl, type READY and press Enter."
+                ],
+                [
+                  "If it fails",
+                  "Reload or restart",
+                  "Stop and send the host the exact error message. Never post the server details publicly."
                 ]
               ]
             }
@@ -340,6 +384,11 @@
                   "Type BRB, or tell the group later. No recap needed."
                 ],
                 [
+                  "Everyone else",
+                  "Keep playing",
+                  "Stop advancing quests until they're back, especially if the leader left. Resume together."
+                ],
+                [
                   "Coming back",
                   "Load your save",
                   {
@@ -365,7 +414,19 @@
           "title": "Builds",
           "quick": [
             "What should I play?",
-            "Pick a job the group needs, and try something you don't usually play. Ideas to try are in the Party ledger."
+            [
+              "Anything you enjoy. For ideas, see ",
+              {
+                "text": "Build sheets",
+                "href": "build-sheets.html"
+              },
+              " and the ",
+              {
+                "text": "Party ledger",
+                "href": "ledger.html"
+              },
+              "."
+            ]
           ],
           "grids": [
             {
@@ -399,7 +460,7 @@
                 ],
                 [
                   "Two-handed guardian",
-                  "Only yourself to protect",
+                  "Protect yourself and your follower",
                   "Two-handed, Block and Heavy Armor. Stand between enemies and friends; there's no taunt, so stay close."
                 ],
                 [
@@ -484,7 +545,8 @@
                   "Your choice",
                   "Your choice"
                 ]
-              ]
+              ],
+              "note": "Suggestions only. Mix and change them freely."
             }
           ],
           "sources": []
@@ -504,13 +566,13 @@
               "rows": [
                 [
                   "Vigilant of Stendarr",
-                  "The Vigilants, an order that hunts undead and Daedra worshippers (Dawnguard)",
-                  "Paladin: Restoration, heavy armor, sword and shield"
+                  "Inspired by the Vigil of Stendarr, an order in Skyrim that hunts undead and Daedra worshippers",
+                  "Paladin: Restoration, heavy armor, sword and shield (our take, not their usual gear)"
                 ],
                 [
                   "Gravewarden of Arkay",
-                  "Arkay, god of the cycle of life and death",
-                  "Necromancer-healer that summons spirits and never raises bodies"
+                  "Our own idea, built around Arkay, god of the cycle of life and death",
+                  "Necromancer-healer who calls willing spirits and never raises bodies"
                 ],
                 [
                   "Meridia's champion",
@@ -546,7 +608,7 @@
                 ],
                 [
                   "Two-handed guardian",
-                  "Fight alone",
+                  "Fight beside your follower",
                   "Stands between enemies and friends",
                   "Death knight with one summon; shield-first paladin"
                 ],
@@ -581,47 +643,80 @@
                     "href": "rules.html#rule-heal-other"
                   },
                   "Healer, paladin",
-                  "Healing Hands is your first heal for others",
+                  "An Adept spell in vanilla",
                   "Available earlier, at Apprentice tier (Mysticism)"
                 ],
                 [
-                  "Close Greater Wounds",
+                  {
+                    "text": "Close Greater Wounds",
+                    "href": "rules.html#rule-close-greater-wounds"
+                  },
                   "Healer",
                   "Grand Healing is the only area heal",
                   "An area burst heal (Mysticism)"
                 ],
                 [
-                  "Breath of Life, Stendarr's Mercy",
+                  [
+                    {
+                      "text": "Breath of Life",
+                      "href": "rules.html#rule-breath-of-life"
+                    },
+                    ", ",
+                    {
+                      "text": "Stendarr's Mercy",
+                      "href": "rules.html#rule-stendarrs-mercy"
+                    }
+                  ],
                   "Healer",
                   "Grand Healing is the late burst",
                   "Later burst heals; Grand Healing becomes a held channel (Mysticism)"
                 ],
                 [
-                  "Sunbeam",
+                  {
+                    "text": "Sunbeam",
+                    "href": "rules.html#rule-sunbeam"
+                  },
                   "Paladin, Vigilant",
                   "Sun Fire only arrives with Dawnguard",
                   "An early anti-undead spell (Mysticism)"
                 ],
                 [
-                  "Circle of Life",
+                  {
+                    "text": "Circle of Life",
+                    "href": "rules.html#rule-circle-of-life"
+                  },
                   "Paladin",
-                  "No rally-point heal",
-                  "A later rally point to fall back to (Mysticism)"
+                  "Guardian Circle heals only you",
+                  "A healing circle to fall back to. Healing other players is not tested yet (Mysticism)"
                 ],
                 [
-                  {
-                    "text": "Conjure Skeleton, then Skeleton Archer",
-                    "href": "rules.html#rule-conjure-skeleton"
-                  },
+                  [
+                    {
+                      "text": "Conjure Skeleton",
+                      "href": "rules.html#rule-conjure-skeleton"
+                    },
+                    ", then ",
+                    {
+                      "text": "Skeleton Archer",
+                      "href": "rules.html#rule-conjure-skeleton-archer"
+                    }
+                  ],
                   "Necromancer-healer, death knight",
                   "Familiar or Flame Atronach early",
                   "Undead helpers from the start. One summon each; never raise corpses (Mysticism)"
                 ],
                 [
-                  {
-                    "text": "Vampiric Bolt, Blood Lance",
-                    "href": "rules.html#rule-vampiric-bolt"
-                  },
+                  [
+                    {
+                      "text": "Vampiric Bolt",
+                      "href": "rules.html#rule-vampiric-bolt"
+                    },
+                    ", ",
+                    {
+                      "text": "Blood Lance",
+                      "href": "rules.html#rule-blood-lance"
+                    }
+                  ],
                   "Wizard, blood mage",
                   "Flames and Firebolt",
                   "New drain spells in Destruction (Mysticism)"
@@ -645,16 +740,31 @@
                   "Invisibility that refreshes after it breaks (Mysticism)"
                 ],
                 [
-                  "Night Eye",
+                  {
+                    "text": "Night Eye",
+                    "href": "rules.html#rule-night-eye"
+                  },
                   "Ranger",
                   "Khajiit and vampires only",
                   "A night-vision spell anyone can learn (Mysticism)"
                 ],
                 [
-                  {
-                    "text": "Courage, Rally, Call to Arms",
-                    "href": "rules.html#rule-courage"
-                  },
+                  [
+                    {
+                      "text": "Courage",
+                      "href": "rules.html#rule-courage"
+                    },
+                    ", ",
+                    {
+                      "text": "Rally",
+                      "href": "rules.html#rule-rally"
+                    },
+                    ", ",
+                    {
+                      "text": "Call to Arms",
+                      "href": "rules.html#rule-call-to-arms"
+                    }
+                  ],
                   "Healer, storyteller",
                   "Buff your followers",
                   "Skyrim Together sends these to other players too"
@@ -701,8 +811,8 @@
                     "href": "rules.html#rule-staff-of-atronach"
                   },
                   "Wizard",
-                  "No perks for staves",
-                  "A staff-build perk; keep one summon (Better Vanilla Perks)"
+                  "Elemental Potency only makes conjured atronachs stronger",
+                  "Strengthens certain spells and makes atronachs scale; keep one summon (Better Vanilla Perks)"
                 ]
               ]
             }

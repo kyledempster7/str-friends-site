@@ -72,11 +72,13 @@ const css = `/* Version D: grids on the original look. */
 @media (max-width:900px){.d-layout{display:block;padding:0}.d-side{position:static;padding:24px 16px 0}}
 @media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
 
+// A cell is text, a link {text, href}, or a list of both (one link per named ability).
 const cell = (value) => {
+  if (Array.isArray(value)) return value.map(cell).join('');
   if (value && typeof value === 'object') return `<a href="${esc(value.href)}">${esc(value.text)}</a>`;
   return esc(value);
 };
-const plain = (value) => (value && typeof value === 'object' ? value.text : String(value));
+const plain = (value) => (Array.isArray(value) ? value.map(plain).join('') : value && typeof value === 'object' ? value.text : String(value));
 
 const grid = (g) => {
   const cls = g.columns.length === 3 ? ' cols-3' : '';
@@ -137,7 +139,12 @@ ${body}
   chapters.forEach((c, ci) => {
     c.pages.forEach((p, pi) => {
       const side = `<aside class="d-side" aria-label="Chapter ${esc(c.num)} pages"><p class="d-side-title">${esc(c.num)} · ${esc(c.label)}</p><ol>${c.pages.map((sp) => `<li><a href="${esc(sp.file)}"${sp.file === p.file ? ' aria-current="page"' : ''}>${esc(sp.title)}</a></li>`).join('')}</ol><p class="d-side-home"><a href="index.html#chapters">All chapters</a></p></aside>`;
-      const prev = ci > 0 ? `<a href="${esc(chapters[ci - 1].pages[0].file)}">← Previous chapter: ${esc(chapters[ci - 1].num)} ${esc(chapters[ci - 1].label)}</a>` : '';
+      const prevChapter = ci > 0 ? chapters[ci - 1] : null;
+      const prev = pi > 0
+        ? `<a href="${esc(c.pages[pi - 1].file)}">← Previous page: ${esc(c.pages[pi - 1].title)}</a>`
+        : prevChapter
+          ? `<a href="${esc(prevChapter.pages[prevChapter.pages.length - 1].file)}">← Previous chapter: ${esc(prevChapter.num)} ${esc(prevChapter.label)}</a>`
+          : '';
       const next = pi < c.pages.length - 1
         ? `<a class="d-next" href="${esc(c.pages[pi + 1].file)}">Next page: ${esc(c.pages[pi + 1].title)} →</a>`
         : ci < chapters.length - 1

@@ -6,8 +6,8 @@
       "name": "Better Vanilla Perks",
       "category": "mod",
       "status": "allowed",
-      "summary": "Our selected perk overhaul; follow its held-perk list.",
-      "detail": "Use the agreed collection. Not every perk has been tested with four players.",
+      "summary": "Reworks skill perks; use it with the group's named holds.",
+      "detail": "Our revision 6 perk overhaul adds weapon, armor, crafting and magic bonuses. Exact effects with this party are not tested in co-op yet.",
       "aliases": [
         "BVP",
         "Better Vanilla Perks Anniversary Edition 2023"
@@ -19,8 +19,8 @@
       "name": "Mysticism",
       "category": "mod",
       "status": "allowed",
-      "summary": "Our selected spell overhaul: main package only.",
-      "detail": "Mark, Recall and corpse reanimation are held. Keep the optional addons outside this setup. Exact four-player spell behavior is not tested yet.",
+      "summary": "Rebalances old spells and adds new ones; use the main package only.",
+      "detail": "Part of revision 6. Mark, Recall and corpse raising stay held; one active summon each. Optional addons are outside our setup.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -32,8 +32,8 @@
       "name": "Imperious — Races of Skyrim",
       "category": "mod",
       "status": "allowed",
-      "summary": "Our selected race overhaul, with four held powers.",
-      "detail": "Hold Red Sand Dance, Contingency, Beast Tongue and Spirit Walk. Other racial effects and personal unlock progress are not tested yet in this party. NPCs also receive racial abilities.",
+      "summary": "Gives each race distinct abilities and an unlockable power; four powers stay held.",
+      "detail": "Part of revision 6. Hold Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
       "aliases": [
         "Imperious",
         "race overhaul"
@@ -45,8 +45,8 @@
       "name": "Strong Reflexes rank 1 — Better Vanilla Perks",
       "category": "perk",
       "status": "allowed",
-      "summary": "The Block 30 shield-protection rank is allowed.",
-      "detail": "This rank reduces damage from power attacks while shield blocking. It is not the time-slow rank. Stop before rank 2; exact four-player behavior is not tested yet.",
+      "summary": "Halve power-attack damage while blocking with a shield.",
+      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 remains held. Not tested in co-op yet.",
       "aliases": [
         "Strong Reflexes",
         "Quick Reflexes",
@@ -61,8 +61,8 @@
       "name": "Strong Reflexes rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Skip this perk at Block 50.",
-      "detail": "It slows time when blocking power attacks. Slow time can synchronize across the party; this is a shared-pacing hold until tested.",
+      "summary": "Blocking power attacks slows time.",
+      "detail": "The Block 50 rank also reduces damage while blocking. Leave it unselected; rank 1's shield protection is allowed.",
       "aliases": [
         "Strong Reflexes",
         "Strong Reflexes 2",
@@ -77,8 +77,8 @@
       "name": "Steady Hand rank 1 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Skip this perk at Archery 40.",
-      "detail": "Aiming with zoom slows time. It can affect everybody's fight. The entire Steady Hand branch stays held until tested.",
+      "summary": "Zooming slows time and improves critical chance.",
+      "detail": "The Archery 40 rank slows aiming by 50%. Leave the entire branch unselected until the group clears it.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 1",
@@ -93,8 +93,8 @@
       "name": "Steady Hand rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Keep the whole Steady Hand branch unselected.",
-      "detail": "The second rank's tooltip does not establish that the first rank's slowdown disappears. Do not use it to bypass the rank 1 hold.",
+      "summary": "Adds critical chance and prevents ranged-weapon disarming.",
+      "detail": "The Archery 60 rank does not clear the earlier slowdown. Keep both Steady Hand ranks unselected.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 2",
@@ -107,8 +107,8 @@
       "name": "Dark Souls 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Do not use exploding reanimated corpses.",
-      "detail": "This perk adds an explosion to corpse-based reanimation, which is itself held. Exact party behavior is not tested yet.",
+      "summary": "Reanimated bodies can explode when combat starts.",
+      "detail": "Do not take this perk or use its corpse explosions. Raising the body is also held.",
       "aliases": [
         "Dark Souls",
         "Dark Souls II",
@@ -122,8 +122,8 @@
       "name": "Dragonborn rank 4: spectral drum — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Do not use the spectral drum power from Speech 60.",
-      "detail": "Its follower stamina effect is not a verified player buff. The power is held until tested; the rule concerns the granted power.",
+      "summary": "Hold the Speech 60 power: its spectral drum restores followers' Stamina.",
+      "detail": "Dragonborn rank 4 also improves prices. The drum's effect on friends is not verified; do not summon it.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 4",
@@ -138,8 +138,8 @@
       "name": "Dragonborn rank 5: Dremora Merchant — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Do not summon the merchant granted at Speech 80.",
-      "detail": "The merchant actor and barter behavior are not tested yet with the party. The rule concerns this granted power.",
+      "summary": "Hold the Speech 80 power: it summons a merchant for trading.",
+      "detail": "Dragonborn rank 5 also improves prices. Do not summon its Dremora Merchant until the group clears the power.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 5",
@@ -154,8 +154,8 @@
       "name": "Torch-assisted automatic unlocking — Better Vanilla Perks",
       "category": "mechanic",
       "status": "hold",
-      "summary": "Pick locks by hand for now.",
-      "detail": "The automatic torch-based opening needs observation on both clients. Normal manual lockpicking remains allowed.",
+      "summary": "A torch can automatically open locks.",
+      "detail": "Matching Lockpicking perks bypass locks while a torch is equipped outside combat. Pick locks manually in our campaign.",
       "aliases": [
         "torch",
         "auto unlock",
@@ -170,8 +170,8 @@
       "name": "Manual lockpicking",
       "category": "mechanic",
       "status": "allowed",
-      "summary": "Use lockpicks normally, and coordinate shared containers.",
-      "detail": "Ordinary lock state is supported by Skyrim Together. This does not clear the held torch-assisted automatic unlocking.",
+      "summary": "Open locks with lockpicks.",
+      "detail": "Opened locks synchronize. Torch-assisted automatic opening remains held.",
       "aliases": [
         "locks",
         "pick locks",
@@ -184,8 +184,8 @@
       "name": "More than one active summon per player",
       "category": "mechanic",
       "status": "hold",
-      "summary": "Keep one active summoned actor per player.",
-      "detail": "Extra capacity from perks does not change this rule. The limit is our initial test budget, not a Skyrim Together engine limit. Corpse reanimation and held special powers remain excluded.",
+      "summary": "Hold extra helpers; keep one active summon per player.",
+      "detail": "BVP perks add capacity, but our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the held Speech powers remain excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -200,8 +200,8 @@
       "name": "Summoner — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "summary": "Adds a summon slot and doubles casting distance; keep one active summon.",
+      "detail": "The extra slot stays unused under our party rule. Corpse raising remains held. Not tested in co-op yet.",
       "aliases": [
         "Summoner30"
       ],
@@ -212,8 +212,8 @@
       "name": "Puppeteer — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "summary": "Adds a summon slot and triples casting distance; keep one active summon.",
+      "detail": "The extra slot stays unused under our party rule. Corpse raising remains held. Not tested in co-op yet.",
       "aliases": [
         "Summoner70"
       ],
@@ -224,8 +224,8 @@
       "name": "Twin Souls — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "summary": "Adds two summon slots; keep one active summon.",
+      "detail": "Extra capacity stacks with other perks, but our party limit stays one. Corpse raising remains held. Not tested in co-op yet.",
       "aliases": [
         "TwinSouls"
       ],
@@ -236,8 +236,8 @@
       "name": "Dragonborn rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk's extra slots are not permission to add actors. Corpse reanimation remains held. Exact four-player behavior is not tested yet.",
+      "summary": "Improves prices and adds a summon slot; keep one active summon.",
+      "detail": "The Speech 20 rank gives 15% better prices. Leave its extra summon capacity unused; corpse raising remains held.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -249,8 +249,8 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Allowed, but its player-healing bonus needs measurement.",
-      "detail": "The tooltip and Skyrim Together's healing code use different bonus values for this perk. The final result is not tested yet; do not promise an exact healing multiplier.",
+      "summary": "A Restoration perk. Skip it until the group's first healer test.",
+      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so the real effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",
@@ -263,8 +263,8 @@
       "name": "Staff of the Atronach — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "A staff-build option; exact effects are not tested yet.",
-      "detail": "Staff and summon behavior needs checking. Keep the one-summon limit.",
+      "summary": "Strengthens certain staff spells and summons; keep one active summon.",
+      "detail": "Potent atronachs scale with your level. Corpse raising stays held; exact staff and summon bonuses are not tested in co-op yet.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -276,8 +276,8 @@
       "name": "Red Sand Dance — Imperious",
       "category": "race",
       "status": "hold",
-      "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Redguard power slows time and can change everyone's fight. This is an adopted hold until tested.",
+      "summary": "The Redguard power slows time while sprinting.",
+      "detail": "Its 45-second trance slows time by 90% during sprints. Do not activate this power in our campaign.",
       "aliases": [
         "Redguard",
         "time slow",
@@ -290,8 +290,8 @@
       "name": "Contingency — Imperious",
       "category": "race",
       "status": "hold",
-      "summary": "Do not use this racial power in our campaign.",
-      "detail": "The High Elf power automatically casts stored spells; the stored effect and remote result are not tested yet. This is an adopted hold until tested.",
+      "summary": "The High Elf power automatically casts stored spells.",
+      "detail": "You choose a trigger and store equipped spells for free automatic casting. Do not use this power in our campaign.",
       "aliases": [
         "Altmer",
         "High Elf",
@@ -305,8 +305,8 @@
       "name": "Beast Tongue — Imperious",
       "category": "race",
       "status": "hold",
-      "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Wood Elf power adds an animal companion; its ownership and behavior are not tested yet. This is an adopted hold until tested.",
+      "summary": "The Wood Elf power recruits an animal companion.",
+      "detail": "It befriends the nearest carnivorous animal and allows one animal companion. Do not use this power in our campaign.",
       "aliases": [
         "Bosmer",
         "Wood Elf",
@@ -319,8 +319,8 @@
       "name": "Spirit Walk — Imperious",
       "category": "race",
       "status": "hold",
-      "summary": "Do not use this racial power in our campaign.",
-      "detail": "The Dark Elf power summons ancestors through a special racial system; it is not cleared by the ordinary one-summon allowance. This is an adopted hold until tested.",
+      "summary": "The Dark Elf power summons two invulnerable ancestors.",
+      "detail": "It spends two Spirit Favor for 45 seconds of ancestral help. Our ordinary summon allowance does not clear this power.",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -333,8 +333,8 @@
       "name": "Discipline — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "Choose an Imperial without relying on a party aura.",
-      "detail": "Discipline affects armor and damage; it is not a healing aura. Its effect on human players is not tested yet. Racial abilities also apply to NPCs.",
+      "summary": "Boosts nearby allies' armor and attacks; do not rely on it protecting players.",
+      "detail": "During armed combat, nearby allies gain armor and attack damage. Its effect on human players is not verified; it does not heal.",
       "aliases": [
         "Imperial",
         "aura",
@@ -347,8 +347,8 @@
       "name": "Harrier — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "The Wood Elf marking effect needs observation on both clients.",
-      "detail": "This passive is not a cleared party-wide debuff. Its exact behavior and racial progression are not tested yet.",
+      "summary": "Marks prey for loot and weakens foes; do not rely on a party-wide bonus.",
+      "detail": "The bird points out animals or enemies, reducing enemy armor and magic resistance. Benefits for friends and quest progress are not verified.",
       "aliases": [
         "Bosmer",
         "Wood Elf",
@@ -362,8 +362,8 @@
       "name": "Whispers — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "The Dark Elf marking and reward system needs observation.",
-      "detail": "Its exact behavior and personal racial progression are not tested yet. Spirit Walk remains held.",
+      "summary": "Ancestors mark enemies for gold and Spirit Favor.",
+      "detail": "Slay marked humanoids to earn the reward. Personal progress is not tested in co-op yet; Spirit Walk remains held.",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -376,8 +376,8 @@
       "name": "Prowl — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "This is a leap, not a teleport.",
-      "detail": "Movement behavior in this exact party is not tested yet. Stay with the group and report differences between players' screens.",
+      "summary": "Quieter sneaking and a powerful leap.",
+      "detail": "Leap while sneaking with weapons sheathed, spending Stamina. It is movement, not teleportation. Not tested in co-op yet; stay with the party.",
       "aliases": [
         "Khajiit",
         "leap",
@@ -390,8 +390,8 @@
       "name": "Shared Ancestry — Imperious",
       "category": "race",
       "status": "conditional",
-      "summary": "Borrowing a racial power does not bypass its hold.",
-      "detail": "Apply the same held-power rules to any borrowed ability. Exact behavior with the party is not tested yet.",
+      "summary": "Borrow a human or elf's racial power; all existing holds still apply.",
+      "detail": "The Breton power borrows a living target's racial power for five minutes. Never use it to bypass held powers. Not tested in co-op yet.",
       "aliases": [
         "Breton",
         "borrow racial power"
@@ -403,8 +403,8 @@
       "name": "Mark — Mysticism",
       "category": "spell",
       "status": "hold",
-      "summary": "Do not use this travel spell in our campaign.",
-      "detail": "Mark and Recall alter travel state and need a separate multiplayer test. Their current co-op behavior is not tested yet.",
+      "summary": "Records a place for Recall.",
+      "detail": "An Expert Conjuration spell. Do not mark travel destinations in this campaign until the group clears Mark and Recall.",
       "aliases": [
         "Mark Recall",
         "Mark/Recall",
@@ -418,8 +418,8 @@
       "name": "Recall — Mysticism",
       "category": "spell",
       "status": "hold",
-      "summary": "Do not use this travel spell in our campaign.",
-      "detail": "Mark and Recall alter travel state and need a separate multiplayer test. Their current co-op behavior is not tested yet.",
+      "summary": "Teleports you to your marked location.",
+      "detail": "An Expert Conjuration spell. Do not use this travel shortcut in our campaign until the group clears Mark and Recall.",
       "aliases": [
         "Mark Recall",
         "Mark/Recall",
@@ -433,8 +433,8 @@
       "name": "Corpse reanimation",
       "category": "mechanic",
       "status": "hold",
-      "summary": "Do not raise dead bodies in this campaign.",
-      "detail": "This applies to corpse-raising spells, staves and scrolls, including Raise Zombie, Reanimate Corpse, Revenant, Dread Zombie and Dead Thrall. Ordinary conjured undead are a separate, limited option.",
+      "summary": "Raising an existing corpse makes it fight for you.",
+      "detail": "Includes Raise Zombie, Reanimate Corpse, Revenant, Dread Zombie and Dead Thrall, plus corpse-raising staves and scrolls. Ordinary conjured helpers still have the one-summon limit.",
       "aliases": [
         "reanimate",
         "reanimation",
@@ -454,8 +454,8 @@
       "name": "Conjure Skeleton — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons a basic skeleton; keep one active summon.",
+      "detail": "Novice Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains held.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -469,8 +469,8 @@
       "name": "Conjure Skeleton Warrior — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons a skeleton warrior; keep one active summon.",
+      "detail": "Expert Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains held.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -484,8 +484,8 @@
       "name": "Conjure Skeleton Archer — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons a skeleton archer; keep one active summon.",
+      "detail": "Apprentice Conjuration. Brings a ranged helper without raising a corpse. Not tested in co-op yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -499,8 +499,8 @@
       "name": "Conjure Skeleton Mage — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons a skeleton mage; keep one active summon.",
+      "detail": "Adept Conjuration. Brings a magical helper without raising a corpse. Not tested in co-op yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -514,8 +514,8 @@
       "name": "Conjure Skeleton Champion — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons a skeleton champion; keep one active summon.",
+      "detail": "Master Conjuration. Creates a powerful skeleton without raising a corpse. Not tested in co-op yet.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -529,8 +529,8 @@
       "name": "Conjure Wrathman Marksman — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "An ordinary summon candidate; keep one active summon per player.",
-      "detail": "Conjuring an actor is different from raising a corpse. Ownership, hostility, doors, death and reconnect behavior in this exact party are not tested yet.",
+      "summary": "Summons an undead archer; keep one active summon if obtained normally.",
+      "detail": "Exists in our main plugin, but ordinary availability is (not verified); the public list omits it. It is separate from Conjure Wrathman. Co-op behavior is untested.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -544,8 +544,8 @@
       "name": "Ordinary creature summons",
       "category": "mechanic",
       "status": "conditional",
-      "summary": "Start with one active summon per player.",
-      "detail": "Skyrim Together supports ordinary summon actors. This does not clear held racial summons, copied actors, corpse raising or summon armies. Exact four-player behavior is not tested yet.",
+      "summary": "Summon a creature to fight beside you; keep one active summon.",
+      "detail": "Familiar-style creatures and atronachs are options. Corpse raising and held racial or Speech summons remain excluded. Not tested in co-op yet.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -554,57 +554,57 @@
         "Conjure Storm Atronach",
         "summon"
       ],
-      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "healing-hands",
       "name": "Healing Hands — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "An approved starting option for healing another player.",
-      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "summary": "Hold the cast to keep healing your target.",
+      "detail": "Apprentice Restoration. Aim at a living ally and keep casting. Player healing amounts, experience and perk bonuses are not tested in co-op yet.",
       "aliases": [
         "Restoration",
         "heal player",
         "healer"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "heal-other",
       "name": "Heal Other — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "An approved starting option for healing another player.",
-      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "summary": "Send a burst of healing to your target.",
+      "detail": "Apprentice Restoration in Mysticism, earlier than vanilla's Adept version. Aim at a living ally. Not tested in co-op yet.",
       "aliases": [
         "Restoration",
         "heal player",
         "healer"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "grand-healing",
       "name": "Grand Healing — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "An approved starting option for healing another player.",
-      "detail": "Skyrim Together recognizes ordinary restore-health effects. Exact targeting, healing amount, skill experience and perk bonuses with this pack are not tested yet.",
+      "summary": "Keep casting to heal yourself and nearby allies.",
+      "detail": "Expert Restoration. Mysticism changes the vanilla burst into continuous healing while you cast. It is not a starter spell; not tested in co-op yet.",
       "aliases": [
         "Restoration",
         "heal player",
         "healer"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "self-healing",
       "name": "Ordinary self-healing spells",
       "category": "spell",
       "status": "allowed",
-      "summary": "Personal healing is part of the shared setup.",
-      "detail": "Use the version in the collection. This does not mean every custom healing aura can heal friends, or that a healing spell can resurrect a player.",
+      "summary": "Restore your own Health with healing spells.",
+      "detail": "Healing and Fast Healing are continuous casts in Mysticism; Close Wounds gives a burst. These do not resurrect players. Not tested in co-op yet.",
       "aliases": [
         "Healing",
         "Fast Healing",
@@ -618,50 +618,50 @@
       "name": "Courage",
       "category": "spell",
       "status": "conditional",
-      "summary": "Skyrim Together has explicit player-target support for this buff.",
-      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "summary": "Temporarily increases nearby living allies' Health, Magicka and Stamina.",
+      "detail": "Novice Illusion in Mysticism. Skyrim Together supports this buff on players, but exact results with our mods are not tested in co-op yet.",
       "aliases": [
         "Illusion",
         "morale",
         "buff"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "rally",
       "name": "Rally",
       "category": "spell",
       "status": "conditional",
-      "summary": "Skyrim Together has explicit player-target support for this buff.",
-      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "summary": "A stronger boost to nearby living allies' Health, Magicka and Stamina.",
+      "detail": "Adept Illusion in Mysticism. Skyrim Together supports this buff on players, but exact results with our mods are not tested in co-op yet.",
       "aliases": [
         "Illusion",
         "morale",
         "buff"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "call-to-arms",
       "name": "Call to Arms",
       "category": "spell",
       "status": "conditional",
-      "summary": "Skyrim Together has explicit player-target support for this buff.",
-      "detail": "The exact result with our mods is not tested yet. Do not extend this support to every custom aura or bard buff.",
+      "summary": "The strongest of these nearby-ally attribute buffs.",
+      "detail": "Master Illusion in Mysticism. Increases allies' Health, Magicka and Stamina. Skyrim Together supports player targeting; exact results are not tested in co-op yet.",
       "aliases": [
         "Illusion",
         "morale",
         "buff"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "vampiric-touch",
       "name": "Vampiric Touch — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "A direct offensive spell option for a blood mage.",
-      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "summary": "Steal Health from a living enemy within melee range.",
+      "detail": "Adept Destruction. The absorbed Health heals you. It does not require raising a corpse. Not tested in co-op yet.",
       "aliases": [
         "blood magic",
         "death knight",
@@ -674,8 +674,8 @@
       "name": "Vampiric Bolt — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "A direct offensive spell option for a blood mage.",
-      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "summary": "Fire a bolt that steals Health from a living enemy.",
+      "detail": "Adept Destruction. A ranged drain spell that heals you as it harms its target. Not tested in co-op yet.",
       "aliases": [
         "blood magic",
         "death knight",
@@ -688,8 +688,8 @@
       "name": "Blood Lance — Mysticism",
       "category": "spell",
       "status": "allowed",
-      "summary": "A direct offensive spell option for a blood mage.",
-      "detail": "These spells are present in the selected package. Exact damage and interactions in our four-player party are not tested yet. They do not permit corpse raising.",
+      "summary": "Steal Health from living enemies in an area.",
+      "detail": "Master Destruction, sold by special vendors. A later blood-mage option; its exact damage and healing are not tested in co-op yet.",
       "aliases": [
         "blood magic",
         "death knight",
@@ -702,8 +702,8 @@
       "name": "Direct fire, frost and shock spells",
       "category": "spell",
       "status": "allowed",
-      "summary": "Use direct attacks as the starting point for a mage.",
-      "detail": "Spells and projectiles have Skyrim Together support. Exact behavior with every spell in this pack is not tested yet. Aim clear of friendly NPCs.",
+      "summary": "Attack with fire, frost or shock.",
+      "detail": "Fire burns, frost also damages Stamina, and shock also damages Magicka. Avoid friendly NPCs. Exact spell behavior is not tested in co-op yet.",
       "aliases": [
         "Flames",
         "Firebolt",
@@ -713,15 +713,15 @@
         "Lightning Bolt",
         "Destruction"
       ],
-      "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
     {
       "id": "illusion-enemy-control",
       "name": "Calm, Fear and Frenzy on enemies",
       "category": "spell",
       "status": "allowed",
-      "summary": "Use enemy-control spells against valid NPC targets.",
-      "detail": "AI-driven spells do not control other human players. Exact limits and behavior with our spell changes are not tested yet.",
+      "summary": "Allowed on enemies: stop fights, frighten targets or turn them against each other.",
+      "detail": "Target eligible NPCs; these spells cannot control human players. Mysticism changes names and level limits. Not tested in co-op yet.",
       "aliases": [
         "Calm",
         "Fear",
@@ -735,16 +735,21 @@
     },
     {
       "id": "undead-healing",
-      "name": "Conjurer's Cure and other undead-healing effects",
+      "name": "Daedric Cure and Oblivion's Embrace — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "Do not assume an undead heal works on a player.",
-      "detail": "Some undead-healing effects lack the ordinary health-restoration marker. Player targeting is not tested yet. Build party healing around Healing Hands, Heal Other or Grand Healing.",
+      "summary": "Heal nearby summoned helpers; use on your one allowed summon.",
+      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays held. Not tested in co-op yet.",
       "aliases": [
         "Conjurer's Cure",
         "Dark Deal",
         "heal undead",
-        "necromantic healing"
+        "necromantic healing",
+        "Conjurer's Cure and other undead-healing effects",
+        "Conjurer’s Cure",
+        "Daedric Cure",
+        "Oblivion's Embrace",
+        "Oblivion’s Embrace"
       ],
       "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     },
@@ -753,11 +758,111 @@
       "name": "Ghostwalk — Mysticism",
       "category": "spell",
       "status": "conditional",
-      "summary": "Invisibility that refreshes after it breaks.",
-      "detail": "Mysticism 2.5 describes refreshing invisibility after it breaks. Its exact co-op behavior is not tested yet.",
+      "summary": "Invisibility returns after you break it.",
+      "detail": "Master Illusion. The current changelog says invisibility refreshes after roughly three seconds. It does not teleport you. Not tested in co-op yet.",
       "aliases": [
         "Ghostwalk",
         "invisibility"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "close-greater-wounds",
+      "name": "Close Greater Wounds — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Burst healing for yourself and nearby living allies.",
+      "detail": "Adept Restoration. An earlier area-healing option than Grand Healing. Its effect on friends is not tested in co-op yet.",
+      "aliases": [
+        "Restoration",
+        "area heal",
+        "healer"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "breath-of-life",
+      "name": "Breath of Life — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "A stronger burst of healing for yourself and nearby allies.",
+      "detail": "Expert Restoration. A single cast heals nearby living allies; it does not revive dead players. Not tested in co-op yet.",
+      "aliases": [
+        "Restoration",
+        "area heal",
+        "healer"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "stendarrs-mercy",
+      "name": "Stendarr's Mercy — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "A powerful burst of healing for yourself and nearby allies.",
+      "detail": "Master Restoration. A late healing option for living allies nearby. It does not resurrect players. Not tested in co-op yet.",
+      "aliases": [
+        "Stendarr’s Mercy",
+        "Restoration",
+        "area heal",
+        "healer"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "sunbeam",
+      "name": "Sunbeam — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Channel sunlight to damage undead.",
+      "detail": "Novice Restoration. Keep casting to burn an undead target. A starting anti-undead option; not tested in co-op yet.",
+      "aliases": [
+        "Restoration",
+        "sun magic",
+        "paladin",
+        "Vigilant"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "circle-of-life",
+      "name": "Circle of Life — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "Place a circle that restores Health inside it.",
+      "detail": "Adept Restoration. Try it as a healing spot; healing other players inside the circle is (not verified). Not tested in co-op yet.",
+      "aliases": [
+        "Restoration",
+        "healing circle",
+        "Circle of Vitality"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "night-eye",
+      "name": "Night Eye — Mysticism",
+      "category": "spell",
+      "status": "allowed",
+      "summary": "See more clearly in the dark.",
+      "detail": "Apprentice Illusion. Any race can learn this spell. Vanilla already gives night vision to Khajiit and vampires. Not tested in co-op yet.",
+      "aliases": [
+        "Night Eye",
+        "night vision",
+        "Illusion"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "conjure-wrathman",
+      "name": "Conjure Wrathman — Mysticism",
+      "category": "spell",
+      "status": "conditional",
+      "summary": "Summons a Wrathman to fight beside you; keep one active summon.",
+      "detail": "Master Conjuration. Its tome is found in the Soul Cairn. Summons a helper without raising a corpse. Not tested in co-op yet.",
+      "aliases": [
+        "Wrathman",
+        "Soul Cairn",
+        "summoned undead"
       ],
       "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
     }

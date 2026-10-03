@@ -28,7 +28,8 @@ export async function addVersionBars(output) {
   for (const [folder] of VERSIONS) pagesByVersion.set(folder, new Set(await htmlFiles(path.join(output, folder))));
   const label = (folder) => VERSIONS.find(([f]) => f === folder)[1];
   for (const location of ['', ...VERSIONS.map(([folder]) => folder)]) {
-    const prefix = location ? '../' : '';
+    // Root pages (the forwarder and the site-wide 404) can be served at any depth, so use absolute links.
+    const prefix = location ? '../' : 'https://kyledempster7.github.io/str-friends-site/';
     for (const name of await htmlFiles(path.join(output, location))) {
       const file = path.join(output, location, name);
       const html = (await readFile(file, 'utf8')).replace(/<nav class="version-switcher"[\s\S]*?<\/nav>/, '');
