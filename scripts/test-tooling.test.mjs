@@ -45,6 +45,9 @@ test('privacy scan decodes common entities and percent runs beside ordinary perc
   assert.ok(privacyFindings(`<p>30% boost</p><p>${encodeURIComponent(email)}</p>`, []).includes('email address'));
   const local = ['C:', 'Users', 'example', 'file'].join('\\');
   assert.ok(privacyFindings(`30% boost ${encodeURIComponent(local)}`, []).includes('local file path'));
+  const secret = 'Synthetic42';
+  const unicodeEscaped = [...secret].map(char => '\\u' + char.codePointAt(0).toString(16).padStart(4, '0')).join('');
+  assert.ok(privacyFindings(unicodeEscaped, [secret]).includes('server/admin password'));
 });
 
 test('identity parser cannot mistake embedded tabs for approved fields', () => {
