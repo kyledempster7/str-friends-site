@@ -248,9 +248,9 @@
       "id": "resurgence",
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
-      "status": "conditional",
-      "summary": "A Restoration perk. Skip it until the group's first healer test.",
-      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so the real effect on friends is unknown until we test it.",
+      "status": "hold",
+      "summary": "Hold until the group's first healer test.",
+      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",

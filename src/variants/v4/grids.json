@@ -180,7 +180,7 @@
           "Restoration",
           "Regeneration strengthens healing by 50%; Recovery improves Magicka regeneration.",
           "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration; Recovery also improves Stamina regeneration.",
-          "Skip Resurgence until the group's first healer test; its bonus on friends isn't verified."
+          "Hold Resurgence until the group's first healer test."
         ],
         [
           "Smithing",
@@ -422,6 +422,14 @@
           },
           "Novice through Master Locks can open matching locks while you hold a torch outside combat.",
           "Hold automatic unlocking. Use lockpicks manually."
+        ],
+        [
+          {
+            "text": "Resurgence (Restoration)",
+            "href": "rules.html#rule-resurgence"
+          },
+          "Strengthens Restoration spells by 30%",
+          "Hold until the group's first healer test."
         ]
       ]
     },
@@ -549,7 +557,7 @@
       "rows": [
         [
           "Before you own a home",
-          "Use any container you find",
+          "Keep valuables in your pack or in a container that doesn't reset",
           "Keep valuables in your pack. Containers you don't own can reset."
         ],
         [

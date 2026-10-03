@@ -46,6 +46,29 @@ for (const name of (await readdir(path.join(output, 'v2b'))).filter((n) => n.end
   await writeFile(file, html);
 }
 
+// B's rule cards come from the frozen original page; keep each card's status and text in step with B's catalog,
+// so a ruling changed in the catalog (for example Resurgence becoming a hold) shows in B as well.
+{
+  const bCatalog = JSON.parse(await readFile(path.join(root, 'src/variants/v2b/content/catalog.json'), 'utf8'));
+  const labels = { allowed: 'Allowed', conditional: 'Conditional', hold: 'Hold — do not use', blocked: 'Blocked' };
+  const escHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  const rulesFile = path.join(output, 'v2b', 'rules.html');
+  let rules = await readFile(rulesFile, 'utf8');
+  for (const e of bCatalog.entries) {
+    const start = rules.indexOf(`<article class="rule-card" id="rule-${e.id}"`);
+    if (start < 0) continue;
+    const end = rules.indexOf('</article>', start);
+    const card = rules.slice(start, end)
+      .replace(/data-status="[a-z]+"/, `data-status="${e.status}"`)
+      .replace(/data-search="[^"]*"/, `data-search="${escHtml([e.name, e.category, e.status, e.summary, e.detail, ...(e.aliases ?? [])].join(' '))}"`)
+      .replace(/<span class="status status-[a-z]+">[^<]*<\/span>/, `<span class="status status-${e.status}">${labels[e.status]}</span>`)
+      .replace(/<p class="rule-summary">[\s\S]*?<\/p>/, `<p class="rule-summary">${escHtml(e.summary)}</p>`)
+      .replace(/<p class="rule-detail">[\s\S]*?<\/p>/, `<p class="rule-detail">${escHtml(e.detail)}</p>`);
+    rules = rules.slice(0, start) + card + rules.slice(end);
+  }
+  await writeFile(rulesFile, rules);
+}
+
 // Version D (/v4/): every piece of content as a grid, on the original look.
 for (const [name, content] of await renderV4(root)) {
   const destination = path.join(output, 'v4', name);

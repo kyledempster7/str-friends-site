@@ -16,6 +16,7 @@ export const requiredHolds = [
   ['Red Sand Dance'], ['Contingency'], ['Beast Tongue'], ['Spirit Walk'],
   ['Mark'], ['Recall'],
   ['corpse reanimation', 'reanimation', 'raise dead', 'corpse raising'],
+  ['Resurgence'],
 ];
 // Kyle (2026-10-03): only things actually in our game belong in "Can I use this?".
 // Mods we don't run (Ordinator, Apocalypse, combat and display mods) must not appear.

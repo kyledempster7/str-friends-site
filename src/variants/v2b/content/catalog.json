@@ -248,9 +248,9 @@
       "id": "resurgence",
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
-      "status": "conditional",
-      "summary": "Allowed, but its player-healing bonus needs measurement.",
-      "detail": "The tooltip and Skyrim Together's healing code use different bonus values for this perk. The final result is not tested yet; do not promise an exact healing multiplier.",
+      "status": "hold",
+      "summary": "Hold until the group's first healer test.",
+      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",

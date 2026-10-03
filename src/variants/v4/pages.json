@@ -242,7 +242,10 @@
                 [
                   "Install Vortex",
                   "Optional",
-                  "Use the Download App button on our Nexus page. Sign in, turn on Profile Management, and create an STR profile."
+                  {
+                    "text": "Get Vortex from Nexus, sign in, turn on Profile Management, and create an STR profile",
+                    "href": "https://www.nexusmods.com/vortex"
+                  }
                 ],
                 [
                   "Install the mods",
