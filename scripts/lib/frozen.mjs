@@ -22,14 +22,15 @@ export async function inventory(directory, excludedDirectories = []) {
   return files.sort();
 }
 
-export async function assertFrozen(directory, manifest, { excludedDirectories = [], allowMissing = false, bytes = true } = {}) {
+export async function assertFrozen(directory, manifest, { excludedDirectories = [], allowMissing = false, bytes = true, normalize = null } = {}) {
   const actual = await inventory(directory, excludedDirectories);
   const expected = Object.keys(manifest.files).sort();
   const extra = actual.filter(name => !expected.includes(name));
   const missing = expected.filter(name => !actual.includes(name));
   if (extra.length || (!allowMissing && missing.length)) throw new Error(`Frozen inventory mismatch in ${path.basename(directory)}: extra [${extra.join(', ')}], missing [${missing.join(', ')}]`);
   if (bytes) for (const name of actual) {
-    const value = await readFile(path.join(directory, name));
+    let value = await readFile(path.join(directory, name));
+    if (normalize && name.endsWith('.html')) value = Buffer.from(normalize(value.toString('utf8')), 'utf8');
     if (createHash('sha256').update(value).digest('hex') !== manifest.files[name]) throw new Error(`Frozen byte mismatch: ${path.basename(directory)}/${name}`);
   }
 }

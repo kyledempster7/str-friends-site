@@ -55,7 +55,7 @@ const shell = ({ title, body }) => `<!doctype html>
 <main>
 ${body}
 </main>
-<footer>Version: <a href="../index.html">v1</a><a href="../v2a/index.html">A</a><a href="../v2b/index.html">B</a><strong>C</strong> · Unofficial fan guide, not an official Skyrim Together or Bethesda product.</footer>
+<footer>Unofficial fan guide, not an official Skyrim Together or Bethesda product.</footer>
 </body>
 </html>
 `;

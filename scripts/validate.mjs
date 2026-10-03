@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertFrozen } from './lib/frozen.mjs';
+import { stripVersionBar, VERSIONS } from './lib/version-bar.mjs';
 
 // Independently transcribed campaign restrictions. A named hold must remain
 // searchable and may not be weakened to an allowed/conditional search result.
@@ -132,7 +133,7 @@ const variantPaths = fs.existsSync(path.join(root, 'src/variants/frozen-v1.json'
 if (variantPaths.length > 1) {
   const frozen = readJson('src/variants/frozen-v1.json');
   if (frozen) for (const location of ['', 'v1']) {
-    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b', 'v3', 'v4'] }); }
+    try { await assertFrozen(path.join(dist, location), frozen, { excludedDirectories: location ? [] : ['v1', 'v2a', 'v2b', 'v3', 'v4'], normalize: stripVersionBar }); }
     catch (error) { fail(error.message); }
   }
 }
@@ -176,6 +177,10 @@ for (const entry of catalogHtml ? entries ?? [] : []) {
 }
 for (const [file, html] of documents) {
   const relative = path.relative(dist, file);
+  // Kyle: every page must reach every version.
+  const bar = html.match(/<nav class="all-versions"[^>]*>([\s\S]*?)<\/nav><\/body>/);
+  if (!bar) fail(`${relative}: missing the all-versions bar`);
+  else for (const [, label] of VERSIONS) if (!new RegExp(`>${label}</(?:a|strong)>`).test(bar[1])) fail(`${relative}: version bar missing ${label}`);
   if (!/<html\b[^>]*lang=["']en["']/i.test(html)) fail(`${relative}: missing English document language`);
   if (!/<meta\b[^>]*name=["']viewport["']/i.test(html)) fail(`${relative}: missing responsive viewport`);
   if ((html.match(/<h1\b/gi) ?? []).length !== 1) fail(`${relative}: exactly one H1 is required`);

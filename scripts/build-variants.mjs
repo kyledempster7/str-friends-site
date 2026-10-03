@@ -5,6 +5,7 @@ import { assertFrozen, materializeFrozen } from './lib/frozen.mjs';
 import { renderVariant } from './lib/render-variant.mjs';
 import { renderV3 } from './lib/render-v3.mjs';
 import { renderV4 } from './lib/render-v4.mjs';
+import { addVersionBars, stripVersionBar } from './lib/version-bar.mjs';
 
 // Frozen root/v1 come from the canonical published byte snapshot, never from
 // templates or platform-dependent working-tree copies of the original assets.
@@ -58,5 +59,10 @@ await writeFile(path.join(output, 'v4', '.nojekyll'), '');
 
 await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3', 'v4'] });
 await assertFrozen(path.join(output, 'v1'), manifest);
+// Every page in every version gets the same bar linking v1, A, B, C and D. Root and /v1 stay
+// byte-identical to the frozen release apart from that one bar (validate strips it to check).
+await addVersionBars(output);
+await assertFrozen(output, manifest, { excludedDirectories: ['v1', 'v2a', 'v2b', 'v3', 'v4'], normalize: stripVersionBar });
+await assertFrozen(path.join(output, 'v1'), manifest, { normalize: stripVersionBar });
 console.log(`Frozen root and /v1 verified against ${manifest.commit}.`);
 console.log('Built complete /v2a and /v2b variants with all 116 adopted catalog records.');
