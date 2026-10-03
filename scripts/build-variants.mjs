@@ -63,7 +63,16 @@ const forward = (title, target) => `<!doctype html>
 <body><main><h1>${title}</h1><p><a href="${target}">Open the Fellowship field guide</a></p></main></body></html>
 `;
 await writeFile(path.join(output, 'index.html'), forward('Fellowship', 'v4/index.html'));
-await writeFile(path.join(output, '404.html'), forward('Page not found', '/str-friends-site/v4/index.html').replace('href="/str-friends-site/v4/index.html"', 'href="v4/index.html"'));
+// A real missing-page response (served for any bad address), with absolute links so it works at any depth.
+const site = 'https://kyledempster7.github.io/str-friends-site/v4/';
+await writeFile(path.join(output, '404.html'), `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found · Fellowship</title><style>body{margin:0;background:#101a20;color:#e5e9e5;font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}main{max-width:40rem;margin:auto;padding:48px 24px}a{color:#d8bc87}h1{font:400 2rem/1.2 Georgia,serif;color:#f6f2e9}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #34434a}</style></head>
+<body><main><h1>Page not found</h1><p>That address doesn't exist, or it belonged to a version of the site we've retired.</p><table><tbody>
+<tr><th scope="row"><a href="${site}index.html#chapters">The seven chapters</a></th><td>The field guide, start to finish</td></tr>
+<tr><th scope="row"><a href="${site}rules.html">Can I use this?</a></th><td>Check a spell, perk, power or mod</td></tr>
+<tr><th scope="row"><a href="${site}leave-now.html">Leave now</a></th><td>How to leave a session quickly</td></tr>
+</tbody></table></main></body></html>
+`);
 for (const dir of ['', 'v2b', 'v4']) await writeFile(path.join(output, dir, '.nojekyll'), '');
 
 await addVersionBars(output);
