@@ -16,7 +16,7 @@
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
 .d-quick .d-grid tbody th{width:32%}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
-.d-search{margin:8px 0 32px}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
+.d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
 .d-search-row{display:flex;gap:8px;max-width:40rem}
 .d-search input{flex:1;min-width:0;padding:12px 14px;background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem}
 .d-search input:focus{outline:2px solid var(--gold);outline-offset:1px}
@@ -77,7 +77,7 @@
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
 @media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:900px){.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
+@media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:820px){.header-inner{min-height:80px;padding-top:12px;padding-bottom:12px}}
 @media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
 @media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
