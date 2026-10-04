@@ -192,7 +192,7 @@ for (const [gi, group] of guideGroups.entries()) {
     }
     if (strips.length !== 1 || !/<\/h1>\s*<nav class="d-page-strip"/.test(html)) fail(`${label}: a numbered page strip is required directly under the H1`);
     const strip = strips[0]?.[1] ?? '';
-    const count = strip.match(/<span class="d-page-count">([^<]*)<\/span>/)?.[1];
+    const count = strip.match(/<span class="d-page-count d-sr-only">([^<]*)<\/span>/)?.[1];
     if (count !== `Page ${pi + 1} of ${group.pages.length}:`) fail(`${label}: page strip has the wrong position or total`);
     const current = [...strip.matchAll(/<strong aria-current="page">([^<]*)<\/strong>/g)];
     if (current.length !== 1 || decode(current[0]?.[1] ?? '') !== page.title) fail(`${label}: page strip must mark the current page in bold`);
@@ -201,12 +201,21 @@ for (const [gi, group] of guideGroups.entries()) {
     if (links.length !== siblings.length + 1 || siblings.some((p, i) => links[i]?.href !== p.file || links[i]?.text !== p.title) || links.some(link => link.href === page.file || link.current)) {
       fail(`${label}: page strip must link every other sibling, with no link on the current page`);
     }
+    const h2Titles = [...html.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/g)].map(([, body]) => visibleText(body).toLowerCase());
+    const pageTitle = page.title.toLowerCase();
+    if (h2Titles.some(title => title === pageTitle || title.startsWith(`${pageTitle} `))) fail(`${label}: a section heading only repeats the page title`);
     const nextGroup = guideGroups[(gi + 1) % guideGroups.length];
     const nextPage = group.pages[pi + 1];
     const nextHref = nextPage?.file ?? nextGroup.pages[0]?.file;
     const nextText = nextPage ? `Next: ${nextPage.title} →` : `Next topic: ${nextGroup.label} →`;
     if (links.at(-1)?.href !== nextHref || links.at(-1)?.text !== nextText) fail(`${label}: page strip must end with the next page or topic link`);
   }
+}
+{
+  const home = documents.get(path.join(dist, 'v4', 'index.html')) ?? '';
+  const tilesAt = home.lastIndexOf('class="d-chapter"');
+  const searchAt = home.indexOf('role="search"');
+  if (tilesAt < 0 || searchAt < 0 || searchAt < tilesAt) fail('v4/index.html: the search box must sit below the seven chapter cards');
 }
 for (const page of [
   { ...audioPages?.home, file: 'index.html' },

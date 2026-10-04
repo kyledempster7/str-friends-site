@@ -42,7 +42,7 @@ const css = `/* Version D: grids on the original look. */
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
 .d-quick .d-grid tbody th{width:32%}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
-.d-search{margin:8px 0 32px}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
+.d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
 .d-search-row{display:flex;gap:8px;max-width:40rem}
 .d-search input{flex:1;min-width:0;padding:12px 14px;background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem}
 .d-search input:focus{outline:2px solid var(--gold);outline-offset:1px}
@@ -103,7 +103,7 @@ const css = `/* Version D: grids on the original look. */
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
 @media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:900px){.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
+@media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:820px){.header-inner{min-height:80px;padding-top:12px;padding-bottom:12px}}
 @media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
 @media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
@@ -117,7 +117,10 @@ const cell = (value) => {
 };
 const plain = (value) => (Array.isArray(value) ? value.map(plain).join('') : value && typeof value === 'object' ? value.text : String(value));
 
-const grid = (g) => {
+// A section heading that only repeats the page title directly above it is dropped; the section keeps its id and name.
+const norm = (value) => String(value).toLowerCase().replace(/\s+/g, ' ').trim();
+const repeatsTitle = (heading, pageTitle) => !!pageTitle && (norm(heading) === norm(pageTitle) || norm(heading).startsWith(`${norm(pageTitle)} `));
+const grid = (g, pageTitle) => {
   const cls = g.columns.length === 3 ? ' cols-3' : '';
   const head = g.columns.map((c) => `<th scope="col">${esc(c)}</th>`).join('');
   const rows = g.rows.map((r) => {
@@ -125,7 +128,10 @@ const grid = (g) => {
     const cells = r.slice(1).map((value, i) => `<td data-label="${esc(g.columns[i + 1])}">${cell(value)}</td>`).join('');
     return `<tr${urgent}><th scope="row">${cell(r[0])}</th>${cells}</tr>`;
   }).join('\n');
-  return `<section class="d-section${g.quick ? ' d-quick' : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>
+  const open = repeatsTitle(g.title, pageTitle)
+    ? `<section class="d-section${g.quick ? ' d-quick' : ''}" id="${esc(g.id)}" aria-label="${esc(g.title)}">`
+    : `<section class="d-section${g.quick ? ' d-quick' : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>`;
+  return `${open}
 <div class="d-wrap"><table class="d-grid${cls}">${g.note ? `<caption>${esc(g.note)}</caption>` : ''}<thead><tr>${head}</tr></thead><tbody>
 ${rows}
 </tbody></table></div></section>`;
@@ -192,10 +198,10 @@ ${body}
     const next = nextPage
       ? `<a class="d-page-next" href="${esc(nextPage.file)}">Next: ${esc(nextPage.title)} →</a>`
       : `<a class="d-page-next" href="${esc(nextGroup.pages[0].file)}">Next topic: ${esc(nextGroup.label)} →</a>`;
-    return `<nav class="d-page-strip" aria-label="${esc(group.label)} pages"><span class="d-page-count">Page ${pi + 1} of ${group.pages.length}:</span> ${links} ${next}</nav>`;
+    return `<nav class="d-page-strip" aria-label="${esc(group.label)} pages"><span class="d-page-count d-sr-only">Page ${pi + 1} of ${group.pages.length}:</span> ${links} ${next}</nav>`;
   };
 
-  // Homepage: title banner, then search and seven topics within Start here.
+  // Homepage: title banner, then the seven topics, then search, within Start here.
   const h = data.home;
   const tiles = chapters.map((c) => `<a class="d-chapter" href="${esc(c.pages[0].file)}"><span class="d-chapter-num">${esc(c.num)}</span><span class="d-chapter-label">${esc(c.label)}</span><h3>${esc(c.headline)}</h3>${svg(c.icon)}</a>`).join('');
   pages.set('index.html', shell({
@@ -203,7 +209,7 @@ ${body}
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
 <div class="d-page">${audioBar(h.audio)}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2></div>${searchForm('home-search')}<div class="d-chapters">${tiles}</div></section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
   // Topic subpages: expanded guide, numbered page strip and the bottom pager.
@@ -228,7 +234,7 @@ ${body}
         body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
-${p.grids.map((g) => grid(resolve(g))).join('\n')}
+${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
 ${audioTranscript(p.audio)}
 ${sources(p.sources)}
 ${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
