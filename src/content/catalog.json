@@ -237,7 +237,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Improves prices and adds a summon slot; keep one active summon.",
-      "detail": "The Speech 20 rank gives 15% better prices. Leave its extra summon capacity unused; corpse raising remains quarantined (don't use yet).",
+      "detail": "The Speech 20 rank gives 15% better prices. It also lets you command one extra summoned or reanimated follower. Leave that unused; corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"

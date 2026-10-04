@@ -34,7 +34,7 @@
         [
           "Dying and respawning",
           "Reload a save",
-          "You respawn nearby, or at the entrance indoors. No gold lost. Crime bounties still apply."
+          "You respawn nearby, or at the entrance indoors. No gold lost. Death may also pay your crime bounties. Not tested here."
         ],
         [
           "Choosing difficulty",
@@ -69,7 +69,7 @@
         [
           "Talking to friends",
           "No other players",
-          "Press F2 or Right Ctrl. Type, press Enter. /party, /local and voice work."
+          "Press F2 or Right Ctrl. Type, press Enter. /party and /local work."
         ],
         [
           "Recruiting followers",
@@ -223,7 +223,7 @@
           "High Elf",
           "+10 Illusion. +5 Alteration, Conjuration, Destruction, Enchanting, Restoration. +50 Magicka. Highborn rapidly restores Magicka for one minute.",
           "Level-100 skills improve. Low Magicka/Stamina recover faster but weaken defenses. Gear weakens, enchantments strengthen. Contingency stores spells for automatic casting.",
-          "Quarantined (don't use yet): Contingency. Co-op racial effects and unlocks (not verified)."
+          "No racial power in our game. Quarantined (don't use yet): Contingency. Co-op racial effects and unlocks (not verified)."
         ],
         [
           "Argonian",
@@ -235,7 +235,7 @@
           "Wood Elf",
           "+10 Archery. +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak. Poison/disease resistance. Command Animal temporarily recruits an animal.",
           "Eat corpses for attributes. Harrier marks prey and weakens foes. Sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance.",
-          "Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
+          "No racial power in our game. Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
         ],
         [
           "Breton",
@@ -247,7 +247,7 @@
           "Dark Elf",
           "+10 Destruction. +5 Alchemy, Alteration, Illusion, Light Armor, Sneak. 50% fire resistance, Sparks. Ancestor's Wrath burns nearby enemies.",
           "25% fire resistance. Spending Spirit Favor grants armor and further resistance. Whispers marks victims for rewards. Spirit Walk spends Favor to summon ancestors.",
-          "Quarantined (don't use yet): Spirit Walk. Whispers rewards and racial unlocks in co-op (not verified)."
+          "No racial power in our game. Quarantined (don't use yet): Spirit Walk. Whispers rewards and racial unlocks in co-op (not verified)."
         ],
         [
           "Imperial",
@@ -277,10 +277,10 @@
           "Redguard",
           "+10 One-Handed. +5 Alteration, Archery, Block, Destruction, Smithing. 50% poison resistance. Adrenaline Rush rapidly restores Stamina.",
           "Disease resistance replaces poison resistance. Unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting.",
-          "Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
+          "No racial power in our game. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers."
+      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
     },
     {
       "id": "spells",
@@ -574,7 +574,7 @@
         [
           "Gold",
           "You hold and spend your own gold.",
-          "Your gold stays yours. No death gold penalty. Crime bounties still cost gold."
+          "Your gold stays yours. No death gold penalty. Death may also pay your crime bounties. Not tested here."
         ],
         [
           "Private home chests",
@@ -584,7 +584,7 @@
         [
           "Shared storage and trading",
           "Containers store items. Some containers reset and are unsafe for lasting storage.",
-          "Shared chest transfers synchronize. Test a cheap transfer first. Lasting storage and reconnect results remain unverified."
+          "Shared chest transfers are not tested yet. Try a cheap transfer first. Lasting storage and reconnect results remain unverified."
         ],
         [
           "Dropped items",

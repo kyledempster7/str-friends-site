@@ -238,7 +238,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Extra summon capacity stays unused: one active summon per player.",
-      "detail": "The perk allows more summons. Our rule still forbids them. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
+      "detail": "The perk lets you command one extra summoned or reanimated follower. Our rule still forbids it. Corpse reanimation remains quarantined (don't use yet). Exact four-player behavior is not tested yet.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"

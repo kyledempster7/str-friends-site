@@ -108,6 +108,10 @@
         {
           "file": "races.html",
           "title": "Races",
+          "quick": [
+            "Before you pick a race",
+            "High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
+          ],
           "grids": [
             "races"
           ],
@@ -354,7 +358,7 @@
                 [
                   "Get connection instructions on Discord",
                   "Not needed",
-                  "The host will tell you on Discord before the session. Follow their private connection instructions. Only install a networking app if they request it."
+                  "Install Tailscale. Then accept the host's invite, sent privately on Discord."
                 ],
                 [
                   "F2 → Connect",
@@ -627,7 +631,7 @@
               "rows": [
                 [
                   "Healer",
-                  "Restoration, Alteration",
+                  "Restoration, Alteration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
                   "Breton or Imperial",
                   "Mage; switch to Lord later"
                 ],
@@ -639,8 +643,8 @@
                 ],
                 [
                   "Necromancer-healer",
-                  "Restoration, then Conjuration",
-                  "Breton or Dark Elf",
+                  "Restoration, then Conjuration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
+                  "Breton or Dark Elf (Dark Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -658,13 +662,13 @@
                 [
                   "Stealth ranger",
                   "Archery, Sneak, Light Armor",
-                  "Wood Elf or Nord",
+                  "Wood Elf or Nord (Wood Elf: no racial power in our game)",
                   "Thief; switch to Lord later"
                 ],
                 [
                   "Gandalf-style wizard",
                   "Destruction, Alteration, some Restoration",
-                  "Breton or High Elf",
+                  "Breton or High Elf (High Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -676,7 +680,7 @@
                 [
                   "Blood mage",
                   "Destruction, Alteration",
-                  "Breton or Dark Elf",
+                  "Breton or Dark Elf (Dark Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -694,7 +698,7 @@
                 [
                   "Skeleton archer commander",
                   "Conjuration, Archery",
-                  "Wood Elf or Breton",
+                  "Wood Elf or Breton (Wood Elf: no racial power in our game)",
                   "Your choice"
                 ],
                 [
@@ -706,7 +710,7 @@
                 [
                   "Staff summoner",
                   "Conjuration, Enchanting",
-                  "Breton or High Elf",
+                  "Breton or High Elf (High Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
                 ]
               ],

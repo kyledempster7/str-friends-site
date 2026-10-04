@@ -56,7 +56,7 @@
             },
             {
               "title": "Death is a setback",
-              "text": "Normally respawn nearby outdoors or at the indoor entrance. Extra gold-loss penalty: zero. Crime bounties still apply. This exact party setup is not tested yet.",
+              "text": "Normally respawn nearby outdoors or at the indoor entrance. Extra gold-loss penalty: zero. Death may also pay your crime bounties. This exact party setup is not tested yet.",
               "icon": "mountain",
               "id": "death-respawn"
             },
@@ -233,7 +233,7 @@
             [
               "High Elf",
               "+10 Illusion; +5 Alteration, Conjuration, Destruction, Enchanting, Restoration; +50 Magicka. Highborn rapidly restores Magicka for one minute.",
-              "Level-100 skills improve; low Magicka/Stamina recover faster but weaken defenses; gear weakens, enchantments strengthen. Contingency stores spells for automatic casting. Quarantined (don't use yet): Contingency. Co-op racial effects and unlocks (not verified)."
+              "Level-100 skills improve; low Magicka/Stamina recover faster but weaken defenses; gear weakens, enchantments strengthen. Contingency stores spells for automatic casting. No racial power in our game. Quarantined (don't use yet): Contingency. Co-op racial effects and unlocks (not verified)."
             ],
             [
               "Argonian",
@@ -243,7 +243,7 @@
             [
               "Wood Elf",
               "+10 Archery; +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak; poison/disease resistance. Command Animal temporarily recruits an animal.",
-              "Eat corpses for attributes; Harrier marks prey and weakens foes; sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance. Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
+              "Eat corpses for attributes; Harrier marks prey and weakens foes; sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance. No racial power in our game. Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
             ],
             [
               "Breton",
@@ -253,7 +253,7 @@
             [
               "Dark Elf",
               "+10 Destruction; +5 Alchemy, Alteration, Illusion, Light Armor, Sneak; 50% fire resistance, Sparks. Ancestor's Wrath burns nearby enemies.",
-              "25% fire resistance; spending Spirit Favor grants armor and further resistance. Whispers marks victims for rewards. Spirit Walk spends Favor to summon ancestors. Quarantined (don't use yet): Spirit Walk. Whispers rewards and racial unlocks in co-op (not verified)."
+              "25% fire resistance; spending Spirit Favor grants armor and further resistance. Whispers marks victims for rewards. Spirit Walk spends Favor to summon ancestors. No racial power in our game. Quarantined (don't use yet): Spirit Walk. Whispers rewards and racial unlocks in co-op (not verified)."
             ],
             [
               "Imperial",
@@ -278,11 +278,11 @@
             [
               "Redguard",
               "+10 One-Handed; +5 Alteration, Archery, Block, Destruction, Smithing; 50% poison resistance. Adrenaline Rush rapidly restores Stamina.",
-              "Disease resistance replaces poison resistance; unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
+              "Disease resistance replaces poison resistance; unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting. No racial power in our game. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
             ]
           ],
           "id": "race-comparison",
-          "note": "Imperious is part of our collection (revision 6). Its racial powers unlock through racial objectives, not at character creation."
+          "note": "Imperious is part of our collection (revision 6). Its racial powers unlock through racial objectives, not at character creation. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
         },
         {
           "type": "callout",
