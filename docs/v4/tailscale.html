@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>Tailscale: connecting to our game · Fellowship</title><meta name="description" content="What Tailscale is, why we use it, how to get ready, what is safe and what happens on game day, with two short recordings and their transcripts."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home"><svg class="icon brand-mark" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 20 7-13 4 7 3-5 6 11H2Z"/><path d="m6.5 11.5 2.5 2 2.5-2"/></svg><span>Fellowship<small>A Skyrim Together field guide</small></span></a><nav class="primary-nav" aria-label="Main"><a href="together.html" aria-current="true">Field guide</a><a href="vigilant.html">Characters</a><a href="audio-guide.html">Audio guide</a></nav><a class="leave-link d-join" href="https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h5v16h-5M3 12h11m-4-5 5 5-5 5"/></svg><span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
+<div class="d-layout"><aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol><li><a href="together.html">01 · Multiplayer and mods</a></li><li><a href="skills.html">02 · Skills and races</a></li><li><a href="spells.html">03 · Spells and magic</a></li><li><a href="setup.html" aria-current="location">04 · Setup, joining and leaving</a><ol class="d-side-subpages" aria-label="Setup, joining and leaving pages"><li><a href="setup.html">First-time setup</a></li><li><a href="tailscale.html" aria-current="page">Tailscale</a></li><li><a href="join.html">Joining a session</a></li><li><a href="tonight.html">While playing</a></li><li><a href="leave-now.html">Leaving</a></li></ol></li><li><a href="builds.html">05 · Builds</a></li><li><a href="party.html">06 · Playing as a party</a></li><li><a href="ownership.html">07 · What belongs to you</a></li><li><a href="purpose.html">08 · Our purpose</a></li><li><a href="rules.html">Can I use this?</a></li></ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside><div class="d-page"><p class="eyebrow">04 · Setup, joining and leaving</p><h1>Tailscale: connecting to our game</h1><nav class="d-page-strip" aria-label="Setup, joining and leaving pages"><span class="d-page-count d-sr-only">Page 2 of 5:</span> <a href="setup.html">First-time setup</a> <span aria-hidden="true">·</span> <strong aria-current="page">Tailscale</strong> <span aria-hidden="true">·</span> <a href="join.html">Joining a session</a> <span aria-hidden="true">·</span> <a href="tonight.html">While playing</a> <span aria-hidden="true">·</span> <a href="leave-now.html">Leaving</a> <a class="d-page-next" href="join.html">Next: Joining a session →</a></nav>
+
+<section class="d-section d-quick" aria-labelledby="quick-answer"><h2 id="quick-answer">Quick answer</h2>
+<div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Question</th><th scope="col">Short answer</th></tr></thead><tbody>
+<tr><th scope="row">Where is my join link?</th><td data-label="Short answer">The host sends your personal join link privately on game day. It is never on this site.</td></tr>
+</tbody></table></div></section>
+<section class="d-section" aria-labelledby="what-and-why"><h2 id="what-and-why">What Tailscale is, and why we use it</h2>
+<div class="d-wrap"><table class="d-grid"><caption>Tailscale is an app. It is how your PC reaches the host’s game PC.</caption><thead><tr><th scope="col">Question</th><th scope="col">Answer</th></tr></thead><tbody>
+<tr><th scope="row">What is Tailscale?</th><td data-label="Answer">An app that makes a private, encrypted link between devices. It uses an open source standard called WireGuard.</td></tr>
+<tr><th scope="row">Why do we use it?</th><td data-label="Answer">It lets you reach the host’s game PC without opening anything on anyone’s router. Only people the host shares with can connect.</td></tr>
+<tr><th scope="row">What do I need?</th><td data-label="Answer">A Windows 10 or 11 PC with internet. A personal Google, Microsoft, Apple or GitHub sign-in, which is free. You run no scripts and change no router settings.</td></tr>
+</tbody></table></div></section>
+<section class="d-section" aria-labelledby="get-ready"><h2 id="get-ready">Get ready</h2>
+<div class="d-wrap"><table class="d-grid"><caption>Do steps 1 and 2 before game day. Steps 3 and 4 happen when your link arrives.</caption><thead><tr><th scope="col">Step</th><th scope="col">What you do</th></tr></thead><tbody>
+<tr><th scope="row">1. Install Tailscale</th><td data-label="What you do">Go to tailscale.com/download/windows. Click the Windows download. Open the file. Windows asks for permission once. Check the publisher says Tailscale Inc., then click Yes. Tick the license box. Click Install, then Close. Every click is spelled out in the audio below.</td></tr>
+<tr><th scope="row">2. Sign in</th><td data-label="What you do">Right-click the Tailscale icon by the clock. Click Log in. Pick Google, Microsoft, Apple or GitHub. Use a personal account, not a work or school one. If it asks, choose Personal use. Remember which account you used.</td></tr>
+<tr><th scope="row">3. Get your join link</th><td data-label="What you do">The host sends you your personal join link privately on game day. Nobody posts it in public.</td></tr>
+<tr><th scope="row">4. Accept the share</th><td data-label="What you do">Open your link in your browser. If asked, sign in with the same account as step 2. Click the button that accepts. Right-click the Tailscale icon and open Network devices. You should see the host’s PC listed.</td></tr>
+</tbody></table></div></section>
+<section class="d-section" aria-labelledby="is-this-safe"><h2 id="is-this-safe">Is this safe?</h2>
+<div class="d-wrap"><table class="d-grid"><caption>Each statement below matches Tailscale’s own documentation.</caption><thead><tr><th scope="col">Question</th><th scope="col">Answer</th></tr></thead><tbody>
+<tr><th scope="row">What can I reach?</th><td data-label="Answer">Only the host’s game PC, and only the game port. The host set that rule in Tailscale. You cannot reach anything else of the host’s.</td></tr>
+<tr><th scope="row">Can the host reach my PC?</th><td data-label="Answer">No. A shared PC can answer your PC. It cannot start a connection to your devices. Tailscale says you can accept a share with no risk of exposing your own network. That changes only if you share a machine back.</td></tr>
+<tr><th scope="row">What does the host’s side learn?</th><td data-label="Answer">Your account’s email address and picture. Also the real network address of your Tailscale device. The connection needs both.</td></tr>
+<tr><th scope="row">What about my home network?</th><td data-label="Answer">Tailscale does not expose it. The exception is an advanced feature called a subnet router, which you would have to set up yourself.</td></tr>
+<tr><th scope="row">What about my normal internet use?</th><td data-label="Answer">It does not go through Tailscale or through the host. Tailscale only carries traffic between devices that run it, unless you choose an exit node yourself.</td></tr>
+<tr><th scope="row">How do I turn it off?</th><td data-label="Answer">Right-click the Tailscale icon by the clock and choose to disconnect. To remove it, open Settings, then Apps, find Tailscale, and press Uninstall. That does not delete the device from your account, so also remove it on the Machines page of the Tailscale admin console. The host can end the share at any time.</td></tr>
+<tr><th scope="row">What do I keep private?</th><td data-label="Answer">Your join link. Treat it like a password.</td></tr>
+</tbody></table></div></section>
+<section class="d-section" aria-labelledby="game-day"><h2 id="game-day">What happens on game day</h2>
+<div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Step</th><th scope="col">What happens</th></tr></thead><tbody>
+<tr><th scope="row">1. Check Tailscale</th><td data-label="What happens">Make sure its icon is by the clock. It stops when you sign out or restart. If so, open it from the Start menu.</td></tr>
+<tr><th scope="row">2. Start the co-op game</th><td data-label="What happens">Double-click your SkyrimTogether.exe shortcut. Finish the Helgen start offline first. Then load your campaign character.</td></tr>
+<tr><th scope="row">3. Connect</th><td data-label="What happens">Press F2 or Right Ctrl. Click Connect. Type the address and password the host sends you privately. Click Connect again.</td></tr>
+<tr><th scope="row">4. Check it worked</th><td data-label="What happens">You hear a confirmation. The small chat window says “Successfully connected to server.”</td></tr>
+<tr><th scope="row">5. If it fails</th><td data-label="What happens">Check Tailscale is running and the host’s PC shows in Network devices. Signed in with a different account than the one that accepted the share? Right-click the icon and switch accounts. Still stuck? Send the host the exact message. Hide the address and password in any screenshot.</td></tr>
+</tbody></table></div></section>
+<section class="d-episode" id="tailscale-safe" aria-labelledby="tailscale-safe-title">
+<p class="d-episode-kicker">Listen 1 of 2 · 1:27</p>
+<h2 id="tailscale-safe-title">Tailscale: is this safe?</h2>
+<p class="d-episode-summary">What Tailscale is, what the host can and cannot see, and how to turn it off.</p>
+<div class="d-audio" data-transcript="tailscale-safe-transcript" data-remember="tailscale-safe" data-title="Tailscale: is this safe?">
+<button type="button" class="d-audio-play" data-audio-play data-audio-custom hidden aria-label="Play Tailscale: is this safe?" aria-controls="audio-tailscale-safe"><svg class="icon d-audio-play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></svg><svg class="icon d-audio-pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke-width="4"/></svg></button>
+<div class="d-audio-main"><div class="d-audio-timeline" data-audio-custom hidden><input type="range" data-audio-seek min="0" max="87.6" step="0.1" value="0" disabled aria-label="Seek audio (available after pressing Play)" aria-controls="audio-tailscale-safe"><div class="d-audio-time" aria-hidden="true"><span data-audio-elapsed>0:00</span><span data-audio-total>1:27</span></div></div></div>
+<div class="d-audio-actions"><button type="button" class="d-audio-speed" data-audio-speed data-audio-custom hidden aria-label="Playback speed: 1 times. Change speed" aria-controls="audio-tailscale-safe">1×</button><a class="d-audio-transcript-link" href="#tailscale-safe-transcript">Transcript</a></div>
+<audio id="audio-tailscale-safe" controls preload="none" src="audio/tailscale-is-this-safe.mp3" aria-label="Listen to Tailscale: is this safe?"></audio><p class="d-audio-status" role="status" hidden></p></div>
+<details class="d-transcript" id="tailscale-safe-transcript"><summary>Audio transcript: Tailscale: is this safe?</summary><p>Is this safe?</p><p>What Tailscale is. Tailscale is an app that makes a private, encrypted connection between devices. It uses an open source standard called WireGuard.</p><p>What you are joining. The host shares one PC with you. Once you accept, your PC can reach that one PC and nothing else of the host's.</p><p>It only goes one way. A shared PC can answer your PC, but it cannot start connections to your devices. Tailscale says you can accept a share with no risk of exposing your own network. That only changes if you share a machine back.</p><p>What the host's side does learn. Your account's email address and picture, and the real network address of your Tailscale device, because the connection needs them.</p><p>Your home network. Tailscale does not expose it unless you deliberately set up an advanced feature called a subnet router.</p><p>Your normal internet traffic. It does not go through Tailscale or through the host. Tailscale only carries traffic between devices that run it, unless you choose an exit node yourself.</p><p>Turning it off. Right-click the Tailscale icon by the clock and choose to disconnect. To remove it, open Settings, then Apps, find Tailscale, and press Uninstall. Uninstalling does not delete the device from your account, so also remove it on the Machines page of the Tailscale admin console. The host can end the share at any time.</p><p>Keep the invite link private. Treat it like a password.</p></details>
+</section>
+<section class="d-episode" id="tailscale-steps" aria-labelledby="tailscale-steps-title">
+<p class="d-episode-kicker">Listen 2 of 2 · 4:59</p>
+<h2 id="tailscale-steps-title">Tailscale: setup, step by step</h2>
+<p class="d-episode-summary">Every click and prompt: install, sign in, accept the share, connect in the game, and the usual fixes.</p>
+<div class="d-audio" data-transcript="tailscale-steps-transcript" data-remember="tailscale-steps" data-title="Tailscale: setup, step by step">
+<button type="button" class="d-audio-play" data-audio-play data-audio-custom hidden aria-label="Play Tailscale: setup, step by step" aria-controls="audio-tailscale-steps"><svg class="icon d-audio-play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></svg><svg class="icon d-audio-pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke-width="4"/></svg></button>
+<div class="d-audio-main"><div class="d-audio-timeline" data-audio-custom hidden><input type="range" data-audio-seek min="0" max="299.7" step="0.1" value="0" disabled aria-label="Seek audio (available after pressing Play)" aria-controls="audio-tailscale-steps"><div class="d-audio-time" aria-hidden="true"><span data-audio-elapsed>0:00</span><span data-audio-total>4:59</span></div></div></div>
+<div class="d-audio-actions"><button type="button" class="d-audio-speed" data-audio-speed data-audio-custom hidden aria-label="Playback speed: 1 times. Change speed" aria-controls="audio-tailscale-steps">1×</button><a class="d-audio-transcript-link" href="#tailscale-steps-transcript">Transcript</a></div>
+<audio id="audio-tailscale-steps" controls preload="none" src="audio/tailscale-setup-steps.mp3" aria-label="Listen to Tailscale: setup, step by step"></audio><p class="d-audio-status" role="status" hidden></p></div>
+<details class="d-transcript" id="tailscale-steps-transcript"><summary>Audio transcript: Tailscale: setup, step by step</summary><p>Join the host's Skyrim Together server with Tailscale. This works on Windows 10 and Windows 11.</p><p>You need a Windows PC with internet, a personal Google, Microsoft, Apple or GitHub account, which is free, the host's share link, and the address and password the host sends you privately. Nothing here asks you to run scripts, open ports, change router settings, or give admin rights beyond the one Windows prompt in Part 1.</p><p>Part 1. Install Tailscale on your PC.</p><p>Step 1. Open tailscale dot com, slash download, slash windows, and click the Windows download button. You get a file whose name starts with tailscale setup, in your Downloads folder.</p><p>Step 2. Double-click it. Windows asks, Do you want to allow this app to make changes to your device? Check that the verified publisher says Tailscale Inc., then click Yes. This is the only permission prompt. A standard account is asked for an admin password. A window called Tailscale Setup opens.</p><p>Step 3. Tick the box that says, I agree to the license terms and conditions. Leave Options alone, and click Install. It downloads about 38 megabytes, so stay online. When it says Installation Successfully Completed, click Close. A Tailscale icon appears next to the clock. Click the up arrow if you cannot see it.</p><p>Step 4. Right-click the Tailscale icon and click Log in. The very first time, a welcome window may appear first. If so, use its sign-in button. Your browser opens a Tailscale sign-in page.</p><p>Step 5. Choose Google, Microsoft, Apple or GitHub, and sign in with a personal account, not a work or school one. There is no separate email sign-up. If it asks Business use or Personal use, pick Personal use. If it asks you to add a second device, click Take me home, or close the tab. Right-clicking the icon now shows your account. Remember it. Part 2 needs the same one.</p><p>Windows 10 or 11. It is the same installer and the same steps. The Windows 11 prompts look a little different, but say the same words.</p><p>Part 2. Accept the host's share link.</p><p>Step 1. Paste the share link the host sent you into your browser and press Enter.</p><p>Step 2. If Tailscale asks you to sign in, use the same account as in Part 1. You should see the host's invitation to a shared PC.</p><p>Step 3. Click the button that accepts the invitation. The shared PC is now available to your account, and only to you.</p><p>Step 4. Right-click the Tailscale icon and open Network devices. You should see the host's PC listed. It cannot start connections back to you. You connect to it.</p><p>An unused link stops working after 30 days. If the page says the invitation is no longer valid, ask the host for a new link.</p><p>Part 3. Connect in Skyrim Together.</p><p>Step 1. Finish the Helgen introduction first. Start the game from your Skyrim Together shortcut, and make sure Tailscale is running. Its icon is next to the clock.</p><p>Step 2. Press Right Control, or F two, then click Connect. You should see an Address box and a Password box.</p><p>Step 3. In the Address box, type the address the host sent you privately, then a colon, then one zero five seven eight. The address starts with the numbers one hundred dot, or is a name ending in dot t s dot net.</p><p>Step 4. In the Password box, type the password the host sent you privately, then click Connect. You should hear a confirmation, and see Successfully connected to server, in the small chat window.</p><p>Step 5. If you see, Could not connect to the specified server, use the fixes below and try again. If it says the server has a different version of Skyrim Together, tell the host.</p><p>If something goes wrong.</p><p>If you signed in with a different account than the one that accepted the share, right-click the Tailscale icon, click the account shown at the top, and choose the account that accepted the share. If it is not listed, choose Add another account, and sign in with it. Then check Network devices again.</p><p>If Tailscale is not running, sign in to Windows and open Tailscale from the Start menu. Wait until the icon's menu shows your account. It stops when you sign out or restart. A Windows note saying No internet access on the Tailscale network is harmless.</p><p>If the share was not accepted, and the host's PC is not in Network devices, open the share link again and accept it with the same account. If it is no longer valid, ask the host for a new one. Use a personal account, because a work or school account may be refused.</p><p>See a window this sheet does not describe? Stop, and send the host a screenshot with the address and password hidden.</p></details>
+</section>
+
+<p class="d-sources">Sources: <a href="https://tailscale.com/docs/features/sharing">Tailscale: sharing</a><a href="https://tailscale.com/docs/concepts/what-is-tailscale">Tailscale: what it is</a><a href="https://tailscale.com/docs/features/exit-nodes">Tailscale: exit nodes</a></p>
+<nav class="d-pager" aria-label="Guide progress"><a href="setup.html">← Previous page: First-time setup</a><a class="d-next" href="join.html">Next page: Joining a session →</a></nav></div></div><script>// Inlined only on pages with audio. Native controls remain until setup succeeds.
+// A player with data-remember keeps its position in localStorage (every access is guarded: storage can be blocked).
+for (const player of document.querySelectorAll('.d-audio')) {
+  const audio = player.querySelector('audio');
+  const play = player.querySelector('[data-audio-play]');
+  const seek = player.querySelector('[data-audio-seek]');
+  const elapsed = player.querySelector('[data-audio-elapsed]');
+  const total = player.querySelector('[data-audio-total]');
+  const speed = player.querySelector('[data-audio-speed]');
+  const status = player.querySelector('[role="status"]');
+  const title = player.dataset.title || player.querySelector('h2').textContent;
+  const storeKey = player.dataset.remember ? `str-friends-audio:${player.dataset.remember}` : '';
+  let lastSaved = 0;
+  let resumeAt = 0;
+  const transcript = document.getElementById(player.dataset.transcript);
+  const rates = [1, 1.25, 1.5];
+  const clock = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+  const message = text => { status.textContent = text; status.hidden = !text; };
+  const readSaved = () => {
+    if (!storeKey) return 0;
+    try { const value = Number(localStorage.getItem(storeKey)); return Number.isFinite(value) && value > 0 ? value : 0; } catch { return 0; }
+  };
+  const writeSaved = seconds => {
+    if (!storeKey) return;
+    try { if (seconds > 0) localStorage.setItem(storeKey, String(Math.floor(seconds))); else localStorage.removeItem(storeKey); } catch { /* storage unavailable: playback still works */ }
+  };
+  const syncPlay = () => {
+    const playing = !audio.paused && !audio.ended;
+    player.dataset.playing = String(playing);
+    play.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title}`);
+  };
+  const syncTime = () => {
+    const duration = Number.isFinite(audio.duration) ? audio.duration : Number(seek.max);
+    seek.max = duration;
+    seek.value = audio.currentTime;
+    seek.setAttribute('aria-valuetext', `${clock(audio.currentTime)} of ${clock(duration)}`);
+    elapsed.textContent = clock(audio.currentTime);
+    total.textContent = clock(duration);
+  };
+  play.addEventListener('click', async () => {
+    if (!audio.paused) { audio.pause(); return; }
+    message('');
+    try {
+      if (audio.error) audio.load();
+      if (audio.ended) audio.currentTime = 0;
+      if (resumeAt > 0) {
+        // Load the metadata first, then jump, then play: seeking while a first play is still starting makes some browsers pause.
+        const target = resumeAt;
+        resumeAt = 0;
+        if (audio.readyState < 1) {
+          audio.preload = 'metadata';
+          await new Promise(resolve => {
+            audio.addEventListener('loadedmetadata', resolve, { once: true });
+            audio.addEventListener('error', resolve, { once: true });
+            audio.load();
+          });
+        }
+        if (!audio.error) {
+          await new Promise(resolve => {
+            audio.addEventListener('seeked', resolve, { once: true });
+            setTimeout(resolve, 2000);
+            audio.currentTime = target;
+          });
+        }
+      }
+      await audio.play();
+    } catch (error) {
+      if (error.name !== 'AbortError') message('Audio could not play. Try again or read the transcript.');
+      syncPlay();
+    }
+  });
+  seek.addEventListener('input', () => {
+    audio.currentTime = Number(seek.value);
+    syncTime();
+  });
+  speed.addEventListener('click', () => {
+    audio.playbackRate = rates[(rates.indexOf(audio.playbackRate) + 1) % rates.length];
+  });
+  audio.addEventListener('ratechange', () => {
+    speed.textContent = `${audio.playbackRate}×`;
+    speed.setAttribute('aria-label', `Playback speed: ${audio.playbackRate} times. Change speed`);
+  });
+  audio.addEventListener('loadedmetadata', () => {
+    seek.disabled = !Number.isFinite(audio.duration) || audio.duration <= 0;
+    seek.setAttribute('aria-label', 'Seek audio');
+    syncTime();
+  });
+  for (const event of ['play', 'pause', 'ended']) audio.addEventListener(event, syncPlay);
+  // One episode at a time.
+  audio.addEventListener('play', () => {
+    for (const other of document.querySelectorAll('.d-audio audio')) if (other !== audio) other.pause();
+  });
+  if (storeKey) {
+    audio.addEventListener('timeupdate', () => {
+      if (Date.now() - lastSaved < 4000) return;
+      lastSaved = Date.now();
+      writeSaved(audio.currentTime);
+    });
+    for (const event of ['pause', 'seeked']) audio.addEventListener(event, () => { if (!audio.ended) writeSaved(audio.currentTime); });
+    audio.addEventListener('ended', () => writeSaved(0));
+    window.addEventListener('pagehide', () => { if (audio.currentTime > 0 && !audio.ended) writeSaved(audio.currentTime); });
+  }
+  for (const event of ['timeupdate', 'durationchange', 'seeked']) audio.addEventListener(event, syncTime);
+  audio.addEventListener('waiting', () => message('Loading audio…'));
+  audio.addEventListener('playing', () => message(''));
+  audio.addEventListener('error', () => {
+    message('Audio could not load. Try again or read the transcript.');
+    syncPlay();
+  });
+  const openTranscript = () => {
+    if (location.hash === `#${transcript.id}`) transcript.open = true;
+  };
+  player.querySelector('.d-audio-transcript-link').addEventListener('click', () => { transcript.open = true; });
+  window.addEventListener('hashchange', openTranscript);
+  openTranscript();
+  // Resume where this listener stopped. The jump happens on the first Play, once the metadata has loaded.
+  const saved = readSaved();
+  syncPlay();
+  syncTime();
+  if (saved > 5 && saved < Number(seek.max) - 5) {
+    resumeAt = saved;
+    elapsed.textContent = clock(saved);
+    message(`Resume from ${clock(saved)}. Press Play.`);
+  }
+  player.dataset.enhanced = '';
+  for (const control of player.querySelectorAll('[data-audio-custom]')) control.hidden = false;
+  audio.hidden = true;
+}
+</script>
+</main><footer class="d-footer"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer><nav class="all-versions" aria-label="Site versions" style="max-width:1236px;margin:0 auto;padding:16px 24px 28px;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#b2bfc2;border-top:1px solid #34434a"><strong style="color:#f6f2e9">D</strong> · Main site, newest · <a href="../v2b/tonight.html" style="color:#d8bc87">B</a> · Older version</nav></body></html>
