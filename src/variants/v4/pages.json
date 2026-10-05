@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "collectionUrl": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy",
   "home": {
     "titleBefore": "The North is better",
@@ -491,7 +491,7 @@
     },
     {
       "num": "05",
-      "label": "Build ideas",
+      "label": "Builds",
       "headline": "Choose your skills",
       "icon": "<circle cx=\"9\" cy=\"7\" r=\"3\"/><path d=\"M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3\"/>",
       "pages": [
@@ -508,7 +508,7 @@
               },
               " and the ",
               {
-                "text": "Party ledger",
+                "text": "Roster",
                 "href": "ledger.html"
               },
               "."
@@ -525,29 +525,14 @@
               ],
               "rows": [
                 [
-                  "Healer",
-                  "Heal yourself and your follower",
-                  "Restoration heals friends. Alteration protects you. Keep a weapon or attack spell."
-                ],
-                [
-                  "Paladin",
-                  "Sword, shield, heal yourself",
-                  "One-handed, Block and Restoration. Block enemies, then switch to healing."
-                ],
-                [
-                  "Necromancer-healer",
-                  "Raise the dead",
-                  "Restoration first, Conjuration second. Summon one helper. Never raise corpses."
+                  "Two-handed guardian",
+                  "Protect yourself and your follower",
+                  "Two-handed, Block and Heavy Armor. Protect nearby friends. No way to force enemies to attack you."
                 ],
                 [
                   "Death knight",
                   "A lone heavy warrior",
                   "Two-handed and Heavy Armor. One summoned helper. Restoration heals you."
-                ],
-                [
-                  "Two-handed guardian",
-                  "Protect yourself and your follower",
-                  "Two-handed, Block and Heavy Armor. Protect nearby friends. No way to force enemies to attack you."
                 ],
                 [
                   "Stealth ranger",
@@ -634,6 +619,21 @@
                     },
                     " strengthens certain staff spells and summons. One active summon per player. Potent atronachs and thralls scale with your level."
                   ]
+                ],
+                [
+                  "Necromancer-healer",
+                  "Raise the dead",
+                  "Restoration first, Conjuration second. Summon one helper. Never raise corpses."
+                ],
+                [
+                  "Healer",
+                  "Heal yourself and your follower",
+                  "Restoration heals friends. Alteration protects you. Keep a weapon or attack spell."
+                ],
+                [
+                  "Paladin",
+                  "Sword, shield, heal yourself",
+                  "One-handed, Block and Restoration. Block enemies, then switch to healing."
                 ]
               ],
               "note": "Suggestions using our installed mods. Co-op effects remain untested."
@@ -656,33 +656,15 @@
               ],
               "rows": [
                 [
-                  "Healer",
-                  "Restoration, Alteration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
-                  "Breton or Imperial",
-                  "Mage; switch to Lord later"
-                ],
-                [
-                  "Paladin",
-                  "One-handed, Block, Restoration",
-                  "Imperial or Breton",
+                  "Two-handed guardian",
+                  "Two-handed, Block, Heavy Armor",
+                  "Orc or Nord",
                   "Warrior; switch to Lord later"
-                ],
-                [
-                  "Necromancer-healer",
-                  "Restoration, then Conjuration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
-                  "Breton or Dark Elf (Dark Elf: no racial power in our game)",
-                  "Mage; switch to Lord later"
                 ],
                 [
                   "Death knight",
                   "Two-handed, Heavy Armor, some Conjuration",
                   "Nord or Orc",
-                  "Warrior; switch to Lord later"
-                ],
-                [
-                  "Two-handed guardian",
-                  "Two-handed, Block, Heavy Armor",
-                  "Orc or Nord",
                   "Warrior; switch to Lord later"
                 ],
                 [
@@ -738,6 +720,24 @@
                   "Conjuration, Enchanting",
                   "Breton or High Elf (High Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
+                ],
+                [
+                  "Necromancer-healer",
+                  "Restoration, then Conjuration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
+                  "Breton or Dark Elf (Dark Elf: no racial power in our game)",
+                  "Mage; switch to Lord later"
+                ],
+                [
+                  "Healer",
+                  "Restoration, Alteration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
+                  "Breton or Imperial",
+                  "Mage; switch to Lord later"
+                ],
+                [
+                  "Paladin",
+                  "One-handed, Block, Restoration",
+                  "Imperial or Breton",
+                  "Warrior; switch to Lord later"
                 ]
               ],
               "note": "Standing stones grant bonuses: activate one in the world. Find Mage, Warrior and Thief southwest of Riverwood. Suggestions only."
@@ -783,241 +783,6 @@
                   "Meridia's champion",
                   "Meridia hates undead. Her quest: The Break of Dawn.",
                   "Paladin who earns Dawnbreaker"
-                ]
-              ]
-            }
-          ],
-          "sources": []
-        },
-        {
-          "file": "ledger.html",
-          "title": "Party ledger",
-          "ledger": true,
-          "grids": [
-            {
-              "id": "party-options",
-              "title": "One possible party",
-              "note": "Recommendations, not assignments. Mix and overlap roles however you like.",
-              "columns": [
-                "Role",
-                "Single player",
-                "Co-op",
-                "Other options to consider"
-              ],
-              "rows": [
-                [
-                  "Healer or paladin",
-                  "Heal yourself and your follower",
-                  "Keeps the party standing",
-                  "Necromancer-healer with one summon. Vigilant of Stendarr. Meridia's champion"
-                ],
-                [
-                  "Two-handed guardian",
-                  "Fight beside your follower",
-                  "Stands between enemies and friends",
-                  "Death knight with one summon. Shield-first paladin"
-                ],
-                [
-                  "Stealth ranger",
-                  "Sneak and shoot everything",
-                  "Scouts and opens the fight",
-                  "Wood Elf hunter. Khajiit prowler"
-                ],
-                [
-                  "Gandalf-style wizard",
-                  "Fragile on your own",
-                  "Fire, light and protection from range",
-                  "Blood mage with drain spells. Storyteller with Speech"
-                ]
-              ]
-            },
-            {
-              "id": "things-to-try",
-              "title": "Things to try",
-              "note": "Suggestions only. Most are untested in co-op. Report your results.",
-              "columns": [
-                "Try this",
-                "Good for",
-                "Vanilla",
-                "Mods"
-              ],
-              "rows": [
-                [
-                  {
-                    "text": "Heal Other",
-                    "href": "rules.html#rule-heal-other"
-                  },
-                  "Healer, paladin",
-                  "An Adept spell in vanilla",
-                  "Available earlier, at Apprentice tier (Mysticism)"
-                ],
-                [
-                  {
-                    "text": "Close Greater Wounds",
-                    "href": "rules.html#rule-close-greater-wounds"
-                  },
-                  "Healer",
-                  "Grand Healing is the only area heal",
-                  "An area burst heal (Mysticism)"
-                ],
-                [
-                  [
-                    {
-                      "text": "Breath of Life",
-                      "href": "rules.html#rule-breath-of-life"
-                    },
-                    ", ",
-                    {
-                      "text": "Stendarr's Mercy",
-                      "href": "rules.html#rule-stendarrs-mercy"
-                    }
-                  ],
-                  "Healer",
-                  "Grand Healing is the late burst",
-                  "Later burst heals. Grand Healing needs continuous casting (Mysticism)."
-                ],
-                [
-                  {
-                    "text": "Sunbeam",
-                    "href": "rules.html#rule-sunbeam"
-                  },
-                  "Paladin, Vigilant",
-                  "Sun Fire only arrives with Dawnguard",
-                  "An early anti-undead spell (Mysticism)"
-                ],
-                [
-                  {
-                    "text": "Circle of Life",
-                    "href": "rules.html#rule-circle-of-life"
-                  },
-                  "Paladin",
-                  "Guardian Circle heals only you",
-                  "A healing circle (Mysticism). Healing other players is untested."
-                ],
-                [
-                  [
-                    {
-                      "text": "Conjure Skeleton",
-                      "href": "rules.html#rule-conjure-skeleton"
-                    },
-                    ", then ",
-                    {
-                      "text": "Skeleton Archer",
-                      "href": "rules.html#rule-conjure-skeleton-archer"
-                    }
-                  ],
-                  "Necromancer-healer, death knight",
-                  "Familiar or Flame Atronach early",
-                  "Undead helpers (Mysticism). One summon each. Never raise corpses."
-                ],
-                [
-                  [
-                    {
-                      "text": "Vampiric Bolt",
-                      "href": "rules.html#rule-vampiric-bolt"
-                    },
-                    ", ",
-                    {
-                      "text": "Blood Lance",
-                      "href": "rules.html#rule-blood-lance"
-                    }
-                  ],
-                  "Wizard, blood mage",
-                  "Flames and Firebolt",
-                  "New drain spells in Destruction (Mysticism)"
-                ],
-                [
-                  {
-                    "text": "Vampiric Touch",
-                    "href": "rules.html#rule-vampiric-touch"
-                  },
-                  "Blood mage, death knight",
-                  "No close-range drain spell (vampires aside)",
-                  "Drain life up close (Mysticism)"
-                ],
-                [
-                  {
-                    "text": "Ghostwalk",
-                    "href": "rules.html#rule-mysticism-ghostwalk"
-                  },
-                  "Ranger, scout",
-                  "Invisibility ends when you act",
-                  "Invisibility that refreshes after it breaks (Mysticism)"
-                ],
-                [
-                  {
-                    "text": "Night Eye",
-                    "href": "rules.html#rule-night-eye"
-                  },
-                  "Ranger",
-                  "Khajiit and vampires only",
-                  "A night-vision spell anyone can learn (Mysticism)"
-                ],
-                [
-                  [
-                    {
-                      "text": "Courage",
-                      "href": "rules.html#rule-courage"
-                    },
-                    ", ",
-                    {
-                      "text": "Rally",
-                      "href": "rules.html#rule-rally"
-                    },
-                    ", ",
-                    {
-                      "text": "Call to Arms",
-                      "href": "rules.html#rule-call-to-arms"
-                    }
-                  ],
-                  "Healer, storyteller",
-                  "Buff your followers",
-                  "Skyrim Together sends these to other players too"
-                ],
-                [
-                  {
-                    "text": "Harrier",
-                    "href": "rules.html#rule-bosmer-harrier"
-                  },
-                  "Wood Elf ranger",
-                  "Command Animal",
-                  "A marking passive for hunters (Imperious)"
-                ],
-                [
-                  {
-                    "text": "Prowl",
-                    "href": "rules.html#rule-khajiit-prowl"
-                  },
-                  "Khajiit",
-                  "Night Eye power",
-                  "A stealthy leap, not a teleport (Imperious)"
-                ],
-                [
-                  {
-                    "text": "Whispers",
-                    "href": "rules.html#rule-dunmer-whispers"
-                  },
-                  "Dark Elf",
-                  "Ancestor's Wrath",
-                  "A marking-and-reward power (Imperious)"
-                ],
-                [
-                  {
-                    "text": "Strong Reflexes rank 1",
-                    "href": "rules.html#rule-strong-reflexes-1"
-                  },
-                  "Shield users, paladin",
-                  "Vanilla Quick Reflexes slows time while you block",
-                  "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
-                ],
-                [
-                  {
-                    "text": "Staff of the Atronach",
-                    "href": "rules.html#rule-staff-of-atronach"
-                  },
-                  "Wizard",
-                  "Elemental Potency only makes conjured atronachs stronger",
-                  "Strengthens certain spells. Potent atronachs and thralls use Better Vanilla Perks' level scaling. One summon."
                 ]
               ]
             }
@@ -1125,16 +890,6 @@
             }
           ],
           "sources": []
-        },
-        {
-          "file": "purpose.html",
-          "title": "Our purpose",
-          "kind": "purpose"
-        },
-        {
-          "file": "vote.html",
-          "title": "Vote",
-          "kind": "vote"
         }
       ]
     },
@@ -1215,241 +970,304 @@
           "sources": []
         }
       ]
+    },
+    {
+      "num": "08",
+      "label": "Our purpose",
+      "headline": "Choose how we play together",
+      "icon": "<path d=\"M5 21V4m0 0h11l-2 4 2 4H5\"/>",
+      "pages": [
+        {
+          "file": "purpose.html",
+          "title": "Our purpose",
+          "kind": "purpose",
+          "navLabel": "The six orders"
+        },
+        {
+          "file": "vote.html",
+          "title": "Vote",
+          "kind": "vote"
+        }
+      ]
     }
   ],
-  "ledger": {
-    "file": "ledger.html",
-    "eyebrow": "Party ledger",
-    "title": "Options and things to try",
-    "grids": [
+  "characters": {
+    "label": "Characters",
+    "pages": [
       {
-        "id": "party-options",
-        "title": "One possible party",
-        "note": "Recommendations, not assignments. Mix and overlap roles however you like.",
-        "columns": [
-          "Role",
-          "Single player",
-          "Co-op",
-          "Other options to consider"
-        ],
-        "rows": [
-          [
-            "Healer or paladin",
-            "Heal yourself and your follower",
-            "Keeps the party standing",
-            "Necromancer-healer with one summon. Vigilant of Stendarr. Meridia's champion"
-          ],
-          [
-            "Two-handed guardian",
-            "Fight beside your follower",
-            "Stands between enemies and friends",
-            "Death knight with one summon. Shield-first paladin"
-          ],
-          [
-            "Stealth ranger",
-            "Sneak and shoot everything",
-            "Scouts and opens the fight",
-            "Wood Elf hunter. Khajiit prowler"
-          ],
-          [
-            "Gandalf-style wizard",
-            "Fragile on your own",
-            "Fire, light and protection from range",
-            "Blood mage with drain spells. Storyteller with Speech"
-          ]
-        ]
+        "file": "vigilant.html",
+        "title": "Kyle's character: a Vigilant of Stendarr",
+        "navLabel": "Kyle's Vigilant of Stendarr",
+        "kind": "vigilant"
       },
       {
-        "id": "things-to-try",
-        "title": "Things to try",
-        "note": "Suggestions only. Most are untested in co-op. Report your results.",
-        "columns": [
-          "Try this",
-          "Good for",
-          "Vanilla",
-          "Mods"
+        "file": "ledger.html",
+        "title": "Roster",
+        "grids": [
+          {
+            "id": "roster",
+            "title": "Who plays what",
+            "columns": [
+              "Player",
+              "Plays",
+              "Page"
+            ],
+            "rows": [
+              [
+                "Kyle",
+                "A male Breton, Vigilant of Stendarr. Healer and protector: heavy armor, mace and shield, Restoration.",
+                {
+                  "text": "Kyle's character page",
+                  "href": "vigilant.html"
+                }
+              ],
+              [
+                "Mac",
+                "Stealth archer and hunter.",
+                "Not yet"
+              ],
+              [
+                "Skylur",
+                "Gandalf-style mage.",
+                "Not yet"
+              ],
+              [
+                "DK",
+                "Sword and shield.",
+                "Not yet"
+              ]
+            ]
+          },
+          {
+            "id": "party-options",
+            "title": "One possible party",
+            "note": "Recommendations, not assignments. Mix and overlap roles however you like.",
+            "columns": [
+              "Role",
+              "Single player",
+              "Co-op",
+              "Other options to consider"
+            ],
+            "rows": [
+              [
+                "Two-handed guardian",
+                "Fight beside your follower",
+                "Stands between enemies and friends",
+                "Death knight with one summon. Shield-first paladin"
+              ],
+              [
+                "Stealth ranger",
+                "Sneak and shoot everything",
+                "Scouts and opens the fight",
+                "Wood Elf hunter. Khajiit prowler"
+              ],
+              [
+                "Gandalf-style wizard",
+                "Fragile on your own",
+                "Fire, light and protection from range",
+                "Blood mage with drain spells. Storyteller with Speech"
+              ],
+              [
+                "Healer or paladin",
+                "Heal yourself and your follower",
+                "Keeps the party standing",
+                "Necromancer-healer with one summon. Vigilant of Stendarr. Meridia's champion"
+              ]
+            ]
+          },
+          {
+            "id": "things-to-try",
+            "title": "Things to try",
+            "note": "Suggestions only. Most are untested in co-op. Report your results.",
+            "columns": [
+              "Try this",
+              "Good for",
+              "Vanilla",
+              "Mods"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Heal Other",
+                  "href": "rules.html#rule-heal-other"
+                },
+                "Healer, paladin",
+                "An Adept spell in vanilla",
+                "Available earlier, at Apprentice tier (Mysticism)"
+              ],
+              [
+                {
+                  "text": "Close Greater Wounds",
+                  "href": "rules.html#rule-close-greater-wounds"
+                },
+                "Healer",
+                "Grand Healing is the only area heal",
+                "An area burst heal (Mysticism)"
+              ],
+              [
+                [
+                  {
+                    "text": "Breath of Life",
+                    "href": "rules.html#rule-breath-of-life"
+                  },
+                  ", ",
+                  {
+                    "text": "Stendarr's Mercy",
+                    "href": "rules.html#rule-stendarrs-mercy"
+                  }
+                ],
+                "Healer",
+                "Grand Healing is the late burst",
+                "Later burst heals. Grand Healing needs continuous casting (Mysticism)."
+              ],
+              [
+                {
+                  "text": "Sunbeam",
+                  "href": "rules.html#rule-sunbeam"
+                },
+                "Paladin, Vigilant",
+                "Sun Fire only arrives with Dawnguard",
+                "An early anti-undead spell (Mysticism)"
+              ],
+              [
+                {
+                  "text": "Circle of Life",
+                  "href": "rules.html#rule-circle-of-life"
+                },
+                "Paladin",
+                "Guardian Circle heals only you",
+                "A healing circle (Mysticism). Healing other players is untested."
+              ],
+              [
+                [
+                  {
+                    "text": "Conjure Skeleton",
+                    "href": "rules.html#rule-conjure-skeleton"
+                  },
+                  ", then ",
+                  {
+                    "text": "Skeleton Archer",
+                    "href": "rules.html#rule-conjure-skeleton-archer"
+                  }
+                ],
+                "Necromancer-healer, death knight",
+                "Familiar or Flame Atronach early",
+                "Undead helpers (Mysticism). One summon each. Never raise corpses."
+              ],
+              [
+                [
+                  {
+                    "text": "Vampiric Bolt",
+                    "href": "rules.html#rule-vampiric-bolt"
+                  },
+                  ", ",
+                  {
+                    "text": "Blood Lance",
+                    "href": "rules.html#rule-blood-lance"
+                  }
+                ],
+                "Wizard, blood mage",
+                "Flames and Firebolt",
+                "New drain spells in Destruction (Mysticism)"
+              ],
+              [
+                {
+                  "text": "Vampiric Touch",
+                  "href": "rules.html#rule-vampiric-touch"
+                },
+                "Blood mage, death knight",
+                "No close-range drain spell (vampires aside)",
+                "Drain life up close (Mysticism)"
+              ],
+              [
+                {
+                  "text": "Ghostwalk",
+                  "href": "rules.html#rule-mysticism-ghostwalk"
+                },
+                "Ranger, scout",
+                "Invisibility ends when you act",
+                "Invisibility that refreshes after it breaks (Mysticism)"
+              ],
+              [
+                {
+                  "text": "Night Eye",
+                  "href": "rules.html#rule-night-eye"
+                },
+                "Ranger",
+                "Khajiit and vampires only",
+                "A night-vision spell anyone can learn (Mysticism)"
+              ],
+              [
+                [
+                  {
+                    "text": "Courage",
+                    "href": "rules.html#rule-courage"
+                  },
+                  ", ",
+                  {
+                    "text": "Rally",
+                    "href": "rules.html#rule-rally"
+                  },
+                  ", ",
+                  {
+                    "text": "Call to Arms",
+                    "href": "rules.html#rule-call-to-arms"
+                  }
+                ],
+                "Healer, storyteller",
+                "Buff your followers",
+                "Skyrim Together sends these to other players too"
+              ],
+              [
+                {
+                  "text": "Harrier",
+                  "href": "rules.html#rule-bosmer-harrier"
+                },
+                "Wood Elf ranger",
+                "Command Animal",
+                "A marking passive for hunters (Imperious)"
+              ],
+              [
+                {
+                  "text": "Prowl",
+                  "href": "rules.html#rule-khajiit-prowl"
+                },
+                "Khajiit",
+                "Night Eye power",
+                "A stealthy leap, not a teleport (Imperious)"
+              ],
+              [
+                {
+                  "text": "Whispers",
+                  "href": "rules.html#rule-dunmer-whispers"
+                },
+                "Dark Elf",
+                "Ancestor's Wrath",
+                "A marking-and-reward power (Imperious)"
+              ],
+              [
+                {
+                  "text": "Strong Reflexes rank 1",
+                  "href": "rules.html#rule-strong-reflexes-1"
+                },
+                "Shield users, paladin",
+                "Vanilla Quick Reflexes slows time while you block",
+                "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
+              ],
+              [
+                {
+                  "text": "Staff of the Atronach",
+                  "href": "rules.html#rule-staff-of-atronach"
+                },
+                "Wizard",
+                "Elemental Potency only makes conjured atronachs stronger",
+                "Strengthens certain spells. Potent atronachs and thralls use Better Vanilla Perks' level scaling. One summon."
+              ]
+            ]
+          }
         ],
-        "rows": [
-          [
-            {
-              "text": "Heal Other",
-              "href": "rules.html#rule-heal-other"
-            },
-            "Healer, paladin",
-            "An Adept spell in vanilla",
-            "Available earlier, at Apprentice tier (Mysticism)"
-          ],
-          [
-            {
-              "text": "Close Greater Wounds",
-              "href": "rules.html#rule-close-greater-wounds"
-            },
-            "Healer",
-            "Grand Healing is the only area heal",
-            "An area burst heal (Mysticism)"
-          ],
-          [
-            [
-              {
-                "text": "Breath of Life",
-                "href": "rules.html#rule-breath-of-life"
-              },
-              ", ",
-              {
-                "text": "Stendarr's Mercy",
-                "href": "rules.html#rule-stendarrs-mercy"
-              }
-            ],
-            "Healer",
-            "Grand Healing is the late burst",
-            "Later burst heals. Grand Healing needs continuous casting (Mysticism)."
-          ],
-          [
-            {
-              "text": "Sunbeam",
-              "href": "rules.html#rule-sunbeam"
-            },
-            "Paladin, Vigilant",
-            "Sun Fire only arrives with Dawnguard",
-            "An early anti-undead spell (Mysticism)"
-          ],
-          [
-            {
-              "text": "Circle of Life",
-              "href": "rules.html#rule-circle-of-life"
-            },
-            "Paladin",
-            "Guardian Circle heals only you",
-            "A healing circle (Mysticism). Healing other players is untested."
-          ],
-          [
-            [
-              {
-                "text": "Conjure Skeleton",
-                "href": "rules.html#rule-conjure-skeleton"
-              },
-              ", then ",
-              {
-                "text": "Skeleton Archer",
-                "href": "rules.html#rule-conjure-skeleton-archer"
-              }
-            ],
-            "Necromancer-healer, death knight",
-            "Familiar or Flame Atronach early",
-            "Undead helpers (Mysticism). One summon each. Never raise corpses."
-          ],
-          [
-            [
-              {
-                "text": "Vampiric Bolt",
-                "href": "rules.html#rule-vampiric-bolt"
-              },
-              ", ",
-              {
-                "text": "Blood Lance",
-                "href": "rules.html#rule-blood-lance"
-              }
-            ],
-            "Wizard, blood mage",
-            "Flames and Firebolt",
-            "New drain spells in Destruction (Mysticism)"
-          ],
-          [
-            {
-              "text": "Vampiric Touch",
-              "href": "rules.html#rule-vampiric-touch"
-            },
-            "Blood mage, death knight",
-            "No close-range drain spell (vampires aside)",
-            "Drain life up close (Mysticism)"
-          ],
-          [
-            {
-              "text": "Ghostwalk",
-              "href": "rules.html#rule-mysticism-ghostwalk"
-            },
-            "Ranger, scout",
-            "Invisibility ends when you act",
-            "Invisibility that refreshes after it breaks (Mysticism)"
-          ],
-          [
-            {
-              "text": "Night Eye",
-              "href": "rules.html#rule-night-eye"
-            },
-            "Ranger",
-            "Khajiit and vampires only",
-            "A night-vision spell anyone can learn (Mysticism)"
-          ],
-          [
-            [
-              {
-                "text": "Courage",
-                "href": "rules.html#rule-courage"
-              },
-              ", ",
-              {
-                "text": "Rally",
-                "href": "rules.html#rule-rally"
-              },
-              ", ",
-              {
-                "text": "Call to Arms",
-                "href": "rules.html#rule-call-to-arms"
-              }
-            ],
-            "Healer, storyteller",
-            "Buff your followers",
-            "Skyrim Together sends these to other players too"
-          ],
-          [
-            {
-              "text": "Harrier",
-              "href": "rules.html#rule-bosmer-harrier"
-            },
-            "Wood Elf ranger",
-            "Command Animal",
-            "A marking passive for hunters (Imperious)"
-          ],
-          [
-            {
-              "text": "Prowl",
-              "href": "rules.html#rule-khajiit-prowl"
-            },
-            "Khajiit",
-            "Night Eye power",
-            "A stealthy leap, not a teleport (Imperious)"
-          ],
-          [
-            {
-              "text": "Whispers",
-              "href": "rules.html#rule-dunmer-whispers"
-            },
-            "Dark Elf",
-            "Ancestor's Wrath",
-            "A marking-and-reward power (Imperious)"
-          ],
-          [
-            {
-              "text": "Strong Reflexes rank 1",
-              "href": "rules.html#rule-strong-reflexes-1"
-            },
-            "Shield users, paladin",
-            "Vanilla Quick Reflexes slows time while you block",
-            "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
-          ],
-          [
-            {
-              "text": "Staff of the Atronach",
-              "href": "rules.html#rule-staff-of-atronach"
-            },
-            "Wizard",
-            "Elemental Potency only makes conjured atronachs stronger",
-            "Strengthens certain spells. Potent atronachs and thralls use Better Vanilla Perks' level scaling. One summon."
-          ]
-        ]
+        "sources": []
       }
-    ],
-    "sources": []
+    ]
   }
 }

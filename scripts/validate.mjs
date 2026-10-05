@@ -175,58 +175,74 @@ const plainSentences = value => value.split(/(?<=[.!?])\s+/).map(item => item.tr
 // Check navigation where it is rendered, so unrelated links elsewhere cannot
 // conceal a missing sidebar list or numbered strip. Single-page topics omit both.
 const guideGroups = [...(audioPages?.chapters ?? []), { label: 'Can I use this?', pages: audioPages?.rules?.pages ?? [] }];
+// Characters (2026-10-05) is a separate section with its own sidebar and strip; it is not part of the guide's topic chain.
+const characterGroup = { label: 'Characters', pages: audioPages?.characters?.pages ?? [] };
+const navLabel = page => page.navLabel ?? page.title;
 const visibleText = value => compactText(decode(value.replace(/<[^>]*>/g, ' ')));
 const navLinks = html => [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, attributes, body]) => ({
   href: decode(attributes.match(/\bhref="([^"]*)"/)?.[1] ?? ''),
   current: attributes.match(/\baria-current="([^"]*)"/)?.[1],
   text: visibleText(body)
 }));
-for (const [gi, group] of guideGroups.entries()) {
+for (const [gi, group] of [...guideGroups, characterGroup].entries()) {
+  const inCharacters = group === characterGroup;
   for (const [pi, page] of group.pages.entries()) {
     const label = `v4/${page.file}`;
     const html = documents.get(path.join(dist, 'v4', page.file)) ?? '';
     const aside = html.match(/<aside class="d-side"[^>]*>([\s\S]*?)<\/aside>/)?.[1] ?? '';
+    const asideOpen = html.match(/<aside class="d-side"[^>]*>/)?.[0] ?? '';
     const expanded = [...aside.matchAll(/<ol class="d-side-subpages"[^>]*>([\s\S]*?)<\/ol>/g)];
     const strips = [...html.matchAll(/<nav class="d-page-strip"[^>]*>([\s\S]*?)<\/nav>/g)];
+    if (inCharacters) {
+      if (!asideOpen.includes('aria-label="Characters"') || expanded.length) fail(`${label}: Characters pages use the Characters sidebar`);
+    } else if (!asideOpen.includes('aria-label="Field guide"')) fail(`${label}: guide pages use the Field guide sidebar`);
     if (group.pages.length < 2) {
       if (strips.length || expanded.length) fail(`${label}: single-page topic must not render a page strip or duplicate sidebar list`);
       continue;
     }
-    if (expanded.length !== 1) fail(`${label}: exactly the current topic must expand in the sidebar`);
-    const sideLinks = navLinks(expanded[0]?.[1] ?? '');
-    if (sideLinks.length !== group.pages.length || group.pages.some((p, i) => sideLinks[i]?.href !== p.file || sideLinks[i]?.text !== p.title || sideLinks[i]?.current !== (i === pi ? 'page' : undefined))) {
-      fail(`${label}: expanded sidebar must list every sibling in order and mark only the current page`);
+    const sideLinks = navLinks(inCharacters ? aside : expanded[0]?.[1] ?? '');
+    if (!inCharacters && expanded.length !== 1) fail(`${label}: exactly the current topic must expand in the sidebar`);
+    if (sideLinks.length !== group.pages.length || group.pages.some((p, i) => sideLinks[i]?.href !== p.file || sideLinks[i]?.text !== navLabel(p) || sideLinks[i]?.current !== (i === pi ? 'page' : undefined))) {
+      fail(`${label}: the sidebar must list every sibling in order and mark only the current page`);
     }
+    // The strip repeats the sidebar. It stays in the page for narrow screens (CSS shows it only there).
     if (strips.length !== 1 || !/<\/h1>\s*<nav class="d-page-strip"/.test(html)) fail(`${label}: a numbered page strip is required directly under the H1`);
     const strip = strips[0]?.[1] ?? '';
     const count = strip.match(/<span class="d-page-count d-sr-only">([^<]*)<\/span>/)?.[1];
     if (count !== `Page ${pi + 1} of ${group.pages.length}:`) fail(`${label}: page strip has the wrong position or total`);
     const current = [...strip.matchAll(/<strong aria-current="page">([^<]*)<\/strong>/g)];
-    if (current.length !== 1 || decode(current[0]?.[1] ?? '') !== page.title) fail(`${label}: page strip must mark the current page in bold`);
+    if (current.length !== 1 || decode(current[0]?.[1] ?? '') !== navLabel(page)) fail(`${label}: page strip must mark the current page in bold`);
     const links = navLinks(strip);
     const siblings = group.pages.filter(p => p.file !== page.file);
-    if (links.length !== siblings.length + 1 || siblings.some((p, i) => links[i]?.href !== p.file || links[i]?.text !== p.title) || links.some(link => link.href === page.file || link.current)) {
+    const nextGroup = inCharacters ? null : guideGroups[(gi + 1) % guideGroups.length];
+    const nextPage = group.pages[pi + 1];
+    const nextHref = nextPage?.file ?? nextGroup?.pages[0]?.file;
+    const nextText = nextPage ? `Next: ${navLabel(nextPage)} →` : nextGroup ? `Next topic: ${nextGroup.label} →` : null;
+    if (links.length !== siblings.length + (nextText ? 1 : 0) || siblings.some((p, i) => links[i]?.href !== p.file || links[i]?.text !== navLabel(p)) || links.some(link => link.href === page.file || link.current)) {
       fail(`${label}: page strip must link every other sibling, with no link on the current page`);
     }
     const h2Titles = [...html.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/g)].map(([, body]) => visibleText(body).toLowerCase());
     const pageTitle = page.title.toLowerCase();
     if (h2Titles.some(title => title === pageTitle || title.startsWith(`${pageTitle} `))) fail(`${label}: a section heading only repeats the page title`);
-    const nextGroup = guideGroups[(gi + 1) % guideGroups.length];
-    const nextPage = group.pages[pi + 1];
-    const nextHref = nextPage?.file ?? nextGroup.pages[0]?.file;
-    const nextText = nextPage ? `Next: ${nextPage.title} →` : `Next topic: ${nextGroup.label} →`;
-    if (links.at(-1)?.href !== nextHref || links.at(-1)?.text !== nextText) fail(`${label}: page strip must end with the next page or topic link`);
+    if (nextText && (links.at(-1)?.href !== nextHref || links.at(-1)?.text !== nextText)) fail(`${label}: page strip must end with the next page or topic link`);
   }
 }
 {
   const home = documents.get(path.join(dist, 'v4', 'index.html')) ?? '';
   const tilesAt = home.lastIndexOf('class="d-chapter"');
   const searchAt = home.indexOf('role="search"');
-  if (tilesAt < 0 || searchAt < 0 || searchAt < tilesAt) fail('v4/index.html: the search box must sit below the seven chapter cards');
+  if (tilesAt < 0 || searchAt < 0 || searchAt < tilesAt) fail('v4/index.html: the search box must sit below the chapter cards');
+  const tileCount = (home.match(/class="d-chapter"/g) ?? []).length;
+  if (tileCount !== 8 || audioPages?.chapters?.length !== 8) fail('v4/index.html: eight chapter cards are required (the field guide has eight chapters)');
+  const last = audioPages?.chapters?.at(-1);
+  if (last?.num !== '08' || last?.label !== 'Our purpose' || last?.pages?.map(p => p.file).join() !== 'purpose.html,vote.html') fail('Chapter 08 must be Our purpose, with the purpose and vote pages');
+  if (!new RegExp('<a class="d-chapter" href="purpose\.html"><span class="d-chapter-num">08</span><span class="d-chapter-label">Our purpose</span>').test(home)) fail('v4/index.html: Our purpose needs its own card (chapter 08) on the home page');
+  if (audioPages?.chapters?.[5]?.pages?.some(p => ['purpose.html', 'vote.html'].includes(p.file))) fail('Chapter 06 must no longer hold Our purpose or Vote');
 }
 for (const page of [
   { ...audioPages?.home, file: 'index.html' },
   ...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []),
+  ...(audioPages?.characters?.pages ?? []),
   ...(audioPages?.rules?.pages ?? []),
   ...(audioGuide?.episodes ?? []).map(ep => ({ file: 'audio-guide.html', audio: { title: ep.title, duration: ep.duration, src: ep.src, transcript: ep.transcript, transcriptAnchor: `${ep.id}-transcript` } }))
 ]) {
@@ -269,7 +285,7 @@ for (const page of [
   if (!/recorded for revision 7 of the collection/i.test(guidePage)) fail('v4/audio-guide.html: must say the set was recorded for revision 7');
   if (!/Not covered yet: the newest gear mods/.test(guidePage)) fail('v4/audio-guide.html: must state the known gap');
   if ((guidePage.match(/<section class="d-episode"/g) ?? []).length !== episodes.length) fail('v4/audio-guide.html: one boxed segment per episode is required');
-  const known = new Map([...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.rules?.pages ?? [])].map(page => [page.file, page.title]));
+  const known = new Map([...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.characters?.pages ?? []), ...(audioPages?.rules?.pages ?? [])].map(page => [page.file, page.title]));
   for (const ep of episodes) {
     const box = guidePage.match(new RegExp(`<section class="d-episode" id="${ep.id}"[\\s\\S]*?<\\/section>`))?.[0] ?? '';
     if (!box) { fail(`v4/audio-guide.html: segment ${ep.id} missing`); continue; }
@@ -329,9 +345,12 @@ for (const page of [
   if (!storageUses || storageUses !== tried) fail('v4/vote.html: every localStorage use must sit inside try/catch');
   if (/sessionStorage|indexedDB|document\.cookie/.test(voteScripts)) fail('v4/vote.html: only localStorage may hold the friend\'s own draft');
   const home = documents.get(path.join(dist, 'v4', 'index.html')) ?? '';
-  for (const link of ['purpose.html', 'vote.html']) if (!home.includes(`href="${link}"`)) fail(`v4/index.html: missing link to ${link}`);
+  if (!home.includes('href="purpose.html"')) fail('v4/index.html: missing link to purpose.html');
   for (const [file, html] of documents) {
-    if (path.dirname(file) === path.join(dist, 'v4') && !html.includes('href="purpose.html"')) fail(`${path.relative(dist, file)}: the sidebar must link Our purpose`);
+    if (path.dirname(file) !== path.join(dist, 'v4') || !html.includes('aria-label="Field guide"><details')) continue;
+    const aside = html.match(/<aside class="d-side"[^>]*>[\s\S]*?<\/aside>/)?.[0] ?? '';
+    if (!/href="purpose\.html"[^>]*>08 · Our purpose<\/a>/.test(aside)) fail(`${path.relative(dist, file)}: the field guide sidebar must list 08 · Our purpose`);
+    if (/Audio guide/.test(aside)) fail(`${path.relative(dist, file)}: the Audio guide belongs in the top navigation, not the sidebar`);
   }
 }
 // absol89's list (2026-10-05): one table of the whole community list, loaded from a small JSON file, searchable, filterable and sortable.
@@ -390,8 +409,9 @@ for (const page of [
     if (/class="d-(?:chapter|episode|lookup)\b/.test(main) || /<button\b/.test(main) || /<script\b/.test(main)) fail('v4/vigilant.html: grids, callouts and text links only; no cards, buttons or scripts');
     const images = [...main.matchAll(/<img\b[^>]*>/g)].map(item => item[0]);
     const imageNames = images.map(tag => tag.match(/\bsrc="assets\/([a-z-]+\.(?:svg|webp))"/)?.[1]).sort();
-    if (images.length !== 4 || imageNames.join() !== ['character-card.webp', 'shrine-map.svg', 'skyrim-vigilant-screenshot.webp', 'stendarr-emblem.svg'].join() || images.some(tag => !/\balt="[^"]{20,}"/.test(tag))) fail('v4/vigilant.html: exactly four local images (emblem, map, card, screenshot), each with real alternative text');
-    for (const name of ['character-card.webp', 'skyrim-vigilant-screenshot.webp']) {
+    if (images.length !== 3 || imageNames.join() !== ['shrine-map.svg', 'skyrim-vigilant-screenshot.webp', 'stendarr-emblem.svg'].join() || images.some(tag => !/\balt="[^"]{20,}"/.test(tag))) fail('v4/vigilant.html: exactly three local images (emblem, map, screenshot), each with real alternative text. The drawn character card picture is removed and no portrait is added.');
+    if (/character-card/.test(page) || published.some(file => /character-card/.test(file))) fail('v4/vigilant.html: the drawn character card picture must not be published');
+    for (const name of ['skyrim-vigilant-screenshot.webp']) {
       const built = path.join(dist, 'v4', 'assets', name);
       if (!fs.existsSync(built) || fs.statSync(built).size > 250 * 1024) fail('v4/vigilant.html: ' + name + ' is missing or too large for the web (over 250 KB)');
     }
@@ -431,9 +451,54 @@ for (const page of [
       if (!plainText.includes(phrase)) fail('v4/vigilant.html: missing the crafting note: ' + phrase);
     }
     if (/\b(?:Ordinator|Apocalypse|Adamant|Blade and Blunt|Valhalla)\b/.test(plainText)) fail("v4/vigilant.html: lists a mod we don't run");
-    const linkers = [...documents].filter(([file, html]) => html.includes('href="vigilant.html"')).map(([file]) => path.relative(dist, file));
-    if (linkers.length !== 1 || linkers[0] !== path.join('v4', 'lore-builds.html')) fail('v4/vigilant.html: it must be linked from Lore builds and nowhere else (found: ' + linkers.join(', ') + ')');
+    const linkers = [...documents].filter(([file, html]) => html.includes('href="vigilant.html"')).map(([file]) => path.relative(dist, file)).sort();
+    // Linked from the top navigation (Characters), the Characters sidebar and roster, and Lore builds: every v4 page carries the top link.
+    if (!linkers.includes(path.join('v4', 'lore-builds.html')) || !linkers.includes(path.join('v4', 'ledger.html'))) fail('v4/vigilant.html: it must be linked from Lore builds and the roster (found: ' + linkers.join(', ') + ')');
+    if (!/<section class="d-section d-card-text" id="card"/.test(page) || !plainText.includes('Name: [NAME], left open.')) fail('v4/vigilant.html: the card text stays, with its open name slot');
   }
+}
+// Site structure (2026-10-05): Builds, Characters with the roster, Our purpose as chapter 08, a strip that shows only on narrow screens.
+{
+  const v4 = name => documents.get(path.join(dist, 'v4', name)) ?? '';
+  const chapters = audioPages?.chapters ?? [];
+  const builds = chapters[4];
+  if (builds?.num !== '05' || builds?.label !== 'Builds' || builds?.pages?.map(p => p.title).join('|') !== 'Build ideas|Build sheets|Lore builds') fail('Chapter 05 must be Builds, with Build ideas, Build sheets and Lore builds');
+  if (!/aria-current="location"[^>]*>05 · Builds<\/a>/.test(v4('builds.html'))) fail('v4/builds.html: the sidebar must show 05 · Builds');
+  if (/Build ideas<\/a><ol class="d-side-subpages"/.test(v4('builds.html')) || /05 · Build ideas/.test(v4('builds.html'))) fail('v4/builds.html: the chapter must not repeat the Build ideas name');
+  // Build ideas order: traditional warrior, heavy fighter and bow builds first; necromancer-healer, healer, paladin last. Same order wherever the list repeats.
+  const first = ['Two-handed guardian', 'Death knight', 'Stealth ranger'];
+  const last = ['Necromancer-healer', 'Healer', 'Paladin'];
+  const orders = [];
+  for (const [file, id] of [['builds.html', 'builds'], ['build-sheets.html', 'build-sheets']]) {
+    const grid = builds?.pages?.find(p => p.file === file)?.grids?.find(g => g.id === id);
+    const names = (grid?.rows ?? []).map(row => textOf(row[0]));
+    orders.push(names);
+    if (names.length < 8 || first.some((n, i) => names[i] !== n) || last.some((n, i) => names[names.length - 3 + i] !== n)) fail(`${file}: build order must start with ${first.join(', ')} and end with ${last.join(', ')}`);
+    const page = v4(file);
+    const positions = names.map(n => page.indexOf(`<th scope="row">${n}</th>`));
+    if (positions.some((p, i) => p < 0 || (i && p < positions[i - 1]))) fail(`${file}: the rendered build rows must follow the source order`);
+  }
+  if (orders[0].join('|') !== orders[1].join('|')) fail('Build ideas and Build sheets must list builds in the same order');
+  // The roster (the old party ledger, same URL) lives in Characters.
+  const roster = v4('ledger.html');
+  const rosterGrid = audioPages?.characters?.pages?.find(p => p.file === 'ledger.html')?.grids?.find(g => g.id === 'roster');
+  if (!rosterGrid || rosterGrid.rows.map(r => r[0]).join() !== 'Kyle,Mac,Skylur,DK') fail('Roster: rows for Kyle, Mac, Skylur and DK are required');
+  const kyleRow = textOf(rosterGrid?.rows?.[0] ?? '');
+  for (const phrase of ['male Breton', 'Vigilant of Stendarr', 'Healer and protector', 'heavy armor', 'mace and shield', 'Restoration']) if (!kyleRow.includes(phrase)) fail(`Roster: the owner's row must say ${phrase}`);
+  if (!/<th scope="row">Kyle<\/th><td data-label="Plays">[^<]*<\/td><td data-label="Page"><a href="vigilant\.html">/.test(roster)) fail('v4/ledger.html: the owner\'s roster row must link his page');
+  if (!/<h1\b[^>]*>Roster<\/h1>/.test(roster)) fail('v4/ledger.html: the page title must be Roster');
+  for (const name of ['Skylur', 'Mac', 'DK']) if (!roster.includes(`<th scope="row">${name}</th>`)) fail(`v4/ledger.html: missing roster row ${name}`);
+  for (const [file, html] of documents) {
+    if (/Skyler/.test(html)) fail(`${path.relative(dist, file)}: Skylur is spelled with a U`);
+    if (path.dirname(file) === path.join(dist, 'v4') && /Party ledger/i.test(html.replace(/<style[\s\S]*?<\/style>/g, ''))) fail(`${path.relative(dist, file)}: the party ledger is now the roster in Characters`);
+  }
+  // The strip repeats the sidebar: hidden by default, shown (compact) only where the guide sidebar is collapsed, never with it open.
+  const css = fs.existsSync(path.join(dist, 'v4/assets/d.css')) ? fs.readFileSync(path.join(dist, 'v4/assets/d.css'), 'utf8') : '';
+  if (!/\.d-page-strip\{display:none/.test(css)) fail('v4/assets/d.css: the page strip must be hidden by default');
+  if (!/@media \(max-width:899px\)\{\.d-layout:has\(\.d-guide:not\(\[open\]\)\) \.d-page-strip\{display:flex\}/.test(css)) fail('v4/assets/d.css: the page strip may show only on narrow screens where the sidebar is collapsed');
+  if (/\.d-page-strip\{[^}]*display:(?:flex|block)/.test(css.replace(/@media[^{]*\{[^{}]*(?:\{[^}]*\}[^{}]*)*\}/g, ''))) fail('v4/assets/d.css: the page strip must not be visible on wide screens');
+  // The absol89 list says what being on it means.
+  if (!/Being on absol89&#39;s list means the mod was in his pack, built for game version 1\.6\.1170; it does not prove it works in co-op or on our game version\./.test(v4('absol-list.html')) && !/Being on absol89's list means the mod was in his pack, built for game version 1\.6\.1170; it does not prove it works in co-op or on our game version\./.test(v4('absol-list.html'))) fail('v4/absol-list.html: must say what being on the list means (game version 1.6.1170, not proof for co-op)');
 }
 for (const file of audioFiles) if (!declaredAudio.has(file)) fail(`${path.relative(root, file)}: audio needs a page with a transcript`);
 for (const file of walk(audioOutput)) {
@@ -508,14 +573,20 @@ for (const [file, html] of documents) {
   if (path.dirname(file) === path.join(dist, 'v4')) {
     const header = html.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? '';
     const headerLinks = [...header.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
-    if (headerLinks.length !== 2) fail(`${relative}: header must contain only the home brand and Nexus join link`);
+    if (headerLinks.length !== 5) fail(`${relative}: header must contain only the home brand, the three top navigation links and the Nexus join link`);
+    const topNav = html.match(/<nav class="primary-nav" aria-label="Main">([\s\S]*?)<\/nav>/)?.[1] ?? '';
+    const topLinks = navLinks(topNav);
+    const expectTop = [['Field guide', audioPages?.chapters?.[0]?.pages?.[0]?.file], ['Characters', audioPages?.characters?.pages?.[0]?.file], ['Audio guide', 'audio-guide.html']];
+    if (topLinks.length !== 3 || expectTop.some(([text, href], i) => topLinks[i]?.text !== text || topLinks[i]?.href !== href)) fail(`${relative}: top navigation must be Field guide, Characters, Audio guide`);
+    if (!/<header\b[\s\S]*?<\/a><nav class="primary-nav"[\s\S]*?<\/nav><a class="leave-link d-join"/.test(html)) fail(`${relative}: header order must be brand, top navigation, Join us`);
     if (!headerLinks.some(([, attributes, href]) => /class="brand"/.test(attributes) && href === 'index.html')) fail(`${relative}: header brand must link home`);
     if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · setup on Nexus')) fail(`${relative}: header must retain Join us · setup on Nexus and its collection link`);
     for (const [, attributes, href] of headerLinks) {
       if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
       if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);
     }
-    if (!file.endsWith(`${path.sep}index.html`) && !/<aside class="d-side"[^>]*><details class="d-guide" open><summary class="d-side-title">/.test(html)) fail(`${relative}: shared collapsible guide missing`);
+    if (!file.endsWith(`${path.sep}index.html`) && !file.endsWith(`${path.sep}audio-guide.html`) && !/<aside class="d-side"[^>]*><details class="d-guide" open><summary class="d-side-title">/.test(html)) fail(`${relative}: shared collapsible guide missing`);
+    if (file.endsWith(`${path.sep}audio-guide.html`) && /<aside class="d-side"/.test(html)) fail(`${relative}: the Audio guide has no sidebar`);
     if (/rules(?:-(?:perks|spells|powers|mods))?\.html$/.test(file)) {
       for (const route of ['rules.html', 'rules-perks.html', 'rules-spells.html', 'rules-powers.html', 'rules-mods.html']) {
         if (!html.includes(`href="${route}"`)) fail(`${relative}: missing rules page link ${route}`);

@@ -12,7 +12,7 @@
  ],
  "grids": [
   {
-   "figure": "card"
+   "cardText": true
   },
   {
    "id": "glance",
@@ -1741,8 +1741,8 @@
     ],
     [
      "Other images",
-     "The emblem, the map and the character card art are original drawings made for this page. The card was drawn from a costume reference. No part of any game image was copied into them.",
-     "The card, the emblem and the map."
+     "The emblem and the map are original drawings made for this page. No part of any game image was copied into them.",
+     "The emblem and the map."
     ]
    ]
   }

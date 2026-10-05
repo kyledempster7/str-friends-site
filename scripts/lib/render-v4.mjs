@@ -3,7 +3,9 @@ import path from 'node:path';
 
 // Version D (/v4/): the original look, with before-and-after grids.
 // Structure per Kyle (2026-10-03): the homepage is the title banner, then Start here with search and the
-// seven numbered topics, walked first to last. Every subpage uses the same guide navigation.
+// eight numbered topics, walked first to last. Every subpage uses the same guide navigation.
+// The top navigation has three entries (Field guide, Characters, Audio guide) plus the Join button.
+// Characters is its own section with its own sidebar; the field guide sidebar lists the eight topics and the lookup.
 // Quick answers live on the subpage that owns them.
 // The big header button is Join, linking to the Nexus collection.
 const esc = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -64,6 +66,7 @@ const css = `/* Version D: grids on the original look. */
 .d-callouts{margin-top:40px}.d-callouts>h2{font-size:1.6rem;margin:0 0 .8rem}
 .d-callout{max-width:70ch;margin:0 0 16px;padding:14px 18px;border-left:3px solid var(--gold);background:#16242b}.d-callout h3{margin:0 0 4px;font:600 1.05rem/1.4 var(--sans);color:#f6f2e9}.d-callout p{margin:0 0 6px;color:#c2cdcd;line-height:1.6}.d-callout .d-callout-src{margin:0;font-size:.85rem;color:#b2bfc2}.d-callout a{color:var(--gold)}
 .d-plain-note{max-width:70ch;margin:24px 0 0;color:#c2cdcd}.d-plain-note+.d-plain-note{margin-top:4px;font-size:.9rem;color:#b2bfc2}.d-plain-note a{color:var(--gold)}
+.d-card-text p{max-width:70ch;margin:0 0 8px;color:#c2cdcd;line-height:1.6}
 .d-figure{margin:24px 0}.d-figure img{display:block;max-width:100%;height:auto}.d-emblem img{width:140px}.d-figure figcaption{margin-top:8px;max-width:70ch;font-size:.85rem;color:#b2bfc2}
 .d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:0 0 16px}
 .d-chapters-head h2{margin:0;font-size:1.8rem}.d-chapters-head p{margin:0;color:#b2bfc2}
@@ -86,9 +89,11 @@ const css = `/* Version D: grids on the original look. */
 .d-side li a[aria-current]{color:#f6f2e9;border-left-color:var(--gold)}
 .d-side .d-side-subpages{margin:0 0 8px 16px;font-size:.85rem}
 .d-side-subpages a[aria-current="page"]{font-weight:700}
-.d-page-strip{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}
+/* The page strip repeats the sidebar, so it shows only where the sidebar is collapsed (narrow screens), and then in a compact form. */
+.d-page-strip{display:none;flex-wrap:wrap;align-items:baseline;gap:0 10px;margin:0 0 12px;font-size:.8rem;line-height:1.9;color:#b2bfc2}
 .d-page-strip a{color:var(--gold);text-underline-offset:3px}.d-page-strip a:hover{color:#f6f2e9}
 .d-page-strip strong{color:#f6f2e9}.d-page-count{white-space:nowrap}.d-page-next{margin-left:4px}
+.header-inner .d-join{margin-left:0}
 .d-footer{max-width:1236px;margin:auto;padding:16px 42px;font-size:.8rem;color:#b2bfc2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}.d-footer a{color:var(--gold)}
 .d-side-home{margin:14px 0 0;font-size:.85rem}.d-side-home a{color:var(--gold);text-decoration:none;padding:0 10px}
 .d-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
@@ -153,7 +158,7 @@ const css = `/* Version D: grids on the original look. */
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:820px){.header-inner{min-height:80px;padding-top:12px;padding-bottom:12px}}
-@media (max-width:899px){.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
+@media (max-width:899px){.d-layout:has(.d-guide:not([open])) .d-page-strip{display:flex}.d-page-strip .d-page-next{display:none}.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
 @media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
 @media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid caption,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
 
@@ -221,11 +226,14 @@ export async function renderV4(root) {
     return found;
   };
   const chapters = data.chapters;
-  if (chapters.length !== 7) throw new Error('Version D must have exactly seven chapters');
+  if (chapters.length !== 8) throw new Error('Version D must have exactly eight chapters');
   for (const c of chapters) if (!c.pages.length || c.pages.length > 5) throw new Error(`Chapter ${c.num} must have 1 to 5 pages`);
+  const characters = data.characters;
+  if (!characters?.pages?.length) throw new Error('Version D: the Characters section needs pages');
+  const label = (p) => p.navLabel ?? p.title;
 
   // Audio guide: which episodes relate to which content page, so each page can offer "Listen to this section".
-  const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...data.rules.pages].map((p) => [p.file, p.title]));
+  const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...characters.pages, ...data.rules.pages].map((p) => [p.file, p.title]));
   const episodesByPage = new Map();
   for (const ep of guide.episodes) {
     for (const file of ep.related) {
@@ -238,10 +246,20 @@ export async function renderV4(root) {
     return list ? `<p class="d-listen">Listen to this section: ${list.map((ep) => listenLink('audio-guide.html', `#${ep.id}`, `Episode ${ep.number}, ${esc(ep.title)}`)).join(' · ')} <span aria-hidden="true">(opens in a new tab)</span><span class="d-sr-only">(each opens the Audio guide in a new tab)</span></p>` : '';
   };
 
-  const shell = ({ title, description, body }) => {
+  // Which top-navigation entry is current for a page.
+  const sectionOf = (file) => file === 'audio-guide.html' ? 'audio'
+    : characters.pages.some((p) => p.file === file) ? 'characters'
+    : file === 'index.html' ? ''
+    : 'guide';
+  const topNav = (file) => {
+    const section = sectionOf(file);
+    const entries = [['guide', 'Field guide', chapters[0].pages[0].file], ['characters', 'Characters', characters.pages[0].file], ['audio', 'Audio guide', 'audio-guide.html']];
+    return `<nav class="primary-nav" aria-label="Main">${entries.map(([key, text, href]) => `<a href="${esc(href)}"${section === key ? ' aria-current="true"' : ''}>${text}</a>`).join('')}</nav>`;
+  };
+  const shell = ({ file, title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a><a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
 ${body}
 </main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer></body></html>
 `;
@@ -249,45 +267,50 @@ ${body}
 
   const searchForm = (id) => `<p class="d-search-hint" id="${id}-hint">Check if a spell, perk, power or mod is allowed.</p><form class="d-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="${id}">Can I use this?</label><div class="d-search-row"><input id="${id}" name="q" type="search" placeholder="Type a spell, perk, power or mod" aria-describedby="${id}-hint" autocomplete="off"><button type="submit">Search</button></div></form>`;
   const pages = new Map();
-  // The same topic order powers the sidebar and top strip, including the lookup.
+  // The same topic order powers the field guide sidebar and the page strip, including the lookup.
+  // Characters is a separate section with its own sidebar and strip.
   const groups = [...chapters, { label: 'Can I use this?', pages: data.rules.pages }];
-  const sidebar = (file) => {
+  const charGroup = { label: characters.label, pages: characters.pages };
+  const guideSidebar = (file) => {
     const topics = groups.map(group => {
       const active = group.pages.some(p => p.file === file);
       const expanded = active && group.pages.length > 1;
       const current = active ? ` aria-current="${expanded ? 'location' : 'page'}"` : '';
-      const children = expanded ? `<ol class="d-side-subpages" aria-label="${esc(group.label)} pages">${group.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ol>` : '';
+      const children = expanded ? `<ol class="d-side-subpages" aria-label="${esc(group.label)} pages">${group.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(label(p))}</a></li>`).join('')}</ol>` : '';
       return `<li><a href="${esc(group.pages[0].file)}"${current}>${group.num ? `${esc(group.num)} · ` : ''}${esc(group.label)}</a>${children}</li>`;
     }).join('');
-    const listen = `<li><a href="purpose.html">Our purpose</a></li><li><a href="audio-guide.html"${file === 'audio-guide.html' ? ' aria-current="page"' : ''}>Audio guide</a></li>`;
-    return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}${listen}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
+    return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
   };
+  const charSidebar = (file) => `<aside class="d-side" aria-label="Characters"><details class="d-guide" open><summary class="d-side-title">Characters</summary><nav aria-label="Characters pages"><ol>${characters.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(label(p))}</a></li>`).join('')}</ol></nav></details></aside>`;
+  const sidebar = (file) => characters.pages.some(p => p.file === file) ? charSidebar(file) : guideSidebar(file);
   const pageStrip = (file) => {
     const gi = groups.findIndex(group => group.pages.some(p => p.file === file));
-    const group = groups[gi];
+    const inCharacters = gi < 0 && charGroup.pages.some(p => p.file === file);
+    const group = inCharacters ? charGroup : groups[gi];
     if (!group || group.pages.length < 2) return '';
     const pi = group.pages.findIndex(p => p.file === file);
     const links = group.pages.map(p => p.file === file
-      ? `<strong aria-current="page">${esc(p.title)}</strong>`
-      : `<a href="${esc(p.file)}">${esc(p.title)}</a>`).join(' <span aria-hidden="true">·</span> ');
-    // After topic 07, continue to the lookup; after the lookup, restart the guide.
-    const nextGroup = groups[(gi + 1) % groups.length];
+      ? `<strong aria-current="page">${esc(label(p))}</strong>`
+      : `<a href="${esc(p.file)}">${esc(label(p))}</a>`).join(' <span aria-hidden="true">·</span> ');
+    // After the last topic, continue to the lookup; after the lookup, restart the guide. Characters has no next topic.
     const nextPage = group.pages[pi + 1];
+    const nextGroup = inCharacters ? null : groups[(gi + 1) % groups.length];
     const next = nextPage
-      ? `<a class="d-page-next" href="${esc(nextPage.file)}">Next: ${esc(nextPage.title)} →</a>`
-      : `<a class="d-page-next" href="${esc(nextGroup.pages[0].file)}">Next topic: ${esc(nextGroup.label)} →</a>`;
-    return `<nav class="d-page-strip" aria-label="${esc(group.label)} pages"><span class="d-page-count d-sr-only">Page ${pi + 1} of ${group.pages.length}:</span> ${links} ${next}</nav>`;
+      ? ` <a class="d-page-next" href="${esc(nextPage.file)}">Next: ${esc(label(nextPage))} →</a>`
+      : nextGroup ? ` <a class="d-page-next" href="${esc(nextGroup.pages[0].file)}">Next topic: ${esc(nextGroup.label)} →</a>` : '';
+    return `<nav class="d-page-strip" aria-label="${esc(group.label)} pages"><span class="d-page-count d-sr-only">Page ${pi + 1} of ${group.pages.length}:</span> ${links}${next}</nav>`;
   };
 
   // Homepage: title banner, then the seven topics, then search, within Start here.
   const h = data.home;
   const tiles = chapters.map((c) => `<a class="d-chapter" href="${esc(c.pages[0].file)}"><span class="d-chapter-num">${esc(c.num)}</span><span class="d-chapter-label">${esc(c.label)}</span><h3>${esc(c.headline)}</h3>${svg(c.icon)}</a>`).join('');
   pages.set('index.html', shell({
+    file: 'index.html',
     title: 'The North is better together',
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
 <div class="d-page">${audioBar(h.audio)}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p>Choosing our purpose? <a href="purpose.html">Our purpose</a> · <a href="vote.html">Vote</a></p><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
   // Our purpose: six orders as plain grids. Vote: rank, code, and count up to four codes. Both stay in the browser.
@@ -338,6 +361,7 @@ ${rows}
     return { html: `<p class="d-lead">absol89 wrote a big Skyrim Together mod list. This page shows all ${absolCount} mods on it.</p>
 <p class="d-lead">It was built for a different game version. Most of it does not fit our setup.</p>
 <p class="d-lead">Only rows marked <strong>In our game</strong> are in our pack. Nothing else is installed. Nothing is recommended unless the row says Fit.</p>
+<p class="d-lead">Being on absol89's list means the mod was in his pack, built for game version 1.6.1170; it does not prove it works in co-op or on our game version.</p>
 <section class="d-section d-key" aria-labelledby="absol-key-title"><h2 id="absol-key-title">How to read it</h2>
 <div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Word</th><th scope="col">Means</th></tr></thead><tbody>
 ${keyRows}
@@ -358,49 +382,64 @@ ${keyRows}
 <p class="d-vote-note">List by absol89. Each mod name opens its Nexus Mods page.</p></section>`, script: `<script>${absolScript}</script>` };
   };
 
-  // Topic subpages: expanded guide, numbered page strip and the bottom pager.
-  chapters.forEach((c, ci) => {
-    c.pages.forEach((p, pi) => {
-      const side = sidebar(p.file);
-      const prevChapter = ci > 0 ? chapters[ci - 1] : null;
-      const prev = pi > 0
-        ? `<a href="${esc(c.pages[pi - 1].file)}">← Previous page: ${esc(c.pages[pi - 1].title)}</a>`
-        : prevChapter
-          ? `<a href="${esc(prevChapter.pages[prevChapter.pages.length - 1].file)}">← ${esc(prevChapter.num)} ${esc(prevChapter.label)}</a>`
-          : '';
-      const next = pi < c.pages.length - 1
-        ? `<a class="d-next" href="${esc(c.pages[pi + 1].file)}">Next page: ${esc(c.pages[pi + 1].title)} →</a>`
-        : ci < chapters.length - 1
-          ? `<a class="d-next" href="${esc(chapters[ci + 1].pages[0].file)}">${esc(chapters[ci + 1].num)} ${esc(chapters[ci + 1].label)} →</a>`
-          : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
-      const pager = `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`;
-      if (p.kind === 'purpose' || p.kind === 'vote' || p.kind === 'absol') {
-        const custom = p.kind === 'purpose' ? purposeBody() : p.kind === 'absol' ? absolBody() : voteBody();
-        pages.set(p.file, shell({
-          title: p.title,
-          description: p.kind === 'absol' ? `absol89's list of ${absolCount} Skyrim Together mods, with search and filters. Only rows marked In our game are in our pack.` : p.kind === 'purpose' ? 'Six ways our party could play the campaign, with house rules and a place for every role.' : 'Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser.',
-          body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
+  // Topic subpages: expanded guide, page strip (narrow screens only) and the bottom pager.
+  const topicPage = (p, eyebrow, pager) => {
+    const side = sidebar(p.file);
+    if (p.kind === 'purpose' || p.kind === 'vote' || p.kind === 'absol') {
+      const custom = p.kind === 'purpose' ? purposeBody() : p.kind === 'absol' ? absolBody() : voteBody();
+      pages.set(p.file, shell({
+        file: p.file,
+        title: p.title,
+        description: p.kind === 'absol' ? `absol89's list of ${absolCount} Skyrim Together mods, with search and filters. Only rows marked In our game are in our pack.` : p.kind === 'purpose' ? 'Six ways our party could play the campaign, with house rules and a place for every role.' : 'Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser.',
+        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
 ${custom.html}
 ${pager}</div></div>${custom.script ?? ''}`
-        }));
-        return;
-      }
-      pages.set(p.file, shell({
-        title: p.title,
-        description: `${p.title}: comparisons for our Skyrim Together campaign.`,
-        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
+      }));
+      return;
+    }
+    pages.set(p.file, shell({
+      file: p.file,
+      title: p.title,
+      description: `${p.title}: comparisons for our Skyrim Together campaign.`,
+      body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
 ${audioTranscript(p.audio)}
 ${sources(p.sources)}
 ${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
-      }));
+    }));
+  };
+  chapters.forEach((c, ci) => {
+    c.pages.forEach((p, pi) => {
+      const prevChapter = ci > 0 ? chapters[ci - 1] : null;
+      const prev = pi > 0
+        ? `<a href="${esc(c.pages[pi - 1].file)}">← Previous page: ${esc(label(c.pages[pi - 1]))}</a>`
+        : prevChapter
+          ? `<a href="${esc(prevChapter.pages[prevChapter.pages.length - 1].file)}">← ${esc(prevChapter.num)} ${esc(prevChapter.label)}</a>`
+          : '';
+      const next = pi < c.pages.length - 1
+        ? `<a class="d-next" href="${esc(c.pages[pi + 1].file)}">Next page: ${esc(label(c.pages[pi + 1]))} →</a>`
+        : ci < chapters.length - 1
+          ? `<a class="d-next" href="${esc(chapters[ci + 1].pages[0].file)}">${esc(chapters[ci + 1].num)} ${esc(chapters[ci + 1].label)} →</a>`
+          : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
+      topicPage(p, `${esc(c.num)} · ${esc(c.label)}`, `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`);
     });
   });
 
-  // The party ledger is the last page of chapter 05 (rendered above).
-  if (!chapters.some((c) => c.pages.some((p) => p.file === 'ledger.html'))) throw new Error('Version D: the party ledger must belong to a chapter');
+  // Characters: its own section. Each page renders from its own source (see below), the roster as an ordinary grid page.
+  const charPager = (pi) => {
+    const prev = pi > 0 ? `<a href="${esc(characters.pages[pi - 1].file)}">← Previous page: ${esc(label(characters.pages[pi - 1]))}</a>` : '';
+    const next = pi < characters.pages.length - 1
+      ? `<a class="d-next" href="${esc(characters.pages[pi + 1].file)}">Next page: ${esc(label(characters.pages[pi + 1]))} →</a>`
+      : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
+    return `<nav class="d-pager" aria-label="Characters progress">${prev}${next}</nav>`;
+  };
+  characters.pages.forEach((p, pi) => {
+    if (p.kind === 'vigilant') return;
+    topicPage(p, esc(characters.label), charPager(pi));
+  });
+  if (!characters.pages.some((p) => p.file === 'ledger.html')) throw new Error('Version D: the roster (ledger.html) must belong to Characters');
 
   // Keep every legacy rules.html#rule-* target in the searchable HTML. Category pages
   // offer shorter grids; enhancement hides the full search grid until a query or anchor needs it.
@@ -420,6 +459,7 @@ ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means un
   const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1>${pageStrip('rules.html')}<p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
   const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
   pages.set('rules.html', shell({
+    file: 'rules.html',
     title: 'Can I use this?',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
@@ -432,7 +472,7 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
   for (const p of data.rules.pages.filter(p => p.categories)) {
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
-      title: p.title, description: `${p.title}: what you can use in our campaign.`,
+      file: p.file, title: p.title, description: `${p.title}: what you can use in our campaign.`,
       body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
@@ -451,40 +491,45 @@ ${audioTranscript({ transcriptAnchor: `${ep.id}-transcript`, title: ep.title, tr
 </section>`;
   }).join('\n');
   pages.set('audio-guide.html', shell({
+    file: 'audio-guide.html',
     title: guide.title,
     description: 'Twelve short listens about our Skyrim Together setup, with a transcript for each.',
-    body: `<div class="d-layout">${sidebar('audio-guide.html')}<div class="d-page"><h1>${esc(guide.title)}</h1>
+    body: `<div class="d-page"><h1>${esc(guide.title)}</h1>
 <p class="d-guide-intro">${esc(guide.recordedFor)} ${audioTime(Math.round(totalSeconds))} in all. Links to related pages open in a new tab, so the audio keeps playing. This page remembers where you stopped in each episode on this device, if your browser allows it.</p>
 <p class="d-guide-gap">${esc(guide.gap)}</p>
 <nav class="d-jump" aria-label="Episodes"><span>Jump to episode:</span>${guide.episodes.map((ep) => `<a href="#${ep.id}" aria-label="Episode ${ep.number}: ${esc(ep.title)}">${ep.number}</a>`).join('')}</nav>
-${episodeBoxes}</div></div><script>${audioScript}</script>`
+${episodeBoxes}</div><script>${audioScript}</script>`
   }));
 
-  // Kyle's character: one standalone page, linked from Lore builds. It is not one of the seven topics, so the sidebar and pager are untouched.
+  // Kyle's character: the first page of Characters (its own sidebar, strip and pager). Lore builds also links to it.
+  if (vigilant.file !== characters.pages[0].file || vigilant.title !== characters.pages[0].title) throw new Error('Version D: the owner page must be the first Characters page');
   const figure = (cls, file, size, alt, caption, { id = '', extra = '', lazy = false } = {}) => `<figure class="d-figure ${cls}"${id ? ` id="${id}"` : ''}><img src="assets/${file}" width="${size[0]}" height="${size[1]}" alt="${esc(alt)}" decoding="async"${lazy ? ' loading="lazy"' : ''}><figcaption>${esc(caption)}</figcaption>${extra}</figure>`;
   const vigilantFigures = {
-    card: figure('d-card', 'character-card.webp', [900, 1250], "Kyle's character card. A Breton Vigilant of Stendarr in a tan hood and chain mail, with a mace and a shield, on a snowy road between mountains. The name reads [NAME], left open. The card text is repeated below the picture.", "Kyle's character card. An original drawing made for the card. The name is left open: [NAME].", { id: 'card', extra: `<details><summary>Read the card text</summary>${vigilant.card.text.map((line) => `<p>${esc(line)}</p>`).join('')}</details>` }),
     screenshot: figure('d-shot', 'skyrim-vigilant-screenshot.webp', [1024, 572], 'A hooded man in a tan tabard over chain mail, holding a mace and a round shield, on a snowy cobbled road in front of a wooden house, with snowy mountains behind.', 'In-game screenshot from The Elder Scrolls V: Skyrim (Bethesda). Chosen by Kyle as the look for his character. Original source not found. The armor looks like a mod’s, not the base game’s robes. We do not know which mod.', { id: 'look' }),
     emblem: figure('d-emblem', 'stendarr-emblem.svg', [140, 140], 'A mace in front of a shield, under five short rays of light, inside a double ring.', "Emblem: an original drawing made for this page. It is not Stendarr's official symbol and uses no game art."),
     map: figure('d-map', 'shrine-map.svg', [640, 580], "A north-up plot of Helgen, Riverwood, Whiterun, Rorikstead, Falkreath and Bleak Falls Barrow. The Two Pillars shrine is marked 23 cells from Helgen. Edge labels give the distance to the Hall of the Vigilant, Fort Greenwall, Stendarr's Beacon and the Solitude temple.", 'Map: an original drawing, plotted from the game location data in our install. The grid above gives the same distances.', { lazy: true })
   };
   const callouts = (c) => `<section class="d-callouts" id="${esc(c.id)}" aria-labelledby="${esc(c.id)}-title"><h2 id="${esc(c.id)}-title">${esc(c.title)}</h2>${c.items.map((item) => `<aside class="d-callout"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p><p class="d-callout-src">Source: ${cell(item.source)}</p></aside>`).join('')}</section>`;
-  const vigilantItem = (item) => item.figure ? vigilantFigures[item.figure] : item.callouts ? callouts(item.callouts) : item.paragraphs ? item.paragraphs.map((line) => `<p class="d-plain-note">${cell(line)}</p>`).join('') : grid(item, vigilant.title) + (item.id === 'shrines' ? `\n${vigilantFigures.map}` : '');
+  // The card is text only: the owner dislikes the drawn card picture. The name slot stays open.
+  const cardText = () => `<section class="d-section d-card-text" id="card" aria-labelledby="card-title"><h2 id="card-title">Character card</h2><p>Name: [NAME], left open.</p>${vigilant.card.text.map((line) => `<p>${esc(line)}</p>`).join('')}</section>`;
+  const vigilantItem = (item) => item.cardText ? cardText() : item.figure ? vigilantFigures[item.figure] : item.callouts ? callouts(item.callouts) : item.paragraphs ? item.paragraphs.map((line) => `<p class="d-plain-note">${cell(line)}</p>`).join('') : grid(item, vigilant.title) + (item.id === 'shrines' ? `\n${vigilantFigures.map}` : '');
   const vigilantJump = `<nav class="d-jump" aria-label="On this page"><span>On this page:</span>${vigilant.jump.map(([id, label]) => `<a href="#${esc(id)}">${esc(label)}</a>`).join('')}</nav>`;
   pages.set(vigilant.file, shell({
+    file: vigilant.file,
     title: vigilant.title,
     description: vigilant.description,
-    body: `<div class="d-layout">${sidebar(vigilant.file)}<div class="d-page"><p class="eyebrow">${esc(vigilant.eyebrow)}</p><h1>${esc(vigilant.title)}</h1>
+    body: `<div class="d-layout">${sidebar(vigilant.file)}<div class="d-page"><p class="eyebrow">${esc(vigilant.eyebrow)}</p><h1>${esc(vigilant.title)}</h1>${pageStrip(vigilant.file)}
 ${vigilant.lead.map((line) => `<p class="d-lead">${esc(line)}</p>`).join('')}
 ${vigilantJump}
 ${vigilant.grids.map(vigilantItem).join('\n')}
-</div></div>`
+${charPager(0)}</div></div>`
   }));
 
   pages.set('404.html', shell({
+    file: '404.html',
     title: 'Page not found',
     description: 'This page does not exist.',
-    body: `<div class="d-layout">${sidebar('404.html')}<div class="d-page"><h1>Page not found</h1>${grid({ id: 'try', title: 'Try one of these', columns: ['Go to', 'What it is'], rows: [[{ text: 'The field guide', href: 'index.html#topics' }, 'Seven topics, start to finish'], [{ text: 'Can I use this?', href: 'rules.html' }, 'Check a spell, perk, power or mod'], [{ text: 'Joining a session', href: 'join.html' }, 'How to join a session']] })}</div></div>`
+    body: `<div class="d-layout">${sidebar('404.html')}<div class="d-page"><h1>Page not found</h1>${grid({ id: 'try', title: 'Try one of these', columns: ['Go to', 'What it is'], rows: [[{ text: 'The field guide', href: 'index.html#topics' }, 'Eight topics, start to finish'], [{ text: 'Can I use this?', href: 'rules.html' }, 'Check a spell, perk, power or mod'], [{ text: 'Joining a session', href: 'join.html' }, 'How to join a session']] })}</div></div>`
   }));
 
   pages.set('assets/d.css', css);

@@ -486,11 +486,6 @@
       ],
       "rows": [
         [
-          "Healer or paladin",
-          "You only heal yourself",
-          "Restoration first, plus personal defense. A paladin switches between shield, weapon and healing."
-        ],
-        [
           "Two-handed guardian",
           "Nobody to protect",
           "Greatsword, Heavy Armor and Block make space. Turn to protect a chased friend."
@@ -506,14 +501,19 @@
           "Destruction and Alteration for fire and protection, backup Restoration. Earn a staff later."
         ],
         [
+          "Storyteller",
+          "Talk your way through",
+          "Speech, Restoration and a weapon. Keep a reliable damage fallback."
+        ],
+        [
           "Gravewarden",
           "Raise the dead",
           "Restoration first, Conjuration second. One summoned helper buys healing time."
         ],
         [
-          "Storyteller",
-          "Talk your way through",
-          "Speech, Restoration and a weapon. Keep a reliable damage fallback."
+          "Healer or paladin",
+          "You only heal yourself",
+          "Restoration first, plus personal defense. A paladin switches between shield, weapon and healing."
         ]
       ]
     },
