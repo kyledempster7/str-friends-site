@@ -41,6 +41,7 @@ const css = `/* Version D: grids on the original look. */
 .d-grid a{color:var(--gold)}
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
 .d-quick .d-grid tbody th{width:32%}
+.d-quotes .d-grid tbody th{width:46%;font-weight:400;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;line-height:1.55}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
 .d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
 .d-search-row{display:flex;gap:8px;max-width:40rem}
@@ -59,6 +60,10 @@ const css = `/* Version D: grids on the original look. */
 .d-lookup .d-count{flex-basis:100%;margin:-12px 0 0}
 .d-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .d-sources{margin-top:32px;font-size:.85rem;color:#b2bfc2}.d-sources a{margin-right:16px;color:var(--gold)}
+.d-card img{width:min(100%,560px)}.d-shot img{width:min(100%,720px)}.d-figure details{margin-top:8px;max-width:70ch;font-size:.9rem;color:#c2cdcd}.d-figure summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-figure details p{margin:0 0 8px}
+.d-callouts{margin-top:40px}.d-callouts>h2{font-size:1.6rem;margin:0 0 .8rem}
+.d-callout{max-width:70ch;margin:0 0 16px;padding:14px 18px;border-left:3px solid var(--gold);background:#16242b}.d-callout h3{margin:0 0 4px;font:600 1.05rem/1.4 var(--sans);color:#f6f2e9}.d-callout p{margin:0 0 6px;color:#c2cdcd;line-height:1.6}.d-callout .d-callout-src{margin:0;font-size:.85rem;color:#b2bfc2}.d-callout a{color:var(--gold)}
+.d-plain-note{max-width:70ch;margin:24px 0 0;color:#c2cdcd}.d-plain-note+.d-plain-note{margin-top:4px;font-size:.9rem;color:#b2bfc2}.d-plain-note a{color:var(--gold)}
 .d-figure{margin:24px 0}.d-figure img{display:block;max-width:100%;height:auto}.d-emblem img{width:140px}.d-figure figcaption{margin-top:8px;max-width:70ch;font-size:.85rem;color:#b2bfc2}
 .d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:0 0 16px}
 .d-chapters-head h2{margin:0;font-size:1.8rem}.d-chapters-head p{margin:0;color:#b2bfc2}
@@ -172,8 +177,8 @@ const grid = (g, pageTitle) => {
     return `<tr${urgent}><th scope="row">${cell(r[0])}</th>${cells}</tr>`;
   }).join('\n');
   const open = repeatsTitle(g.title, pageTitle)
-    ? `<section class="d-section${g.quick ? ' d-quick' : ''}" id="${esc(g.id)}" aria-label="${esc(g.title)}">`
-    : `<section class="d-section${g.quick ? ' d-quick' : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>`;
+    ? `<section class="d-section${g.quick ? ' d-quick' : ''}${g.cls ? ` ${g.cls}` : ''}" id="${esc(g.id)}" aria-label="${esc(g.title)}">`
+    : `<section class="d-section${g.quick ? ' d-quick' : ''}${g.cls ? ` ${g.cls}` : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>`;
   return `${open}
 <div class="d-wrap"><table class="d-grid${cls}">${g.note ? `<caption>${esc(g.note)}</caption>` : ''}<thead><tr>${head}</tr></thead><tbody>
 ${rows}
@@ -456,16 +461,23 @@ ${episodeBoxes}</div></div><script>${audioScript}</script>`
   }));
 
   // Kyle's character: one standalone page, linked from Lore builds. It is not one of the seven topics, so the sidebar and pager are untouched.
-  const figure = (cls, file, size, alt, caption) => `<figure class="d-figure ${cls}"><img src="assets/${file}" width="${size[0]}" height="${size[1]}" alt="${esc(alt)}" decoding="async"><figcaption>${esc(caption)}</figcaption></figure>`;
-  const vigilantEmblem = figure('d-emblem', 'stendarr-emblem.svg', [140, 140], 'A mace in front of a shield, under five short rays of light, inside a double ring.', "Emblem: an original drawing made for this page. It is not Stendarr's official symbol and uses no game art.");
-  const vigilantMap = figure('d-map', 'shrine-map.svg', [640, 580], "A north-up plot of Helgen, Riverwood, Whiterun, Rorikstead, Falkreath and Bleak Falls Barrow. The Two Pillars shrine is marked 23 cells from Helgen. Edge labels give the distance to the Hall of the Vigilant, Fort Greenwall, Stendarr's Beacon and the Solitude temple.", 'Map: an original drawing, plotted from the game location data in our install. The grid above gives the same distances.');
+  const figure = (cls, file, size, alt, caption, { id = '', extra = '', lazy = false } = {}) => `<figure class="d-figure ${cls}"${id ? ` id="${id}"` : ''}><img src="assets/${file}" width="${size[0]}" height="${size[1]}" alt="${esc(alt)}" decoding="async"${lazy ? ' loading="lazy"' : ''}><figcaption>${esc(caption)}</figcaption>${extra}</figure>`;
+  const vigilantFigures = {
+    card: figure('d-card', 'character-card.webp', [900, 1250], "Kyle's character card. A Breton Vigilant of Stendarr in a tan hood and chain mail, with a mace and a shield, on a snowy road between mountains. The name reads [NAME], left open. The card text is repeated below the picture.", "Kyle's character card. An original drawing made for the card. The name is left open: [NAME].", { id: 'card', extra: `<details><summary>Read the card text</summary>${vigilant.card.text.map((line) => `<p>${esc(line)}</p>`).join('')}</details>` }),
+    screenshot: figure('d-shot', 'skyrim-vigilant-screenshot.webp', [1024, 572], 'A hooded man in a tan tabard over chain mail, holding a mace and a round shield, on a snowy cobbled road in front of a wooden house, with snowy mountains behind.', 'In-game screenshot from The Elder Scrolls V: Skyrim (Bethesda). Chosen by Kyle as the look for his character. Original source not found. The armor looks like a mod’s, not the base game’s robes. We do not know which mod.', { id: 'look' }),
+    emblem: figure('d-emblem', 'stendarr-emblem.svg', [140, 140], 'A mace in front of a shield, under five short rays of light, inside a double ring.', "Emblem: an original drawing made for this page. It is not Stendarr's official symbol and uses no game art."),
+    map: figure('d-map', 'shrine-map.svg', [640, 580], "A north-up plot of Helgen, Riverwood, Whiterun, Rorikstead, Falkreath and Bleak Falls Barrow. The Two Pillars shrine is marked 23 cells from Helgen. Edge labels give the distance to the Hall of the Vigilant, Fort Greenwall, Stendarr's Beacon and the Solitude temple.", 'Map: an original drawing, plotted from the game location data in our install. The grid above gives the same distances.', { lazy: true })
+  };
+  const callouts = (c) => `<section class="d-callouts" id="${esc(c.id)}" aria-labelledby="${esc(c.id)}-title"><h2 id="${esc(c.id)}-title">${esc(c.title)}</h2>${c.items.map((item) => `<aside class="d-callout"><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p><p class="d-callout-src">Source: ${cell(item.source)}</p></aside>`).join('')}</section>`;
+  const vigilantItem = (item) => item.figure ? vigilantFigures[item.figure] : item.callouts ? callouts(item.callouts) : item.paragraphs ? item.paragraphs.map((line) => `<p class="d-plain-note">${cell(line)}</p>`).join('') : grid(item, vigilant.title) + (item.id === 'shrines' ? `\n${vigilantFigures.map}` : '');
+  const vigilantJump = `<nav class="d-jump" aria-label="On this page"><span>On this page:</span>${vigilant.jump.map(([id, label]) => `<a href="#${esc(id)}">${esc(label)}</a>`).join('')}</nav>`;
   pages.set(vigilant.file, shell({
     title: vigilant.title,
     description: vigilant.description,
     body: `<div class="d-layout">${sidebar(vigilant.file)}<div class="d-page"><p class="eyebrow">${esc(vigilant.eyebrow)}</p><h1>${esc(vigilant.title)}</h1>
 ${vigilant.lead.map((line) => `<p class="d-lead">${esc(line)}</p>`).join('')}
-${vigilantEmblem}
-${vigilant.grids.map((g) => grid(g, vigilant.title) + (g.id === 'shrines' ? `\n${vigilantMap}` : '')).join('\n')}
+${vigilantJump}
+${vigilant.grids.map(vigilantItem).join('\n')}
 </div></div>`
   }));
 

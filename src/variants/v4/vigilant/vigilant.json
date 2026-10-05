@@ -2,14 +2,18 @@
  "file": "vigilant.html",
  "title": "Kyle's character: a Vigilant of Stendarr",
  "eyebrow": "Kyle's character",
- "description": "Kyle's own character for our Skyrim Together campaign: a Vigilant of Stendarr from Cyrodiil. Lore, how to play him, the nearest shrine to Helgen, and story hooks.",
+ "description": "Kyle’s own character for our Skyrim Together campaign: a Breton Vigilant of Stendarr from Cyrodiil. Character card, lore, quotes, how to play him, the nearest shrine to Helgen, and story hooks.",
  "updated": "2026-10-05",
  "lead": [
   "This is Kyle's own character. Everyone else plays their own.",
-  "He is a man from Cyrodiil and a Vigilant of Stendarr. He walks north to find his order.",
-  "Each fact below says where it came from. What we have not checked says so."
+  "He is a Breton man from Cyrodiil and a Vigilant of Stendarr. He walks north to find his order.",
+  "Each fact below says where it came from. What we have not checked says so.",
+  "UESP is a fan-run game wiki. The clip is a fan video, and it is labelled wherever we use it."
  ],
  "grids": [
+  {
+   "figure": "card"
+  },
   {
    "id": "glance",
    "title": "At a glance",
@@ -20,7 +24,7 @@
    "rows": [
     [
      "Who is he?",
-     "A man. A Vigilant of Stendarr, from Cyrodiil."
+     "A Breton man. A Vigilant of Stendarr, from Cyrodiil."
     ],
     [
      "Where do we meet him?",
@@ -49,6 +53,75 @@
    ]
   },
   {
+   "callouts": {
+    "id": "key-facts",
+    "title": "Know these first",
+    "items": [
+     {
+      "title": "His vow",
+      "text": "He vows to pass gold and spare gear to his friends quickly. He gladly takes their hand-me-downs in return. It fits the fourth precept of Stendarr: do not hoard wealth or indulge.",
+      "source": [
+       {
+        "text": "The character card",
+        "href": "#card"
+       },
+       " · ",
+       {
+        "text": "UESP: Precepts",
+        "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+       }
+      ]
+     },
+     {
+      "title": "The closest shrine",
+      "text": "The Two Pillars, in Whiterun Hold. It is about 23 cells from Helgen in a straight line, and about 33 walking from town to town. A Stendarr shrine cures disease.",
+      "source": [
+       {
+        "text": "Shrine grid",
+        "href": "#shrines"
+       },
+       " · ",
+       {
+        "text": "UESP: Shrine of Stendarr",
+        "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+       },
+       " · ",
+       {
+        "text": "Our install",
+        "href": "#sources"
+       }
+      ]
+     },
+     {
+      "title": "Heavy armor and his spells",
+      "text": "Heavy armor does not weaken Restoration or Destruction in our install. Not yet tested in play. One group cares: Oakflesh, Ironflesh, Stoneflesh, Ebonyflesh and Dragonhide lose their Mage Armor bonus under any light or heavy armor.",
+      "source": [
+       {
+        "text": "Armor grid",
+        "href": "#play-armor"
+       },
+       " · ",
+       {
+        "text": "UESP: Alteration",
+        "href": "https://en.uesp.net/wiki/Skyrim:Alteration"
+       },
+       " · ",
+       {
+        "text": "Our install",
+        "href": "#sources"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "figure": "screenshot"
+  },
+  {
+   "figure": "emblem"
+  },
+  {
    "id": "lore-beliefs",
    "title": "Lore: what the Vigil believes and does",
    "columns": [
@@ -56,7 +129,7 @@
     "In short",
     "Source"
    ],
-   "note": "The clip is one fan's video analysis, not game text. Rows marked The clip only are its reading.",
+   "note": "The clip is a fan video by one fan, not game text. Rows marked \"Fan video only.\" are its reading.",
    "rows": [
     [
      "Four enemies",
@@ -110,7 +183,7 @@
     ],
     [
      "Fear of dark magic",
-     "The order grew from fear after the Oblivion Crisis. It hates conjuring and necromancy. Healing and holy magic are its own. The clip only.",
+     "The order grew from fear after the Oblivion Crisis. It hates conjuring and necromancy. Healing and holy magic are its own. Fan video only.",
      [
       {
        "text": "The clip",
@@ -135,7 +208,7 @@
     ],
     [
      "At the hall",
-     "The Hall is a lodge and a monastery. Members eat, read and pray there. Some dig up old ruins and write notes. The clip only.",
+     "The Hall is a lodge and a monastery. Members eat, read and pray there. Some dig up old ruins and write notes. Fan video only.",
      [
       {
        "text": "The clip",
@@ -146,14 +219,471 @@
    ]
   },
   {
+   "id": "lore-traits",
+   "title": "Traits and virtues",
+   "columns": [
+    "Trait",
+    "What it looks like",
+    "Source"
+   ],
+   "rows": [
+    [
+     "Mercy",
+     "Stendarr is the God of Mercy. Vigilants say they bring his compassion where none can be found.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Mercy has an edge",
+     "The Vigil has no mercy for Daedra worshippers or abominations. The greeting says so.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Charity",
+     "Never refuse aid you can give. Go among the infirm and the wounded.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Daily prayer",
+     "Offer prayer to Stendarr every day.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Plain living",
+     "Do not hoard wealth or indulge. A Vigilant drops only a little gold when killed.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Healing",
+     "Every Vigilant knows Healing. Each carries two healing potions and a cure disease potion.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Study",
+     "Tolan says they always studied their enemies, to learn how to beat them.",
+     [
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "Comradeship",
+     "The Hall was a place of respite, learning and comradeship. Vigilants walk in groups.",
+     [
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Endless watch",
+     "Most live as nomads, in what Tolan calls an endless war against evil.",
+     [
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "Secrecy",
+     "The Vigil is known to use spies and agents for covert missions.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Faults, seen from outside",
+     "Isran left the Vigil. He calls them soft, and says they have more bravery than sense. That is his view, not the game’s verdict.",
+     [
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "lore-behaviour",
+   "title": "How a Vigilant behaves",
+   "columns": [
+    "Situation",
+    "What they do",
+    "Source"
+   ],
+   "rows": [
+    [
+     "On the road",
+     "They walk in groups and patrol the wilds. Some stand alone in set places.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "First meeting",
+     "They warn you off the Daedra. See the quotes below.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "You are sick",
+     "Ask, and they cure your disease for free. They want your promise never to help the Daedra.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "In a fight",
+     "One-handed mace and defensive magic. All know Oakflesh, Healing and Lesser Ward. They never carry shields.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Daedra on sight",
+     "They attack Barbas in the quest A Daedra’s Best Friend. He cannot die, so they do.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "A werewolf",
+     "In human form, left alone. In beast form, attacked.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "A stray blow",
+     "Hit one by accident and the whole group may turn hostile. So may a Vigilant on the road you heal with Healing Hands.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Daedric gear",
+     "They ignore Daedric weapons, armor and conjured Atronachs near them, despite their words. A scene where they demand Daedric artifacts is in the game data, switched off.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "After the Hall falls",
+     "They keep acting as if the Hall stands and Carcette lives.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "callouts": {
+    "id": "healer-trap",
+    "title": "A healer’s trap",
+    "items": [
+     {
+      "title": "Do not heal a Vigilant on the road",
+      "text": "UESP says a Vigilant healed with Healing Hands out on the road may turn hostile. Striking one by accident can turn them all hostile. Heal your party, not their patrols.",
+      "source": [
+       {
+        "text": "UESP: Vigilants",
+        "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "lore-hunt",
+   "title": "What they hunt, and why",
+   "columns": [
+    "Target",
+    "Why",
+    "Source"
+   ],
+   "rows": [
+    [
+     "Daedra",
+     "The worst of them. Profane creatures with no hope of redemption. They lure innocents to death and corrupt the souls they touch. Their artifacts give mortals power, so the artifacts must be destroyed or guarded.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Daedra worshippers",
+     "The Vigil’s main concern. A Vigil journal says it will torture them for information.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Vampires",
+     "Hated, but ranked below Daedra. Curing vampirism was seen as blasphemy. After the Hall burns, Tolan says vampires are worse than Daedra.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "Werewolves",
+     "Named among the abominations. Some Vigilants fight beside the Silver Hand, the werewolf hunters.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Witches",
+     "Named among the abominations. UESP gives no example in Skyrim.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "The Mythic Dawn",
+     "In 4E 201 the Vigil chased this cult in Skyrim. It is the cult behind the Oblivion Crisis.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Who they leave alone",
+     "No action against Orc strongholds that worship Malacath. UESP says it is unknown if they oppose Azura or Meridia.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "lore-relations",
+   "title": "The temples, the Dawnguard and the Thalmor",
+   "columns": [
+    "Who",
+    "How they stand",
+    "Source"
+   ],
+   "rows": [
+    [
+     "The Temple of Stendarr",
+     "Vigilants are part of the Priesthood of Stendarr. Each province has a chapter led by a Keeper of the Vigil.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Priests of other Divines",
+     "Florentius Baenius, a priest of Arkay, worked with the Vigil. They sent him to Ruunvald, and he was captured.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Florentius",
+       "href": "https://en.uesp.net/wiki/Skyrim:Florentius_Baenius"
+      }
+     ]
+    ],
+    [
+     "Shrines",
+     "Shrines of Stendarr stand across Skyrim, from the wilds to the Temple of the Divines in Solitude. The Hall and Stendarr’s Beacon each hold one.",
+     [
+      {
+       "text": "UESP: Stendarr",
+       "href": "https://en.uesp.net/wiki/Lore:Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "The Dawnguard",
+     "Close ties. Two former Vigilants, Isran and Celann, restarted it. Isran thought the Vigil too soft. When vampires burned the Hall, Tolan went to Isran for help.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "The Silver Hand",
+     "Some Vigil members have ties to the Silver Hand, with dog motifs on their armor.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "The Thalmor",
+     "UESP names no link between the Vigil and the Thalmor in Skyrim. Open. Anything here is our own story.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Elves and Stendarr",
+     "Stendarr sits in the Altmer pantheon too. A minority of elves frown on worshipping him, as the Apologist of Men.",
+     [
+      {
+       "text": "UESP: Stendarr",
+       "href": "https://en.uesp.net/wiki/Lore:Stendarr"
+      }
+     ]
+    ]
+   ]
+  },
+  {
    "id": "lore-knowledge",
    "title": "Lore: what a Vigilant must know",
    "columns": [
     "Skill",
-    "The clip says",
+    "The fan video says",
     "The game shows (UESP)"
    ],
-   "note": "Yes, the clip names alchemy, restoration and destruction. It says Vigilants must learn all three and fight with maces. It gives no game source for must.",
+   "note": "Yes, the clip names alchemy, restoration and destruction. The clip is a fan video. It says Vigilants must learn all three and fight with maces. It gives no game source for must.",
    "rows": [
     [
      "Alchemy",
@@ -167,8 +697,8 @@
     ],
     [
      "Destruction",
-     "Must learn it. The clip says they add fire magic to the mace.",
-     "The list shows no fire spell for a Skyrim Vigilant. The clip only."
+     "Must learn it. The fan video says they add fire magic to the mace.",
+     "The list shows no fire spell for a Skyrim Vigilant. Fan video only."
     ],
     [
      "Mace",
@@ -182,7 +712,7 @@
     ],
     [
      "Jack of all trades",
-     "They know a little of everything. Few master any of it. The clip only.",
+     "They know a little of everything. Few master any of it. Fan video only.",
      "Not stated."
     ]
    ]
@@ -274,6 +804,364 @@
    ]
   },
   {
+   "callouts": {
+    "id": "line-to-know",
+    "title": "The line to know",
+    "items": [
+     {
+      "title": "“Walk always in the light, or we will drag you to it.”",
+      "text": "Found. It is a Vigilant’s road greeting in Skyrim, one of six. The fan video quotes it too, while it talks about the spell Stendarr’s Aura (at 15:48).",
+      "source": [
+       {
+        "text": "UESP: Vigilants",
+        "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+       },
+       " · ",
+       {
+        "text": "The clip",
+        "href": "#sources"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "quotes-game",
+   "cls": "d-quotes",
+   "title": "Quotes: what Vigilants say in the game",
+   "columns": [
+    "Line",
+    "When you hear it",
+    "Source"
+   ],
+   "note": "Word for word from UESP’s dialogue lists, checked against the saved pages. Lines marked Dawnguard are from that add-on.",
+   "rows": [
+    [
+     "“Walk always in the light, or we will drag you to it.”",
+     "One of six greetings on the road.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“You speak to a Vigilant of Stendarr. Cavort with any Daedra, and we will hunt you down.”",
+     "The first time you meet a Vigilant.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Stendarr’s Mercy be upon you, for the Vigil has none to spare.”",
+     "Another road greeting.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Wherever the Daedra hide, the Vigil of Stendarr will cast them into the light.”",
+     "Another road greeting.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Well met, friend. We’ve been chasing that fiend for a long time. On behalf of the Vigil, you have my thanks.”",
+     "After you help a group fight an abomination.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“None escape the Vigil. All come into the light.”",
+     "A goodbye.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“The Vigil will be watching you.”",
+     "A goodbye.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Stendarr’s Light purify you of your ills.”",
+     "When they cure your disease.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“He is the God of Mercy. The patron of order and justice for all of Tamriel. We bring his compassion where none can be found, by cleansing all those who would offend his children.”",
+     "Asking “Who’s Stendarr?”",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“And any other abominations that prey on mortals. Vampires. Werewolves. Witches. But the Daedra are the worst.”",
+     "Asking “You hunt daedra?”",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“The Hall was a place of respite, learning and comradeship, where a road-weary brother or sister could rest for a time in peace and comfort.”",
+     "Vigilant Tolan, Dawnguard. Asking about the Hall.",
+     [
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "“Most of us spend our lives as nomads, traveling from place to place in our endless war against evil.”",
+     "Vigilant Tolan, Dawnguard.",
+     [
+      {
+       "text": "UESP: Vigilant Tolan",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilant_Tolan"
+      }
+     ]
+    ],
+    [
+     "“The Vigilants always had more bravery than sense.”",
+     "Isran, who left the Vigil. Dawnguard.",
+     [
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "quotes-books",
+   "cls": "d-quotes",
+   "title": "Quotes: from Stendarr books",
+   "columns": [
+    "Line",
+    "Book",
+    "Source"
+   ],
+   "note": "Precepts, Four Abominations and The Sounding Horn are lore books from The Elder Scrolls Online. They are not in Skyrim. Notes on Dimhollow Crypt and Discovering Ruunvald are Skyrim books from the Dawnguard add-on.",
+   "rows": [
+    [
+     "“Never refuse aid you are capable of providing.”",
+     "Precepts of Stendarr, by Ptolus the Bright, a Resolute of Stendarr. First precept.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Go among the infirm and the wounded wherever you find them.”",
+     "Precepts of Stendarr. Second precept.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Offer prayer to Stendarr every day.”",
+     "Precepts of Stendarr. Third precept.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Do not hoard wealth or indulge physically.”",
+     "Precepts of Stendarr. Fourth precept.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Be kind and generous to the people of Tamriel. Protect the weak, heal the sick, and give to the needy.”",
+     "Precepts of Stendarr. Its closing command.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "“Know these Four Abominations, O ye righteous, and gather to slay them where’re they appear.”",
+     "The Four Abominations, by Vinicius Imbrex, Archbishop of Chorrol.",
+     [
+      {
+       "text": "UESP: Four Abominations",
+       "href": "https://en.uesp.net/wiki/Lore:The_Four_Abominations"
+      }
+     ]
+    ],
+    [
+     "“Threefold are the masteries of Stendarr. I sound the horn in his name. May his shield protect me always from harm.”",
+     "The Sounding Horn. A prayer to say.",
+     [
+      {
+       "text": "UESP: The Sounding Horn",
+       "href": "https://en.uesp.net/wiki/Lore:The_Sounding_Horn"
+      }
+     ]
+    ],
+    [
+     "“I must return to the Hall of the Vigilant and share these findings with my brothers and sisters.”",
+     "Notes on Dimhollow Crypt, Vol. 3, by the Vigilant Adalvald.",
+     [
+      {
+       "text": "UESP: Notes on Dimhollow Crypt, Vol. 3",
+       "href": "https://en.uesp.net/wiki/Skyrim:Notes_on_Dimhollow_Crypt,_Vol._3"
+      }
+     ]
+    ],
+    [
+     "“For now, Dimhollow Crypt might be a mystery, but by Stendarr I will see that mystery solved.”",
+     "Notes on Dimhollow Crypt, Vol. 3.",
+     [
+      {
+       "text": "UESP: Notes on Dimhollow Crypt, Vol. 3",
+       "href": "https://en.uesp.net/wiki/Skyrim:Notes_on_Dimhollow_Crypt,_Vol._3"
+      }
+     ]
+    ],
+    [
+     "“I am certain that there is some artifact of great power to be found in those ruins, one that the Vigilants could find useful in their mission.”",
+     "Discovering Ruunvald, Vol. I, by Moric Sidrey.",
+     [
+      {
+       "text": "UESP: Discovering Ruunvald, Vol. I",
+       "href": "https://en.uesp.net/wiki/Skyrim:Discovering_Ruunvald,_Vol._I"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "play-breton",
+   "title": "Playing him: a Breton",
+   "columns": [
+    "Part",
+    "What it gives",
+    "Source"
+   ],
+   "note": "The first three rows are the base game. Our server changes races. Read the fourth row.",
+   "rows": [
+    [
+     "Skill bonuses",
+     "+10 Conjuration. +5 Alchemy, Alteration, Illusion, Restoration and Speech. Restoration and Alchemy are his trade.",
+     [
+      {
+       "text": "UESP: Breton",
+       "href": "https://en.uesp.net/wiki/Skyrim:Breton"
+      }
+     ]
+    ],
+    [
+     "Resist magic",
+     "25% magic resistance, always on.",
+     [
+      {
+       "text": "UESP: Breton",
+       "href": "https://en.uesp.net/wiki/Skyrim:Breton"
+      }
+     ]
+    ],
+    [
+     "Racial power",
+     "Dragonskin: absorb 50% of the magicka from hostile spells for 60 seconds, once a day.",
+     [
+      {
+       "text": "UESP: Breton",
+       "href": "https://en.uesp.net/wiki/Skyrim:Breton"
+      }
+     ]
+    ],
+    [
+     "On our server",
+     [
+      "Our server runs Imperious. It gives Bretons a power called ",
+      {
+       "text": "Shared Ancestry",
+       "href": "rules.html#rule-shared-ancestry"
+      },
+      ". Conditional on the rules page. We have not checked every other Breton change."
+     ],
+     [
+      {
+       "text": "Rules page",
+       "href": "rules.html#rule-shared-ancestry"
+      },
+      " · ",
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Bretons he may meet",
+     "Keeper Carcette leads the Vigil. Celann is a former Vigilant at Fort Dawnguard.",
+     [
+      {
+       "text": "UESP: Keeper Carcette",
+       "href": "https://en.uesp.net/wiki/Skyrim:Keeper_Carcette"
+      },
+      " · ",
+      {
+       "text": "UESP: Celann",
+       "href": "https://en.uesp.net/wiki/Skyrim:Celann"
+      }
+     ]
+    ]
+   ]
+  },
+  {
    "id": "play-build",
    "title": "Playing him: the build",
    "columns": [
@@ -300,7 +1188,7 @@
     [
      "Other skills",
      "Alchemy and Destruction.",
-     "The Vigil's other disciplines, from the clip."
+     "The Vigil's other disciplines, from the fan video."
     ],
     [
      "Spells to try",
@@ -336,6 +1224,22 @@
       }
      ],
      "All are Allowed on the rules page. Healing other players in co-op is not fully tested."
+    ]
+   ]
+  },
+  {
+   "paragraphs": [
+    "Co-op note. Potions he brews and gear he enchants may not pass between players under Skyrim Together. Reports say a crafted potion or enchanted item can fail to reach another player. We have not tested it in our pack. Wednesday’s test checks it. Until then, brew for yourself first.",
+    [
+     {
+      "text": "Report: Sharable Potions, open since 2022",
+      "href": "https://github.com/tiltedphoques/TiltedEvolution/issues/435"
+     },
+     " · ",
+     {
+      "text": "Report: enchanted items, closed in 2022",
+      "href": "https://github.com/tiltedphoques/TiltedEvolution/issues/365"
+     }
     ]
    ]
   },
@@ -807,8 +1711,8 @@
        "href": "https://www.youtube.com/watch?v=04nIaNV7d-8"
       }
      ],
-     "A 2024 video analysis, Heroes whose stories remain untold: Vigilants of Stendarr, by Borean Knight. Kyle clipped it on 2026-10-05.",
-     "The Vigil's beliefs, duties, knowledge and history. One fan's reading."
+     "A fan video: Heroes whose stories remain untold: Vigilants of Stendarr, by Borean Knight, 2024. Kyle clipped it on 2026-10-05.",
+     "The Vigil’s beliefs, duties, knowledge and history, where a row says Fan video only. One fan’s reading, not game text."
     ],
     [
      [
@@ -817,20 +1721,74 @@
        "href": "https://en.uesp.net/"
       }
      ],
-     "The Unofficial Elder Scrolls Pages. Its text is shared under an Attribution-ShareAlike 2.5 license. We rewrote facts in our own words and linked each page.",
-     "Lore, shrines, people and places in the base game."
+     "The Unofficial Elder Scrolls Pages. Its text is shared under an Attribution-ShareAlike 2.5 license. We rewrote facts in our own words, copied quotes word for word, and linked each page.",
+     "Lore, quotes, shrines, people, places and races in the base game."
     ],
     [
      "Our install",
-     "The game data and plugins on our server PC, read on 2026-10-05: the game's own file, Better Vanilla Perks, Mysticism, Imperious and our held-perks patch.",
+     "The game data and plugins on our server PC, read on 2026-10-05: the game’s own file, Better Vanilla Perks, Mysticism, Imperious and our held-perks patch.",
      "Shrine places, distances and the armor and spell answers."
     ],
     [
-     "Images",
-     "The emblem and the map are original drawings made for this page. No game art and no outside images.",
-     "The emblem at the top. The map under the shrine grid."
+     "Skyrim Together reports",
+     "Two issues on the mod’s public bug tracker, read on 2026-10-05. Reports are what players saw, not tested facts.",
+     "The co-op note about potions and enchanted gear."
+    ],
+    [
+     "The screenshot",
+     "An in-game screenshot from The Elder Scrolls V: Skyrim (Bethesda), chosen by Kyle. Original source not found. We checked the UESP Vigilant of Stendarr images and the Elder Scrolls Fandom page. The armor looks like a mod’s, not the base game’s robes. We do not know which mod.",
+     "The picture near the top. The only game image on this page."
+    ],
+    [
+     "Other images",
+     "The emblem, the map and the character card art are original drawings made for this page. The card was drawn from a costume reference. No part of any game image was copied into them.",
+     "The card, the emblem and the map."
     ]
    ]
   }
+ ],
+ "card": {
+  "text": [
+   "He came north on foot from Cyrodiil, under a tan hood and winter mail. On Skyrim’s white roads he keeps his mace low and his shield ready. A wound gets his hands before an enemy gets his weapon; the Vigilant’s oath is to shelter the living. Whether the Dawnguard will one day call him remains for another road to decide.",
+   "At the table. Brings: crafting, potions brewed for friends, and Restoration healing. Keeps: the group’s quests, and a quick eye for how clues connect. Working on: hoarding. He vows to pass gold and spare gear to his friends quickly, and gladly takes their hand-me-downs in return."
+  ]
+ },
+ "jump": [
+  [
+   "card",
+   "Card"
+  ],
+  [
+   "glance",
+   "At a glance"
+  ],
+  [
+   "key-facts",
+   "Know these first"
+  ],
+  [
+   "lore-beliefs",
+   "Lore"
+  ],
+  [
+   "quotes-game",
+   "Quotes"
+  ],
+  [
+   "play-breton",
+   "Playing him"
+  ],
+  [
+   "shrines",
+   "Shrines"
+  ],
+  [
+   "hooks",
+   "Hooks"
+  ],
+  [
+   "sources",
+   "Sources"
+  ]
  ]
 }

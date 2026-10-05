@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { isUtf8 } from 'node:buffer';
 import { assertFrozen } from './lib/frozen.mjs';
 import { stripVersionBar, VERSIONS } from './lib/version-bar.mjs';
 import { outputBudgetFindings } from './lib/output-budgets.mjs';
@@ -67,7 +68,10 @@ const allFiles = walk(root);
 for (const file of allFiles) {
   const relative = path.relative(root, file);
   if (!/\.mp3$/i.test(file)) {
-    privacy(relative, fs.readFileSync(file).toString('utf8'));
+    const bytes = fs.readFileSync(file);
+    // Compressed images can coincidentally contain a drive-letter marker. Like the publish scan, check a binary
+    // file's readable strings (runs of 16 or more printable bytes), not its random compressed data.
+    privacy(relative, !isUtf8(bytes) || bytes.includes(0) ? (bytes.toString('latin1').match(/[\x20-\x7e\t]{16,}/g) ?? []).join('\n') : bytes.toString('utf8'));
     continue;
   }
   // Compressed audio is not UTF-8: random frame bytes can resemble device paths.
@@ -372,8 +376,8 @@ for (const page of [
     if (!/<aside class="d-side"[\s\S]*?<ol class="d-side-subpages"[\s\S]*?href="absol-list\.html"/.test(html)) fail(`v4/${name}: the sidebar must list absol89's list under Multiplayer and mods`);
   }
 }
-// Kyle's character (2026-10-05): one standalone page of grids and text, linked from Lore builds only.
-// Its two images are original drawings, credited on the page. Facts must name where they came from.
+// Kyle's character (2026-10-05): one standalone page of grids, callouts and text, linked from Lore builds only.
+// Images: two original drawings, the card, and one credited in-game screenshot (the only game image). Facts must name where they came from.
 {
   const data = readJson('src/variants/v4/vigilant/vigilant.json');
   const page = documents.get(path.join(dist, 'v4', 'vigilant.html')) ?? '';
@@ -383,22 +387,48 @@ for (const page of [
     const plainText = visibleText(main);
     if (!new RegExp('<h1\\b[^>]*>' + data.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "(?:'|&#39;)") + '</h1>').test(page)) fail('v4/vigilant.html: the page title must be ' + data.title);
     if (!/<p class="eyebrow">Kyle(?:'|&#39;)s character<\/p>/.test(page)) fail("v4/vigilant.html: the page must be marked as Kyle's character");
-    if (/class="d-(?:chapter|episode|lookup)\b/.test(main) || /<button\b/.test(main) || /<script\b/.test(main)) fail('v4/vigilant.html: grids and text links only, no cards, buttons or scripts');
+    if (/class="d-(?:chapter|episode|lookup)\b/.test(main) || /<button\b/.test(main) || /<script\b/.test(main)) fail('v4/vigilant.html: grids, callouts and text links only; no cards, buttons or scripts');
     const images = [...main.matchAll(/<img\b[^>]*>/g)].map(item => item[0]);
-    if (images.length !== 2 || images.some(tag => !/\bsrc="assets\/[a-z-]+\.svg"/.test(tag) || !/\balt="[^"]{20,}"/.test(tag))) fail('v4/vigilant.html: exactly two local SVG images, each with real alternative text');
-    if (!/original drawings made for this page\. No game art and no outside images/.test(plainText)) fail('v4/vigilant.html: the credits must say the images are original drawings with no game art');
+    const imageNames = images.map(tag => tag.match(/\bsrc="assets\/([a-z-]+\.(?:svg|webp))"/)?.[1]).sort();
+    if (images.length !== 4 || imageNames.join() !== ['character-card.webp', 'shrine-map.svg', 'skyrim-vigilant-screenshot.webp', 'stendarr-emblem.svg'].join() || images.some(tag => !/\balt="[^"]{20,}"/.test(tag))) fail('v4/vigilant.html: exactly four local images (emblem, map, card, screenshot), each with real alternative text');
+    for (const name of ['character-card.webp', 'skyrim-vigilant-screenshot.webp']) {
+      const built = path.join(dist, 'v4', 'assets', name);
+      if (!fs.existsSync(built) || fs.statSync(built).size > 250 * 1024) fail('v4/vigilant.html: ' + name + ' is missing or too large for the web (over 250 KB)');
+    }
+    for (const phrase of ['The Elder Scrolls V: Skyrim (Bethesda)', 'Original source not found', 'The only game image on this page', 'original drawings made for this page']) {
+      if (!plainText.includes(phrase)) fail('v4/vigilant.html: the image credits must say: ' + phrase);
+    }
     for (const external of [...main.matchAll(/\bhref="(https:\/\/[^"]+)"/g)].map(item => decode(item[1]))) {
-      if (!/^https:\/\/en\.uesp\.net\//.test(external) && external !== 'https://www.youtube.com/watch?v=04nIaNV7d-8') fail('v4/vigilant.html: unexpected outside link ' + external);
+      if (!/^https:\/\/en\.uesp\.net\//.test(external) && external !== 'https://www.youtube.com/watch?v=04nIaNV7d-8' && !/^https:\/\/github\.com\/tiltedphoques\/TiltedEvolution\/issues\/(?:435|365)$/.test(external)) fail('v4/vigilant.html: unexpected outside link ' + external);
     }
     for (const shrine of ['The Two Pillars', 'Hall of the Vigilant', 'Fort Greenwall', "Stendarr's Beacon", 'Temple of the Divines, Solitude']) {
       if (!plainText.includes(shrine)) fail('v4/vigilant.html: shrine list is missing ' + shrine);
     }
     if (!/Which is closest\? The Two Pillars, in Whiterun Hold\./.test(plainText)) fail('v4/vigilant.html: must name the closest shrine to Helgen');
-    for (const phrase of ['Not yet tested in play', 'The clip only', 'Yes, the clip names alchemy, restoration and destruction', 'UESP gives positions, not the bends of the road']) {
+    for (const phrase of ['Not yet tested in play', 'Fan video only', 'Yes, the clip names alchemy, restoration and destruction', 'UESP gives positions, not the bends of the road']) {
       if (!plainText.includes(phrase)) fail('v4/vigilant.html: missing honest label: ' + phrase);
     }
-    for (const id of ['glance', 'lore-beliefs', 'lore-knowledge', 'lore-history', 'play-build', 'play-armor', 'shrines', 'road', 'hooks', 'sources']) {
+    for (const id of ['card', 'glance', 'key-facts', 'look', 'lore-beliefs', 'lore-traits', 'lore-behaviour', 'lore-hunt', 'lore-relations', 'lore-knowledge', 'lore-history', 'line-to-know', 'quotes-game', 'quotes-books', 'play-breton', 'play-build', 'play-armor', 'shrines', 'road', 'hooks', 'sources']) {
       if (!page.includes('id="' + id + '"')) fail('v4/vigilant.html: missing section ' + id);
+    }
+    // The character is a Breton man; the card keeps its open name slot.
+    if (!/A Breton man\. A Vigilant of Stendarr, from Cyrodiil\./.test(plainText) || !plainText.includes('[NAME]')) fail('v4/vigilant.html: must show a Breton man and keep the [NAME] slot on the card');
+    const ownText = [...data.lead, ...data.card.text, JSON.stringify(data.grids.find(g => g.id === 'glance')?.rows ?? '')].join(' ');
+    if (/\b(?:she|her|hers)\b/i.test(ownText)) fail('v4/vigilant.html: his own lead, glance and card must never call him her');
+    // Callouts, quotes and the crafting note.
+    if ((page.match(/<aside class="d-callout">/g) ?? []).length < 5) fail('v4/vigilant.html: at least five callouts are required');
+    for (const phrase of ['His vow', 'The closest shrine', 'Heavy armor and his spells']) if (!plainText.includes(phrase)) fail('v4/vigilant.html: missing callout ' + phrase);
+    for (const id of ['quotes-game', 'quotes-books']) {
+      const rows = data.grids.find(g => g.id === id)?.rows ?? [];
+      if (rows.length < 8) fail('v4/vigilant.html: ' + id + ' needs at least eight quotes');
+      for (const row of rows) {
+        if (!/^\u201c.+\u201d$/.test(row[0]) || !JSON.stringify(row[2]).includes('https://en.uesp.net/')) fail('v4/vigilant.html: every quote needs quote marks and a UESP source: ' + String(row[0]).slice(0, 40));
+      }
+    }
+    if (!plainText.includes('\u201cWalk always in the light, or we will drag you to it.\u201d')) fail('v4/vigilant.html: missing the Vigilant greeting about walking in the light');
+    if (!/not in Skyrim/.test(plainText)) fail('v4/vigilant.html: lore books from the online game must be labelled as not in Skyrim');
+    for (const phrase of ['Potions he brews and gear he enchants may not pass between players under Skyrim Together', 'Wednesday\u2019s test checks it']) {
+      if (!plainText.includes(phrase)) fail('v4/vigilant.html: missing the crafting note: ' + phrase);
     }
     if (/\b(?:Ordinator|Apocalypse|Adamant|Blade and Blunt|Valhalla)\b/.test(plainText)) fail("v4/vigilant.html: lists a mod we don't run");
     const linkers = [...documents].filter(([file, html]) => html.includes('href="vigilant.html"')).map(([file]) => path.relative(dist, file));
