@@ -764,7 +764,13 @@
               ],
               "rows": [
                 [
-                  "Vigilant of Stendarr",
+                  [
+                    {
+                      "text": "Vigilant of Stendarr",
+                      "href": "vigilant.html"
+                    },
+                    " (Kyle's character)"
+                  ],
                   "The Vigil of Stendarr hunts undead and Daedra worshippers.",
                   "Restoration, heavy armor, sword and shield. Our gear choice."
                 ],

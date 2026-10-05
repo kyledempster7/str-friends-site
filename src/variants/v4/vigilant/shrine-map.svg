@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 580" width="640" height="580" role="img" aria-labelledby="map-title map-desc"><title id="map-title">Where the nearest Shrine of Stendarr is</title><desc id="map-desc">A north-up plot of Helgen, Riverwood, Whiterun, Rorikstead, Falkreath and Bleak Falls Barrow, with The Two Pillars shrine marked 23 cells from Helgen. Edge labels give the distance to the Hall of the Vigilant, Fort Greenwall, Stendarr's Beacon and the Solitude temple.</desc><!-- original, Fellowship, 2026: plotted from game location data, no game art -->
+<rect width="640" height="580" fill="#101a20"/>
+<g font-family="Georgia,'Times New Roman',serif" fill="#c2cdcd">
+<text x="34" y="32" font-size="22" fill="#f6f2e9">Plotted from the game's own location data</text>
+<text x="34" y="58" font-size="18" fill="#b2bfc2">North is up. One grid square is ten game cells.</text>
+<line x1="82.0" y1="88.0" x2="82.0" y2="552.0" stroke="#26353c" stroke-width="1"/>
+<line x1="242.0" y1="88.0" x2="242.0" y2="552.0" stroke="#26353c" stroke-width="1"/>
+<line x1="402.0" y1="88.0" x2="402.0" y2="552.0" stroke="#26353c" stroke-width="1"/>
+<line x1="50.0" y1="488.0" x2="546.0" y2="488.0" stroke="#26353c" stroke-width="1"/>
+<line x1="50.0" y1="328.0" x2="546.0" y2="328.0" stroke="#26353c" stroke-width="1"/>
+<line x1="50.0" y1="168.0" x2="546.0" y2="168.0" stroke="#26353c" stroke-width="1"/>
+<line x1="462.0" y1="472.0" x2="227.4" y2="190.4" stroke="#b2bfc2" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+<polyline fill="none" stroke="#d8bc87" stroke-width="2.5" stroke-dasharray="9 6" points="462.0,472.0 488.2,339.5 490.8,202.2 227.4,190.4"/>
+<circle cx="462.0" cy="472.0" r="6" fill="#f6f2e9"/>
+<circle cx="488.2" cy="339.5" r="4.5" fill="#78888c"/>
+<circle cx="490.8" cy="202.2" r="4.5" fill="#78888c"/>
+<circle cx="74.0" cy="136.0" r="4.5" fill="#78888c"/>
+<circle cx="380.7" cy="344.0" r="4.5" fill="#78888c"/>
+<circle cx="280.4" cy="510.4" r="4.5" fill="#78888c"/>
+<text x="476.0" y="479.0" font-size="20" text-anchor="start" fill="#f6f2e9" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Helgen</text>
+<text x="502.2" y="345.5" font-size="20" text-anchor="start" fill="#c2cdcd" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Riverwood</text>
+<text x="476.8" y="208.2" font-size="20" text-anchor="end" fill="#c2cdcd" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Whiterun</text>
+<text x="74.0" y="122.0" font-size="20" text-anchor="middle" fill="#c2cdcd" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Rorikstead</text>
+<text x="380.7" y="332.0" font-size="20" text-anchor="middle" fill="#c2cdcd" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Bleak Falls Barrow</text>
+<text x="280.4" y="496.4" font-size="20" text-anchor="middle" fill="#c2cdcd" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Falkreath</text>
+<path d="M227.4 179.4l11 11-11 11-11-11Z" fill="#d8bc87" stroke="#101a20" stroke-width="2"/>
+<text x="227.4" y="170.4" font-size="22" text-anchor="middle" fill="#d8bc87" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">The Two Pillars</text>
+<text x="315.6" y="308.8" font-size="18" text-anchor="end" fill="#b2bfc2" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">23 cells in a straight line</text>
+<text x="472.4" y="264.0" font-size="18" text-anchor="end" fill="#d8bc87" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">walk via towns: about 33</text>
+<text x="606" y="89.6" font-size="18" text-anchor="end" fill="#d8bc87" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">↑ Hall of the Vigilant, 36 cells</text>
+<text x="34" y="89.6" font-size="18" fill="#b2bfc2" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">↖ Solitude temple, 49 cells</text>
+<text x="606" y="417.6" font-size="18" text-anchor="end" fill="#b2bfc2" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Fort Greenwall →</text>
+<text x="606" y="437.6" font-size="18" text-anchor="end" fill="#b2bfc2" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">37 cells east</text>
+<text x="606" y="555.2" font-size="18" text-anchor="end" fill="#b2bfc2" paint-order="stroke" stroke="#101a20" stroke-width="5" stroke-linejoin="round">Stendarr's Beacon, 45 cells ↘</text>
+</g></svg>

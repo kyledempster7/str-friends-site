@@ -77,6 +77,8 @@ for (const [name, content] of await renderV4(root)) {
   await writeFile(destination, content);
 }
 for (const name of ['assets/site.css', 'assets/north.svg', 'assets/favicon.svg']) await writeFile(path.join(output, 'v4', name), original.get(name));
+// Kyle's character page: two original drawings made for it (no game art, no outside images).
+for (const name of ['stendarr-emblem.svg', 'shrine-map.svg']) await writeFile(path.join(output, 'v4/assets', name), await readFile(path.join(root, 'src/variants/v4/vigilant', name)));
 // Same-origin, repository-owned audio. A fresh checkout may have no clips yet.
 const v4Source = path.join(root, 'src/variants/v4');
 if ((await readdir(v4Source)).includes('audio')) {

@@ -59,6 +59,7 @@ const css = `/* Version D: grids on the original look. */
 .d-lookup .d-count{flex-basis:100%;margin:-12px 0 0}
 .d-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .d-sources{margin-top:32px;font-size:.85rem;color:#b2bfc2}.d-sources a{margin-right:16px;color:var(--gold)}
+.d-figure{margin:24px 0}.d-figure img{display:block;max-width:100%;height:auto}.d-emblem img{width:140px}.d-figure figcaption{margin-top:8px;max-width:70ch;font-size:.85rem;color:#b2bfc2}
 .d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:0 0 16px}
 .d-chapters-head h2{margin:0;font-size:1.8rem}.d-chapters-head p{margin:0;color:#b2bfc2}
 .d-chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
@@ -207,6 +208,7 @@ export async function renderV4(root) {
   const absolScript = await readFile(path.join(root, 'scripts/lib/v4-absol.js'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
   const absolData = await readFile(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
   const absolCount = JSON.parse(absolData).rows.length;
+  const vigilant = JSON.parse(await readFile(path.join(root, 'src/variants/v4/vigilant/vigilant.json'), 'utf8'));
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
     const found = typeof g === 'string' ? byId.get(g) : g;
@@ -451,6 +453,20 @@ ${audioTranscript({ transcriptAnchor: `${ep.id}-transcript`, title: ep.title, tr
 <p class="d-guide-gap">${esc(guide.gap)}</p>
 <nav class="d-jump" aria-label="Episodes"><span>Jump to episode:</span>${guide.episodes.map((ep) => `<a href="#${ep.id}" aria-label="Episode ${ep.number}: ${esc(ep.title)}">${ep.number}</a>`).join('')}</nav>
 ${episodeBoxes}</div></div><script>${audioScript}</script>`
+  }));
+
+  // Kyle's character: one standalone page, linked from Lore builds. It is not one of the seven topics, so the sidebar and pager are untouched.
+  const figure = (cls, file, size, alt, caption) => `<figure class="d-figure ${cls}"><img src="assets/${file}" width="${size[0]}" height="${size[1]}" alt="${esc(alt)}" decoding="async"><figcaption>${esc(caption)}</figcaption></figure>`;
+  const vigilantEmblem = figure('d-emblem', 'stendarr-emblem.svg', [140, 140], 'A mace in front of a shield, under five short rays of light, inside a double ring.', "Emblem: an original drawing made for this page. It is not Stendarr's official symbol and uses no game art.");
+  const vigilantMap = figure('d-map', 'shrine-map.svg', [640, 580], "A north-up plot of Helgen, Riverwood, Whiterun, Rorikstead, Falkreath and Bleak Falls Barrow. The Two Pillars shrine is marked 23 cells from Helgen. Edge labels give the distance to the Hall of the Vigilant, Fort Greenwall, Stendarr's Beacon and the Solitude temple.", 'Map: an original drawing, plotted from the game location data in our install. The grid above gives the same distances.');
+  pages.set(vigilant.file, shell({
+    title: vigilant.title,
+    description: vigilant.description,
+    body: `<div class="d-layout">${sidebar(vigilant.file)}<div class="d-page"><p class="eyebrow">${esc(vigilant.eyebrow)}</p><h1>${esc(vigilant.title)}</h1>
+${vigilant.lead.map((line) => `<p class="d-lead">${esc(line)}</p>`).join('')}
+${vigilantEmblem}
+${vigilant.grids.map((g) => grid(g, vigilant.title) + (g.id === 'shrines' ? `\n${vigilantMap}` : '')).join('\n')}
+</div></div>`
   }));
 
   pages.set('404.html', shell({

@@ -1,0 +1,836 @@
+{
+ "file": "vigilant.html",
+ "title": "Kyle's character: a Vigilant of Stendarr",
+ "eyebrow": "Kyle's character",
+ "description": "Kyle's own character for our Skyrim Together campaign: a Vigilant of Stendarr from Cyrodiil. Lore, how to play him, the nearest shrine to Helgen, and story hooks.",
+ "updated": "2026-10-05",
+ "lead": [
+  "This is Kyle's own character. Everyone else plays their own.",
+  "He is a man from Cyrodiil and a Vigilant of Stendarr. He walks north to find his order.",
+  "Each fact below says where it came from. What we have not checked says so."
+ ],
+ "grids": [
+  {
+   "id": "glance",
+   "title": "At a glance",
+   "columns": [
+    "Question",
+    "Answer"
+   ],
+   "rows": [
+    [
+     "Who is he?",
+     "A man. A Vigilant of Stendarr, from Cyrodiil."
+    ],
+    [
+     "Where do we meet him?",
+     "On the road north into Skyrim, near Helgen. He is not escaping Helgen's execution."
+    ],
+    [
+     "What does he want?",
+     "To reach his order, or get back to it. A Stendarr shrine can be his base."
+    ],
+    [
+     "How far will he fall?",
+     "Open. Play decides it."
+    ],
+    [
+     "Will he join the Dawnguard?",
+     "Open. Play decides it."
+    ],
+    [
+     "Does the party start together?",
+     "Maybe not. It may start scattered. A couple of us may meet in a town."
+    ],
+    [
+     "How does he play?",
+     "Healer first. He keeps the party alive before he attacks."
+    ]
+   ]
+  },
+  {
+   "id": "lore-beliefs",
+   "title": "Lore: what the Vigil believes and does",
+   "columns": [
+    "Topic",
+    "In short",
+    "Source"
+   ],
+   "note": "The clip is one fan's video analysis, not game text. Rows marked The clip only are its reading.",
+   "rows": [
+    [
+     "Four enemies",
+     "The Vigil hunts abominations: Daedra, werewolves, vampires and witches. The old doctrine names four kinds: Daedra, man-beasts, risen dead and vampires.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Four Abominations",
+       "href": "https://en.uesp.net/wiki/Lore:The_Four_Abominations"
+      },
+      " · ",
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Daedra come first",
+     "Daedra and their worshippers worry the Vigil most. It treats vampires as a lesser threat. It shows no mercy to abominations.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Mercy for mortals",
+     "Four precepts. Never refuse aid you can give. Go among the sick and wounded. Pray every day. Do not hoard wealth or indulge.",
+     [
+      {
+       "text": "UESP: Precepts",
+       "href": "https://en.uesp.net/wiki/Lore:Precepts_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Fear of dark magic",
+     "The order grew from fear after the Oblivion Crisis. It hates conjuring and necromancy. Healing and holy magic are its own. The clip only.",
+     [
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "On the road",
+     "Vigilants walk the roads in groups and patrol the wilds. Any Vigilant who is not fighting will cure your disease if you ask. It costs nothing.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "At the hall",
+     "The Hall is a lodge and a monastery. Members eat, read and pray there. Some dig up old ruins and write notes. The clip only.",
+     [
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "lore-knowledge",
+   "title": "Lore: what a Vigilant must know",
+   "columns": [
+    "Skill",
+    "The clip says",
+    "The game shows (UESP)"
+   ],
+   "note": "Yes, the clip names alchemy, restoration and destruction. It says Vigilants must learn all three and fight with maces. It gives no game source for must.",
+   "rows": [
+    [
+     "Alchemy",
+     "Must learn it. The Hall has two alchemy labs.",
+     "Each Vigilant carries healing potions and a cure disease potion."
+    ],
+    [
+     "Restoration",
+     "Must learn it. Healing is their trade.",
+     "Every Vigilant knows the Healing spell."
+    ],
+    [
+     "Destruction",
+     "Must learn it. The clip says they add fire magic to the mace.",
+     "The list shows no fire spell for a Skyrim Vigilant. The clip only."
+    ],
+    [
+     "Mace",
+     "Vigilants fight with maces.",
+     "Each Vigilant carries a mace. It gets better as they level."
+    ],
+    [
+     "Defense",
+     "They cast a protective armor spell before a fight.",
+     "Every Vigilant knows Oakflesh and Lesser Ward."
+    ],
+    [
+     "Jack of all trades",
+     "They know a little of everything. Few master any of it. The clip only.",
+     "Not stated."
+    ]
+   ]
+  },
+  {
+   "id": "lore-history",
+   "title": "Lore: history",
+   "columns": [
+    "When",
+    "What happened",
+    "Source"
+   ],
+   "rows": [
+    [
+     "Founding",
+     "The Vigil was founded soon after the Oblivion Crisis of 3E 433. Older Stendarr orders came before it.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "The clip",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "In Skyrim",
+     "The Hall of the Vigilant is south of Dawnstar. A second base, Stendarr's Beacon, is a tower in The Rift. Keeper Carcette leads.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Isran and Celann",
+     "Both left the Vigil, unhappy with it. Isran thought it too soft. They founded the Dawnguard.",
+     [
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      },
+      " · ",
+      {
+       "text": "UESP: Celann",
+       "href": "https://en.uesp.net/wiki/Skyrim:Celann"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "The Hall falls",
+     "In the Dawnguard story, vampires destroy the Hall. Tolan and Adalvald die at Dimhollow Crypt. Tolan tells Isran that Carcette is dead.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      }
+     ]
+    ],
+    [
+     "After",
+     "The Vigil goes on. Most members already live on the road. Stendarr's Beacon is still a base.",
+     [
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "play-build",
+   "title": "Playing him: the build",
+   "columns": [
+    "Part",
+    "Choice",
+    "Note"
+   ],
+   "rows": [
+    [
+     "Armor",
+     "Heavy. Maybe some light.",
+     "See the armor grid below."
+    ],
+    [
+     "Weapon",
+     "Mace, shield, or both.",
+     "Skyrim Vigilants carry a mace."
+    ],
+    [
+     "Main skill",
+     "Restoration.",
+     "Heal others first. Keep the party standing."
+    ],
+    [
+     "Other skills",
+     "Alchemy and Destruction.",
+     "The Vigil's other disciplines, from the clip."
+    ],
+    [
+     "Spells to try",
+     [
+      {
+       "text": "Heal Other",
+       "href": "rules.html#rule-heal-other"
+      },
+      ", ",
+      {
+       "text": "Healing Hands",
+       "href": "rules.html#rule-healing-hands"
+      },
+      ", ",
+      {
+       "text": "Close Greater Wounds",
+       "href": "rules.html#rule-close-greater-wounds"
+      },
+      ", ",
+      {
+       "text": "Stendarr's Mercy",
+       "href": "rules.html#rule-stendarrs-mercy"
+      },
+      ", ",
+      {
+       "text": "Circle of Life",
+       "href": "rules.html#rule-circle-of-life"
+      },
+      ", ",
+      {
+       "text": "Sunbeam",
+       "href": "rules.html#rule-sunbeam"
+      }
+     ],
+     "All are Allowed on the rules page. Healing other players in co-op is not fully tested."
+    ]
+   ]
+  },
+  {
+   "id": "play-armor",
+   "title": "Heavy armor and spells",
+   "columns": [
+    "Question",
+    "Answer",
+    "How we know"
+   ],
+   "note": "Read from the installed plugin files on 2026-10-05. Not yet tested in play. Not checked: one Imperious perk for High Elves tests armor type.",
+   "rows": [
+    [
+     "Does heavy armor weaken spells?",
+     "No. We found nothing in the installed plugins that does that to Restoration or Destruction.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Does heavy armor raise spell cost?",
+     "No. The spell-cost perks do not check what armor you wear.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Is any spell tied to armor?",
+     "One group. Oakflesh, Ironflesh, Stoneflesh, Ebonyflesh and Dragonhide lose their Mage Armor bonus while you wear any light or heavy armor. The spell still works. It is the same rule as the base game.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      },
+      " · ",
+      {
+       "text": "UESP: Alteration",
+       "href": "https://en.uesp.net/wiki/Skyrim:Alteration"
+      }
+     ]
+    ],
+    [
+     "What does heavy armor give?",
+     "More armor. Perks add 20% to 100% more rating, 25% more with three heavy pieces, and 25% more with three matching pieces. Three pieces also halve fall damage and reflect some melee hits.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "What does it cost?",
+     "Perk points in the Heavy Armor tree. The Conditioning perk text says heavy armor then weighs nothing and does not slow you, so it weighs and slows without it. We have not measured that.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "What does light armor give instead?",
+     "Matching light perks add armor, stamina regeneration and arrow deflection. One adds 30% spell duration with two matching elven or falmer light pieces.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Can he mix them?",
+     "The bonuses count three pieces of one kind. Keep three heavy pieces to keep the heavy bonuses. That is read from the perk text, not tested.",
+     [
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "play-perks",
+   "title": "Playing him: perks that fit",
+   "columns": [
+    "Perk or rule",
+    "What the installed text says",
+    "On our rules page"
+   ],
+   "note": "Perk text is from Better Vanilla Perks as installed. Our own patch changes a few perks.",
+   "rows": [
+    [
+     "Bone Breaker",
+     "Mace attacks deal 20%, 40% or 60% more damage to armor and undead.",
+     "Not listed. Ask the host."
+    ],
+    [
+     "Iron Will",
+     "Blocking is 20% to 40% more effective.",
+     "Not listed. Ask the host."
+    ],
+    [
+     "Strong Reflexes rank 1",
+     "Take 50% less power-attack damage while shield blocking.",
+     [
+      {
+       "text": "Allowed",
+       "href": "rules.html#rule-strong-reflexes-1"
+      }
+     ]
+    ],
+    [
+     "Restoration tiers",
+     "Novice to Expert: spells of that level cost half the magicka, and you gain magicka regeneration. Respite makes healing spells restore stamina too.",
+     "Not listed. Ask the host."
+    ],
+    [
+     "Resurgence",
+     "Our patch rewrites it to 10% less magicka for Restoration spells.",
+     [
+      {
+       "text": "Quarantined: don't use yet",
+       "href": "rules.html#rule-resurgence"
+      }
+     ]
+    ],
+    [
+     "Destruction tiers",
+     "Spells of each level cost half the magicka and are 20% to 50% stronger. Augmented Flames cuts fire spell cost by 20%.",
+     "Not listed. Ask the host."
+    ],
+    [
+     "Alchemist",
+     "Potions and poisons are 20% to 100% stronger. Benefactor adds 25% to good potions.",
+     "Not listed. Ask the host."
+    ]
+   ]
+  },
+  {
+   "id": "shrines",
+   "title": "Shrines and the road",
+   "columns": [
+    "Shrine",
+    "Where it is",
+    "Cells from Helgen",
+    "Source"
+   ],
+   "note": "A cell is one square of the game map. Distances are straight lines, measured by us from the game data in our install.",
+   "rows": [
+    [
+     [
+      {
+       "text": "The Two Pillars",
+       "href": "#road"
+      }
+     ],
+     "Whiterun Hold, on the tundra. South of Swindler's Den, northeast of Broken Fang Cave. A Zenithar shrine is in sight to the west.",
+     "23",
+     [
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Hall of the Vigilant",
+     "The Pale, on a table inside the Hall, south of Dawnstar. The shrine goes when the Dawnguard quest starts and the Hall is destroyed.",
+     "36",
+     [
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Fort Greenwall",
+     "The Rift, in the Captain's Quarter, on a dresser. North-northwest of Riften. Bandits and frostbite spiders live there.",
+     "37",
+     [
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Fort Greenwall",
+       "href": "https://en.uesp.net/wiki/Skyrim:Fort_Greenwall"
+      }
+     ]
+    ],
+    [
+     "Stendarr's Beacon",
+     "The Rift, in a tower's sleeping quarters. The Vigil still uses it, even after the Dawnguard story.",
+     "45",
+     [
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Temple of the Divines, Solitude",
+     "The big temple in Solitude, with the other Divines.",
+     "49",
+     [
+      {
+       "text": "UESP: Stendarr",
+       "href": "https://en.uesp.net/wiki/Lore:Stendarr"
+      },
+      " · ",
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "closest",
+   "title": "The closest shrine to Helgen",
+   "columns": [
+    "Question",
+    "Answer"
+   ],
+   "rows": [
+    [
+     "Which is closest?",
+     "The Two Pillars, in Whiterun Hold."
+    ],
+    [
+     "How far?",
+     "About 23 cells in a straight line. About 33 cells walking from town to town."
+    ],
+    [
+     "What does a shrine give?",
+     "The Blessing of Stendarr: block 10% more damage with your shield, for 8 hours. It also cures disease. That is the base game. We have not re-read it in our install."
+    ],
+    [
+     "Could the Hall be his base instead?",
+     "Yes, until the Dawnguard quest starts. Then it burns. Stendarr's Beacon is the shrine that survives, but it is far to the east."
+    ]
+   ]
+  },
+  {
+   "id": "road",
+   "title": "The road from Helgen",
+   "columns": [
+    "Stop",
+    "What to know",
+    "Source"
+   ],
+   "note": "UESP gives positions, not the bends of the road. We have not walked the road.",
+   "rows": [
+    [
+     "Helgen",
+     "Eastern Falkreath Hold, south of Riverwood. He is on the road north, near here.",
+     [
+      {
+       "text": "UESP: Helgen",
+       "href": "https://en.uesp.net/wiki/Skyrim:Helgen"
+      }
+     ]
+    ],
+    [
+     "Riverwood",
+     "North, about 8 cells. It has an alchemy lab. It is south of Whiterun.",
+     [
+      {
+       "text": "UESP: Riverwood",
+       "href": "https://en.uesp.net/wiki/Skyrim:Riverwood"
+      }
+     ]
+    ],
+    [
+     "Whiterun",
+     "About 9 cells farther north.",
+     [
+      {
+       "text": "UESP: Riverwood",
+       "href": "https://en.uesp.net/wiki/Skyrim:Riverwood"
+      },
+      " · ",
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "The west road",
+     "Go west from Whiterun toward Rorikstead. The shrine is about 16 cells due west of Whiterun.",
+     [
+      {
+       "text": "UESP: Rorikstead",
+       "href": "https://en.uesp.net/wiki/Skyrim:Rorikstead"
+      },
+      " · ",
+      {
+       "text": "Our install",
+       "href": "#sources"
+      }
+     ]
+    ],
+    [
+     "Swindler's Den",
+     "East of Rorikstead. Bandits live there. The shrine is south of it.",
+     [
+      {
+       "text": "UESP: Swindler's Den",
+       "href": "https://en.uesp.net/wiki/Skyrim:Swindler%27s_Den"
+      }
+     ]
+    ],
+    [
+     "The Two Pillars",
+     "A raised stone platform with the shrine between two standing pillars. A strong box sits beside it.",
+     [
+      {
+       "text": "UESP: Shrine of Stendarr",
+       "href": "https://en.uesp.net/wiki/Skyrim:Shrine_of_Stendarr"
+      }
+     ]
+    ],
+    [
+     "Broken Fang Cave",
+     "Southwest of the shrine. Skeletons and vampires live inside. Minimum level 6.",
+     [
+      {
+       "text": "UESP: Broken Fang Cave",
+       "href": "https://en.uesp.net/wiki/Skyrim:Broken_Fang_Cave"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "people",
+   "title": "People he might meet",
+   "columns": [
+    "Who",
+    "What to know",
+    "Source"
+   ],
+   "rows": [
+    [
+     "Keeper Carcette",
+     "Leads the Vigil in Skyrim, from the Hall. In the Dawnguard story Tolan says she is dead.",
+     [
+      {
+       "text": "UESP: Vigilants",
+       "href": "https://en.uesp.net/wiki/Skyrim:Vigilants_of_Stendarr"
+      },
+      " · ",
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      }
+     ]
+    ],
+    [
+     "Isran",
+     "A Redguard and a former Vigilant. He leads the Dawnguard at Fort Dawnguard. He trains Heavy Armor.",
+     [
+      {
+       "text": "UESP: Isran",
+       "href": "https://en.uesp.net/wiki/Skyrim:Isran"
+      }
+     ]
+    ],
+    [
+     "Celann",
+     "A Breton and a former Vigilant. A vampire hunter at Fort Dawnguard.",
+     [
+      {
+       "text": "UESP: Celann",
+       "href": "https://en.uesp.net/wiki/Skyrim:Celann"
+      }
+     ]
+    ],
+    [
+     "Florentius Baenius",
+     "An Imperial priest who believes Arkay speaks through him. He worked with the Vigil and is rescued at Ruunvald. He trains Restoration.",
+     [
+      {
+       "text": "UESP: Florentius",
+       "href": "https://en.uesp.net/wiki/Skyrim:Florentius_Baenius"
+      },
+      " · ",
+      {
+       "text": "UESP: Vigil lore",
+       "href": "https://en.uesp.net/wiki/Lore:Vigil_of_Stendarr"
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "hooks",
+   "title": "Story hooks",
+   "columns": [
+    "Hook",
+    "The scene",
+    "Left open"
+   ],
+   "rows": [
+    [
+     "A pair on the road",
+     "Vigilants walk in groups. He meets two and asks after the Hall.",
+     "Do they know where Carcette is?"
+    ],
+    [
+     "The shrine by the cave",
+     "He prays at the Two Pillars and heals the party. Vampires wait in the cave below.",
+     "Does the party follow him in?"
+    ],
+    [
+     "Before the Hall burns",
+     "The Hall stands until the Dawnguard quest starts. He races to reach it.",
+     "Does he arrive in time?"
+    ],
+    [
+     "The one who left",
+     "Isran left the Vigil and called it too soft. He is looking for recruits.",
+     "Does Kyle's Vigilant join him?"
+    ]
+   ]
+  },
+  {
+   "id": "sources",
+   "title": "Sources and credits",
+   "columns": [
+    "Source",
+    "What it is",
+    "Used for"
+   ],
+   "rows": [
+    [
+     [
+      {
+       "text": "The clip",
+       "href": "https://www.youtube.com/watch?v=04nIaNV7d-8"
+      }
+     ],
+     "A 2024 video analysis, Heroes whose stories remain untold: Vigilants of Stendarr, by Borean Knight. Kyle clipped it on 2026-10-05.",
+     "The Vigil's beliefs, duties, knowledge and history. One fan's reading."
+    ],
+    [
+     [
+      {
+       "text": "UESP",
+       "href": "https://en.uesp.net/"
+      }
+     ],
+     "The Unofficial Elder Scrolls Pages. Its text is shared under an Attribution-ShareAlike 2.5 license. We rewrote facts in our own words and linked each page.",
+     "Lore, shrines, people and places in the base game."
+    ],
+    [
+     "Our install",
+     "The game data and plugins on our server PC, read on 2026-10-05: the game's own file, Better Vanilla Perks, Mysticism, Imperious and our held-perks patch.",
+     "Shrine places, distances and the armor and spell answers."
+    ],
+    [
+     "Images",
+     "The emblem and the map are original drawings made for this page. No game art and no outside images.",
+     "The emblem at the top. The map under the shrine grid."
+    ]
+   ]
+  }
+ ]
+}
