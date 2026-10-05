@@ -207,7 +207,7 @@
           "No extra rule"
         ]
       ],
-      "note": "Better Vanilla Perks is part of our collection (revision 6)."
+      "note": "Vanilla means the unmodded game. Better Vanilla Perks is part of our collection (revision 6)."
     },
     {
       "id": "races",
@@ -280,12 +280,12 @@
           "No racial power in our game. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
+      "note": "Vanilla means the unmodded game. Imperious changes racial traits. Complete racial objectives to unlock powers. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
     },
     {
       "id": "spells",
       "title": "Spells by school",
-      "note": "Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. Not tested in co-op yet. Collection revision 6.",
+      "note": "Vanilla means the unmodded game. Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. Not tested in co-op yet. Collection revision 6.",
       "columns": [
         "School",
         "Vanilla",
@@ -474,7 +474,7 @@
           "Stop. Tell the host. Never reload while connected or fix quests alone."
         ]
       ],
-      "note": "Our mods lists all 19 installed mods and their changes."
+      "note": "Our mods lists every installed mod and what it changes."
     },
     {
       "id": "builds",
@@ -654,7 +654,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still revision 6, with 19 mods. The next collection revision is these 27 installed mods, all on the host's PC. Mods marked new are not in revision 6 and are not on Nexus yet.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still revision 6, with 19 mods. The next collection revision is these 27 installed mods, all on the host's PC. The list is still growing. Mods marked new are not in revision 6 and are not on Nexus yet.",
       "columns": [
         "Mod",
         "Vanilla",
