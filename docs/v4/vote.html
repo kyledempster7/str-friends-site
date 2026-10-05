@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>Vote · Fellowship</title><meta name="description" content="Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home"><svg class="icon brand-mark" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 20 7-13 4 7 3-5 6 11H2Z"/><path d="m6.5 11.5 2.5 2 2.5-2"/></svg><span>Fellowship<small>A Skyrim Together field guide</small></span></a><a class="leave-link d-join" href="https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h5v16h-5M3 12h11m-4-5 5 5-5 5"/></svg><span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
+<div class="d-layout"><aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol><li><a href="together.html">01 · Multiplayer and mods</a></li><li><a href="skills.html">02 · Skills and races</a></li><li><a href="spells.html">03 · Spells and magic</a></li><li><a href="setup.html">04 · Setup, joining and leaving</a></li><li><a href="builds.html">05 · Build ideas</a></li><li><a href="party.html" aria-current="location">06 · Playing as a party</a><ol class="d-side-subpages" aria-label="Playing as a party pages"><li><a href="party.html">Group play</a></li><li><a href="leader.html">The party leader</a></li><li><a href="chat.html">Chat</a></li><li><a href="purpose.html">Our purpose</a></li><li><a href="vote.html" aria-current="page">Vote</a></li></ol></li><li><a href="ownership.html">07 · What belongs to you</a></li><li><a href="rules.html">Can I use this?</a></li><li><a href="purpose.html">Our purpose</a></li><li><a href="audio-guide.html">Audio guide</a></li></ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside><div class="d-page"><p class="eyebrow">06 · Playing as a party</p><h1>Vote</h1><nav class="d-page-strip" aria-label="Playing as a party pages"><span class="d-page-count d-sr-only">Page 5 of 5:</span> <a href="party.html">Group play</a> <span aria-hidden="true">·</span> <a href="leader.html">The party leader</a> <span aria-hidden="true">·</span> <a href="chat.html">Chat</a> <span aria-hidden="true">·</span> <a href="purpose.html">Our purpose</a> <span aria-hidden="true">·</span> <strong aria-current="page">Vote</strong> <a class="d-page-next" href="ownership.html">Next topic: What belongs to you →</a></nav>
+<div class="d-vote">
+<p class="d-lead">Give each order a number. 1 is your favorite. Each number is used once.</p>
+<p class="d-vote-note">Nothing leaves your browser. This device keeps only your own ranking.</p>
+<noscript><p class="d-vote-note">Voting needs JavaScript. Without it, tell the group your order in chat.</p></noscript>
+<section class="d-section" aria-labelledby="vote-rank-title"><h2 id="vote-rank-title">Your ranking</h2>
+<form id="vote-rank" onsubmit="return false"><div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Order</th><th scope="col">Your number</th></tr></thead><tbody>
+<tr><th scope="row"><a href="purpose.html#order-relic-wardens">Relic Wardens</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-A">Your number for Relic Wardens</label><select id="rank-A" name="rank-A"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+<tr><th scope="row"><a href="purpose.html#order-free-company">Free Company</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-B">Your number for Free Company</label><select id="rank-B" name="rank-B"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+<tr><th scope="row"><a href="purpose.html#order-trading-company">Trading Company</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-C">Your number for Trading Company</label><select id="rank-C" name="rank-C"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+<tr><th scope="row"><a href="purpose.html#order-antiquarians">Antiquarians and Map-makers</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-D">Your number for Antiquarians and Map-makers</label><select id="rank-D" name="rank-D"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+<tr><th scope="row"><a href="purpose.html#order-monster-hunters">Monster Hunters</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-E">Your number for Monster Hunters</label><select id="rank-E" name="rank-E"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+<tr><th scope="row"><a href="purpose.html#order-road-pilgrims">Road Pilgrims</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-F">Your number for Road Pilgrims</label><select id="rank-F" name="rank-F"><option value="">Pick</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></td></tr>
+</tbody></table></div>
+<div class="d-vote-code"><label for="vote-code">Your code</label><input type="text" id="vote-code" readonly autocomplete="off" spellcheck="false" placeholder="Rank all six first"><button type="button" class="d-linkbtn" id="vote-copy" disabled>Copy code</button><button type="button" class="d-linkbtn" id="vote-clear">Clear my ranking</button></div>
+<p class="d-vote-note" id="vote-code-status" role="status" aria-live="polite"></p><p class="d-vote-note" id="vote-your-order"></p></form></section>
+<section class="d-section" aria-labelledby="vote-count-title"><h2 id="vote-count-title">Count the codes</h2>
+<p class="d-vote-note">Paste up to four codes from the group chat. The count shows round by round. A tie is settled by a coin flip or a group gut pick.</p>
+<label for="vote-paste">Pasted codes</label><textarea id="vote-paste" autocomplete="off" spellcheck="false" placeholder="V1-ABCDEF-0"></textarea>
+<div id="vote-result" role="status" aria-live="polite"></div></section>
+<script type="application/json" id="vote-orders">[{"letter":"A","name":"Relic Wardens"},{"letter":"B","name":"Free Company"},{"letter":"C","name":"Trading Company"},{"letter":"D","name":"Antiquarians and Map-makers"},{"letter":"E","name":"Monster Hunters"},{"letter":"F","name":"Road Pilgrims"}]</script>
+</div>
+<nav class="d-pager" aria-label="Guide progress"><a href="purpose.html">← Previous page: Our purpose</a><a class="d-next" href="ownership.html">07 What belongs to you →</a></nav></div></div><script>// Vote code and instant-runoff counting for the Vote page. Pure functions: nothing is sent or stored here.
+// The same file is inlined in the page and imported by the tooling tests.
+(function (root) {
+  'use strict';
+  var PREFIX = 'V1';
+  var LETTERS = 'ABCDEF';
+
+  function checkDigit(letters) {
+    var sum = 0;
+    for (var i = 0; i < letters.length; i++) sum += (i + 1) * (LETTERS.indexOf(letters.charAt(i)) + 1);
+    return sum % 10;
+  }
+
+  function isPermutation(list) {
+    if (!list || list.length !== LETTERS.length) return false;
+    for (var i = 0; i < LETTERS.length; i++) if (list.indexOf(LETTERS.charAt(i)) < 0) return false;
+    return true;
+  }
+
+  // ranking: six letters, best first. Returns a code such as V1-CAEBFD-7.
+  function encode(ranking) {
+    if (!isPermutation(ranking)) throw new Error('A ranking needs each of the six orders once');
+    var letters = ranking.join('');
+    return PREFIX + '-' + letters + '-' + checkDigit(letters);
+  }
+
+  function dashes(text) {
+    return String(text).replace(/[‐-―−]/g, '-');
+  }
+
+  // Returns { ok: true, ranking } or { ok: false, reason }.
+  function parse(token) {
+    var m = /^V1-([A-Z]{6})-([0-9])$/.exec(dashes(token).toUpperCase());
+    if (!m) return { ok: false, reason: 'It is not shaped like V1-ABCDEF-0.' };
+    var ranking = m[1].split('');
+    if (!isPermutation(ranking)) return { ok: false, reason: 'It must use each of the six orders once.' };
+    if (checkDigit(m[1]) !== Number(m[2])) return { ok: false, reason: 'The last digit does not match. Check for a typo.' };
+    return { ok: true, ranking: ranking };
+  }
+
+  // Finds every word in a pasted block that starts with V1- and trims chat punctuation around it.
+  function tokens(text) {
+    return dashes(text).split(/[\s,;]+/)
+      .map(function (word) { return word.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, ''); })
+      .filter(function (word) { return /^V1-/i.test(word); });
+  }
+
+  // ballots: arrays of letters, best first, each a full ranking.
+  // tieChoices: letters chosen by the group (coin flip or gut pick) at each tie for fewest votes, in order.
+  // Returns { rounds, winner, pending }. pending lists the tied letters when a group choice is still needed.
+  function runoff(ballots, tieChoices) {
+    var choices = tieChoices || [];
+    var total = ballots.length;
+    var remaining = LETTERS.split('');
+    var rounds = [];
+    var tieIndex = 0;
+    while (total > 0) {
+      var counts = {};
+      remaining.forEach(function (c) { counts[c] = 0; });
+      ballots.forEach(function (ballot) {
+        for (var i = 0; i < ballot.length; i++) if (remaining.indexOf(ballot[i]) >= 0) { counts[ballot[i]]++; break; }
+      });
+      var round = { counts: counts, remaining: remaining.slice(), winner: null, out: [], tied: null, chosen: null };
+      rounds.push(round);
+      var leader = remaining.filter(function (c) { return counts[c] * 2 > total; })[0];
+      if (leader) { round.winner = leader; return { rounds: rounds, winner: leader, pending: null }; }
+      var fewest = Math.min.apply(null, remaining.map(function (c) { return counts[c]; }));
+      var lowest = remaining.filter(function (c) { return counts[c] === fewest; });
+      if (fewest === 0 || lowest.length === 1) {
+        round.out = lowest;
+      } else {
+        round.tied = lowest;
+        var pick = choices[tieIndex];
+        if (lowest.indexOf(pick) < 0) return { rounds: rounds, winner: null, pending: lowest };
+        round.chosen = pick;
+        round.out = [pick];
+        tieIndex++;
+      }
+      remaining = remaining.filter(function (c) { return round.out.indexOf(c) < 0; });
+    }
+    return { rounds: rounds, winner: null, pending: null };
+  }
+
+  root.StrVote = { LETTERS: LETTERS, encode: encode, parse: parse, tokens: tokens, runoff: runoff };
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+</script><script>// Vote page. Nothing leaves the browser. Only this device's own ranking draft is kept, and only if storage works.
+(function () {
+  'use strict';
+  var core = window.StrVote;
+  var form = document.getElementById('vote-rank');
+  var dataNode = document.getElementById('vote-orders');
+  if (!core || !form || !dataNode) return;
+
+  var orders = JSON.parse(dataNode.textContent);
+  var nameOf = {};
+  orders.forEach(function (o) { nameOf[o.letter] = o.name; });
+  var KEY = 'str-purpose-vote-draft-1';
+
+  var selects = {};
+  orders.forEach(function (o) { selects[o.letter] = document.getElementById('rank-' + o.letter); });
+  var codeBox = document.getElementById('vote-code');
+  var codeStatus = document.getElementById('vote-code-status');
+  var yourOrder = document.getElementById('vote-your-order');
+  var copyButton = document.getElementById('vote-copy');
+  var clearButton = document.getElementById('vote-clear');
+  var pasteBox = document.getElementById('vote-paste');
+  var result = document.getElementById('vote-result');
+
+  function readDraft() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY));
+      if (saved && typeof saved === 'object') return saved;
+    } catch (e) { /* storage may be blocked */ }
+    return {};
+  }
+  function writeDraft() {
+    var draft = {};
+    orders.forEach(function (o) { draft[o.letter] = Number(selects[o.letter].value) || 0; });
+    try { localStorage.setItem(KEY, JSON.stringify(draft)); } catch (e) { /* storage may be blocked */ }
+  }
+  function forgetDraft() {
+    try { localStorage.removeItem(KEY); } catch (e) { /* storage may be blocked */ }
+  }
+
+  function ranking() {
+    var slots = [];
+    orders.forEach(function (o) {
+      var n = Number(selects[o.letter].value);
+      if (n >= 1 && n <= orders.length) slots[n - 1] = o.letter;
+    });
+    return slots;
+  }
+
+  function showCode() {
+    var slots = ranking();
+    var filled = slots.filter(Boolean).length;
+    if (filled === orders.length) {
+      codeBox.value = core.encode(slots);
+      codeStatus.textContent = 'Your code is ready. Paste it into the group chat.';
+      yourOrder.textContent = 'Your order: ' + slots.map(function (l, i) { return (i + 1) + ' ' + nameOf[l]; }).join(', ') + '.';
+      copyButton.disabled = false;
+    } else {
+      codeBox.value = '';
+      codeStatus.textContent = 'Give each order its own number from 1 to ' + orders.length + '. ' + (orders.length - filled) + ' to go.';
+      yourOrder.textContent = '';
+      copyButton.disabled = true;
+    }
+  }
+
+  function onRankChange(letter) {
+    var chosen = selects[letter].value;
+    if (chosen) {
+      orders.forEach(function (o) {
+        if (o.letter !== letter && selects[o.letter].value === chosen) selects[o.letter].value = '';
+      });
+    }
+    writeDraft();
+    showCode();
+  }
+
+  orders.forEach(function (o) {
+    selects[o.letter].addEventListener('change', function () { onRankChange(o.letter); });
+  });
+
+  var saved = readDraft();
+  var used = {};
+  orders.forEach(function (o) {
+    var n = Number(saved[o.letter]);
+    if (n >= 1 && n <= orders.length && !used[n]) { selects[o.letter].value = String(n); used[n] = true; }
+  });
+  showCode();
+
+  clearButton.addEventListener('click', function () {
+    orders.forEach(function (o) { selects[o.letter].value = ''; });
+    forgetDraft();
+    showCode();
+  });
+
+  copyButton.addEventListener('click', function () {
+    if (!codeBox.value) return;
+    var done = function () { codeStatus.textContent = 'Copied. Paste it into the group chat.'; };
+    var fallback = function () {
+      codeBox.focus();
+      codeBox.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      if (ok) done(); else codeStatus.textContent = 'Select the code and copy it by hand.';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(codeBox.value).then(done, fallback);
+    else fallback();
+  });
+
+  // Counting. Group choices at ties live only in memory and reset whenever the pasted codes change.
+  var tieChoices = [];
+  var lastPaste = null;
+
+  function esc(text) {
+    return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function list(letters) {
+    var names = letters.map(function (l) { return nameOf[l]; });
+    if (names.length <= 1) return names.join('');
+    return names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+  }
+
+  function tally() {
+    var text = pasteBox.value;
+    if (text !== lastPaste) { tieChoices = []; lastPaste = text; }
+    var found = core.tokens(text);
+    if (!found.length) {
+      result.innerHTML = '<p>' + (text.trim() ? 'No vote codes found. A code looks like V1-ABCDEF-0.' : 'Paste one to four codes to see the count.') + '</p>';
+      return;
+    }
+    if (found.length > 4) {
+      result.innerHTML = '<p>Found ' + found.length + ' codes. This counts at most four. Remove the extras.</p>';
+      return;
+    }
+    var ballots = [];
+    var problems = [];
+    found.forEach(function (token, i) {
+      var parsed = core.parse(token);
+      if (parsed.ok) ballots.push(parsed.ranking);
+      else problems.push('Code ' + (i + 1) + ' (' + esc(token) + '): ' + parsed.reason);
+    });
+    if (problems.length) {
+      result.innerHTML = '<p>' + problems.join('</p><p>') + '</p><p>Fix the code and the count appears.</p>';
+      return;
+    }
+
+    var outcome = core.runoff(ballots, tieChoices);
+    var rows = outcome.rounds.map(function (round, i) {
+      var order = round.remaining.slice().sort(function (a, b) { return round.counts[b] - round.counts[a] || a.localeCompare(b); });
+      var votes = order.filter(function (l) { return round.counts[l] > 0; }).map(function (l) { return esc(nameOf[l]) + ' ' + round.counts[l]; }).join('. ') + '.';
+      var what;
+      if (round.winner) what = esc(nameOf[round.winner]) + ' has more than half of the codes. It wins.';
+      else if (round.tied && round.chosen) what = 'Tie for fewest: ' + esc(list(round.tied)) + '. The group chose by coin flip or gut pick. ' + esc(nameOf[round.chosen]) + ' is out.';
+      else if (round.tied) what = 'Tie for fewest: ' + esc(list(round.tied)) + '. Settle it with a coin flip or a group gut pick. Then choose who is out, below.';
+      else if (round.out.length > 1) what = esc(list(round.out)) + ' have no first choices. They are out.';
+      else what = esc(nameOf[round.out[0]]) + ' has the fewest. It is out.';
+      return '<tr><th scope="row">Round ' + (i + 1) + '</th><td data-label="Votes">' + votes + '</td><td data-label="What happens">' + what + '</td></tr>';
+    }).join('');
+
+    var html = '<p>' + ballots.length + (ballots.length === 1 ? ' code' : ' codes') + ' counted. A winner needs more than half.</p>' +
+      '<div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Round</th><th scope="col">Votes</th><th scope="col">What happens</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    if (outcome.winner) {
+      html += '<p class="d-vote-win"><strong>Result: ' + esc(nameOf[outcome.winner]) + '.</strong></p>';
+    } else if (outcome.pending) {
+      html += '<p>Who is out?</p><p class="d-vote-ties">' + outcome.pending.map(function (l) {
+        return '<button type="button" class="d-linkbtn" data-out="' + l + '">' + esc(nameOf[l]) + ' is out</button>';
+      }).join(' ') + '</p>';
+    }
+    if (tieChoices.length) html += '<p><button type="button" class="d-linkbtn" data-undo="1">Undo last choice</button></p>';
+    result.innerHTML = html;
+  }
+
+  result.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!target || !target.getAttribute) return;
+    if (target.getAttribute('data-out')) {
+      tieChoices.push(target.getAttribute('data-out'));
+      tally();
+    } else if (target.getAttribute('data-undo')) {
+      tieChoices.pop();
+      tally();
+    }
+  });
+  pasteBox.addEventListener('input', tally);
+  tally();
+})();
+</script>
+</main><footer class="d-footer"><span>Updated <time datetime="2026-10-03">2026-10-03</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer><nav class="all-versions" aria-label="Site versions" style="max-width:1236px;margin:0 auto;padding:16px 24px 28px;font:15px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#b2bfc2;border-top:1px solid #34434a"><strong style="color:#f6f2e9">D</strong> · Main site, newest · <a href="../v2b/index.html" style="color:#d8bc87">B</a> (its home page) · Older version</nav></body></html>

@@ -77,7 +77,20 @@
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
 .d-footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
 .d-listen{margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}.d-listen a{color:var(--gold);text-underline-offset:3px}.d-listen a:hover{color:#f6f2e9}
-.d-chapters-head .d-home-audio a{color:var(--gold);text-underline-offset:3px}
+.d-chapters-head .d-home-audio a,.d-home-links a{color:var(--gold);text-underline-offset:3px}
+.d-home-links p{margin:0 0 4px;text-align:right}.d-home-links p:last-child{margin-bottom:0}
+.d-lead{margin:0 0 6px;max-width:70ch;color:#c2cdcd}.d-lead a{color:var(--gold);text-underline-offset:3px}
+.d-vote label{color:#f6f2e9}.d-vote select,.d-vote textarea,.d-vote input[type="text"]{background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem}
+.d-vote select{min-height:44px;min-width:88px;padding:6px 10px}
+.d-vote textarea{display:block;width:100%;max-width:40rem;min-height:7rem;padding:12px 14px;line-height:1.5;resize:vertical}
+.d-vote select:focus-visible,.d-vote textarea:focus-visible,.d-vote input:focus-visible,.d-linkbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.d-vote-code{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;margin:16px 0 4px}
+.d-vote-code input{flex:1 1 14rem;min-width:0;max-width:22rem;min-height:44px;padding:8px 12px;letter-spacing:.06em}
+.d-linkbtn{background:none;border:0;padding:0 6px;min-height:44px;color:var(--gold);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.d-linkbtn:hover{color:#f6f2e9}.d-linkbtn:disabled{color:#78888c;cursor:default;text-decoration:none}
+.d-vote-note{margin:6px 0;max-width:70ch;color:#b2bfc2}.d-vote-win{font-size:1.2rem;margin:12px 0}
+#vote-result{margin-top:16px;min-height:2rem}
+@media (max-width:700px){.d-home-links p{text-align:left}}
 .d-guide-intro{margin:0 0 8px;max-width:70ch;color:#c2cdcd}.d-guide-gap{margin:0 0 16px;max-width:70ch;color:#b2bfc2}
 .d-jump{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px;font-size:.9rem;color:#b2bfc2}.d-jump a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--gold)}
 .d-episode{margin:24px 0;padding:24px;border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;background:#16242b;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}
