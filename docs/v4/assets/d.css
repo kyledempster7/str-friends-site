@@ -75,6 +75,20 @@
 .d-audio-transcript-link{display:flex;align-items:center;min-height:44px;color:var(--gold);font-size:.8rem}.d-audio audio{grid-column:1/-1;width:100%;max-width:420px}.d-audio-status{grid-column:1/-1;margin:0;color:#b2bfc2;font-size:.9rem}
 .d-audio button:focus-visible,.d-audio input:focus-visible,.d-audio a:focus-visible,.d-transcript summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
+.d-footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+.d-listen{margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}.d-listen a{color:var(--gold);text-underline-offset:3px}.d-listen a:hover{color:#f6f2e9}
+.d-chapters-head .d-home-audio a{color:var(--gold);text-underline-offset:3px}
+.d-guide-intro{margin:0 0 8px;max-width:70ch;color:#c2cdcd}.d-guide-gap{margin:0 0 16px;max-width:70ch;color:#b2bfc2}
+.d-jump{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px;font-size:.9rem;color:#b2bfc2}.d-jump a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--gold)}
+.d-episode{margin:24px 0;padding:24px;border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;background:#16242b;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}
+.d-episode:target{border-color:var(--gold)}
+.d-episode-kicker{margin:0 0 4px;color:var(--gold);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase}
+.d-episode h2{margin:0 0 .5rem;font:400 1.45rem/1.3 Georgia,'Times New Roman',serif;color:#f6f2e9;overflow-wrap:anywhere}
+.d-episode-summary{margin:0 0 4px;max-width:70ch;color:#c2cdcd}
+.d-episode .d-audio{margin:16px 0;padding:0;border:0}
+.d-episode-related{margin:0;font-size:.9rem;line-height:1.9;color:#b2bfc2}.d-episode-related a{color:var(--gold);text-underline-offset:3px}.d-episode-related a:hover{color:#f6f2e9}
+.d-episode .d-transcript{margin-top:16px}
+@media (max-width:700px){.d-episode{padding:16px}.d-episode h2{font-size:1.25rem}}
 @media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
