@@ -330,6 +330,48 @@ for (const page of [
     if (path.dirname(file) === path.join(dist, 'v4') && !html.includes('href="purpose.html"')) fail(`${path.relative(dist, file)}: the sidebar must link Our purpose`);
   }
 }
+// absol89's list (2026-10-05): one table of the whole community list, loaded from a small JSON file, searchable, filterable and sortable.
+{
+  const list = readJson('src/variants/v4/absol-list.json');
+  const rows = list?.rows ?? [];
+  const page = documents.get(path.join(dist, 'v4', 'absol-list.html')) ?? '';
+  const mods = documents.get(path.join(dist, 'v4', 'mods.html')) ?? '';
+  const builtData = path.join(dist, 'v4', 'absol-list.json');
+  if (!page) fail("v4/absol-list.html: page missing");
+  if (!fs.existsSync(builtData) || fs.readFileSync(builtData, 'utf8') !== JSON.stringify(list) + '\n' && fs.readFileSync(builtData, 'utf8') !== fs.readFileSync(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8')) fail('v4/absol-list.json: missing or different from its source');
+  if (rows.length < 700) fail(`absol-list.json: expected the whole list (about 756 rows), found ${rows.length}`);
+  if (new Set(rows.map(r => r[1])).size !== rows.length) fail('absol-list.json: duplicate Nexus ids');
+  const byId = new Map(rows.map(r => [r[1], r]));
+  rows.forEach((r, i) => {
+    if (!Array.isArray(r) || r.length !== 7 || typeof r[0] !== 'string' || !r[0].trim() || !Number.isInteger(r[1]) || r[1] < 1 || typeof r[2] !== 'string' || !r[2].trim() || typeof r[3] !== 'string' || ![0, 1].includes(r[4]) || typeof r[5] !== 'string' || ![0, 1].includes(r[6])) fail(`absol-list.json: row ${i + 1} is malformed`);
+    else if (!r[4] && !r[5].trim()) fail(`absol-list.json: ${r[0]} has no reason for not using it`);
+  });
+  if (!rows.some(r => r[4] === 1)) fail('absol-list.json: no row is marked In our game');
+  if (!rows.some(r => r[6] === 1)) fail('absol-list.json: no earn-it candidates');
+  // Corrections the owner asked for (2026-10-05).
+  if (byId.get(667)?.[5] !== 'Not for our co-op: other players cannot see tents (Skyrim Together reports)') fail('absol-list.json: Campfire must say other players cannot see tents');
+  if (byId.get(108618)?.[2] !== 'Fixes') fail('absol-list.json: Quest Journal Fix for SkyUI is a fix, not visual');
+  for (const [id, verdict] of [[17751, 'Fit'], [21296, 'Maybe'], [33256, 'Maybe'], [21744, 'Maybe'], [85212, 'Maybe'], [67956, 'Avoid']]) {
+    if (!byId.get(id)?.[5].startsWith(`${verdict}:`)) fail(`absol-list.json: ${byId.get(id)?.[0] ?? id} must show the verdict ${verdict}`);
+  }
+  if (/tailscale|\.ts\.net|\b100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.\d+\.\d+/i.test(JSON.stringify(list))) fail('absol-list.json: no Tailscale links or addresses');
+  if (!/<h1\b[^>]*>absol89&#39;s list<\/h1>|<h1\b[^>]*>absol89's list<\/h1>/.test(page)) fail("v4/absol-list.html: the page title must be absol89's list");
+  for (const id of ['absol-q', 'absol-cat', 'absol-ours', 'absol-earn', 'absol-body']) if (!page.includes(`id="${id}"`)) fail(`v4/absol-list.html: missing ${id}`);
+  if ((page.match(/<th scope="col" data-sort=/g) ?? []).length !== 7) fail('v4/absol-list.html: seven sortable columns are required');
+  if (!/class="d-absol-scroll"/.test(page)) fail('v4/absol-list.html: the table must scroll sideways inside its own box');
+  if (!/List by absol89/.test(page)) fail('v4/absol-list.html: credit absol89 as the list author');
+  if (!/Only rows marked <strong>In our game<\/strong> are in our pack/.test(page)) fail('v4/absol-list.html: the intro must say only In our game rows are in our pack');
+  const scripts = [...page.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
+  const fetches = scripts.match(/\bfetch\(([^)]*)\)/g) ?? [];
+  if (fetches.length !== 1 || fetches[0] !== "fetch('absol-list.json')") fail('v4/absol-list.html: the only network request allowed is absol-list.json');
+  if (/XMLHttpRequest|sendBeacon|WebSocket|EventSource|importScripts|localStorage|sessionStorage|indexedDB|document\.cookie/.test(scripts)) fail('v4/absol-list.html: the list must not send or store anything');
+  if (!/href="absol-list\.html"[^>]*>absol89&#39;s list<\/a>/.test(mods) && !/href="absol-list\.html"[^>]*>absol89's list<\/a>/.test(mods)) fail('v4/mods.html: missing link to absol89\'s list');
+  // The sidebar lists it under topic 01 (Multiplayer and mods), on that topic's pages.
+  for (const name of ['together.html', 'mods.html', 'absol-list.html']) {
+    const html = documents.get(path.join(dist, 'v4', name)) ?? '';
+    if (!/<aside class="d-side"[\s\S]*?<ol class="d-side-subpages"[\s\S]*?href="absol-list\.html"/.test(html)) fail(`v4/${name}: the sidebar must list absol89's list under Multiplayer and mods`);
+  }
+}
 for (const file of audioFiles) if (!declaredAudio.has(file)) fail(`${path.relative(root, file)}: audio needs a page with a transcript`);
 for (const file of walk(audioOutput)) {
   if (!audioFiles.includes(path.join(audioSource, path.relative(audioOutput, file)))) fail(`${path.relative(dist, file)}: audio has no source with a transcript`);

@@ -114,6 +114,21 @@ const css = `/* Version D: grids on the original look. */
 .d-vote-code input{flex:1 1 14rem;min-width:0;max-width:22rem;min-height:44px;padding:8px 12px;letter-spacing:.06em}
 .d-linkbtn{background:none;border:0;padding:0 6px;min-height:44px;color:var(--gold);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .d-linkbtn:hover{color:#f6f2e9}.d-linkbtn:disabled{color:#78888c;cursor:default;text-decoration:none}
+.d-absol-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin:16px 0 8px}
+.d-absol-controls label{color:#f6f2e9}.d-absol-controls input[type="search"],.d-absol-controls select{background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem;min-height:44px;padding:6px 10px}
+.d-absol-controls input[type="search"]{flex:1 1 16rem;min-width:0;max-width:26rem}.d-absol-controls select{max-width:100%}
+.d-absol-check{display:inline-flex;align-items:center;gap:8px;min-height:44px}.d-absol-check input{width:20px;height:20px;accent-color:var(--gold)}
+.d-absol-controls input:focus-visible,.d-absol-controls select:focus-visible,.d-absol-check input:focus-visible,.d-sort:focus-visible,.d-absol-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#absol-status{margin:8px 0;color:#b2bfc2;min-height:1.6rem}
+.d-absol-scroll{overflow-x:auto;max-width:100%}
+.d-absol{width:100%;min-width:64rem;border-collapse:collapse;font-size:.92rem;line-height:1.5}
+.d-absol th,.d-absol td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.d-absol thead th{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-dark);white-space:nowrap;padding:0 4px}
+.d-absol tbody th{font-weight:600;width:17%}.d-absol a{color:var(--gold)}
+.d-sort{background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px;padding:0 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.d-sort:hover{color:#f6f2e9}.d-absol th[aria-sort="ascending"] .d-sort::after{content:" B2"}.d-absol th[aria-sort="descending"] .d-sort::after{content:" BC"}
+.d-absol td:nth-child(2){width:6%}.d-absol td:nth-child(3){width:9%}.d-absol td:nth-child(4){width:32%}.d-absol td:nth-child(5),.d-absol td:nth-child(7){width:7%}
+.d-key{margin-top:24px}
 .d-vote-note{margin:6px 0;max-width:70ch;color:#b2bfc2}.d-vote-win{font-size:1.2rem;margin:12px 0}
 #vote-result{margin-top:16px;min-height:2rem}
 @media (max-width:700px){.d-home-links p{text-align:left}}
@@ -189,6 +204,9 @@ export async function renderV4(root) {
   const purpose = JSON.parse(await readFile(path.join(root, 'src/variants/v4/purpose.json'), 'utf8'));
   const voteCore = await readFile(path.join(root, 'scripts/lib/v4-vote-core.js'), 'utf8');
   const voteScript = await readFile(path.join(root, 'scripts/lib/v4-vote.js'), 'utf8');
+  const absolScript = await readFile(path.join(root, 'scripts/lib/v4-absol.js'), 'utf8');
+  const absolData = await readFile(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8');
+  const absolCount = JSON.parse(absolData).rows.length;
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
     const found = typeof g === 'string' ? byId.get(g) : g;
@@ -300,6 +318,39 @@ ${rows}
 </div>`, script: `<script>${voteCore}</script><script>${voteScript}</script>` };
   };
 
+  // absol89's list: the whole community list as one table. Rows load from absol-list.json; search, filters and sorting run in the browser.
+  const absolBody = () => {
+    const keyRows = [
+      ['Fit', 'Looks right for us. It still needs a co-op test. Not installed.'],
+      ['Maybe', 'No co-op proof either way. Not installed.'],
+      ['Avoid', 'A known problem. Do not use it.'],
+      ['Earn-it candidate', 'A mod that could make rewards feel earned: levels, loot or standing.']
+    ].map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td data-label="Means">${esc(v)}</td></tr>`).join('\n');
+    const columns = [['name', 'Mod'], ['id', 'Nexus id'], ['category', 'Category'], ['adds', 'What it adds'], ['ours', 'In our game?'], ['reason', 'Why we are not using it'], ['earn', 'Earn-it candidate?']];
+    const head = columns.map(([key, label]) => `<th scope="col" data-sort="${key}" aria-sort="none"><button type="button" class="d-sort">${esc(label)}</button></th>`).join('');
+    return { html: `<p class="d-lead">absol89 wrote a big Skyrim Together mod list. This page shows all ${absolCount} mods on it.</p>
+<p class="d-lead">It was built for a different game version. Most of it does not fit our setup.</p>
+<p class="d-lead">Only rows marked <strong>In our game</strong> are in our pack. Nothing else is installed. Nothing is recommended unless the row says Fit.</p>
+<section class="d-section d-key" aria-labelledby="absol-key-title"><h2 id="absol-key-title">How to read it</h2>
+<div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Word</th><th scope="col">Means</th></tr></thead><tbody>
+${keyRows}
+</tbody></table></div>
+<p class="d-vote-note">Rows that say Candidate are earn-it mods we looked at but have not rated.</p></section>
+<section class="d-section" id="absol" aria-busy="true" aria-labelledby="absol-list-title"><h2 id="absol-list-title">The list</h2>
+<form class="d-absol-controls" role="search" onsubmit="return false">
+<label class="d-sr-only" for="absol-q">Search the list</label><input type="search" id="absol-q" placeholder="Search by name, id or words" autocomplete="off">
+<label class="d-sr-only" for="absol-cat">Category</label><select id="absol-cat"><option value="">All categories</option></select>
+<label class="d-absol-check"><input type="checkbox" id="absol-ours">In our game</label>
+<label class="d-absol-check"><input type="checkbox" id="absol-earn">Earn-it candidate</label>
+<button type="button" class="d-linkbtn" id="absol-clear">Clear filters</button>
+</form>
+<p id="absol-status" role="status" aria-live="polite">Loading the list…</p>
+<noscript><p class="d-vote-note">The list needs JavaScript to show here. Without it, ask the host for the list.</p></noscript>
+<div class="d-absol-scroll" tabindex="0" role="region" aria-label="absol89's list. This table scrolls sideways.">
+<table class="d-absol"><caption class="d-sr-only">absol89's list of ${absolCount} Skyrim Together mods</caption><thead><tr>${head}</tr></thead><tbody id="absol-body"></tbody></table></div>
+<p class="d-vote-note">List by absol89. Each mod name opens its Nexus Mods page.</p></section>`, script: `<script>${absolScript}</script>` };
+  };
+
   // Topic subpages: expanded guide, numbered page strip and the bottom pager.
   chapters.forEach((c, ci) => {
     c.pages.forEach((p, pi) => {
@@ -316,11 +367,11 @@ ${rows}
           ? `<a class="d-next" href="${esc(chapters[ci + 1].pages[0].file)}">${esc(chapters[ci + 1].num)} ${esc(chapters[ci + 1].label)} →</a>`
           : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
       const pager = `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`;
-      if (p.kind === 'purpose' || p.kind === 'vote') {
-        const custom = p.kind === 'purpose' ? purposeBody() : voteBody();
+      if (p.kind === 'purpose' || p.kind === 'vote' || p.kind === 'absol') {
+        const custom = p.kind === 'purpose' ? purposeBody() : p.kind === 'absol' ? absolBody() : voteBody();
         pages.set(p.file, shell({
           title: p.title,
-          description: p.kind === 'purpose' ? 'Six ways our party could play the campaign, with house rules and a place for every role.' : 'Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser.',
+          description: p.kind === 'absol' ? `absol89's list of ${absolCount} Skyrim Together mods, with search and filters. Only rows marked In our game are in our pack.` : p.kind === 'purpose' ? 'Six ways our party could play the campaign, with house rules and a place for every role.' : 'Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser.',
           body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
 ${custom.html}
 ${pager}</div></div>${custom.script ?? ''}`
@@ -330,7 +381,7 @@ ${pager}</div></div>${custom.script ?? ''}`
       pages.set(p.file, shell({
         title: p.title,
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
-        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}
+        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
@@ -409,6 +460,7 @@ ${episodeBoxes}</div></div><script>${audioScript}</script>`
   }));
 
   pages.set('assets/d.css', css);
+  pages.set('absol-list.json', absolData);
   pages.set('assets/d.js', await readFile(path.join(root, 'scripts/lib/v4-browser.js'), 'utf8'));
   return pages;
 }

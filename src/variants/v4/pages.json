@@ -74,6 +74,11 @@
         {
           "file": "mods.html",
           "title": "Our mods",
+          "seeAlso": {
+            "lead": "Want to see every mod we did not pick?",
+            "text": "absol89's list",
+            "href": "absol-list.html"
+          },
           "grids": [
             "mod-marks",
             "mods"
@@ -84,6 +89,11 @@
               "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
             ]
           ]
+        },
+        {
+          "file": "absol-list.html",
+          "title": "absol89's list",
+          "kind": "absol"
         }
       ]
     },
