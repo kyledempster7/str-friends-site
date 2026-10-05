@@ -337,7 +337,7 @@
                 [
                   "Save your new character",
                   "Play through Helgen",
-                  "Finish Helgen Express offline. Save outside before connecting."
+                  "Finish Helgen Express offline. Tip: on the starting screen, each click on a choice changes it. Keep clicking a choice until it shows the one you want. Save outside before connecting."
                 ],
                 [
                   "Check setup is complete",
@@ -584,7 +584,14 @@
                 [
                   "Get connection instructions on Discord",
                   "Not needed",
-                  "Install Tailscale. Then accept the host's invite, sent privately on Discord."
+                  [
+                    "Install ",
+                    {
+                      "text": "Tailscale",
+                      "href": "tailscale.html"
+                    },
+                    ". Then accept the host's invite, sent privately on Discord."
+                  ]
                 ],
                 [
                   "F2 → Connect",
