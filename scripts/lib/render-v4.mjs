@@ -202,10 +202,10 @@ export async function renderV4(root) {
   const audioScript = await readFile(path.join(root, 'scripts/lib/v4-audio.js'), 'utf8');
   const guide = JSON.parse(await readFile(path.join(root, 'src/variants/v4/audio-guide.json'), 'utf8'));
   const purpose = JSON.parse(await readFile(path.join(root, 'src/variants/v4/purpose.json'), 'utf8'));
-  const voteCore = await readFile(path.join(root, 'scripts/lib/v4-vote-core.js'), 'utf8');
-  const voteScript = await readFile(path.join(root, 'scripts/lib/v4-vote.js'), 'utf8');
-  const absolScript = await readFile(path.join(root, 'scripts/lib/v4-absol.js'), 'utf8');
-  const absolData = await readFile(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8');
+  const voteCore = await readFile(path.join(root, 'scripts/lib/v4-vote-core.js'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
+  const voteScript = await readFile(path.join(root, 'scripts/lib/v4-vote.js'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
+  const absolScript = await readFile(path.join(root, 'scripts/lib/v4-absol.js'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
+  const absolData = await readFile(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
   const absolCount = JSON.parse(absolData).rows.length;
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
