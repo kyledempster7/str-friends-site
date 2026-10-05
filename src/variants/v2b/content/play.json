@@ -63,7 +63,7 @@
           "type": "comparison",
           "id": "our-mods",
           "title": "The mods in our game",
-          "note": "32 installed mods (21 Required, 11 Optional) plus local and Friend Kit patches. Collection revision 7.",
+          "note": "19 installed mods, including three foundations. Collection revision 6.",
           "columns": [
             "Mod",
             "Without it",

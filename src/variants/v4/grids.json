@@ -85,6 +85,26 @@
           "Rejoining after a crash",
           "Restart and load your latest save.",
           "Load your latest campaign save. Reconnect. Check the usual leader. Regroup before questing. Progress recovery remains unverified."
+        ],
+        [
+          "Hunger and thirst",
+          "No hunger or thirst.",
+          "Hunger comes about 30 real minutes after you last ate. Thirst comes about 30 real minutes after you last drank. Each one halves your health, magicka and stamina regeneration. Food clears Hunger. A potion clears Thirst."
+        ],
+        [
+          "Fast travel",
+          "Click a discovered map marker to travel there.",
+          "Map fast travel is off. Walk, or take a carriage or a ferry. Carriages and ferries should still work, but we have not tested them."
+        ],
+        [
+          "Vampire attacks",
+          "Vampire attacks on towns are switched off.",
+          "Vampires attack towns and villages at night, outside the walled cities. None happen before level 12, and there are at least three game days between attacks. They are less likely until level 30. How an attack looks for the other players is not tested."
+        ],
+        [
+          "Job boards",
+          "Jobs come from talking to people.",
+          "Job boards stand outside inns. The leader takes a job and everyone goes along. The other players may not see the job in their journals. Who gets the reward is not tested."
         ]
       ]
     },
@@ -113,8 +133,8 @@
         [
           "Archery",
           "Overdraw raises bow damage. Power Shot adds stagger. Steady Hand slows time while zooming.",
-          "Overdraw adds armor penetration. Quiet Hunter perk patch gives choices: Steady Hand or Quick Draw, Power Shot or Ranger. Overdraw costs melee damage. Archery crits off while sneaking.",
-          "Choose Steady Hand or Quick Draw; taking one greys out the other. Choose Power Shot or Ranger. Sneak attacks keep Sneak multipliers."
+          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming. The Quiet Hunter perk patch adds choices: Steady Hand or Quick Draw, and Power Shot or Ranger. Overdraw ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage. Critical Shot and Bullseye give no critical bonus while you sneak.",
+          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet. Quiet Hunter lets you take only one of Steady Hand and Quick Draw, and only one of Power Shot and Ranger."
         ],
         [
           "Block",
@@ -180,7 +200,7 @@
           "Restoration",
           "Regeneration strengthens healing by 50%. Recovery improves Magicka regeneration.",
           "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
-          "Allowed: the held-perk lock now allows Resurgence with 10% less magicka instead of quarantined. Real healing effects on friends still need testing."
+          "Resurgence: quarantined until our first healer test. Don't use yet."
         ],
         [
           "Smithing",
@@ -328,7 +348,7 @@
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules, not an installed patch that turns the features off. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The Friend Kit perk patches (see First-time setup) change how some of these perks work, but the host has not lifted any of these rules. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",
@@ -349,7 +369,7 @@
             "href": "rules.html#rule-steady-hand-1"
           },
           "Rank 1 slows time while zooming and adds critical chance. Rank 2 adds critical chance and protection against disarming.",
-          "Quiet Hunter perk patch lets you choose between Steady Hand and Quick Draw. Taking one greys out the other. Rank 2 remains untouched."
+          "Quarantined (don't use yet): both ranks. Rank 2 does not clear the first rank's slowdown."
         ],
         [
           {
@@ -429,7 +449,7 @@
             "href": "rules.html#rule-resurgence"
           },
           "Strengthens Restoration spells by 30%",
-          "Allowed with 10% less magicka through the held-perk lock. It is no longer quarantined. Real healing effects on friends still need testing."
+          "Quarantined (don't use yet) until the group's first healer test. Don't promise another player a particular bonus."
         ],
         [
           "Time-slowing effects",
@@ -472,29 +492,9 @@
           "Reporting a problem",
           "Reload",
           "Stop. Tell the host. Never reload while connected or fix quests alone."
-        ],
-        [
-          "Hunger and thirst",
-          "No hunger or thirst in vanilla Skyrim.",
-          "Hunger and thirst strike about every 30 real minutes. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst."
-        ],
-        [
-          "Fast travel",
-          "Click any discovered map marker to travel instantly.",
-          "Map fast travel is disabled. Travel on foot. Carriages and ferries should work (untested in co-op)."
-        ],
-        [
-          "Vampire attacks",
-          "Vampires attack settlements as Dawnguard begins.",
-          "Night vampire attacks occur outside walled cities. None happen before level 12, and attacks are less likely at lower levels."
-        ],
-        [
-          "Job boards",
-          "Bounty letters from jarls and innkeepers.",
-          "Notice boards sit outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals."
         ]
       ],
-      "note": "Revision 7 adds hunger and thirst about every 30 minutes, job boards outside inns, night vampire attacks outside walled cities from level 12, and no map fast travel. Our mods lists every installed mod."
+      "note": "Our mods lists every installed mod and what it changes."
     },
     {
       "id": "builds",
@@ -580,26 +580,6 @@
           "Friendly fire",
           "No other players",
           "Player PvP is off in our setup. Friendly NPCs can still be hit. If you use True Directional Movement, keep its hostile-only lock-on setting on."
-        ],
-        [
-          "Containers and trading",
-          "Trade directly with followers or use containers.",
-          "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers inside player homes belong to that player alone. Containers elsewhere sync only for the current visit and can be overwritten later. Crafted potions and enchanted gear may not reach another player (untested)."
-        ],
-        [
-          "Job boards",
-          "Take bounties from innkeepers.",
-          "Notice boards sit outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals."
-        ],
-        [
-          "Vampire attacks",
-          "Vampires attack towns at night.",
-          "Vampires attack at night outside walled cities. None occur before level 12, and attacks are less likely at lower levels."
-        ],
-        [
-          "Hunger and thirst",
-          "Food restores a small amount of health.",
-          "Hunger and thirst strike about every 30 real minutes. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst."
         ]
       ]
     },
@@ -635,12 +615,12 @@
         [
           "Private home chests",
           "Owned homes provide personal storage. Choose a safe container.",
-          "A container inside a player home belongs to that player alone. Vanilla and DLC home chests are not synced to other players."
+          "Chests inside the city homes you can buy (such as Breezehome) and inside Elysium Estate belong to that player alone. Other players do not see them. Hearthfire houses may differ. Not tested with two players: test your chest with cheap items first."
         ],
         [
           "Shared storage and trading",
           "Containers store items. Some containers reset and are unsafe for lasting storage.",
-          "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers elsewhere sync only for the current visit and can be overwritten later. Crafted potions and enchanted gear may not reach another player (untested)."
+          "No shared chest keeps items for long. A chest outside a home is shared only while everyone is in the same area. When the last player leaves, the server forgets what is in it, and the next player in can overwrite it. Use it only while all of you are present, and try cheap items first. Crafted potions and enchanted gear may not reach another player (reported by other players; not tested here)."
         ],
         [
           "Dropped items",
@@ -663,9 +643,9 @@
           "Vanilla/DLC interiors are personal. Building, steward purchases and party visits remain unverified."
         ],
         [
-          "Group base and housing",
+          "Our group house",
           "Buy or earn homes across Skyrim.",
-          "Elysium Estate is being added as the group base and may still change. Harborwatch is undecided. Containers inside homes belong to that player alone."
+          "Elysium Estate, southwest of Whiterun, is our group house. Its Nexus page says a quest unlocks it. We have not tested how you get in, or two players inside it. Chests inside it are private to each player."
         ]
       ]
     },
@@ -699,7 +679,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. Revision 7 has 32 installed mods (21 Required and 11 Optional) plus our local and Friend Kit patches.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 34 installed mods: 23 Required and 11 Optional. It is not on Nexus yet. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",
@@ -733,7 +713,7 @@
           "PapyrusUtil SE",
           "No extra scripting helpers",
           "A helper that QuickLoot needs for its value and weight columns.",
-          "Required",
+          "Required · new since revision 6",
           "QuickLoot IE needs it, even though QuickLoot IE itself is Optional."
         ],
         [
@@ -791,7 +771,10 @@
         [
           "Better Vanilla Perks",
           "Vanilla perk trees",
-          "Overhauls perk trees. Friend Kit patches add held-perk lock (allows Resurgence with 10% less magicka) and Quiet Hunter archery choices.",
+          {
+            "text": "Expanded perk choices while keeping the familiar trees. We chose it for the first campaign. Two Friend Kit patches change some of its perks. See Skills",
+            "href": "skills.html"
+          },
           "Required",
           "It rewrites perks, spells and weapons for everyone."
         ],
@@ -809,57 +792,71 @@
           "Random Dragons No More",
           "Dragons attack at random while you travel",
           "Switches off the random dragon attacks. Quest dragons stay.",
-          "Required",
+          "Required · new since revision 6",
           "It only works if the party leader's game has it, and anyone can lead."
         ],
         [
           "Cathedral Weathers and Seasons",
           "Vanilla weather",
           "Replaces weather, fog and thunder, and makes nights darker.",
-          "Required",
+          "Required · new since revision 6",
           "The party leader's weather is what everyone sees. The Sounds of Skyrim patch needs it."
         ],
         [
           "Disable Fast Travel",
-          "Clicking a map marker instantly travels there.",
-          "Switches off map fast travel. Carriages and ferries should work (untested in co-op).",
-          "Required",
-          "Keeps travel on foot together in co-op."
+          "Click a map marker to travel there instantly.",
+          "Switches off map fast travel. Carriages and ferries should still work, but we have not tested them.",
+          "Required Â· new since revision 6",
+          "Everyone travels the same roads together."
         ],
         [
           "Keyword Item Distributor",
-          "No keyword distribution helper.",
-          "Distributes keywords to food and drink items without changing game records.",
-          "Required",
-          "Simplest Survival needs it to identify food and drinks."
+          "No helper for tagging items.",
+          "Tags food and potions so Simplest Survival can tell them apart. Nothing to see in play.",
+          "Required Â· new since revision 6",
+          "Simplest Survival does nothing without it."
         ],
         [
           "Simplest Survival",
-          "No hunger or thirst in vanilla Skyrim.",
-          "Adds hunger and thirst. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst.",
-          "Required",
-          "Everyone needs the same survival rules and timing."
+          "No hunger or thirst.",
+          "Adds hunger and thirst. Each halves your health, magicka and stamina regeneration until you eat food or drink a potion.",
+          "Required Â· new since revision 6",
+          "Everyone needs the same survival rules."
         ],
         [
           "Simplest Survival - Needs 30 Minutes Patch",
           "No hunger or thirst.",
-          "Hunger and thirst each arrive about every 30 real minutes (10 game hours at timescale 20).",
-          "Required",
-          "Spaces survival needs to fit group pacing."
+          "Hunger and thirst arrive about 30 real minutes after you last ate or drank. That is 10 game hours; a game day is about 72 real minutes.",
+          "Required Â· new since revision 6",
+          "It sets the same timing for everyone. It is a separate mod page on Nexus."
         ],
         [
           "The Notice Board",
-          "Bounty letters from innkeepers and jarls.",
-          "Adds job boards outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals.",
-          "Required",
-          "Adds physical job boards outside inns in the shared world."
+          "Jobs come from talking to people.",
+          "Adds job boards outside inns. The leader takes a job and the group goes together. The other players may not see the job in their journals.",
+          "Required Â· new since revision 6",
+          "It adds quests and boards to the shared world. Who gets the reward is not tested."
         ],
         [
           "Vampire Attacks Restored Outside of Walled Cities",
-          "Vampires attack settlements as Dawnguard begins.",
-          "Restores night attacks outside walled cities. Our gentle-start patch sets attacks from level 12 onward, less likely at lower levels.",
-          "Required",
-          "Changes NPC spawns in the shared world. Gentle-start patch is installed with it."
+          "Vampire attacks on towns are switched off.",
+          "Brings back vampire attacks on towns and villages at night, outside the walled cities.",
+          "Required Â· new since revision 6",
+          "It changes what spawns in the shared world. How an attack looks for the other players is not tested."
+        ],
+        [
+          "Vampire Attacks Restored - Gentle Start Patch",
+          "Vampire attacks on towns are switched off.",
+          "Our patch for the mod above. No attack before level 12. At least three game days between attacks. Less likely until level 30.",
+          "Required Â· new since revision 6",
+          "Everyone needs the same attack rules. It is a separate mod page on Nexus and needs the mod above."
+        ],
+        [
+          "Elysium Estate SSE",
+          "No group house.",
+          "A player house southwest of Whiterun, with crafting rooms, a kitchen, stables and display cases. It is our group house.",
+          "Required Â· new since revision 6",
+          "It adds a building to the shared world, so everyone needs it. Its inside areas count as player homes, so each player's chests there are private."
         ],
         [
           "Skyrim Souls RE",
@@ -917,28 +914,28 @@
           },
           "Vanilla ambient sound",
           "Adds ambient sound in the wild, in caves, in ruins and at night. It comes with a patch for Cathedral Weathers.",
-          "Optional",
+          "Optional · new since revision 6",
           "Sound only. Skip it and you do not hear the added ambient sounds. The patch comes with this mod, so skipping the mod skips the patch too. Cathedral Weathers stays installed either way, because it is Required."
         ],
         [
           "Playable Greybeard Robes",
           "No craftable Greybeard clothing",
           "Craftable Greybeard clothing.",
-          "Optional",
+          "Optional · new since revision 6",
           "Skip it and you will not see this clothing on players who have it, and they will not see yours. Handing it to a player without the mod has not been tested."
         ],
         [
           "Wizard Hats - Simple",
           "No craftable wizard hats",
           "22 craftable hats.",
-          "Optional",
+          "Optional · new since revision 6",
           "Skip it and you will not see the hats on players who have them, and they will not see yours. Handing a hat to a player without the mod has not been tested."
         ],
         [
           "Weapon Collection LotR",
           "No craftable Lord of the Rings weapons",
           "26 craftable weapons.",
-          "Optional",
+          "Optional · new since revision 6",
           "Skip it and you will not see these weapons on players who have them, and they will not see yours. Handing a weapon to a player without the mod has not been tested."
         ]
       ]
