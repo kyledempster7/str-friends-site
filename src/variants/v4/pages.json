@@ -75,6 +75,7 @@
           "file": "mods.html",
           "title": "Our mods",
           "grids": [
+            "mod-marks",
             "mods"
           ],
           "sources": [
@@ -228,12 +229,17 @@
                   "Quarantined: don't use it until we test it together."
                 ],
                 [
+                  "Auras, undead-healing spells, stored spells and other automatic casts",
+                  "Cast by themselves or on a trigger",
+                  "Not cleared by normal healing support. Start with direct spells and ordinary healing. Remote healing amount and targeting still need a host-and-guest test."
+                ],
+                [
                   {
                     "text": "Raising corpses",
                     "href": "rules.html#rule-corpse-reanimation"
                   },
                   "Raise the dead to fight for you",
-                  "Quarantined: don't use it until we test it together. One active summon per player instead."
+                  "Quarantined: don't use it until we test it together. One active summon per player instead. An ordinary conjured undead is the first test candidate, within that one summon. It is not a promise of flawless sync."
                 ]
               ]
             }
@@ -271,6 +277,16 @@
                   "Get Skyrim on Steam",
                   "Skyrim Special Edition on Steam",
                   "Special Edition. You don't need the Anniversary Upgrade. Already own it? Steam → DLC: disable the Anniversary Upgrade."
+                ],
+                [
+                  "Free disk space",
+                  "Skyrim alone",
+                  "Fresh setup: allow 25 GB. Skyrim already installed: allow 5 GB extra. Also keep 50 GB free on each drive you use. Everything on one drive? Start with 75 GB free, or 55 GB if you own the game. Downloads can live on another drive. These are planning budgets, not measured peaks. Big game updates may need more. GB here is decimal; Windows may label it GiB."
+                ],
+                [
+                  "Disk space we measured",
+                  "Skyrim alone",
+                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 19 unpacked mods use 0.65 GB. Their kept download files use 0.23 GB. Mods add about 0.88 GB to an existing game. Revision 7 additions are not measured yet: Cathedral Weathers (about 100 MB to download), Sounds of Skyrim (about 21 MB) and the gear packs."
                 ],
                 [
                   "Open the normal Skyrim launcher once",
@@ -363,7 +379,7 @@
                 [
                   "F2 → Connect",
                   "Not needed",
-                  "Press F2 or Right Ctrl. Choose Connect. Enter the server details the host sends privately on Discord."
+                  "Press F2 or Right Ctrl. Choose Connect. Enter the server details the host sends privately on Discord. Keep passwords and addresses out of public screenshots and posts."
                 ],
                 [
                   "Create the party (leader)",
@@ -1035,6 +1051,11 @@
                   "A different leader",
                   "Not a thing",
                   "Means a separate campaign with separate characters."
+                ],
+                [
+                  "Missing players",
+                  "Not a thing",
+                  "Keep the party roster and quest leader the same. Follow the leader together. Do not advance the main campaign without missing players."
                 ]
               ]
             }

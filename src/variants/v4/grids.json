@@ -280,7 +280,7 @@
           "No racial power in our game. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
+      "note": "Imperious changes racial traits. Complete racial objectives to unlock powers. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
     },
     {
       "id": "spells",
@@ -328,7 +328,7 @@
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined: don't use these until we test them together. Check Spells for spell restrictions. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules, not an installed patch that turns the features off. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",
@@ -389,7 +389,7 @@
             "href": "rules.html#rule-extra-summons"
           },
           "Summoner, Puppeteer, Twin Souls, Dragonborn rank 2 increase summon capacity.",
-          "Keep one active summon per player, regardless of unlocked capacity. Quarantined summons and corpse raising remain excluded."
+          "Keep one active summon per player, regardless of unlocked capacity. Quarantined summons and corpse raising remain excluded. One summon is our starting test budget, not an engine limit."
         ],
         [
           {
@@ -429,7 +429,18 @@
             "href": "rules.html#rule-resurgence"
           },
           "Strengthens Restoration spells by 30%",
-          "Quarantined (don't use yet) until the group's first healer test."
+          "Quarantined (don't use yet) until the group's first healer test. Don't promise another player a particular bonus."
+        ],
+        [
+          "Time-slowing effects",
+          "Strong Reflexes rank 2, Steady Hand and Red Sand Dance slow time for you.",
+          [
+            "Quarantined (don't use yet) for group pacing and testing. Skyrim Together can sync slow time. We don't claim all slow time breaks sync. ",
+            {
+              "text": "Skyrim Together compatibility explanation",
+              "href": "https://github.com/tiltedphoques/Mod-Compatibility/issues/192"
+            }
+          ]
         ]
       ]
     },
@@ -455,7 +466,7 @@
         [
           "Saving progress",
           "Save whenever",
-          "Save your own game before big scenes and quest turn-ins."
+          "Save your own game before big scenes and quest turn-ins. Save when the group reaches safety."
         ],
         [
           "Reporting a problem",
@@ -543,7 +554,12 @@
         [
           "Mod settings",
           "Yours alone",
-          "Everyone uses matching mods. Agree on changes together."
+          "Everyone installs the same Required mods. Optional mods are your choice. Agree on changes together."
+        ],
+        [
+          "Friendly fire",
+          "No other players",
+          "Player PvP is off in our setup. Friendly NPCs can still be hit. If you use True Directional Movement, keep its hostile-only lock-on setting on."
         ]
       ]
     },
@@ -609,79 +625,113 @@
       ]
     },
     {
-      "id": "mods",
-      "title": "Our mods",
-      "note": "Vanilla means the unmodded game. 19 installed mods, including three foundations. Collection revision 6.",
+      "id": "mod-marks",
+      "title": "Required and Optional",
+      "note": "How we chose the marks: we read each mod's files, Skyrim Together's code and other players' compatibility reports. We have not tested a group where some players have a mod and others do not. Read \"nobody else is affected\" as what the evidence says, not as something we have watched happen.",
       "columns": [
-        "Mod",
-        "Vanilla",
-        "Mods"
+        "Mark",
+        "Means",
+        "What to do"
       ],
       "rows": [
         [
-          "Helgen Express",
-          "The long Helgen intro",
-          "Quick choices for race, sign, gear, spells and helper."
+          "Required",
+          "It changes things all players share: items, spells, perks, races, quests, spawns or weather. Or another mod needs it.",
+          "Install it. Everyone has the same Required mods."
+        ],
+        [
+          "Optional",
+          "It changes only what you see, hear or how your own menus, map and camera work.",
+          "Skip it if you like. Nobody else is affected."
+        ],
+        [
+          "Optional gear mods",
+          "Playable Greybeard Robes, Wizard Hats - Simple and Weapon Collection LotR add craftable gear.",
+          "Skipping one changes what you see on other players. They will not see your gear either. Handing gear to a player without the mod has not been tested."
+        ]
+      ]
+    },
+    {
+      "id": "mods",
+      "title": "Our mods",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still revision 6, with 19 mods. The next collection revision is these 27 installed mods, all on the host's PC. Mods marked new are not in revision 6 and are not on Nexus yet.",
+      "columns": [
+        "Mod",
+        "Vanilla",
+        "Mods",
+        "Required or Optional",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Skyrim Together Reborn",
+          "Play alone",
+          "Adds co-op connections, parties, chat and shared quests.",
+          "Required",
+          "The multiplayer client that everything else sits on."
+        ],
+        [
+          "Skyrim Script Extender (SKSE)",
+          "Standard game scripting",
+          "Adds scripting support needed by our mods.",
+          "Required",
+          "It runs every mod that ships as a plugin file, including Skyrim Together."
+        ],
+        [
+          "Address Library for SKSE Plugins",
+          "No SKSE plugin support library",
+          "Helps SKSE plugins work with the game.",
+          "Required",
+          "Skyrim Together and most of our plugin mods look up game code through it."
+        ],
+        [
+          "PapyrusUtil SE",
+          "No extra scripting helpers",
+          "A helper that QuickLoot needs for its value and weight columns.",
+          "Required · new since revision 6",
+          "QuickLoot IE needs it, even though QuickLoot IE itself is Optional."
         ],
         [
           "SkyUI",
           "Old inventory menus",
-          "Sortable menus and the Mod Configuration menu."
-        ],
-        [
-          "Skyrim Souls RE",
-          "Menus pause the game",
-          "Menus stay open during play. Enemies can still hit you."
-        ],
-        [
-          "SSE Display Tweaks",
-          "60 FPS, cursor escapes",
-          "Borderless window, higher frame rates, cursor stays in the game."
-        ],
-        [
-          "Mortal Enemies",
-          "Enemies spin mid-swing",
-          "Enemies commit to swings, so you can sidestep and punish."
-        ],
-        [
-          "Precision",
-          "Fuzzy hit detection",
-          "Real weapon hitboxes. Wide swings hit several enemies."
-        ],
-        [
-          "True Directional Movement",
-          "Manual turning",
-          "Move freely. Press middle mouse to lock onto hostiles. Scroll to switch targets."
-        ],
-        [
-          "Better Third Person Selection",
-          "Aim the tiny crosshair",
-          "Walk up. Press E on what's highlighted."
+          "Sortable menus and the Mod Configuration menu.",
+          "Required",
+          "MCM Helper needs it, so the two fail together."
         ],
         [
           "MCM Helper",
           "Some mod menus missing",
-          "Supports mod settings in the Mod Configuration menu."
+          "Supports mod settings in the Mod Configuration menu.",
+          "Required",
+          "The settings pages for Precision, True Directional Movement and TrueHUD need it."
         ],
         [
           "TrueHUD",
           "One health bar for your current target",
-          "Health bars over enemies and a boss bar."
+          "Health bars over enemies and a boss bar.",
+          "Required",
+          "True Directional Movement needs it for its lock-on marker."
         ],
         [
-          "QuickLoot IE",
-          "Open every container",
-          "Chests and bodies show loot. Press E for one item. Press R for all."
+          "Helgen Express",
+          "The long Helgen intro",
+          "Quick choices for race, sign, gear, spells and helper.",
+          "Required",
+          "It changes the start of the game for every character."
         ],
         [
-          "moreHUD",
-          "Guess what you know",
-          "Shows known enchantments, read books, value and weight."
+          "Mortal Enemies",
+          "Enemies spin mid-swing",
+          "Enemies commit to swings, so you can sidestep and punish.",
+          "Required",
+          "It changes how every enemy moves. Players with different data would fight different enemies."
         ],
         [
-          "Atlas Map Markers",
-          "Sparse map",
-          "Hundreds of extra map markers."
+          "Precision",
+          "Fuzzy hit detection",
+          "Real weapon hitboxes. Wide swings hit several enemies. Take care around friendly NPCs.",
+          "Required",
+          "It changes how hits are detected, not only how they look. Nobody has tested a player without it."
         ],
         [
           "Mysticism",
@@ -689,7 +739,19 @@
           {
             "text": "Adds spells across all five schools. Some spells use Better Vanilla Perks. See Spells by school",
             "href": "spells.html"
-          }
+          },
+          "Required",
+          "It adds hundreds of spells, effects and books that every player must share."
+        ],
+        [
+          "Better Vanilla Perks",
+          "Vanilla perk trees",
+          {
+            "text": "Expanded perk choices while keeping the familiar trees. We chose it for the first campaign. See Skills",
+            "href": "skills.html"
+          },
+          "Required",
+          "It rewrites perks, spells and weapons for everyone."
         ],
         [
           "Imperious",
@@ -697,30 +759,110 @@
           {
             "text": "New powers and passives for every race. See Races",
             "href": "races.html"
-          }
+          },
+          "Required",
+          "It changes every race, and the race patch needs it."
         ],
         [
-          "Better Vanilla Perks",
-          "Vanilla perk trees",
+          "STR Race Power Fallback (High Elf and Redguard)",
+          "High Elf and Redguard start with a vanilla daily power",
+          "Gives High Elf and Redguard their vanilla daily power back next to Imperious's powers: Highborn and Adrenaline Rush.",
+          "Required · new since revision 6",
+          "It edits race records, needs Imperious and loads after it."
+        ],
+        [
+          "Random Dragons No More",
+          "Dragons attack at random while you travel",
+          "Switches off the random dragon attacks. Quest dragons stay.",
+          "Required · new since revision 6",
+          "It only works if the party leader's game has it, and anyone can lead."
+        ],
+        [
+          "Cathedral Weathers and Seasons",
+          "Vanilla weather",
+          "Replaces weather, fog and thunder, and makes nights darker.",
+          "Required · new since revision 6",
+          "The party leader's weather is what everyone sees. The Sounds of Skyrim patch needs it."
+        ],
+        [
+          "Skyrim Souls RE",
+          "Menus pause the game",
+          "Menus stay open during play. Enemies can still hit you.",
+          "Optional",
+          "Menus only. Skip it and your inventory, map and magic menus behave as they do without the mod. Nobody else is affected."
+        ],
+        [
+          "SSE Display Tweaks",
+          "60 FPS, cursor escapes",
+          "Borderless window, higher frame rates, cursor stays in the game.",
+          "Optional",
+          "Display only. Skip it and you do not get the borderless window or the frame and physics settings. Nobody else is affected."
+        ],
+        [
+          "Better Third Person Selection",
+          "Aim the tiny crosshair",
+          "Walk up. Press E on what's highlighted.",
+          "Optional",
+          "Interaction only. Skip it and in third person you must aim straight at an object, door or container to use it."
+        ],
+        [
+          "True Directional Movement",
+          "Manual turning",
+          "Move freely. Press middle mouse to lock onto hostiles. Scroll to switch targets.",
+          "Optional",
+          "Camera and movement only. Skip it and you move and lock on as normal Skyrim does, with no lock-on marker. If you install it, keep its hostile-only targeting setting on. TrueHUD stays installed either way."
+        ],
+        [
+          "QuickLoot IE",
+          "Open every container",
+          "Chests and bodies show loot. Press E for one item. Press R for all.",
+          "Optional",
+          "Looting only. Skip it and you open containers and bodies with the normal menu."
+        ],
+        [
+          "moreHUD",
+          "Guess what you know",
+          "Shows known enchantments, read books, value and weight.",
+          "Optional",
+          "Information only. Skip it and you do not see extra details when you look at items."
+        ],
+        [
+          "Atlas Map Markers",
+          "Sparse map",
+          "Hundreds of extra map markers.",
+          "Optional",
+          "Map only. Skip it and your map shows only the vanilla markers."
+        ],
+        [
           {
-            "text": "Every perk tree reworked. See Skills",
-            "href": "skills.html"
-          }
+            "text": "Sounds of Skyrim Complete",
+            "href": "https://www.nexusmods.com/skyrimspecialedition/mods/8286"
+          },
+          "Vanilla ambient sound",
+          "Adds ambient sound in the wild, in caves, in ruins and at night. It comes with a patch for Cathedral Weathers.",
+          "Optional · new since revision 6",
+          "Sound only. Skip it and you do not hear the added ambient sounds. The patch comes with this mod, so skipping the mod skips the patch too. Cathedral Weathers stays installed either way, because it is Required."
         ],
         [
-          "Skyrim Together Reborn",
-          "Play alone",
-          "Adds co-op connections, parties, chat and shared quests."
+          "Playable Greybeard Robes",
+          "No craftable Greybeard clothing",
+          "Craftable Greybeard clothing.",
+          "Optional · new since revision 6",
+          "Skip it and you will not see this clothing on players who have it, and they will not see yours. Handing it to a player without the mod has not been tested."
         ],
         [
-          "Skyrim Script Extender (SKSE)",
-          "Standard game scripting",
-          "Adds scripting support needed by our mods."
+          "Wizard Hats - Simple",
+          "No craftable wizard hats",
+          "22 craftable hats.",
+          "Optional · new since revision 6",
+          "Skip it and you will not see the hats on players who have them, and they will not see yours. Handing a hat to a player without the mod has not been tested."
         ],
         [
-          "Address Library for SKSE Plugins",
-          "No SKSE plugin support library",
-          "Helps SKSE plugins work with the game."
+          "Weapon Collection LotR",
+          "No craftable Lord of the Rings weapons",
+          "26 craftable weapons.",
+          "Optional · new since revision 6",
+          "Skip it and you will not see these weapons on players who have them, and they will not see yours. Handing a weapon to a player without the mod has not been tested."
         ]
       ]
     }

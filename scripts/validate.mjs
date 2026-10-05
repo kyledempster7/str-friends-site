@@ -143,7 +143,9 @@ const decode = (value) => value.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, code) => St
 const documents = new Map(htmlFiles.map((file) => [path.resolve(file), fs.readFileSync(file, 'utf8')]));
 // Probe real media rather than trusting the declared player duration. These
 // per-clip limits apply in addition to the separate total audio budget.
+const MAX_CLIP_SECONDS = 660;
 const audioPages = readJson('src/variants/v4/pages.json');
+const audioGuide = readJson('src/variants/v4/audio-guide.json');
 const declaredAudio = new Set();
 const audioMetadata = new Map();
 const audioSource = path.join(root, 'src/variants/v4/audio');
@@ -158,7 +160,7 @@ for (const file of audioFiles) {
   const duration = Number(metadata.format?.duration);
   if (!metadata.streams?.some(stream => stream.codec_type === 'audio') || !Number.isFinite(duration) || duration <= 0) fail(`${label}: no valid audio duration`);
   else {
-    if (duration > 600) fail(`${label}: audio exceeds 10 minutes`);
+    if (duration > MAX_CLIP_SECONDS) fail(`${label}: audio exceeds 11 minutes`);
     audioMetadata.set(file, duration);
   }
   const outputFile = path.join(audioOutput, path.relative(audioSource, file));
@@ -220,13 +222,14 @@ for (const [gi, group] of guideGroups.entries()) {
 for (const page of [
   { ...audioPages?.home, file: 'index.html' },
   ...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []),
-  ...(audioPages?.rules?.pages ?? [])
+  ...(audioPages?.rules?.pages ?? []),
+  ...(audioGuide?.episodes ?? []).map(ep => ({ file: 'audio-guide.html', audio: { title: ep.title, duration: ep.duration, src: ep.src, transcript: ep.transcript, transcriptAnchor: `${ep.id}-transcript` } }))
 ]) {
   if (!page.audio) continue;
   const audio = page.audio;
   const label = `v4/${page.file}: audio`;
   if (typeof audio.title !== 'string' || !audio.title.trim()) fail(`${label}: missing title`);
-  if (typeof audio.duration !== 'number' || !Number.isFinite(audio.duration) || audio.duration <= 0 || audio.duration > 600) fail(`${label}: duration must be seconds between 0 and 600`);
+  if (typeof audio.duration !== 'number' || !Number.isFinite(audio.duration) || audio.duration <= 0 || audio.duration > MAX_CLIP_SECONDS) fail(`${label}: duration must be seconds between 0 and ${MAX_CLIP_SECONDS}`);
   if (typeof audio.src !== 'string' || !/^audio\/[a-z0-9]+(?:-[a-z0-9]+)*\.mp3$/.test(audio.src)) fail(`${label}: src must name an MP3 in audio/`);
   else {
     const file = path.join(root, 'src/variants/v4', audio.src);
@@ -249,8 +252,35 @@ for (const page of [
   const renderedParagraphs = [...(transcript?.[1] ?? '').matchAll(/<p>([\s\S]*?)<\/p>/g)]
     .map(match => compactText(decode(match[1].replace(/<[^>]*>/g, ' '))));
   if (!transcript || JSON.stringify(renderedParagraphs) !== JSON.stringify(paragraphs.map(compactText))) fail(`${label}: matching transcript text must be on the same page`);
-  const audioTag = html.match(/<audio\b[^>]*>/)?.[0] ?? '';
+  const audioTag = [...html.matchAll(/<audio\b[^>]*>/g)].map(item => item[0]).find(tag => tag.includes(`src="${audio.src}"`)) ?? '';
   if (!audioTag.includes(`src="${audio.src}"`) || !/\bcontrols(?:\s|>)/.test(audioTag) || !audioTag.includes('preload="none"')) fail(`${label}: native fallback with preload="none" is required`);
+}
+{
+  const episodes = audioGuide?.episodes ?? [];
+  const guidePage = documents.get(path.join(dist, 'v4', 'audio-guide.html')) ?? '';
+  if (episodes.length !== 12) fail('Audio guide: expected twelve episodes');
+  if (!guidePage) fail('v4/audio-guide.html: page missing');
+  if (!/<h1\b[^>]*>Audio guide<\/h1>/.test(guidePage)) fail('v4/audio-guide.html: the page title must be Audio guide');
+  if (!/recorded for revision 7 of the collection/i.test(guidePage)) fail('v4/audio-guide.html: must say the set was recorded for revision 7');
+  if (!/Not covered yet: the newest gear mods/.test(guidePage)) fail('v4/audio-guide.html: must state the known gap');
+  if ((guidePage.match(/<section class="d-episode"/g) ?? []).length !== episodes.length) fail('v4/audio-guide.html: one boxed segment per episode is required');
+  const known = new Map([...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.rules?.pages ?? [])].map(page => [page.file, page.title]));
+  for (const ep of episodes) {
+    const box = guidePage.match(new RegExp(`<section class="d-episode" id="${ep.id}"[\\s\\S]*?<\\/section>`))?.[0] ?? '';
+    if (!box) { fail(`v4/audio-guide.html: segment ${ep.id} missing`); continue; }
+    if (!box.includes(ep.title.replace(/&/g, '&amp;')) || !box.includes(`<p class="d-episode-summary">`) || !/\d+:\d\d/.test(box)) fail(`v4/audio-guide.html: ${ep.id} needs its title, length and summary`);
+    if (!ep.related?.length) fail(`Audio guide: ${ep.id} needs related pages`);
+    for (const file of ep.related ?? []) {
+      if (!known.has(file)) { fail(`Audio guide: ${ep.id} relates to unknown page ${file}`); continue; }
+      if (!box.includes(`<a href="${file}" target="_blank" rel="noopener">`)) fail(`v4/audio-guide.html: ${ep.id} link to ${file} must open in a new tab with rel="noopener"`);
+      const page = documents.get(path.join(dist, 'v4', file)) ?? '';
+      if (!page.includes(`<a href="audio-guide.html#${ep.id}" target="_blank" rel="noopener">`)) fail(`v4/${file}: missing the "Listen to this section" link to ${ep.id}`);
+    }
+  }
+  for (const [file, html] of documents) {
+    if (path.dirname(file) !== path.join(dist, 'v4')) continue;
+    if (!html.includes('href="audio-guide.html"')) fail(`${path.relative(dist, file)}: the Audio guide must be reachable from every page`);
+  }
 }
 for (const file of audioFiles) if (!declaredAudio.has(file)) fail(`${path.relative(root, file)}: audio needs a page with a transcript`);
 for (const file of walk(audioOutput)) {

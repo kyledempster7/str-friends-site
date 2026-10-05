@@ -101,6 +101,20 @@ const css = `/* Version D: grids on the original look. */
 .d-audio-transcript-link{display:flex;align-items:center;min-height:44px;color:var(--gold);font-size:.8rem}.d-audio audio{grid-column:1/-1;width:100%;max-width:420px}.d-audio-status{grid-column:1/-1;margin:0;color:#b2bfc2;font-size:.9rem}
 .d-audio button:focus-visible,.d-audio input:focus-visible,.d-audio a:focus-visible,.d-transcript summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
+.d-footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+.d-listen{margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}.d-listen a{color:var(--gold);text-underline-offset:3px}.d-listen a:hover{color:#f6f2e9}
+.d-chapters-head .d-home-audio a{color:var(--gold);text-underline-offset:3px}
+.d-guide-intro{margin:0 0 8px;max-width:70ch;color:#c2cdcd}.d-guide-gap{margin:0 0 16px;max-width:70ch;color:#b2bfc2}
+.d-jump{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px;font-size:.9rem;color:#b2bfc2}.d-jump a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--gold)}
+.d-episode{margin:24px 0;padding:24px;border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;background:#16242b;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}
+.d-episode:target{border-color:var(--gold)}
+.d-episode-kicker{margin:0 0 4px;color:var(--gold);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase}
+.d-episode h2{margin:0 0 .5rem;font:400 1.45rem/1.3 Georgia,'Times New Roman',serif;color:#f6f2e9;overflow-wrap:anywhere}
+.d-episode-summary{margin:0 0 4px;max-width:70ch;color:#c2cdcd}
+.d-episode .d-audio{margin:16px 0;padding:0;border:0}
+.d-episode-related{margin:0;font-size:.9rem;line-height:1.9;color:#b2bfc2}.d-episode-related a{color:var(--gold);text-underline-offset:3px}.d-episode-related a:hover{color:#f6f2e9}
+.d-episode .d-transcript{margin-top:16px}
+@media (max-width:700px){.d-episode{padding:16px}.d-episode h2{font-size:1.25rem}}
 @media (max-width:700px){.d-audio{gap:12px}.d-audio[data-enhanced]{grid-template-columns:52px minmax(0,1fr) auto}.d-audio-play{width:52px;height:52px}.d-audio h2{font-size:1.05rem}}
 @media (max-width:1000px){.d-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
@@ -144,6 +158,13 @@ const audioBar = (audio) => audio ? `<section class="d-audio" aria-labelledby="a
 <div class="d-audio-main"><p class="d-audio-kicker">Listen along</p><h2 id="audio-title">${esc(audio.title)}</h2><div class="d-audio-timeline" data-audio-custom hidden><input type="range" data-audio-seek min="0" max="${esc(audio.duration)}" step="0.1" value="0" disabled aria-label="Seek audio (available after pressing Play)" aria-controls="listen-audio"><div class="d-audio-time" aria-hidden="true"><span data-audio-elapsed>0:00</span><span data-audio-total>${audioTime(audio.duration)}</span></div></div></div>
 <div class="d-audio-actions"><button type="button" class="d-audio-speed" data-audio-speed data-audio-custom hidden aria-label="Playback speed: 1 times. Change speed" aria-controls="listen-audio">1×</button><a class="d-audio-transcript-link" href="#${esc(audio.transcriptAnchor)}">Transcript</a></div>
 <audio id="listen-audio" controls preload="none" src="${esc(audio.src)}" aria-label="Listen to ${esc(audio.title)}"></audio><p class="d-audio-status" role="status" hidden></p></section>` : '';
+const episodeTime = audioTime;
+const listenLink = (file, hash, text) => `<a href="${file}${hash}" target="_blank" rel="noopener">${text}</a>`;
+const episodePlayer = (ep) => `<div class="d-audio" data-transcript="${ep.id}-transcript" data-remember="${ep.id}" data-title="${esc(ep.title)}">
+<button type="button" class="d-audio-play" data-audio-play data-audio-custom hidden aria-label="Play ${esc(ep.title)}" aria-controls="audio-${ep.id}">${playIcon}${pauseIcon}</button>
+<div class="d-audio-main"><div class="d-audio-timeline" data-audio-custom hidden><input type="range" data-audio-seek min="0" max="${esc(ep.duration)}" step="0.1" value="0" disabled aria-label="Seek audio (available after pressing Play)" aria-controls="audio-${ep.id}"><div class="d-audio-time" aria-hidden="true"><span data-audio-elapsed>0:00</span><span data-audio-total>${episodeTime(ep.duration)}</span></div></div></div>
+<div class="d-audio-actions"><button type="button" class="d-audio-speed" data-audio-speed data-audio-custom hidden aria-label="Playback speed: 1 times. Change speed" aria-controls="audio-${ep.id}">1×</button><a class="d-audio-transcript-link" href="#${ep.id}-transcript">Transcript</a></div>
+<audio id="audio-${ep.id}" controls preload="none" src="${esc(ep.src)}" aria-label="Listen to ${esc(ep.title)}"></audio><p class="d-audio-status" role="status" hidden></p></div>`;
 const audioTranscript = (audio) => audio ? `<details class="d-transcript" id="${esc(audio.transcriptAnchor)}"><summary>Audio transcript: ${esc(audio.title)}</summary>${audio.transcript.map(p => `<p>${esc(p)}</p>`).join('')}</details>` : '';
 
 export async function renderV4(root) {
@@ -151,6 +172,7 @@ export async function renderV4(root) {
   const data = JSON.parse(await readFile(path.join(root, 'src/variants/v4/pages.json'), 'utf8'));
   const catalog = JSON.parse(await readFile(path.join(root, 'src/variants/v4/content/catalog.json'), 'utf8'));
   const audioScript = await readFile(path.join(root, 'scripts/lib/v4-audio.js'), 'utf8');
+  const guide = JSON.parse(await readFile(path.join(root, 'src/variants/v4/audio-guide.json'), 'utf8'));
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
     const found = typeof g === 'string' ? byId.get(g) : g;
@@ -161,12 +183,26 @@ export async function renderV4(root) {
   if (chapters.length !== 7) throw new Error('Version D must have exactly seven chapters');
   for (const c of chapters) if (!c.pages.length || c.pages.length > 5) throw new Error(`Chapter ${c.num} must have 1 to 5 pages`);
 
+  // Audio guide: which episodes relate to which content page, so each page can offer "Listen to this section".
+  const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...data.rules.pages].map((p) => [p.file, p.title]));
+  const episodesByPage = new Map();
+  for (const ep of guide.episodes) {
+    for (const file of ep.related) {
+      if (!pageTitles.has(file)) throw new Error(`Audio guide: episode ${ep.number} names an unknown page ${file}`);
+      episodesByPage.set(file, [...(episodesByPage.get(file) ?? []), ep]);
+    }
+  }
+  const listenLinks = (file) => {
+    const list = episodesByPage.get(file);
+    return list ? `<p class="d-listen">Listen to this section: ${list.map((ep) => listenLink('audio-guide.html', `#${ep.id}`, `Episode ${ep.number}, ${esc(ep.title)}`)).join(' · ')} <span aria-hidden="true">(opens in a new tab)</span><span class="d-sr-only">(each opens the Audio guide in a new tab)</span></p>` : '';
+  };
+
   const shell = ({ title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a><a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
 ${body}
-</main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><a href="#top">Back to top ↑</a></footer></body></html>
+</main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer></body></html>
 `;
   };
 
@@ -182,7 +218,8 @@ ${body}
       const children = expanded ? `<ol class="d-side-subpages" aria-label="${esc(group.label)} pages">${group.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ol>` : '';
       return `<li><a href="${esc(group.pages[0].file)}"${current}>${group.num ? `${esc(group.num)} · ` : ''}${esc(group.label)}</a>${children}</li>`;
     }).join('');
-    return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
+    const listen = `<li><a href="audio-guide.html"${file === 'audio-guide.html' ? ' aria-current="page"' : ''}>Audio guide</a></li>`;
+    return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}${listen}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
   };
   const pageStrip = (file) => {
     const gi = groups.findIndex(group => group.pages.some(p => p.file === file));
@@ -209,7 +246,7 @@ ${body}
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
 <div class="d-page">${audioBar(h.audio)}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
   // Topic subpages: expanded guide, numbered page strip and the bottom pager.
@@ -231,7 +268,7 @@ ${body}
       pages.set(p.file, shell({
         title: p.title,
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,
-        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
+        body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
@@ -276,9 +313,32 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
       title: p.title, description: `${p.title}: what you can use in our campaign.`,
-      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
+      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
+
+  // Audio guide: one boxed segment per episode. Related pages open in a new tab so the audio keeps playing.
+  const totalSeconds = guide.episodes.reduce((sum, ep) => sum + ep.duration, 0);
+  const episodeBoxes = guide.episodes.map((ep) => {
+    const related = ep.related.map((file) => listenLink(file, '', esc(pageTitles.get(file)))).join(' · ');
+    return `<section class="d-episode" id="${ep.id}" aria-labelledby="${ep.id}-title">
+<p class="d-episode-kicker">Episode ${ep.number} of ${guide.episodes.length} · ${episodeTime(ep.duration)}</p>
+<h2 id="${ep.id}-title">${esc(ep.title)}</h2>
+<p class="d-episode-summary">${esc(ep.summary)}</p>
+${episodePlayer(ep)}
+<p class="d-episode-related">Related pages (each opens in a new tab): ${related}</p>
+${audioTranscript({ transcriptAnchor: `${ep.id}-transcript`, title: ep.title, transcript: ep.transcript })}
+</section>`;
+  }).join('\n');
+  pages.set('audio-guide.html', shell({
+    title: guide.title,
+    description: 'Twelve short listens about our Skyrim Together setup, with a transcript for each.',
+    body: `<div class="d-layout">${sidebar('audio-guide.html')}<div class="d-page"><h1>${esc(guide.title)}</h1>
+<p class="d-guide-intro">${esc(guide.recordedFor)} ${audioTime(Math.round(totalSeconds))} in all. Links to related pages open in a new tab, so the audio keeps playing. This page remembers where you stopped in each episode on this device, if your browser allows it.</p>
+<p class="d-guide-gap">${esc(guide.gap)}</p>
+<nav class="d-jump" aria-label="Episodes"><span>Jump to episode:</span>${guide.episodes.map((ep) => `<a href="#${ep.id}" aria-label="Episode ${ep.number}: ${esc(ep.title)}">${ep.number}</a>`).join('')}</nav>
+${episodeBoxes}</div></div><script>${audioScript}</script>`
+  }));
 
   pages.set('404.html', shell({
     title: 'Page not found',
