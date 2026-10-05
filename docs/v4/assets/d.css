@@ -15,6 +15,7 @@
 .d-grid a{color:var(--gold)}
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
 .d-quick .d-grid tbody th{width:32%}
+.d-quotes .d-grid tbody th{width:46%;font-weight:400;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;line-height:1.55}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
 .d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
 .d-search-row{display:flex;gap:8px;max-width:40rem}
@@ -33,6 +34,10 @@
 .d-lookup .d-count{flex-basis:100%;margin:-12px 0 0}
 .d-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .d-sources{margin-top:32px;font-size:.85rem;color:#b2bfc2}.d-sources a{margin-right:16px;color:var(--gold)}
+.d-card img{width:min(100%,560px)}.d-shot img{width:min(100%,720px)}.d-figure details{margin-top:8px;max-width:70ch;font-size:.9rem;color:#c2cdcd}.d-figure summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-figure details p{margin:0 0 8px}
+.d-callouts{margin-top:40px}.d-callouts>h2{font-size:1.6rem;margin:0 0 .8rem}
+.d-callout{max-width:70ch;margin:0 0 16px;padding:14px 18px;border-left:3px solid var(--gold);background:#16242b}.d-callout h3{margin:0 0 4px;font:600 1.05rem/1.4 var(--sans);color:#f6f2e9}.d-callout p{margin:0 0 6px;color:#c2cdcd;line-height:1.6}.d-callout .d-callout-src{margin:0;font-size:.85rem;color:#b2bfc2}.d-callout a{color:var(--gold)}
+.d-plain-note{max-width:70ch;margin:24px 0 0;color:#c2cdcd}.d-plain-note+.d-plain-note{margin-top:4px;font-size:.9rem;color:#b2bfc2}.d-plain-note a{color:var(--gold)}
 .d-figure{margin:24px 0}.d-figure img{display:block;max-width:100%;height:auto}.d-emblem img{width:140px}.d-figure figcaption{margin-top:8px;max-width:70ch;font-size:.85rem;color:#b2bfc2}
 .d-chapters-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:0 0 16px}
 .d-chapters-head h2{margin:0;font-size:1.8rem}.d-chapters-head p{margin:0;color:#b2bfc2}
