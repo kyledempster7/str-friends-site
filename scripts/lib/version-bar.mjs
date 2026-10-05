@@ -46,7 +46,7 @@ export async function addVersionBars(output) {
       } else {
         const others = VERSIONS.filter(([f]) => f !== location).map(([f]) => `${f === NEWEST ? 'Newer: ' : 'Also: '}${link(f)}, ${DESCRIBE[f]}`).join(' · ');
         text = `You're on version <strong style="color:#f6f2e9">${label(location)}</strong>, ${DESCRIBE[location]}${location === NEWEST ? ' and the newest' : ''}. · ${others}`;
-        if (location === 'v4') text = `<strong style="color:#f6f2e9">D</strong> · Main site, newest · ${link('v2b')} · Older version`;
+        if (location === 'v4') text = `You are on the newest version, <strong style="color:#f6f2e9">D</strong> · ${link('v2b')}, the older version`;
       }
       await writeFile(file, stripVersionBar(html).replace('</body>', `<nav class="all-versions" aria-label="Site versions" style="${style}">${text}</nav></body>`));
     }

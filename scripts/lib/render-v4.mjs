@@ -94,6 +94,7 @@ const css = `/* Version D: grids on the original look. */
 .d-page-strip a{color:var(--gold);text-underline-offset:3px}.d-page-strip a:hover{color:#f6f2e9}
 .d-page-strip strong{color:#f6f2e9}.d-page-count{white-space:nowrap}.d-page-next{margin-left:4px}
 .header-inner .d-join{margin-left:0}
+.d-release{margin:0 0 24px}
 .d-footer{max-width:1236px;margin:auto;padding:16px 42px;font-size:.8rem;color:#b2bfc2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}.d-footer a{color:var(--gold)}
 .d-side-home{margin:14px 0 0;font-size:.85rem}.d-side-home a{color:var(--gold);text-decoration:none;padding:0 10px}
 .d-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
@@ -159,7 +160,7 @@ const css = `/* Version D: grids on the original look. */
 @media (min-width:900px){.d-page>.eyebrow{display:none}.d-side-title{pointer-events:none}.d-guide:not([open])>nav{display:block}}
 @media (max-width:820px){.header-inner{min-height:80px;padding-top:12px;padding-bottom:12px}}
 @media (max-width:899px){.d-layout:has(.d-guide:not([open])) .d-page-strip{display:flex}.d-page-strip .d-page-next{display:none}.d-layout{display:block;padding:0}.d-layout .d-page{padding:24px 16px 48px}.d-side{position:static;margin:0;padding:16px 16px 0;max-height:none;overflow:visible}.d-side-title{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:0;cursor:pointer;border-bottom:1px solid var(--line)}.d-side-title::after{content:'Show +';font-size:.75rem;letter-spacing:0;text-transform:none}.d-guide[open]>.d-side-title::after{content:'Hide −'}.d-side li a{min-height:44px}.primary-nav{flex-wrap:wrap}}
-@media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join small{display:none}}
+@media (max-width:700px){.d-lookup{padding:24px;gap:16px}.d-lookup .lookup-icon{width:40px;height:40px}.d-lookup .eyebrow{font-size:.6rem}.d-lookup h1{font-size:1.8rem}.d-lookup .home-search{flex-wrap:wrap}.d-lookup input{flex-basis:100%}.d-lookup .button{width:100%}.d-join{flex-wrap:wrap;white-space:normal;text-align:center;max-width:150px;gap:2px 6px}.d-join small{display:block;font-size:.62rem;line-height:1.2}}
 @media (max-width:700px){.d-page{padding:32px 16px 48px}.d-chapters{grid-template-columns:minmax(0,1fr)}.d-grid,.d-grid caption,.d-grid thead,.d-grid tbody,.d-grid tr,.d-grid th,.d-grid td{display:block}.d-grid thead{position:absolute;left:-9999px}.d-grid tr{padding:10px 0;border-bottom:1px solid var(--line)}.d-grid th,.d-grid td{border:0;padding:2px 0;width:auto!important}.d-grid td[data-label]::before{content:attr(data-label) ": ";color:var(--gold);font-size:.8rem}}`;
 
 // A cell is text, a link {text, href}, or a list of both (one link per named ability).
@@ -218,6 +219,7 @@ export async function renderV4(root) {
   const absolScript = await readFile(path.join(root, 'scripts/lib/v4-absol.js'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
   const absolData = await readFile(path.join(root, 'src/variants/v4/absol-list.json'), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
   const absolCount = JSON.parse(absolData).rows.length;
+  const absolOurs = JSON.parse(absolData).rows.filter((r) => r[4] === 1).length;
   const vigilant = JSON.parse(await readFile(path.join(root, 'src/variants/v4/vigilant/vigilant.json'), 'utf8'));
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
@@ -231,6 +233,8 @@ export async function renderV4(root) {
   const characters = data.characters;
   if (!characters?.pages?.length) throw new Error('Version D: the Characters section needs pages');
   const label = (p) => p.navLabel ?? p.title;
+  // While revision 7 is not on Nexus, pages with install or join steps say so. Set "release" to false (or remove it) once the owner gives the go-ahead.
+  const releaseNote = (flag) => flag ? `<p class="d-lead d-release">Revision 7 is being prepared. Wait for the owner's go-ahead before you install it. <a href="${esc(data.collectionUrl)}">Our Nexus collection page</a> still shows revision 6.</p>` : '';
 
   // Audio guide: which episodes relate to which content page, so each page can offer "Listen to this section".
   const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...characters.pages, ...data.rules.pages].map((p) => [p.file, p.title]));
@@ -259,7 +263,7 @@ export async function renderV4(root) {
   const shell = ({ file, title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· setup on Nexus</small></span></a></div></header><main id="main" tabindex="-1">
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· revision 7 is being prepared: wait for the go-ahead</small></span></a></div></header><main id="main" tabindex="-1">
 ${body}
 </main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer></body></html>
 `;
@@ -309,7 +313,7 @@ ${body}
     title: 'The North is better together',
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
-<div class="d-page">${audioBar(h.audio)}
+<div class="d-page">${releaseNote(h.release)}${audioBar(h.audio)}
 <section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
@@ -360,7 +364,8 @@ ${rows}
     const head = columns.map(([key, label]) => `<th scope="col" data-sort="${key}" aria-sort="none"><button type="button" class="d-sort">${esc(label)}</button></th>`).join('');
     return { html: `<p class="d-lead">absol89 wrote a big Skyrim Together mod list. This page shows all ${absolCount} mods on it.</p>
 <p class="d-lead">It was built for a different game version. Most of it does not fit our setup.</p>
-<p class="d-lead">Only rows marked <strong>In our game</strong> are in our pack. Nothing else is installed. Nothing is recommended unless the row says Fit.</p>
+<p class="d-lead">Only rows marked <strong>In our game</strong> are in our pack. No other row is installed. Nothing is recommended unless the row says Fit.</p>
+<p class="d-lead">Our revision 7 pack has ${byId.get('mods').rows.length} mods. ${absolOurs} of them are on this list. The rest are not on absol89's list.</p>
 <p class="d-lead">Being on absol89's list means the mod was in his pack, built for game version 1.6.1170; it does not prove it works in co-op or on our game version.</p>
 <section class="d-section d-key" aria-labelledby="absol-key-title"><h2 id="absol-key-title">How to read it</h2>
 <div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Word</th><th scope="col">Means</th></tr></thead><tbody>
@@ -409,7 +414,7 @@ ${audioTranscript({ transcriptAnchor: `${clip.id}-transcript`, title: clip.title
       file: p.file,
       title: p.title,
       description: p.description ?? `${p.title}: comparisons for our Skyrim Together campaign.`,
-      body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
+      body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
@@ -467,12 +472,13 @@ ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means un
 </tbody></table></div></section>`;
   const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1>${pageStrip('rules.html')}<p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
   const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
+  const rulesRelease = data.rules.pages.find(p => p.file === 'rules.html')?.release;
   pages.set('rules.html', shell({
     file: 'rules.html',
     title: 'Can I use this?',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
-${audioBar(rulesAudio)}
+${releaseNote(rulesRelease)}${audioBar(rulesAudio)}
 ${ruleGrid(entries, { search: true })}
 ${quickGrid(['Can I use this spell or perk?', "Quarantined: don't use yet. Allowed: go ahead. Conditional: follow the stated limit. Unlisted: ask the host."])}
 <section class="d-section" aria-labelledby="key"><h2 id="key">What the statuses mean</h2><div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Status</th><th scope="col">How many</th><th scope="col">Means</th></tr></thead><tbody>${keyRows}</tbody></table></div></section>
@@ -482,7 +488,7 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
       file: p.file, title: p.title, description: `${p.title}: what you can use in our campaign.`,
-      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
+      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
 

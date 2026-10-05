@@ -5,7 +5,7 @@
     "Our quarantined list and one summon each still apply."
   ],
   "overviewNote": "Everything here uses the base game, its add-ons and our installed mods.",
-  "roleLabels": ["Stealth archer", "Wizard", "Sword and shield", "Healer: cleric or paladin"],
+  "roleLabels": ["Stealth archer", "Wizard", "Warrior: sword and shield, or two-handed", "Healer: cleric or paladin"],
   "orders": [
     {
       "id": "relic-wardens",
@@ -74,7 +74,7 @@
       "rules": [
         "Walk everywhere. No fast travel.",
         "Describe each new place in party chat.",
-        "Use Atlas Map Markers and moreHUD to track finds."
+        "If you installed them, use Atlas Map Markers and moreHUD to track finds."
       ],
       "roles": [
         "Scouts ruins quietly. Finds the safe way in.",

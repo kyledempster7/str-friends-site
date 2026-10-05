@@ -7,7 +7,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Reworks skill perks; use it with the group's named quarantines.",
-      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. Exact effects with this party are not tested in co-op yet.",
+      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. Two Friend Kit perk patches change many of its perks (summons, slowed time, torch unlocking, Archery choices) and lock Necromage and Dark Souls 2. Exact effects with this party are not tested in co-op yet.",
       "aliases": [
         "BVP",
         "Better Vanilla Perks Anniversary Edition 2023"
@@ -61,8 +61,8 @@
       "name": "Strong Reflexes rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Blocking power attacks slows time.",
-      "detail": "The Block 50 rank also reduces damage while blocking. Leave it unselected; rank 1's shield protection is allowed.",
+      "summary": "Halves damage while you block. Better Vanilla Perks alone also slows time when you block a power attack.",
+      "detail": "In our game the held-perk patch removes the slowdown. The Block 50 rank still halves damage while blocking. Leave it unselected; rank 1's shield protection is allowed.",
       "aliases": [
         "Strong Reflexes",
         "Strong Reflexes 2",
@@ -77,8 +77,8 @@
       "name": "Steady Hand rank 1 — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Zooming slows time and improves critical chance.",
-      "detail": "The Archery 40 rank slows aiming by 50%. Leave the entire branch unselected until the group clears it.",
+      "summary": "Adds 10% bow critical chance and 5% more bow damage in our game.",
+      "detail": "The Archery 40 rank no longer slows aiming in our game: the held-perk patch removes the slowdown. Quiet Hunter makes it either-or with Quick Draw. Leave the entire branch unselected until the group clears it.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 1",
@@ -94,7 +94,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Adds critical chance and prevents ranged-weapon disarming.",
-      "detail": "The Archery 60 rank does not clear the earlier slowdown. Keep both Steady Hand ranks unselected.",
+      "detail": "The Archery 60 rank is not changed by our patches. It is only reachable through rank 1. Keep both Steady Hand ranks unselected.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 2",
@@ -108,7 +108,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Reanimated bodies can explode when combat starts.",
-      "detail": "Do not take this perk or use its corpse explosions. Raising the body is also quarantined (don't use yet).",
+      "detail": "Do not take this perk or use its corpse explosions. The held-perk patch also greys it out. Raising the body is also quarantined (don't use yet).",
       "aliases": [
         "Dark Souls",
         "Dark Souls II",
@@ -122,8 +122,8 @@
       "name": "Dragonborn rank 4: spectral drum — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet): the Speech 60 power: its spectral drum restores followers' Stamina.",
-      "detail": "Dragonborn rank 4 also improves prices. The drum's effect on friends is not verified; do not summon it.",
+      "summary": "Quarantined (don't use yet): the Speech 60 perk. It improves prices by 25%.",
+      "detail": "Better Vanilla Perks alone also summons a spectral drum; in our game the held-perk patch removes the drum. The perk's effect on friends is not verified; do not take it.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 4",
@@ -138,8 +138,8 @@
       "name": "Dragonborn rank 5: Dremora Merchant — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet): the Speech 80 power: it summons a merchant for trading.",
-      "detail": "Dragonborn rank 5 also improves prices. Do not summon its Dremora Merchant until the group clears the power.",
+      "summary": "Quarantined (don't use yet): the Speech 80 perk. It improves prices by 30%.",
+      "detail": "Better Vanilla Perks alone also summons a Dremora Merchant; in our game the held-perk patch removes the merchant. Do not take this perk until the group clears it.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 5",
@@ -154,8 +154,8 @@
       "name": "Torch-assisted automatic unlocking — Better Vanilla Perks",
       "category": "mechanic",
       "status": "hold",
-      "summary": "A torch can automatically open locks.",
-      "detail": "Matching Lockpicking perks bypass locks while a torch is equipped outside combat. Pick locks manually in our campaign.",
+      "summary": "Better Vanilla Perks alone lets a torch open locks automatically.",
+      "detail": "In our game the held-perk patch removes the torch bypass: Novice through Master Locks only make locks easier to pick. The quarantine stays. Pick locks manually in our campaign.",
       "aliases": [
         "torch",
         "auto unlock",
@@ -185,7 +185,7 @@
       "category": "mechanic",
       "status": "hold",
       "summary": "Quarantined (don't use yet): extra helpers; keep one active summon per player.",
-      "detail": "BVP perks add capacity, but our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the quarantined Speech powers remain excluded.",
+      "detail": "Better Vanilla Perks adds summon slots, but the held-perk patch removes the extra slots and our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the quarantined Speech perks remain excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -200,8 +200,8 @@
       "name": "Summoner — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Adds a summon slot and doubles casting distance; keep one active summon.",
-      "detail": "The extra slot stays unused under our party rule. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "summary": "Summoning spells can be cast twice as far away. It adds no summon slot in our game; keep one active summon.",
+      "detail": "The held-perk patch removes the extra slot. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Summoner30"
       ],
@@ -212,8 +212,8 @@
       "name": "Puppeteer — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Adds a summon slot and triples casting distance; keep one active summon.",
-      "detail": "The extra slot stays unused under our party rule. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "summary": "Summoning spells can be cast three times as far away. It adds no summon slot in our game; keep one active summon.",
+      "detail": "The held-perk patch removes the extra slot. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "Summoner70"
       ],
@@ -224,8 +224,8 @@
       "name": "Twin Souls — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Adds two summon slots; keep one active summon.",
-      "detail": "Extra capacity stacks with other perks, but our party limit stays one. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "summary": "Conjuration spells cost 10% less magicka. It adds no summon slots in our game; keep one active summon.",
+      "detail": "The held-perk patch replaces the two extra summons with a cheaper-spell bonus. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
       "aliases": [
         "TwinSouls"
       ],
@@ -236,8 +236,8 @@
       "name": "Dragonborn rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Improves prices and adds a summon slot; keep one active summon.",
-      "detail": "The Speech 20 rank gives 15% better prices. It also lets you command one extra summoned or reanimated follower. Leave that unused; corpse raising remains quarantined (don't use yet).",
+      "summary": "Buying and selling prices are 15% better. It adds no summon in our game; keep one active summon.",
+      "detail": "The Speech 20 rank no longer lets you command an extra summoned or reanimated follower: the held-perk patch removes that. Corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -249,8 +249,8 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet) until the group's first healer test.",
-      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
+      "summary": "Quarantined (don't use yet) until the group's first healer test. In our game it makes Restoration spells cost 10% less magicka.",
+      "detail": "The held-perk patch replaces Better Vanilla Perks' 30% Restoration strength bonus with 10% cheaper Restoration spells. Its effect on friends is unknown until we test it.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",
@@ -865,6 +865,20 @@
         "summoned undead"
       ],
       "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+    },
+    {
+      "id": "necromage",
+      "name": "Necromage — Better Vanilla Perks",
+      "category": "perk",
+      "status": "hold",
+      "summary": "Quarantined (don't use yet): the Restoration 70 perk. The held-perk patch locks it, so it shows greyed out.",
+      "detail": "It needs Resurgence and gives a 30% bonus against undead. Taking Resurgence does not unlock it. The host will say if it opens.",
+      "aliases": [
+        "Restoration 70",
+        "Resurgence branch",
+        "undead bonus"
+      ],
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
     }
   ]
 }

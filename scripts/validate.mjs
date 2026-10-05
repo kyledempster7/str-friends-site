@@ -19,7 +19,7 @@ export const requiredHolds = [
   ['Red Sand Dance'], ['Contingency'], ['Beast Tongue'], ['Spirit Walk'],
   ['Mark'], ['Recall'],
   ['corpse reanimation', 'reanimation', 'raise dead', 'corpse raising'],
-  ['Resurgence'],
+  ['Resurgence'], ['Necromage'],
 ];
 // Kyle (2026-10-03): only things actually in our game belong in "Can I use this?".
 // Mods we don't run (Ordinator, Apocalypse, combat and display mods) must not appear.
@@ -449,7 +449,7 @@ for (const page of [
     }
     if (!plainText.includes('\u201cWalk always in the light, or we will drag you to it.\u201d')) fail('v4/vigilant.html: missing the Vigilant greeting about walking in the light');
     if (!/not in Skyrim/.test(plainText)) fail('v4/vigilant.html: lore books from the online game must be labelled as not in Skyrim');
-    for (const phrase of ['Potions he brews and gear he enchants may not pass between players under Skyrim Together', 'Wednesday\u2019s test checks it']) {
+    for (const phrase of ['Potions he brews and gear he enchants may not pass between players under Skyrim Together', "The group's first co-op test checks it"]) {
       if (!plainText.includes(phrase)) fail('v4/vigilant.html: missing the crafting note: ' + phrase);
     }
     if (/\b(?:Ordinator|Apocalypse|Adamant|Blade and Blunt|Valhalla)\b/.test(plainText)) fail("v4/vigilant.html: lists a mod we don't run");
@@ -499,6 +499,19 @@ for (const page of [
   if (!/\.d-page-strip\{display:none/.test(css)) fail('v4/assets/d.css: the page strip must be hidden by default');
   if (!/@media \(max-width:899px\)\{\.d-layout:has\(\.d-guide:not\(\[open\]\)\) \.d-page-strip\{display:flex\}/.test(css)) fail('v4/assets/d.css: the page strip may show only on narrow screens where the sidebar is collapsed');
   if (/\.d-page-strip\{[^}]*display:(?:flex|block)/.test(css.replace(/@media[^{]*\{[^{}]*(?:\{[^}]*\}[^{}]*)*\}/g, ''))) fail('v4/assets/d.css: the page strip must not be visible on wide screens');
+  // Site audit (2026-10-05): while revision 7 is not on Nexus, every page with install or join steps says so and keeps the Nexus link.
+  if (audioPages?.home?.release === true) {
+    for (const name of ['index.html', 'setup.html', 'join.html', 'skills.html', 'mods.html', 'rules.html', 'rules-perks.html', 'rules-spells.html', 'rules-powers.html', 'rules-mods.html']) {
+      const html = v4(name);
+      if (!/Revision 7 is being prepared\. Wait for the owner(?:'|&#39;)s go-ahead before you install it\./.test(html)) fail(`v4/${name}: must say revision 7 is being prepared and to wait for the owner's go-ahead`);
+      if (!html.includes(`href="${audioPages.collectionUrl}"`)) fail(`v4/${name}: must keep the link to the Nexus collection page`);
+    }
+  }
+  // Skyshards and PapyrusUtil are installed, so the absol89 list must mark them In our game.
+  {
+    const rows = readJson('src/variants/v4/absol-list.json')?.rows ?? [];
+    for (const id of [60748, 13048]) if (rows.find(r => r[1] === id)?.[4] !== 1) fail(`absol-list.json: Nexus id ${id} is installed and must be marked In our game`);
+  }
   // The absol89 list says what being on it means.
   if (!/Being on absol89&#39;s list means the mod was in his pack, built for game version 1\.6\.1170; it does not prove it works in co-op or on our game version\./.test(v4('absol-list.html')) && !/Being on absol89's list means the mod was in his pack, built for game version 1\.6\.1170; it does not prove it works in co-op or on our game version\./.test(v4('absol-list.html'))) fail('v4/absol-list.html: must say what being on the list means (game version 1.6.1170, not proof for co-op)');
 }
@@ -582,7 +595,7 @@ for (const [file, html] of documents) {
     if (topLinks.length !== 3 || expectTop.some(([text, href], i) => topLinks[i]?.text !== text || topLinks[i]?.href !== href)) fail(`${relative}: top navigation must be Field guide, Characters, Audio guide`);
     if (!/<header\b[\s\S]*?<\/a><nav class="primary-nav"[\s\S]*?<\/nav><a class="leave-link d-join"/.test(html)) fail(`${relative}: header order must be brand, top navigation, Join us`);
     if (!headerLinks.some(([, attributes, href]) => /class="brand"/.test(attributes) && href === 'index.html')) fail(`${relative}: header brand must link home`);
-    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · setup on Nexus')) fail(`${relative}: header must retain Join us · setup on Nexus and its collection link`);
+    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · revision 7 is being prepared: wait for the go-ahead')) fail(`${relative}: header must retain the Join us button (revision 7 is being prepared: wait for the go-ahead) and its collection link`);
     for (const [, attributes, href] of headerLinks) {
       if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
       if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);

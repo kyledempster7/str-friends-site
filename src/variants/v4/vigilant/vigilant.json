@@ -1090,7 +1090,7 @@
     "What it gives",
     "Source"
    ],
-   "note": "The first three rows are the base game. Our server changes races. Read the fourth row.",
+   "note": "The first row is the base game. Our server runs Imperious, which changes races. The next three rows show our server.",
    "rows": [
     [
      "Skill bonuses",
@@ -1104,21 +1104,21 @@
     ],
     [
      "Resist magic",
-     "25% magic resistance, always on.",
+     "15% magic resistance on our server. The base game gives 25%.",
      [
       {
-       "text": "UESP: Breton",
-       "href": "https://en.uesp.net/wiki/Skyrim:Breton"
+       "text": "Our install",
+       "href": "#sources"
       }
      ]
     ],
     [
      "Racial power",
-     "Dragonskin: absorb 50% of the magicka from hostile spells for 60 seconds, once a day.",
+     "Dragonskin, the base game's once-a-day spell absorption, is gone on our server. Imperious gives Bretons spell absorption that switches on when their magicka runs low.",
      [
       {
-       "text": "UESP: Breton",
-       "href": "https://en.uesp.net/wiki/Skyrim:Breton"
+       "text": "Our install",
+       "href": "#sources"
       }
      ]
     ],
@@ -1130,7 +1130,7 @@
        "text": "Shared Ancestry",
        "href": "rules.html#rule-shared-ancestry"
       },
-      ". Conditional on the rules page. We have not checked every other Breton change."
+      ". Conditional on the rules page."
      ],
      [
       {
@@ -1229,7 +1229,7 @@
   },
   {
    "paragraphs": [
-    "Co-op note. Potions he brews and gear he enchants may not pass between players under Skyrim Together. Reports say a crafted potion or enchanted item can fail to reach another player. We have not tested it in our pack. Wednesday’s test checks it. Until then, brew for yourself first.",
+    "Co-op note. Potions he brews and gear he enchants may not pass between players under Skyrim Together. Reports say a crafted potion or enchanted item can fail to reach another player. We have not tested it in our pack. The group's first co-op test checks it. Until then, brew for yourself first.",
     [
      {
       "text": "Report: Sharable Potions, open since 2022",
@@ -1421,7 +1421,7 @@
     ],
     [
      "Hall of the Vigilant",
-     "The Pale, on a table inside the Hall, south of Dawnstar. The shrine goes when the Dawnguard quest starts and the Hall is destroyed.",
+     "The Pale, on a table inside the Hall, south of Dawnstar. The shrine goes when the Hall is destroyed: at level 10 with Dawnguard installed, or when the Dawnguard quest starts, whichever comes first.",
      "36",
      [
       {
@@ -1507,7 +1507,7 @@
     ],
     [
      "Could the Hall be his base instead?",
-     "Yes, until the Dawnguard quest starts. Then it burns. Stendarr's Beacon is the shrine that survives, but it is far to the east."
+     "Yes, until he reaches level 10 or the Dawnguard quest starts, whichever comes first. Then it burns. Stendarr's Beacon is the shrine that survives, but it is far to the east."
     ]
    ]
   },
@@ -1685,7 +1685,7 @@
     ],
     [
      "Before the Hall burns",
-     "The Hall stands until the Dawnguard quest starts. He races to reach it.",
+     "The Hall stands until level 10 or the Dawnguard quest, whichever comes first. He races to reach it.",
      "Does he arrive in time?"
     ],
     [

@@ -4,34 +4,39 @@
   "home": {
     "titleBefore": "The North is better",
     "titleAccent": "together.",
-    "chaptersTitle": "Start here"
+    "chaptersTitle": "Start here",
+    "release": true
   },
   "rules": {
     "pages": [
       {
         "file": "rules.html",
-        "title": "Search and statuses"
+        "title": "Search and statuses",
+        "release": true
       },
       {
         "file": "rules-perks.html",
         "title": "Perks",
         "categories": [
           "perk"
-        ]
+        ],
+        "release": true
       },
       {
         "file": "rules-spells.html",
         "title": "Spells",
         "categories": [
           "spell"
-        ]
+        ],
+        "release": true
       },
       {
         "file": "rules-powers.html",
         "title": "Powers",
         "categories": [
           "race"
-        ]
+        ],
+        "release": true
       },
       {
         "file": "rules-mods.html",
@@ -39,7 +44,8 @@
         "categories": [
           "mod",
           "mechanic"
-        ]
+        ],
+        "release": true
       }
     ]
   },
@@ -88,7 +94,8 @@
               "Our collection on Nexus",
               "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
             ]
-          ]
+          ],
+          "release": true
         },
         {
           "file": "absol-list.html",
@@ -114,7 +121,8 @@
               "Better Vanilla Perks",
               "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
             ]
-          ]
+          ],
+          "release": true
         },
         {
           "file": "races.html",
@@ -276,7 +284,7 @@
             {
               "id": "setup",
               "title": "First-time setup",
-              "note": "Follow our Nexus collection page for installer choices.",
+              "note": "After the owner's go-ahead, follow our Nexus collection page for installer choices.",
               "columns": [
                 "Step",
                 "Single player",
@@ -296,7 +304,7 @@
                 [
                   "Disk space we measured",
                   "Skyrim alone",
-                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 19 unpacked mods use 0.65 GB. Their kept download files use 0.23 GB. Mods add about 0.88 GB to an existing game. Revision 7 additions are not measured yet: Cathedral Weathers (about 100 MB to download), Sounds of Skyrim (about 21 MB), the gear packs and Elysium Estate (a 53 MB download, about 95 MB of game files). Trading Posts, Bandit Expansion, Skyshards and Harborwatch are not measured either."
+                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 38 unpacked mods of revision 7 use about 1.2 GB. Their download files use about 0.6 GB if you keep them. Revision 7 adds about 1.8 GB to an existing game. That fits inside the 5 GB planning budget above. Measured on 5 October 2026; the two private perk patches are tiny."
                 ],
                 [
                   "Open the normal Skyrim launcher once",
@@ -312,7 +320,7 @@
                   "Set up Vortex",
                   "Optional",
                   {
-                    "text": "Install Vortex. Sign in. Settings → Interface → Profile Management: enable it. Create and enable an STR profile. Choose own game settings.",
+                    "text": "Install Vortex. Sign in. Settings → Interface → Profile Management: enable it. Create and enable a profile named STR (for Skyrim Together Reborn). Choose own game settings.",
                     "href": "https://www.nexusmods.com/vortex"
                   }
                 ],
@@ -320,19 +328,19 @@
                   "Add our mod collection",
                   "Optional, one at a time",
                   {
-                    "text": "On Nexus, click Add collection. Follow the listed installer choices.",
+                    "text": "Wait for the owner's go-ahead first. Then, on Nexus, click Add collection. Follow the listed installer choices. The Nexus page still shows revision 6 until the go-ahead.",
                     "href": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
                   }
                 ],
                 [
-                  "Perk patches from the Friend Kit",
+                  "Perk patches from the Friend Kit (after the go-ahead)",
                   "Not needed",
                   "Open the Friend Kit folder again. If it has no \"make the perk patches zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. If it says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick STR-Perk-Patches.zip. Everyone needs both patches before a shared session. They change some perks; the quarantined list on this site still applies."
                 ],
                 [
                   "Enable plugins",
                   "Not needed",
-                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7 (wait for the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                 ],
                 [
                   "Launch the co-op game",
@@ -357,7 +365,8 @@
               "Our collection on Nexus",
               "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
             ]
-          ]
+          ],
+          "release": true
         },
         {
           "file": "tailscale.html",
@@ -644,7 +653,8 @@
               "Official play guide",
               "https://wiki.tiltedphoques.com/tilted-online/general-information/playguide"
             ]
-          ]
+          ],
+          "release": true
         },
         {
           "file": "tonight.html",
@@ -659,7 +669,7 @@
           "title": "Leaving",
           "quick": [
             "I have to leave right now.",
-            "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game (Esc → System → Quit)."
+            "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit to Main Menu (Esc → System → Quit)."
           ],
           "grids": [
             {
@@ -674,7 +684,7 @@
                 [
                   "Leaving, now or later",
                   "Esc → Save. Esc → System → Quit.",
-                  "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit the game (Esc → System → Quit). If you have a moment, step somewhere safe first. Quitting may still crash; no fix is proven."
+                  "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Choose Quit to Main Menu (Esc → System → Quit), which works properly under Skyrim Together. If you have a moment, step somewhere safe first. Exiting the program itself crashes at the very end on our Skyrim Together versions. Your save is already written, so it is harmless apart from a crash file. No fix is proven."
                 ],
                 [
                   "Telling the group",
@@ -749,7 +759,7 @@
                 [
                   "Stealth ranger",
                   "Sneak and shoot everything",
-                  "Archery and Sneak. Scout first. Keep shooting when spotted."
+                  "Archery and Sneak. Scout first. Keep shooting when spotted. Our archery patch removes critical bonuses while you sneak."
                 ],
                 [
                   "Gandalf-style wizard",
@@ -881,7 +891,7 @@
                 ],
                 [
                   "Stealth ranger",
-                  "Archery, Sneak, Light Armor",
+                  "Archery, Sneak, Light Armor. Our archery patch removes critical bonuses while you sneak.",
                   "Wood Elf or Nord (Wood Elf: no racial power in our game)",
                   "Thief; switch to Lord later"
                 ],
@@ -935,13 +945,13 @@
                 ],
                 [
                   "Necromancer-healer",
-                  "Restoration, then Conjuration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
+                  "Restoration, then Conjuration. Necromage is locked by our perk patch. Skip it.",
                   "Breton or Dark Elf (Dark Elf: no racial power in our game)",
                   "Mage; switch to Lord later"
                 ],
                 [
                   "Healer",
-                  "Restoration, Alteration. Necromage needs Resurgence. Take it only after the group tests Resurgence.",
+                  "Restoration, Alteration. Necromage is locked by our perk patch. Skip it.",
                   "Breton or Imperial",
                   "Mage; switch to Lord later"
                 ],
@@ -984,7 +994,7 @@
                     " (Kyle's character)"
                   ],
                   "The Vigil of Stendarr hunts undead and Daedra worshippers.",
-                  "Restoration, heavy armor, sword and shield. Our gear choice."
+                  "Restoration, heavy armor, mace and shield. Our gear choice."
                 ],
                 [
                   "Gravewarden of Arkay",

@@ -73,7 +73,7 @@
         ],
         [
           "Recruiting followers",
-          "Recruit an NPC companion to fight and carry items.",
+          "Recruit a non-player character (NPC) companion to fight and carry items.",
           "Official advice: avoid followers except for quests. They can wander."
         ],
         [
@@ -109,7 +109,7 @@
         [
           "Trading posts",
           "Merchants stay in towns.",
-          "Seven trading posts stand along the roads, with merchants and hired guards. With map fast travel off, they give you a reason to walk the roads. Not tested with two players."
+          "Seven trading posts stand along the roads, with merchants and hired guards. With map fast travel off, they give you a reason to walk the roads. Under our load order, guards or players may walk through some buildings of the Eastmarch post, near Caravan's End Tower. That pathing is untested. Not tested with two players."
         ],
         [
           "Bandit camps",
@@ -148,19 +148,19 @@
         [
           "Archery",
           "Overdraw raises bow damage. Power Shot adds stagger. Steady Hand slows time while zooming.",
-          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming. The Quiet Hunter perk patch adds choices: Steady Hand or Quick Draw, and Power Shot or Ranger. Overdraw ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage. Critical Shot and Bullseye give no critical bonus while you sneak.",
-          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet. Quiet Hunter lets you take only one of Steady Hand and Quick Draw, and only one of Power Shot and Ranger."
+          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming. The Quiet Hunter perk patch adds choices: Steady Hand or Quick Draw, and Power Shot or Ranger. Overdraw ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage. Critical Shot and Bullseye give no critical bonus while you sneak. The held-perk patch changes Steady Hand rank 1: it no longer slows time. It adds 10% bow critical chance and 5% more bow damage.",
+          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet. Quiet Hunter makes Steady Hand and Quick Draw either-or, and Power Shot and Ranger either-or. Steady Hand is quarantined, so if you want one of that pair, the allowed pick is Quick Draw."
         ],
         [
           "Block",
           "Shield Wall improves blocking. Quick Reflexes slows time while blocking a power attack.",
-          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking. Rank 2 adds slowdown.",
+          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking. Rank 2 halves all damage while you block. Our held-perk patch removes its slowdown.",
           "Quarantined (don't use yet): Strong Reflexes rank 2, Block 50. Rank 1, Block 30, is allowed."
         ],
         [
           "Conjuration",
           "Summoner increases casting distance. Twin Souls allows two summons. Elemental Potency strengthens atronachs. An atronach is a summoned elemental spirit.",
-          "Summoner and Puppeteer add summon slots. Twin Souls adds two. Staff of the Atronach strengthens certain spells. Potent atronachs and thralls scale with your level.",
+          "Summoner and Puppeteer cast summons twice and three times as far away. Twin Souls makes Conjuration spells cost 10% less magicka. Our held-perk patch removes the extra summon slots Better Vanilla Perks would add. Staff of the Atronach strengthens certain spells. Potent atronachs and thralls scale with your level.",
           "One active summon per player. Quarantined: corpse raising, Dark Souls 2 explosions. Don't use yet."
         ],
         [
@@ -196,8 +196,8 @@
         [
           "Lockpicking",
           "Novice through Master Locks make matching locks easier to pick.",
-          "Novice through Master Locks bypass matching locks outside combat. Requires a torch. Quick Hands no longer needs earlier perks.",
-          "Quarantined (don't use yet): torch auto-unlock. Use lockpicks manually."
+          "Novice through Master Locks make matching locks easier to pick. Better Vanilla Perks also lets a torch open them outside combat; our held-perk patch removes that. Quick Hands no longer needs earlier perks.",
+          "Quarantined (don't use yet): torch auto-unlock, which our held-perk patch already removes. Use lockpicks manually."
         ],
         [
           "One-Handed",
@@ -214,8 +214,8 @@
         [
           "Restoration",
           "Regeneration strengthens healing by 50%. Recovery improves Magicka regeneration.",
-          "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
-          "Resurgence: quarantined until our first healer test. Don't use yet."
+          "Regeneration becomes Resurgence. In our game it makes Restoration spells cost 10% less magicka; Better Vanilla Perks alone makes them 30% stronger. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
+          "Resurgence: quarantined until our first healer test. Don't use yet. Necromage (Restoration 70) is locked: it shows greyed out and cannot be picked."
         ],
         [
           "Smithing",
@@ -232,8 +232,8 @@
         [
           "Speech",
           "Haggling improves prices. Intimidation improves threatening dialogue.",
-          "Dragonborn replaces Haggling: prices, skill-books, summons, steam, drum, merchant. Intimidation also grants Battlecry.",
-          "Quarantined: Dragonborn rank 4's drum and rank 5's merchant. Don't use yet. Rank 2 keeps our one-summon limit."
+          "Dragonborn replaces Haggling: better prices (rank 2: 15%, rank 4: 25%, rank 5: 30%), skill-books and steam. Better Vanilla Perks also adds an extra summon, a drum and a Dremora merchant; our held-perk patch removes all three. Intimidation also grants Battlecry.",
+          "Quarantined: Dragonborn rank 4 (Speech 60) and rank 5 (Speech 80). Don't use yet. Rank 2 only improves prices in our game; the one-summon limit stays."
         ],
         [
           "Two-Handed",
@@ -242,7 +242,7 @@
           "No extra rule"
         ]
       ],
-      "note": "Vanilla means the unmodded game. Better Vanilla Perks is part of our collection (revision 7)."
+      "note": "Vanilla means the unmodded game. Mods describes our game: Better Vanilla Perks (part of revision 7, which is being prepared) with the held-perk and Quiet Hunter patches from the Friend Kit."
     },
     {
       "id": "races",
@@ -363,7 +363,7 @@
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The Friend Kit perk patches (see First-time setup) change how some of these perks work, but the host has not lifted any of these rules. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says \"held\" for the same thing. The Friend Kit perk patches (see First-time setup) change how some of these perks work, but the host has not lifted any of these rules. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",
@@ -375,7 +375,7 @@
             "text": "Strong Reflexes rank 2 (Block 50)",
             "href": "rules.html#rule-strong-reflexes-2"
           },
-          "Halves blocking damage. Melee blocks against power attacks slow time.",
+          "Halves blocking damage. Better Vanilla Perks alone also slows time when you block a power attack; in our game the held-perk patch removes the slowdown.",
           "Quarantined (don't use yet): rank 2. Rank 1's shield protection at Block 30 is allowed."
         ],
         [
@@ -383,8 +383,8 @@
             "text": "Steady Hand, whole branch (from Archery 40)",
             "href": "rules.html#rule-steady-hand-1"
           },
-          "Rank 1 slows time while zooming and adds critical chance. Rank 2 adds critical chance and protection against disarming.",
-          "Quarantined (don't use yet): both ranks. Rank 2 does not clear the first rank's slowdown."
+          "Rank 1 adds 10% bow critical chance and 5% more bow damage in our game. Better Vanilla Perks alone also slows time while you zoom; the held-perk patch removes that. Rank 2 adds critical chance and protection against disarming. Quiet Hunter makes Steady Hand and Quick Draw either-or.",
+          "Quarantined (don't use yet): both ranks. Quick Draw is not on the quarantine list."
         ],
         [
           {
@@ -423,7 +423,7 @@
             "text": "Extra active summons",
             "href": "rules.html#rule-extra-summons"
           },
-          "Summoner, Puppeteer, Twin Souls, Dragonborn rank 2 increase summon capacity.",
+          "Better Vanilla Perks lets Summoner, Puppeteer, Twin Souls and Dragonborn rank 2 add summon slots. In our game the held-perk patch removes every extra slot.",
           "Keep one active summon per player, regardless of unlocked capacity. Quarantined summons and corpse raising remain excluded. One summon is our starting test budget, not an engine limit."
         ],
         [
@@ -439,23 +439,23 @@
             "text": "Dragonborn rank 4: spectral drum (Speech 60)",
             "href": "rules.html#rule-dragonborn-4-drum"
           },
-          "Summons a spectral drum that restores followers' Stamina. Improves prices.",
-          "Quarantined (don't use yet): the drum power. Its effect on other players (not verified)."
+          "Improves prices by 25%. Better Vanilla Perks alone also summons a spectral drum; in our game the held-perk patch removes the drum.",
+          "Quarantined (don't use yet): rank 4. Its effect on other players (not verified)."
         ],
         [
           {
             "text": "Dragonborn rank 5: Dremora Merchant (Speech 80)",
             "href": "rules.html#rule-dragonborn-5-merchant"
           },
-          "Summons a Dremora to buy and sell goods. Improves prices.",
-          "Quarantined (don't use yet): the merchant power."
+          "Improves prices by 30%. Better Vanilla Perks alone also summons a Dremora to buy and sell goods; in our game the held-perk patch removes the merchant.",
+          "Quarantined (don't use yet): rank 5."
         ],
         [
           {
             "text": "Torch auto-unlock (Lockpicking)",
             "href": "rules.html#rule-torch-auto-unlock"
           },
-          "Novice through Master Locks open matching locks outside combat. Requires a torch.",
+          "Better Vanilla Perks alone lets Novice through Master Locks open matching locks outside combat with a torch. In our game the held-perk patch removes that. They only make locks easier to pick.",
           "Quarantined (don't use yet): automatic unlocking. Use lockpicks manually."
         ],
         [
@@ -463,12 +463,20 @@
             "text": "Resurgence (Restoration)",
             "href": "rules.html#rule-resurgence"
           },
-          "Strengthens Restoration spells by 30%",
+          "In our game Restoration spells cost 10% less magicka. Better Vanilla Perks alone makes them 30% stronger.",
           "Quarantined (don't use yet) until the group's first healer test. Don't promise another player a particular bonus."
         ],
         [
+          {
+            "text": "Necromage (Restoration 70)",
+            "href": "rules.html#rule-necromage"
+          },
+          "Needs Resurgence. Gives a 30% bonus against undead.",
+          "Quarantined (don't use yet): the held-perk patch locks it. It shows greyed out and cannot be picked. Taking Resurgence does not unlock it."
+        ],
+        [
           "Time-slowing effects",
-          "Strong Reflexes rank 2, Steady Hand and Red Sand Dance slow time for you.",
+          "Better Vanilla Perks alone slows time for Strong Reflexes rank 2 and Steady Hand. Our held-perk patch removes both slowdowns. Red Sand Dance still slows time for you.",
           [
             "Quarantined (don't use yet) for group pacing and testing. Skyrim Together can sync slow time. We don't claim all slow time breaks sync. ",
             {
@@ -528,7 +536,7 @@
         [
           "Stealth ranger",
           "Sneak and shoot everything",
-          "Archery and Sneak find the opening. Keep moving and shooting after you're spotted."
+          "Archery and Sneak find the opening. Keep moving and shooting after you're spotted. Our archery patch removes critical bonuses while you sneak."
         ],
         [
           "Gandalf-style wizard",
@@ -589,12 +597,12 @@
         [
           "Mod settings",
           "Yours alone",
-          "Everyone installs the same Required mods. Optional mods are your choice. Agree on changes together."
+          "Everyone installs the same Required mods. Optional mods are your choice, except that optional gear mods change what you see on other players (see Our mods). Agree on changes together."
         ],
         [
           "Friendly fire",
           "No other players",
-          "Player PvP is off in our setup. Friendly NPCs can still be hit. If you use True Directional Movement, keep its hostile-only lock-on setting on."
+          "Players fighting players (PvP) is off in our setup. Friendly non-player characters (NPCs) can still be hit. If you use True Directional Movement, keep its hostile-only lock-on setting on."
         ]
       ]
     },
@@ -630,7 +638,7 @@
         [
           "Private home chests",
           "Owned homes provide personal storage. Choose a safe container.",
-          "Chests inside the city homes you can buy (such as Breezehome) and inside Elysium Estate belong to that player alone. Other players do not see them. Hearthfire houses may differ. Not tested with two players: test your chest with cheap items first."
+          "Chests inside the city homes you can buy (such as Breezehome) and inside Elysium Estate belong to that player alone. Other players do not see them. Hearthfire houses are unclear: the wiki says personal, the game files suggest shared. Not tested with two players: test your chest with cheap items first."
         ],
         [
           "Shared storage and trading",
@@ -640,7 +648,7 @@
         [
           "Dropped items",
           "You can drop an item and pick it up again.",
-          "Dropped items aren't shared on our server. Trade through a tested shared chest."
+          "Dropped items aren't shared on our server. No hand-over chest has been tested. Hand-overs through a chest with everyone present are untested: try a cheap item first."
         ],
         [
           "Quest items",
@@ -655,7 +663,7 @@
         [
           "Hearthfire building and furnishing",
           "Buy a plot, gather materials and build your own house.",
-          "Vanilla/DLC interiors are personal. Building, steward purchases and party visits remain unverified."
+          "The city homes you can buy are personal. Hearthfire houses are unclear: the wiki says personal, the game files suggest shared, and nobody has tested it. Building, steward purchases and party visits remain unverified."
         ],
         [
           "Group house: Elysium Estate",
@@ -686,8 +694,8 @@
         ],
         [
           "Optional",
-          "It changes only what you see, hear or how your own menus, map and camera work.",
-          "Skip it if you like. Nobody else is affected."
+          "It changes only what you see, hear or how your own menus, map and camera work. Gear mods are the exception: see the next row.",
+          "Skip it if you like. Nobody else is affected, unless it is a gear mod."
         ],
         [
           "Optional gear mods",
@@ -699,7 +707,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. It is being prepared: wait for the owner's go-ahead before you install it. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",
@@ -748,7 +756,7 @@
           "Some mod menus missing",
           "Supports mod settings in the Mod Configuration menu.",
           "Required",
-          "The settings pages for Precision, True Directional Movement and TrueHUD need it."
+          "The settings pages for Precision, True Directional Movement, TrueHUD and Better Third Person Selection need it."
         ],
         [
           "TrueHUD",
@@ -881,7 +889,7 @@
         [
           "Skyrim Trading Posts Remastered",
           "No trading posts on the roads.",
-          "Adds seven trading posts along the roads of Skyrim. Merchants buy and sell all kinds of items, and hired guards protect them. A reason to travel on foot now that map fast travel is off.",
+          "Adds seven trading posts along the roads of Skyrim. Merchants buy and sell all kinds of items, and hired guards protect them. A reason to travel on foot now that map fast travel is off. Pathing is untested near the Eastmarch post, by Caravan's End Tower: under our load order, guards or players may walk through some of its buildings.",
           "Required · new since revision 6",
           "It adds buildings, merchants and guards to the shared world, so everyone needs it."
         ],
@@ -982,7 +990,7 @@
         [
           "Harborwatch",
           "No group house in Solitude.",
-          "A medium house in Solitude near the main gate, between the Winking Skeever and Angeline's Aromatics. Its author built it as a base for Skyrim Together. Chests inside are private to each player (read from its files and our server settings; not tested in the game).",
+          "A medium house in Solitude, between the Winking Skeever and Angeline's Aromatics. Its author built it as a base for Skyrim Together. Chests inside are private to each player (read from its files and our server settings; not tested in the game).",
           "Optional · new since revision 6",
           "It is a house, not a rule change. What a player without it sees at that spot is not tested."
         ]
