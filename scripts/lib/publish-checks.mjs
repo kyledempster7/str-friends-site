@@ -69,7 +69,9 @@ export function privacyFindings(bytes, secrets, { allowIdentity = false } = {}) 
   // Scan known secrets across all bytes, but scan generic PII in their readable
   // UTF-8/UTF-16 metadata strings instead of random compressed data.
   const binary = Buffer.isBuffer(bytes) && (!isUtf8(bytes) || bytes.includes(0));
-  const metadata = binary ? variants.flatMap(text => text.match(/[\x20-\x7e\t]{8,}/g) ?? []) : variants;
+  // Compressed frames easily contain 8 to 15 printable bytes by chance (found in 3 of 12 Audio guide MP3s), so
+  // binary data needs a run of 16 or more. validate.mjs separately probes every MP3's real tags for all patterns.
+  const metadata = binary ? variants.flatMap(text => text.match(/[\x20-\x7e\t]{16,}/g) ?? []) : variants;
   for (const text of variants) {
     for (const secret of secrets) {
       const formEncoded = new URLSearchParams({ value: secret }).toString().slice('value='.length);

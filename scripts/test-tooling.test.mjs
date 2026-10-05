@@ -105,6 +105,9 @@ test('binary scans distinguish random path markers from readable metadata and se
   assert.ok(privacyFindings(metadata, []).includes('local file path'));
   const secret = 'Synthetic42';
   assert.ok(privacyFindings(Buffer.concat([noise, Buffer.from(secret), noise]), [secret]).includes('server/admin password'));
+  // A short printable run inside compressed audio is chance, not a path.
+  const shortRun = Buffer.concat([Buffer.from([255, 3]), Buffer.from(['`,C', ':', '/F`B'].join('')), Buffer.from([255, 3])]);
+  assert.deepEqual(privacyFindings(shortRun, []), []);
 });
 
 test('UNC scan requires a real share and does not mistake escaped regex classes for paths', () => {
