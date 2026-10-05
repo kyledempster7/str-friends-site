@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "intro": "Before is vanilla Skyrim on your own. After is our co-op setup.",
   "grids": [
     {
@@ -105,6 +105,21 @@
           "Job boards",
           "Jobs come from talking to people.",
           "Job boards stand outside inns. The leader takes a job and everyone goes along. The other players may not see the job in their journals. Who gets the reward is not tested."
+        ],
+        [
+          "Trading posts",
+          "Merchants stay in towns.",
+          "Seven trading posts stand along the roads, with merchants and hired guards. With map fast travel off, they give you a reason to walk the roads. Not tested with two players."
+        ],
+        [
+          "Bandit camps",
+          "Bandits live in the camps the game ships with.",
+          "14 new bandit camps and 2 occupied mines are spread across Skyrim. Go together. Not tested with two players."
+        ],
+        [
+          "Skyshards",
+          "Perk points come from levelling up.",
+          "Skyshards are hidden around Skyrim. Every 3 you absorb give 1 perk point. Each player collects their own. Not tested with two players."
         ]
       ]
     },
@@ -643,9 +658,14 @@
           "Vanilla/DLC interiors are personal. Building, steward purchases and party visits remain unverified."
         ],
         [
-          "Our group house",
+          "Group house: Elysium Estate",
           "Buy or earn homes across Skyrim.",
-          "Elysium Estate, southwest of Whiterun, is our group house. Its Nexus page says a quest unlocks it. We have not tested how you get in, or two players inside it. Chests inside it are private to each player."
+          "Southwest of Whiterun. Its Nexus page says version 5 starts with a voiced introductory quest, but not where. We have not tested how you get in. Chests inside are private to each player."
+        ],
+        [
+          "Group house: Harborwatch (Optional)",
+          "Buy or earn homes across Skyrim.",
+          "In Solitude, next to the Winking Skeever. Its Nexus page says it is free, with no quest or seller named. The author suggests paying 15,000 to 20,000 gold as a house rule. We have not tested how you get in. Chests inside are private to each player."
         ]
       ]
     },
@@ -679,7 +699,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 34 installed mods: 23 Required and 11 Optional. It is not on Nexus yet. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",
@@ -806,57 +826,78 @@
           "Disable Fast Travel",
           "Click a map marker to travel there instantly.",
           "Switches off map fast travel. Carriages and ferries should still work, but we have not tested them.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "Everyone travels the same roads together."
         ],
         [
           "Keyword Item Distributor",
           "No helper for tagging items.",
           "Tags food and potions so Simplest Survival can tell them apart. Nothing to see in play.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "Simplest Survival does nothing without it."
         ],
         [
           "Simplest Survival",
           "No hunger or thirst.",
           "Adds hunger and thirst. Each halves your health, magicka and stamina regeneration until you eat food or drink a potion.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "Everyone needs the same survival rules."
         ],
         [
           "Simplest Survival - Needs 30 Minutes Patch",
           "No hunger or thirst.",
           "Hunger and thirst arrive about 30 real minutes after you last ate or drank. That is 10 game hours; a game day is about 72 real minutes.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "It sets the same timing for everyone. It is a separate mod page on Nexus."
         ],
         [
           "The Notice Board",
           "Jobs come from talking to people.",
           "Adds job boards outside inns. The leader takes a job and the group goes together. The other players may not see the job in their journals.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "It adds quests and boards to the shared world. Who gets the reward is not tested."
         ],
         [
           "Vampire Attacks Restored Outside of Walled Cities",
           "Vampire attacks on towns are switched off.",
           "Brings back vampire attacks on towns and villages at night, outside the walled cities.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "It changes what spawns in the shared world. How an attack looks for the other players is not tested."
         ],
         [
           "Vampire Attacks Restored - Gentle Start Patch",
           "Vampire attacks on towns are switched off.",
           "Our patch for the mod above. No attack before level 12. At least three game days between attacks. Less likely until level 30.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "Everyone needs the same attack rules. It is a separate mod page on Nexus and needs the mod above."
         ],
         [
           "Elysium Estate SSE",
           "No group house.",
           "A player house southwest of Whiterun, with crafting rooms, a kitchen, stables and display cases. It is our group house.",
-          "Required Â· new since revision 6",
+          "Required · new since revision 6",
           "It adds a building to the shared world, so everyone needs it. Its inside areas count as player homes, so each player's chests there are private."
+        ],
+        [
+          "Skyrim Trading Posts Remastered",
+          "No trading posts on the roads.",
+          "Adds seven trading posts along the roads of Skyrim. Merchants buy and sell all kinds of items, and hired guards protect them. A reason to travel on foot now that map fast travel is off.",
+          "Required · new since revision 6",
+          "It adds buildings, merchants and guards to the shared world, so everyone needs it."
+        ],
+        [
+          "Skyrim Bandit Expansion",
+          "Only the bandit camps the game ships with.",
+          "Adds 14 new bandit camps and 2 occupied mines across Skyrim. One mine is a frozen lair. The other is a gold and iron mine held by an Orcish gang.",
+          "Required · new since revision 6",
+          "It adds enemies and places to the shared world, so everyone needs it."
+        ],
+        [
+          "Skyshards",
+          "Perk points come from levelling up.",
+          "Hides 108 Skyshards across the nine holds. Every 3 you absorb give 1 perk point. Each player collects their own.",
+          "Required · new since revision 6",
+          "It changes how perk points are earned, so everyone needs the same rules. Not tested in co-op."
         ],
         [
           "Skyrim Souls RE",
@@ -937,6 +978,13 @@
           "26 craftable weapons.",
           "Optional · new since revision 6",
           "Skip it and you will not see these weapons on players who have them, and they will not see yours. Handing a weapon to a player without the mod has not been tested."
+        ],
+        [
+          "Harborwatch",
+          "No group house in Solitude.",
+          "A medium house in Solitude near the main gate, between the Winking Skeever and Angeline's Aromatics. Its author built it as a base for Skyrim Together. Chests inside are private to each player (read from its files and our server settings; not tested in the game).",
+          "Optional · new since revision 6",
+          "It is a house, not a rule change. What a player without it sees at that spot is not tested."
         ]
       ]
     }

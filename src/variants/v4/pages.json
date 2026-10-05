@@ -296,7 +296,7 @@
                 [
                   "Disk space we measured",
                   "Skyrim alone",
-                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 19 unpacked mods use 0.65 GB. Their kept download files use 0.23 GB. Mods add about 0.88 GB to an existing game. Revision 7 additions are not measured yet: Cathedral Weathers (about 100 MB to download), Sounds of Skyrim (about 21 MB), the gear packs and Elysium Estate (a 53 MB download, about 95 MB of game files)."
+                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 19 unpacked mods use 0.65 GB. Their kept download files use 0.23 GB. Mods add about 0.88 GB to an existing game. Revision 7 additions are not measured yet: Cathedral Weathers (about 100 MB to download), Sounds of Skyrim (about 21 MB), the gear packs and Elysium Estate (a 53 MB download, about 95 MB of game files). Trading Posts, Bandit Expansion, Skyshards and Harborwatch are not measured either."
                 ],
                 [
                   "Open the normal Skyrim launcher once",
@@ -332,7 +332,7 @@
                 [
                   "Enable plugins",
                   "Not needed",
-                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp and ElysiumEstate.esp. Also enable the plugins of any Optional mods you installed. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                 ],
                 [
                   "Launch the co-op game",
@@ -1245,7 +1245,7 @@
               ],
               [
                 "DK",
-                "Heavy-armor warrior.",
+                "Strong-arm warrior.",
                 "Not yet"
               ]
             ]
