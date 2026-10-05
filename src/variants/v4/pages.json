@@ -296,7 +296,7 @@
                 [
                   "Disk space we measured",
                   "Skyrim alone",
-                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 19 unpacked mods use 0.65 GB. Their kept download files use 0.23 GB. Mods add about 0.88 GB to an existing game. Revision 7 additions are not measured yet: Cathedral Weathers (about 100 MB to download), Sounds of Skyrim (about 21 MB) and the gear packs."
+                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The previous 19 mods used 0.88 GB. Revision 7 adds Cathedral Weathers, Sounds of Skyrim, survival mods, notice boards, vampire attacks and gear packs. Keep at least 50 GB free."
                 ],
                 [
                   "Open the normal Skyrim launcher once",
@@ -325,9 +325,14 @@
                   }
                 ],
                 [
-                  "Enable five plugins",
+                  "Perk patches from the Friend Kit",
                   "Not needed",
-                  "In Vortex's Plugins view, enable: SkyrimTogether.esp; SkyrimTogetherQuestPatches.esp; MysticismMagic.esp; better vanilla perks.esp; Imperious - Races of Skyrim.esp."
+                  "Download the Friend Kit gist again, then Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. In Vortex, open the Mods tab, click Install From File, and pick STR-Perk-Patches.zip. In Vortex's Plugins tab, enable STR-HeldPerks-Lock.esp and STR-QuietHunter.esp."
+                ],
+                [
+                  "Enable plugins",
+                  "Not needed",
+                  "In Vortex's Plugins view, enable: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, The Notice Board.esp, VampireAttacksRestored.esp, and STR-VampireCadence.esp. Also enable any Optional mod plugins you installed."
                 ],
                 [
                   "Launch the co-op game",
@@ -343,6 +348,11 @@
                   "Check setup is complete",
                   "The main menu loads",
                   "Skyrim Together reaches the main menu. Your character is saved outside Helgen."
+                ],
+                [
+                  "Handing items over",
+                  "Trade with followers or use containers.",
+                  "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers outside homes sync only for the current visit and can be overwritten later. Crafted potions and custom enchantments may not transfer (untested)."
                 ]
               ]
             }
@@ -622,6 +632,11 @@
                   "Report a connection problem",
                   "Reload or restart",
                   "Stop. Send the host the exact error message. Keep server details private."
+                ],
+                [
+                  "Handing items over",
+                  "Trade with companions directly.",
+                  "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers outside homes sync only for the current visit."
                 ]
               ]
             }
@@ -1240,7 +1255,7 @@
               ],
               [
                 "DK",
-                "Sword and shield.",
+                "Heavy-armor warrior.",
                 "Not yet"
               ]
             ]

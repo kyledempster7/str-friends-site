@@ -113,8 +113,8 @@
         [
           "Archery",
           "Overdraw raises bow damage. Power Shot adds stagger. Steady Hand slows time while zooming.",
-          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming.",
-          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet."
+          "Overdraw adds armor penetration. Quiet Hunter perk patch gives choices: Steady Hand or Quick Draw, Power Shot or Ranger. Overdraw costs melee damage. Archery crits off while sneaking.",
+          "Choose Steady Hand or Quick Draw; taking one greys out the other. Choose Power Shot or Ranger. Sneak attacks keep Sneak multipliers."
         ],
         [
           "Block",
@@ -180,7 +180,7 @@
           "Restoration",
           "Regeneration strengthens healing by 50%. Recovery improves Magicka regeneration.",
           "Regeneration becomes Resurgence, strengthening Restoration by 30%. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
-          "Resurgence: quarantined until our first healer test. Don't use yet."
+          "Allowed: the held-perk lock now allows Resurgence with 10% less magicka instead of quarantined. Real healing effects on friends still need testing."
         ],
         [
           "Smithing",
@@ -207,7 +207,7 @@
           "No extra rule"
         ]
       ],
-      "note": "Vanilla means the unmodded game. Better Vanilla Perks is part of our collection (revision 6)."
+      "note": "Vanilla means the unmodded game. Better Vanilla Perks is part of our collection (revision 7)."
     },
     {
       "id": "races",
@@ -285,7 +285,7 @@
     {
       "id": "spells",
       "title": "Spells by school",
-      "note": "Vanilla means the unmodded game. Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. Not tested in co-op yet. Collection revision 6.",
+      "note": "Vanilla means the unmodded game. Mysticism changes all five spell schools. Some spells and summons use Better Vanilla Perks instead. Not tested in co-op yet. Collection revision 7.",
       "columns": [
         "School",
         "Vanilla",
@@ -349,7 +349,7 @@
             "href": "rules.html#rule-steady-hand-1"
           },
           "Rank 1 slows time while zooming and adds critical chance. Rank 2 adds critical chance and protection against disarming.",
-          "Quarantined (don't use yet): both ranks. Rank 2 does not clear the first rank's slowdown."
+          "Quiet Hunter perk patch lets you choose between Steady Hand and Quick Draw. Taking one greys out the other. Rank 2 remains untouched."
         ],
         [
           {
@@ -429,7 +429,7 @@
             "href": "rules.html#rule-resurgence"
           },
           "Strengthens Restoration spells by 30%",
-          "Quarantined (don't use yet) until the group's first healer test. Don't promise another player a particular bonus."
+          "Allowed with 10% less magicka through the held-perk lock. It is no longer quarantined. Real healing effects on friends still need testing."
         ],
         [
           "Time-slowing effects",
@@ -472,9 +472,29 @@
           "Reporting a problem",
           "Reload",
           "Stop. Tell the host. Never reload while connected or fix quests alone."
+        ],
+        [
+          "Hunger and thirst",
+          "No hunger or thirst in vanilla Skyrim.",
+          "Hunger and thirst strike about every 30 real minutes. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst."
+        ],
+        [
+          "Fast travel",
+          "Click any discovered map marker to travel instantly.",
+          "Map fast travel is disabled. Travel on foot. Carriages and ferries should work (untested in co-op)."
+        ],
+        [
+          "Vampire attacks",
+          "Vampires attack settlements as Dawnguard begins.",
+          "Night vampire attacks occur outside walled cities. None happen before level 12, and attacks are less likely at lower levels."
+        ],
+        [
+          "Job boards",
+          "Bounty letters from jarls and innkeepers.",
+          "Notice boards sit outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals."
         ]
       ],
-      "note": "Our mods lists every installed mod and what it changes."
+      "note": "Revision 7 adds hunger and thirst about every 30 minutes, job boards outside inns, night vampire attacks outside walled cities from level 12, and no map fast travel. Our mods lists every installed mod."
     },
     {
       "id": "builds",
@@ -560,6 +580,26 @@
           "Friendly fire",
           "No other players",
           "Player PvP is off in our setup. Friendly NPCs can still be hit. If you use True Directional Movement, keep its hostile-only lock-on setting on."
+        ],
+        [
+          "Containers and trading",
+          "Trade directly with followers or use containers.",
+          "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers inside player homes belong to that player alone. Containers elsewhere sync only for the current visit and can be overwritten later. Crafted potions and enchanted gear may not reach another player (untested)."
+        ],
+        [
+          "Job boards",
+          "Take bounties from innkeepers.",
+          "Notice boards sit outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals."
+        ],
+        [
+          "Vampire attacks",
+          "Vampires attack towns at night.",
+          "Vampires attack at night outside walled cities. None occur before level 12, and attacks are less likely at lower levels."
+        ],
+        [
+          "Hunger and thirst",
+          "Food restores a small amount of health.",
+          "Hunger and thirst strike about every 30 real minutes. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst."
         ]
       ]
     },
@@ -595,12 +635,12 @@
         [
           "Private home chests",
           "Owned homes provide personal storage. Choose a safe container.",
-          "Vanilla/DLC home chests are unsynced. Test your chest with cheap items. Persistence here is unverified."
+          "A container inside a player home belongs to that player alone. Vanilla and DLC home chests are not synced to other players."
         ],
         [
           "Shared storage and trading",
           "Containers store items. Some containers reset and are unsafe for lasting storage.",
-          "Shared chest transfers are not tested yet. Try a cheap transfer first. Lasting storage and reconnect results remain unverified."
+          "No shared inventory and no player-to-player trade window. Hand items over through a container while all of you are present. Containers elsewhere sync only for the current visit and can be overwritten later. Crafted potions and enchanted gear may not reach another player (untested)."
         ],
         [
           "Dropped items",
@@ -621,6 +661,11 @@
           "Hearthfire building and furnishing",
           "Buy a plot, gather materials and build your own house.",
           "Vanilla/DLC interiors are personal. Building, steward purchases and party visits remain unverified."
+        ],
+        [
+          "Group base and housing",
+          "Buy or earn homes across Skyrim.",
+          "Elysium Estate is being added as the group base and may still change. Harborwatch is undecided. Containers inside homes belong to that player alone."
         ]
       ]
     },
@@ -654,7 +699,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still revision 6, with 19 mods. The next collection revision is these 27 installed mods, all on the host's PC. The list is still growing. Mods marked new are not in revision 6 and are not on Nexus yet.",
+      "note": "Vanilla means the unmodded game. Revision 7 has 32 installed mods (21 Required and 11 Optional) plus our local and Friend Kit patches.",
       "columns": [
         "Mod",
         "Vanilla",
@@ -688,7 +733,7 @@
           "PapyrusUtil SE",
           "No extra scripting helpers",
           "A helper that QuickLoot needs for its value and weight columns.",
-          "Required · new since revision 6",
+          "Required",
           "QuickLoot IE needs it, even though QuickLoot IE itself is Optional."
         ],
         [
@@ -746,10 +791,7 @@
         [
           "Better Vanilla Perks",
           "Vanilla perk trees",
-          {
-            "text": "Expanded perk choices while keeping the familiar trees. We chose it for the first campaign. See Skills",
-            "href": "skills.html"
-          },
+          "Overhauls perk trees. Friend Kit patches add held-perk lock (allows Resurgence with 10% less magicka) and Quiet Hunter archery choices.",
           "Required",
           "It rewrites perks, spells and weapons for everyone."
         ],
@@ -764,25 +806,60 @@
           "It changes every race, and the race patch needs it."
         ],
         [
-          "STR Race Power Fallback (High Elf and Redguard)",
-          "High Elf and Redguard start with a vanilla daily power",
-          "Gives High Elf and Redguard their vanilla daily power back next to Imperious's powers: Highborn and Adrenaline Rush.",
-          "Required · new since revision 6",
-          "It edits race records, needs Imperious and loads after it."
-        ],
-        [
           "Random Dragons No More",
           "Dragons attack at random while you travel",
           "Switches off the random dragon attacks. Quest dragons stay.",
-          "Required · new since revision 6",
+          "Required",
           "It only works if the party leader's game has it, and anyone can lead."
         ],
         [
           "Cathedral Weathers and Seasons",
           "Vanilla weather",
           "Replaces weather, fog and thunder, and makes nights darker.",
-          "Required · new since revision 6",
+          "Required",
           "The party leader's weather is what everyone sees. The Sounds of Skyrim patch needs it."
+        ],
+        [
+          "Disable Fast Travel",
+          "Clicking a map marker instantly travels there.",
+          "Switches off map fast travel. Carriages and ferries should work (untested in co-op).",
+          "Required",
+          "Keeps travel on foot together in co-op."
+        ],
+        [
+          "Keyword Item Distributor",
+          "No keyword distribution helper.",
+          "Distributes keywords to food and drink items without changing game records.",
+          "Required",
+          "Simplest Survival needs it to identify food and drinks."
+        ],
+        [
+          "Simplest Survival",
+          "No hunger or thirst in vanilla Skyrim.",
+          "Adds hunger and thirst. Each halves health, magicka and stamina regeneration. Food clears Hunger; a potion clears Thirst.",
+          "Required",
+          "Everyone needs the same survival rules and timing."
+        ],
+        [
+          "Simplest Survival - Needs 30 Minutes Patch",
+          "No hunger or thirst.",
+          "Hunger and thirst each arrive about every 30 real minutes (10 game hours at timescale 20).",
+          "Required",
+          "Spaces survival needs to fit group pacing."
+        ],
+        [
+          "The Notice Board",
+          "Bounty letters from innkeepers and jarls.",
+          "Adds job boards outside inns. Most jobs are miscellaneous quests. Leader takes the job, group goes; others may not see it in their journals.",
+          "Required",
+          "Adds physical job boards outside inns in the shared world."
+        ],
+        [
+          "Vampire Attacks Restored Outside of Walled Cities",
+          "Vampires attack settlements as Dawnguard begins.",
+          "Restores night attacks outside walled cities. Our gentle-start patch sets attacks from level 12 onward, less likely at lower levels.",
+          "Required",
+          "Changes NPC spawns in the shared world. Gentle-start patch is installed with it."
         ],
         [
           "Skyrim Souls RE",
@@ -840,28 +917,28 @@
           },
           "Vanilla ambient sound",
           "Adds ambient sound in the wild, in caves, in ruins and at night. It comes with a patch for Cathedral Weathers.",
-          "Optional · new since revision 6",
+          "Optional",
           "Sound only. Skip it and you do not hear the added ambient sounds. The patch comes with this mod, so skipping the mod skips the patch too. Cathedral Weathers stays installed either way, because it is Required."
         ],
         [
           "Playable Greybeard Robes",
           "No craftable Greybeard clothing",
           "Craftable Greybeard clothing.",
-          "Optional · new since revision 6",
+          "Optional",
           "Skip it and you will not see this clothing on players who have it, and they will not see yours. Handing it to a player without the mod has not been tested."
         ],
         [
           "Wizard Hats - Simple",
           "No craftable wizard hats",
           "22 craftable hats.",
-          "Optional · new since revision 6",
+          "Optional",
           "Skip it and you will not see the hats on players who have them, and they will not see yours. Handing a hat to a player without the mod has not been tested."
         ],
         [
           "Weapon Collection LotR",
           "No craftable Lord of the Rings weapons",
           "26 craftable weapons.",
-          "Optional · new since revision 6",
+          "Optional",
           "Skip it and you will not see these weapons on players who have them, and they will not see yours. Handing a weapon to a player without the mod has not been tested."
         ]
       ]

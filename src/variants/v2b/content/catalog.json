@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-03",
-  "collectionRevision": 6,
+  "collectionRevision": 7,
   "entries": [
     {
       "id": "bvp-main",
@@ -250,8 +250,8 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet) until the group's first healer test.",
-      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
+      "summary": "The held-perk lock allows Resurgence with 10% less magicka.",
+      "detail": "The held-perk lock allows Resurgence with 10% less magicka. Real healing effects on friends still need testing.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",

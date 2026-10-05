@@ -219,7 +219,7 @@
               "Barbarian adds armor penetration and greatsword bleeding; Limbsplitter boosts axe power attacks; Skullcrusher adds damage against undead."
             ]
           ],
-          "note": "Better Vanilla Perks is part of our collection (revision 6)."
+          "note": "Better Vanilla Perks is part of our collection (revision 7)."
         },
         {
           "type": "comparison",
@@ -282,7 +282,7 @@
             ]
           ],
           "id": "race-comparison",
-          "note": "Imperious is part of our collection (revision 6). Its racial powers unlock through racial objectives, not at character creation. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
+          "note": "Imperious is part of our collection (revision 7). Its racial powers unlock through racial objectives, not at character creation. High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
         },
         {
           "type": "callout",
@@ -408,7 +408,7 @@
             ]
           ],
           "id": "magic-schools",
-          "note": "Mysticism and Better Vanilla Perks both shape our spells. Not tested in co-op yet. Collection revision 6."
+          "note": "Mysticism and Better Vanilla Perks both shape our spells. Not tested in co-op yet. Collection revision 7."
         },
         {
           "type": "callout",

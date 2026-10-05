@@ -7,7 +7,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Reworks skill perks; use it with the group's named quarantines.",
-      "detail": "Our revision 6 perk overhaul adds weapon, armor, crafting and magic bonuses. Exact effects with this party are not tested in co-op yet.",
+      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. Exact effects with this party are not tested in co-op yet.",
       "aliases": [
         "BVP",
         "Better Vanilla Perks Anniversary Edition 2023"
@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Rebalances old spells and adds new ones; use the main package only.",
-      "detail": "Better Vanilla Perks changes some spells and summon strength. Part of revision 6. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
+      "detail": "Better Vanilla Perks changes some spells and summon strength. Part of revision 7. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -33,7 +33,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Gives each race distinct abilities and an unlockable power; four powers stay quarantined (don't use yet).",
-      "detail": "Part of revision 6. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
+      "detail": "Part of revision 7. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
       "aliases": [
         "Imperious",
         "race overhaul"
@@ -249,8 +249,8 @@
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet) until the group's first healer test.",
-      "detail": "Its listed 30% bonus and Skyrim Together's player healing differ, so its real effect on friends is unknown until we test it.",
+      "summary": "The held-perk lock allows Resurgence with 10% less magicka.",
+      "detail": "The held-perk lock allows Resurgence with 10% less magicka. Real healing effects on friends still need testing.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",

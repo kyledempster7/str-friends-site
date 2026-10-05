@@ -50,8 +50,8 @@ test('catalog revision metadata supplements prose without hiding conflicts', () 
 test('B and D catalog revisions agree and B no longer has a missing-revision finding', () => {
   const input = readSharedFacts({ artifacts: path.join(os.tmpdir(), 'absent-str-artifacts'), brain: path.join(os.tmpdir(), 'absent-str-brain') });
   const label = 'src/variants/v2b/content/catalog.json';
-  assert.deepEqual(input.sources.find(source => source.label === label).revisions, [6]);
-  assert.deepEqual(input.sources.find(source => source.label === 'src/variants/v4/content/catalog.json').revisions, [6]);
+  assert.deepEqual(input.sources.find(source => source.label === label).revisions, [7]);
+  assert.deepEqual(input.sources.find(source => source.label === 'src/variants/v4/content/catalog.json').revisions, [7]);
   assert.ok(!compareSharedFacts(input).findings.some(finding => finding.source === label && finding.fact === 'collection revision'));
 });
 
