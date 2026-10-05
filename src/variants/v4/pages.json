@@ -355,6 +355,206 @@
           ]
         },
         {
+          "file": "tailscale.html",
+          "title": "Tailscale: connecting to our game",
+          "navLabel": "Tailscale",
+          "description": "What Tailscale is, why we use it, how to get ready, what is safe and what happens on game day, with two short recordings and their transcripts.",
+          "quick": [
+            "Where is my join link?",
+            "The host sends your personal join link privately on game day. It is never on this site."
+          ],
+          "grids": [
+            {
+              "id": "what-and-why",
+              "title": "What Tailscale is, and why we use it",
+              "note": "Tailscale is an app. It is how your PC reaches the host’s game PC.",
+              "columns": [
+                "Question",
+                "Answer"
+              ],
+              "rows": [
+                [
+                  "What is Tailscale?",
+                  "An app that makes a private, encrypted link between devices. It uses an open source standard called WireGuard."
+                ],
+                [
+                  "Why do we use it?",
+                  "It lets you reach the host’s game PC without opening anything on anyone’s router. Only people the host shares with can connect."
+                ],
+                [
+                  "What do I need?",
+                  "A Windows 10 or 11 PC with internet. A personal Google, Microsoft, Apple or GitHub sign-in, which is free. You run no scripts and change no router settings."
+                ]
+              ]
+            },
+            {
+              "id": "get-ready",
+              "title": "Get ready",
+              "note": "Do steps 1 and 2 before game day. Steps 3 and 4 happen when your link arrives.",
+              "columns": [
+                "Step",
+                "What you do"
+              ],
+              "rows": [
+                [
+                  "1. Install Tailscale",
+                  "Go to tailscale.com/download/windows. Click the Windows download. Open the file. Windows asks for permission once. Check the publisher says Tailscale Inc., then click Yes. Tick the license box. Click Install, then Close. Every click is spelled out in the audio below."
+                ],
+                [
+                  "2. Sign in",
+                  "Right-click the Tailscale icon by the clock. Click Log in. Pick Google, Microsoft, Apple or GitHub. Use a personal account, not a work or school one. If it asks, choose Personal use. Remember which account you used."
+                ],
+                [
+                  "3. Get your join link",
+                  "The host sends you your personal join link privately on game day. Nobody posts it in public."
+                ],
+                [
+                  "4. Accept the share",
+                  "Open your link in your browser. If asked, sign in with the same account as step 2. Click the button that accepts. Right-click the Tailscale icon and open Network devices. You should see the host’s PC listed."
+                ]
+              ]
+            },
+            {
+              "id": "is-this-safe",
+              "title": "Is this safe?",
+              "note": "Each statement below matches Tailscale’s own documentation.",
+              "columns": [
+                "Question",
+                "Answer"
+              ],
+              "rows": [
+                [
+                  "What can I reach?",
+                  "Only the host’s game PC, and only the game port. The host set that rule in Tailscale. You cannot reach anything else of the host’s."
+                ],
+                [
+                  "Can the host reach my PC?",
+                  "No. A shared PC can answer your PC. It cannot start a connection to your devices. Tailscale says you can accept a share with no risk of exposing your own network. That changes only if you share a machine back."
+                ],
+                [
+                  "What does the host’s side learn?",
+                  "Your account’s email address and picture. Also the real network address of your Tailscale device. The connection needs both."
+                ],
+                [
+                  "What about my home network?",
+                  "Tailscale does not expose it. The exception is an advanced feature called a subnet router, which you would have to set up yourself."
+                ],
+                [
+                  "What about my normal internet use?",
+                  "It does not go through Tailscale or through the host. Tailscale only carries traffic between devices that run it, unless you choose an exit node yourself."
+                ],
+                [
+                  "How do I turn it off?",
+                  "Right-click the Tailscale icon by the clock and choose to disconnect. To remove it, open Settings, then Apps, find Tailscale, and press Uninstall. That does not delete the device from your account, so also remove it on the Machines page of the Tailscale admin console. The host can end the share at any time."
+                ],
+                [
+                  "What do I keep private?",
+                  "Your join link. Treat it like a password."
+                ]
+              ]
+            },
+            {
+              "id": "game-day",
+              "title": "What happens on game day",
+              "columns": [
+                "Step",
+                "What happens"
+              ],
+              "rows": [
+                [
+                  "1. Check Tailscale",
+                  "Make sure its icon is by the clock. It stops when you sign out or restart. If so, open it from the Start menu."
+                ],
+                [
+                  "2. Start the co-op game",
+                  "Double-click your SkyrimTogether.exe shortcut. Finish the Helgen start offline first. Then load your campaign character."
+                ],
+                [
+                  "3. Connect",
+                  "Press F2 or Right Ctrl. Click Connect. Type the address and password the host sends you privately. Click Connect again."
+                ],
+                [
+                  "4. Check it worked",
+                  "You hear a confirmation. The small chat window says “Successfully connected to server.”"
+                ],
+                [
+                  "5. If it fails",
+                  "Check Tailscale is running and the host’s PC shows in Network devices. Signed in with a different account than the one that accepted the share? Right-click the icon and switch accounts. Still stuck? Send the host the exact message. Hide the address and password in any screenshot."
+                ]
+              ]
+            }
+          ],
+          "clips": [
+            {
+              "id": "tailscale-safe",
+              "title": "Tailscale: is this safe?",
+              "summary": "What Tailscale is, what the host can and cannot see, and how to turn it off.",
+              "duration": 87.6,
+              "src": "audio/tailscale-is-this-safe.mp3",
+              "transcript": [
+                "Is this safe?",
+                "What Tailscale is. Tailscale is an app that makes a private, encrypted connection between devices. It uses an open source standard called WireGuard.",
+                "What you are joining. The host shares one PC with you. Once you accept, your PC can reach that one PC and nothing else of the host's.",
+                "It only goes one way. A shared PC can answer your PC, but it cannot start connections to your devices. Tailscale says you can accept a share with no risk of exposing your own network. That only changes if you share a machine back.",
+                "What the host's side does learn. Your account's email address and picture, and the real network address of your Tailscale device, because the connection needs them.",
+                "Your home network. Tailscale does not expose it unless you deliberately set up an advanced feature called a subnet router.",
+                "Your normal internet traffic. It does not go through Tailscale or through the host. Tailscale only carries traffic between devices that run it, unless you choose an exit node yourself.",
+                "Turning it off. Right-click the Tailscale icon by the clock and choose to disconnect. To remove it, open Settings, then Apps, find Tailscale, and press Uninstall. Uninstalling does not delete the device from your account, so also remove it on the Machines page of the Tailscale admin console. The host can end the share at any time.",
+                "Keep the invite link private. Treat it like a password."
+              ]
+            },
+            {
+              "id": "tailscale-steps",
+              "title": "Tailscale: setup, step by step",
+              "summary": "Every click and prompt: install, sign in, accept the share, connect in the game, and the usual fixes.",
+              "duration": 299.7,
+              "src": "audio/tailscale-setup-steps.mp3",
+              "transcript": [
+                "Join the host's Skyrim Together server with Tailscale. This works on Windows 10 and Windows 11.",
+                "You need a Windows PC with internet, a personal Google, Microsoft, Apple or GitHub account, which is free, the host's share link, and the address and password the host sends you privately. Nothing here asks you to run scripts, open ports, change router settings, or give admin rights beyond the one Windows prompt in Part 1.",
+                "Part 1. Install Tailscale on your PC.",
+                "Step 1. Open tailscale dot com, slash download, slash windows, and click the Windows download button. You get a file whose name starts with tailscale setup, in your Downloads folder.",
+                "Step 2. Double-click it. Windows asks, Do you want to allow this app to make changes to your device? Check that the verified publisher says Tailscale Inc., then click Yes. This is the only permission prompt. A standard account is asked for an admin password. A window called Tailscale Setup opens.",
+                "Step 3. Tick the box that says, I agree to the license terms and conditions. Leave Options alone, and click Install. It downloads about 38 megabytes, so stay online. When it says Installation Successfully Completed, click Close. A Tailscale icon appears next to the clock. Click the up arrow if you cannot see it.",
+                "Step 4. Right-click the Tailscale icon and click Log in. The very first time, a welcome window may appear first. If so, use its sign-in button. Your browser opens a Tailscale sign-in page.",
+                "Step 5. Choose Google, Microsoft, Apple or GitHub, and sign in with a personal account, not a work or school one. There is no separate email sign-up. If it asks Business use or Personal use, pick Personal use. If it asks you to add a second device, click Take me home, or close the tab. Right-clicking the icon now shows your account. Remember it. Part 2 needs the same one.",
+                "Windows 10 or 11. It is the same installer and the same steps. The Windows 11 prompts look a little different, but say the same words.",
+                "Part 2. Accept the host's share link.",
+                "Step 1. Paste the share link the host sent you into your browser and press Enter.",
+                "Step 2. If Tailscale asks you to sign in, use the same account as in Part 1. You should see the host's invitation to a shared PC.",
+                "Step 3. Click the button that accepts the invitation. The shared PC is now available to your account, and only to you.",
+                "Step 4. Right-click the Tailscale icon and open Network devices. You should see the host's PC listed. It cannot start connections back to you. You connect to it.",
+                "An unused link stops working after 30 days. If the page says the invitation is no longer valid, ask the host for a new link.",
+                "Part 3. Connect in Skyrim Together.",
+                "Step 1. Finish the Helgen introduction first. Start the game from your Skyrim Together shortcut, and make sure Tailscale is running. Its icon is next to the clock.",
+                "Step 2. Press Right Control, or F two, then click Connect. You should see an Address box and a Password box.",
+                "Step 3. In the Address box, type the address the host sent you privately, then a colon, then one zero five seven eight. The address starts with the numbers one hundred dot, or is a name ending in dot t s dot net.",
+                "Step 4. In the Password box, type the password the host sent you privately, then click Connect. You should hear a confirmation, and see Successfully connected to server, in the small chat window.",
+                "Step 5. If you see, Could not connect to the specified server, use the fixes below and try again. If it says the server has a different version of Skyrim Together, tell the host.",
+                "If something goes wrong.",
+                "If you signed in with a different account than the one that accepted the share, right-click the Tailscale icon, click the account shown at the top, and choose the account that accepted the share. If it is not listed, choose Add another account, and sign in with it. Then check Network devices again.",
+                "If Tailscale is not running, sign in to Windows and open Tailscale from the Start menu. Wait until the icon's menu shows your account. It stops when you sign out or restart. A Windows note saying No internet access on the Tailscale network is harmless.",
+                "If the share was not accepted, and the host's PC is not in Network devices, open the share link again and accept it with the same account. If it is no longer valid, ask the host for a new one. Use a personal account, because a work or school account may be refused.",
+                "See a window this sheet does not describe? Stop, and send the host a screenshot with the address and password hidden."
+              ]
+            }
+          ],
+          "sources": [
+            [
+              "Tailscale: sharing",
+              "https://tailscale.com/docs/features/sharing"
+            ],
+            [
+              "Tailscale: what it is",
+              "https://tailscale.com/docs/concepts/what-is-tailscale"
+            ],
+            [
+              "Tailscale: exit nodes",
+              "https://tailscale.com/docs/features/exit-nodes"
+            ]
+          ]
+        },
+        {
           "file": "join.html",
           "title": "Joining a session",
           "quick": [

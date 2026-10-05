@@ -397,17 +397,26 @@ ${pager}</div></div>${custom.script ?? ''}`
       }));
       return;
     }
+    // Extra voiced clips on a content page use the Audio guide's boxed player. Each keeps its transcript on the same page.
+    const clipBoxes = (p.clips ?? []).map((clip, i, all) => `<section class="d-episode" id="${clip.id}" aria-labelledby="${clip.id}-title">
+<p class="d-episode-kicker">Listen ${i + 1} of ${all.length} · ${episodeTime(clip.duration)}</p>
+<h2 id="${clip.id}-title">${esc(clip.title)}</h2>
+<p class="d-episode-summary">${esc(clip.summary)}</p>
+${episodePlayer(clip)}
+${audioTranscript({ transcriptAnchor: `${clip.id}-transcript`, title: clip.title, transcript: clip.transcript })}
+</section>`).join('\n');
     pages.set(p.file, shell({
       file: p.file,
       title: p.title,
-      description: `${p.title}: comparisons for our Skyrim Together campaign.`,
+      description: p.description ?? `${p.title}: comparisons for our Skyrim Together campaign.`,
       body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
+${clipBoxes}
 ${audioTranscript(p.audio)}
 ${sources(p.sources)}
-${pager}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
+${pager}</div></div>${p.audio || p.clips?.length ? `<script>${audioScript}</script>` : ''}`
     }));
   };
   chapters.forEach((c, ci) => {

@@ -244,6 +244,8 @@ for (const page of [
   ...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []),
   ...(audioPages?.characters?.pages ?? []),
   ...(audioPages?.rules?.pages ?? []),
+  ...[...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.characters?.pages ?? [])]
+    .flatMap(page => (page.clips ?? []).map(clip => ({ file: page.file, audio: { title: clip.title, duration: clip.duration, src: clip.src, transcript: clip.transcript, transcriptAnchor: `${clip.id}-transcript` } }))),
   ...(audioGuide?.episodes ?? []).map(ep => ({ file: 'audio-guide.html', audio: { title: ep.title, duration: ep.duration, src: ep.src, transcript: ep.transcript, transcriptAnchor: `${ep.id}-transcript` } }))
 ]) {
   if (!page.audio) continue;
