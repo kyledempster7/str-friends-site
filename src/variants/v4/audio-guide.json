@@ -8,7 +8,7 @@
       "number": 1,
       "title": "Welcome: what our mods change",
       "summary": "The map of the whole series: which mods are installed, what installed does and does not promise, and which episodes to hear next.",
-      "duration": 318.7,
+      "duration": 307.8,
       "src": "audio/01-welcome-what-our-mods-change.mp3",
       "related": [
         "mods.html",
@@ -103,7 +103,7 @@
       "number": 4,
       "title": "Fighting in our Skyrim",
       "summary": "What a fight feels like: enemies that commit to their swings, free-turning movement with lock-on, real weapon hitboxes, and Master difficulty.",
-      "duration": 359,
+      "duration": 358,
       "src": "audio/04-fighting-in-our-skyrim.mp3",
       "related": [
         "mods.html"
@@ -353,7 +353,7 @@
       "number": 11,
       "title": "Builds off the beaten path",
       "summary": "Character ideas that struggle alone but shine with friends, and why a group changes the math on Master difficulty.",
-      "duration": 604.2,
+      "duration": 559.5,
       "src": "audio/11-builds-off-the-beaten-path.mp3",
       "related": [
         "builds.html",
