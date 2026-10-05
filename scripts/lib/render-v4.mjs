@@ -103,7 +103,20 @@ const css = `/* Version D: grids on the original look. */
 .d-transcript{margin-top:32px;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}.d-transcript summary{color:var(--gold);cursor:pointer;min-height:44px;padding:10px 0}.d-transcript p{max-width:70ch;color:#c2cdcd}
 .d-footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
 .d-listen{margin:0 0 20px;font-size:.85rem;line-height:1.65;color:#b2bfc2}.d-listen a{color:var(--gold);text-underline-offset:3px}.d-listen a:hover{color:#f6f2e9}
-.d-chapters-head .d-home-audio a{color:var(--gold);text-underline-offset:3px}
+.d-chapters-head .d-home-audio a,.d-home-links a{color:var(--gold);text-underline-offset:3px}
+.d-home-links p{margin:0 0 4px;text-align:right}.d-home-links p:last-child{margin-bottom:0}
+.d-lead{margin:0 0 6px;max-width:70ch;color:#c2cdcd}.d-lead a{color:var(--gold);text-underline-offset:3px}
+.d-vote label{color:#f6f2e9}.d-vote select,.d-vote textarea,.d-vote input[type="text"]{background:#0c1418;color:#e5e9e5;border:1px solid var(--gold-dark);border-radius:2px;font:inherit;font-size:1rem}
+.d-vote select{min-height:44px;min-width:88px;padding:6px 10px}
+.d-vote textarea{display:block;width:100%;max-width:40rem;min-height:7rem;padding:12px 14px;line-height:1.5;resize:vertical}
+.d-vote select:focus-visible,.d-vote textarea:focus-visible,.d-vote input:focus-visible,.d-linkbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.d-vote-code{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;margin:16px 0 4px}
+.d-vote-code input{flex:1 1 14rem;min-width:0;max-width:22rem;min-height:44px;padding:8px 12px;letter-spacing:.06em}
+.d-linkbtn{background:none;border:0;padding:0 6px;min-height:44px;color:var(--gold);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.d-linkbtn:hover{color:#f6f2e9}.d-linkbtn:disabled{color:#78888c;cursor:default;text-decoration:none}
+.d-vote-note{margin:6px 0;max-width:70ch;color:#b2bfc2}.d-vote-win{font-size:1.2rem;margin:12px 0}
+#vote-result{margin-top:16px;min-height:2rem}
+@media (max-width:700px){.d-home-links p{text-align:left}}
 .d-guide-intro{margin:0 0 8px;max-width:70ch;color:#c2cdcd}.d-guide-gap{margin:0 0 16px;max-width:70ch;color:#b2bfc2}
 .d-jump{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px;font-size:.9rem;color:#b2bfc2}.d-jump a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--gold)}
 .d-episode{margin:24px 0;padding:24px;border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:3px;background:#16242b;scroll-margin-top:calc(var(--d-header-height,95px) + 16px)}
@@ -173,6 +186,9 @@ export async function renderV4(root) {
   const catalog = JSON.parse(await readFile(path.join(root, 'src/variants/v4/content/catalog.json'), 'utf8'));
   const audioScript = await readFile(path.join(root, 'scripts/lib/v4-audio.js'), 'utf8');
   const guide = JSON.parse(await readFile(path.join(root, 'src/variants/v4/audio-guide.json'), 'utf8'));
+  const purpose = JSON.parse(await readFile(path.join(root, 'src/variants/v4/purpose.json'), 'utf8'));
+  const voteCore = await readFile(path.join(root, 'scripts/lib/v4-vote-core.js'), 'utf8');
+  const voteScript = await readFile(path.join(root, 'scripts/lib/v4-vote.js'), 'utf8');
   const byId = new Map(shared.grids.map((g) => [g.id, g]));
   const resolve = (g) => {
     const found = typeof g === 'string' ? byId.get(g) : g;
@@ -218,7 +234,7 @@ ${body}
       const children = expanded ? `<ol class="d-side-subpages" aria-label="${esc(group.label)} pages">${group.pages.map(p => `<li><a href="${esc(p.file)}"${p.file === file ? ' aria-current="page"' : ''}>${esc(p.title)}</a></li>`).join('')}</ol>` : '';
       return `<li><a href="${esc(group.pages[0].file)}"${current}>${group.num ? `${esc(group.num)} · ` : ''}${esc(group.label)}</a>${children}</li>`;
     }).join('');
-    const listen = `<li><a href="audio-guide.html"${file === 'audio-guide.html' ? ' aria-current="page"' : ''}>Audio guide</a></li>`;
+    const listen = `<li><a href="purpose.html">Our purpose</a></li><li><a href="audio-guide.html"${file === 'audio-guide.html' ? ' aria-current="page"' : ''}>Audio guide</a></li>`;
     return `<aside class="d-side" aria-label="Field guide"><details class="d-guide" open><summary class="d-side-title">Field guide</summary><nav aria-label="Guide topics"><ol>${topics}${listen}</ol><p class="d-side-home"><a href="index.html#topics">Guide home</a></p></nav></details></aside>`;
   };
   const pageStrip = (file) => {
@@ -246,8 +262,43 @@ ${body}
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
 <div class="d-page">${audioBar(h.audio)}
-<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
+<section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p>Choosing our purpose? <a href="purpose.html">Our purpose</a> · <a href="vote.html">Vote</a></p><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
+
+  // Our purpose: six orders as plain grids. Vote: rank, code, and count up to four codes. Both stay in the browser.
+  const purposeBody = () => {
+    const overview = grid({ id: 'orders', title: 'The six orders', note: purpose.overviewNote, columns: ['Order', 'Kind', 'The idea'],
+      rows: purpose.orders.map((o) => [{ text: o.name, href: `#order-${o.id}` }, o.kind, o.idea]) }, 'Our purpose');
+    const sections = purpose.orders.map((o) => grid({ id: `order-${o.id}`, title: o.name, columns: ['Part', 'In this order'], rows: [
+      ['Long goal', o.goal],
+      ...o.rules.map((r, i) => [`House rule ${i + 1}`, r]),
+      ...o.roles.map((r, i) => [purpose.roleLabels[i], r])
+    ] }, 'Our purpose')).join('\n');
+    return { html: `${purpose.lead.map((line, i) => `<p class="d-lead">${esc(line)}${i === 0 ? ' Read all six, then <a href="vote.html">vote</a>.' : ''}</p>`).join('')}
+${overview}
+${sections}` };
+  };
+  const voteBody = () => {
+    const options = `<option value="">Pick</option>${purpose.orders.map((_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}`;
+    const rows = purpose.orders.map((o) => `<tr><th scope="row"><a href="purpose.html#order-${o.id}">${esc(o.name)}</a></th><td data-label="Your number"><label class="d-sr-only" for="rank-${o.letter}">Your number for ${esc(o.name)}</label><select id="rank-${o.letter}" name="rank-${o.letter}">${options}</select></td></tr>`).join('\n');
+    const orderData = JSON.stringify(purpose.orders.map((o) => ({ letter: o.letter, name: o.name }))).replace(/</g, '\\u003c');
+    return { html: `<div class="d-vote">
+<p class="d-lead">Give each order a number. 1 is your favorite. Each number is used once.</p>
+<p class="d-vote-note">Nothing leaves your browser. This device keeps only your own ranking.</p>
+<noscript><p class="d-vote-note">Voting needs JavaScript. Without it, tell the group your order in chat.</p></noscript>
+<section class="d-section" aria-labelledby="vote-rank-title"><h2 id="vote-rank-title">Your ranking</h2>
+<form id="vote-rank" onsubmit="return false"><div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Order</th><th scope="col">Your number</th></tr></thead><tbody>
+${rows}
+</tbody></table></div>
+<div class="d-vote-code"><label for="vote-code">Your code</label><input type="text" id="vote-code" readonly autocomplete="off" spellcheck="false" placeholder="Rank all six first"><button type="button" class="d-linkbtn" id="vote-copy" disabled>Copy code</button><button type="button" class="d-linkbtn" id="vote-clear">Clear my ranking</button></div>
+<p class="d-vote-note" id="vote-code-status" role="status" aria-live="polite"></p><p class="d-vote-note" id="vote-your-order"></p></form></section>
+<section class="d-section" aria-labelledby="vote-count-title"><h2 id="vote-count-title">Count the codes</h2>
+<p class="d-vote-note">Paste up to four codes from the group chat. The count shows round by round. A tie is settled by a coin flip or a group gut pick.</p>
+<label for="vote-paste">Pasted codes</label><textarea id="vote-paste" autocomplete="off" spellcheck="false" placeholder="V1-ABCDEF-0"></textarea>
+<div id="vote-result" role="status" aria-live="polite"></div></section>
+<script type="application/json" id="vote-orders">${orderData}</script>
+</div>`, script: `<script>${voteCore}</script><script>${voteScript}</script>` };
+  };
 
   // Topic subpages: expanded guide, numbered page strip and the bottom pager.
   chapters.forEach((c, ci) => {
@@ -265,6 +316,17 @@ ${body}
           ? `<a class="d-next" href="${esc(chapters[ci + 1].pages[0].file)}">${esc(chapters[ci + 1].num)} ${esc(chapters[ci + 1].label)} →</a>`
           : `<a class="d-next" href="index.html#topics">Back to the guide →</a>`;
       const pager = `<nav class="d-pager" aria-label="Guide progress">${prev}${next}</nav>`;
+      if (p.kind === 'purpose' || p.kind === 'vote') {
+        const custom = p.kind === 'purpose' ? purposeBody() : voteBody();
+        pages.set(p.file, shell({
+          title: p.title,
+          description: p.kind === 'purpose' ? 'Six ways our party could play the campaign, with house rules and a place for every role.' : 'Rank the six orders, get a short code, and count up to four codes. Nothing leaves your browser.',
+          body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${esc(c.num)} · ${esc(c.label)}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}
+${custom.html}
+${pager}</div></div>${custom.script ?? ''}`
+        }));
+        return;
+      }
       pages.set(p.file, shell({
         title: p.title,
         description: `${p.title}: comparisons for our Skyrim Together campaign.`,

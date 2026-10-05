@@ -1,0 +1,125 @@
+{
+  "lead": [
+    "Pick one purpose for the whole campaign. It gives our walks a reason.",
+    "These are ideas. The house rules are suggestions, not server rules.",
+    "Our quarantined list and one summon each still apply."
+  ],
+  "overviewNote": "Everything here uses the base game, its add-ons and our installed mods.",
+  "roleLabels": ["Stealth archer", "Wizard", "Sword and shield", "Healer: cleric or paladin"],
+  "orders": [
+    {
+      "id": "relic-wardens",
+      "letter": "A",
+      "name": "Relic Wardens",
+      "kind": "Guarding",
+      "idea": "Carry cursed relics to one place. Seal them there.",
+      "goal": "Find cursed relics: Dragon Priest masks, Daedric artifacts, necromancer tomes. Seal every one in a place we choose.",
+      "rules": [
+        "Walk everywhere. No fast travel.",
+        "Relics are never sold or traded.",
+        "Choose the sealing place first. Seal every relic there."
+      ],
+      "roles": [
+        "Scouts the route. Shoots tomb guards before the party enters.",
+        "Studies each relic. Fights with direct fire, frost and shock.",
+        "Guards the relic bearer in narrow tomb halls.",
+        ["Keeps the bearer alive. ", { "text": "Sunbeam", "href": "rules.html#rule-sunbeam" }, " burns undead guards."]
+      ]
+    },
+    {
+      "id": "free-company",
+      "letter": "B",
+      "name": "Free Company",
+      "kind": "Fighting for pay",
+      "idea": "A band of sellswords. Take jobs and bounties from the holds.",
+      "goal": "Earn a name in all nine holds. Finish one job in each.",
+      "rules": [
+        "Walk between holds. No fast travel.",
+        "Share job pay evenly, four ways.",
+        "Finish one job before taking the next."
+      ],
+      "roles": [
+        "Opens fights from range. Takes quiet kills on bounties.",
+        ["Hits groups with direct spells. ", { "text": "Calm and Fear", "href": "rules.html#rule-illusion-enemy-control" }, " handle the rest."],
+        "Holds the front line. Takes the first hit.",
+        "Keeps the company standing between fights."
+      ]
+    },
+    {
+      "id": "trading-company",
+      "letter": "C",
+      "name": "Trading Company",
+      "kind": "Trade",
+      "idea": "A trading house. Carry goods between holds and guard caravans.",
+      "goal": "Run trade routes through all nine holds. Count every delivery.",
+      "rules": [
+        "Walk the trade routes. No fast travel.",
+        "Buy goods in one hold. Sell them in another.",
+        "Guard every cargo. Never leave a caravan behind."
+      ],
+      "roles": [
+        "Scouts the road ahead. Picks off bandits from cover.",
+        ["Guards the caravan with direct spells. ", { "text": "Fear", "href": "rules.html#rule-illusion-enemy-control" }, " scatters raiders."],
+        "Walks beside the wagon. Blocks arrows meant for the cargo.",
+        ["Heals travellers on the road. ", { "text": "Heal Other", "href": "rules.html#rule-heal-other" }, " works on followers too."]
+      ]
+    },
+    {
+      "id": "antiquarians",
+      "letter": "D",
+      "name": "Antiquarians and Map-makers",
+      "kind": "Learning",
+      "idea": "Scholars on foot. Explore every ruin and collect lore books.",
+      "goal": "Fill the map and the library. Visit every ruin. Read every lore book.",
+      "rules": [
+        "Walk everywhere. No fast travel.",
+        "Describe each new place in party chat.",
+        "Use Atlas Map Markers and moreHUD to track finds."
+      ],
+      "roles": [
+        "Scouts ruins quietly. Finds the safe way in.",
+        ["Reads each book first. ", { "text": "Night Eye", "href": "rules.html#rule-night-eye" }, " lights dark ruins."],
+        "Leads the way through traps and draugr halls.",
+        "Heals trap wounds. Keeps the party's book list."
+      ]
+    },
+    {
+      "id": "monster-hunters",
+      "letter": "E",
+      "name": "Monster Hunters",
+      "kind": "Hunting",
+      "idea": "Hunters of vampires, necromancers and dragons. Dawnguard work.",
+      "goal": "Keep a hunter's tally. Clear a vampire lair, a necromancer lair and a dragon. Random dragon attacks are off in our game, so dragons come through quests.",
+      "rules": [
+        "Walk to every hunt. No fast travel.",
+        "Hunt as a group. Nobody chases a target alone.",
+        "Never raise corpses. One summon each."
+      ],
+      "roles": [
+        "Shoots from the dark. Scouts each lair first.",
+        "Fire works well on vampires. Direct spells hit from afar.",
+        "Holds the lair door. Blocks the big hits.",
+        [{ "text": "Sunbeam", "href": "rules.html#rule-sunbeam" }, " burns undead. See the ", { "text": "Vigilant of Stendarr", "href": "lore-builds.html" }, " build."]
+      ]
+    },
+    {
+      "id": "road-pilgrims",
+      "letter": "F",
+      "name": "Road Pilgrims",
+      "kind": "Faith",
+      "idea": "Faithful travellers. Visit Divine shrines and help people on the road.",
+      "goal": "Do one good deed in each of the nine holds. Then cross to Solstheim.",
+      "rules": [
+        "Walk everywhere. No fast travel.",
+        "Pray at every Divine shrine you pass.",
+        "Take no pay for a good deed."
+      ],
+      "roles": [
+        "Hunts food for the camp. Keeps watch at night.",
+        ["Guards pilgrims with direct spells. ", { "text": "Calm", "href": "rules.html#rule-illusion-enemy-control" }, " ends a fight kindly."],
+        "Escorts the group. Stands between pilgrims and bandits.",
+        ["The heart of the order. ", { "text": "Heal Other", "href": "rules.html#rule-heal-other" }, " helps strangers on the road."]
+      ]
+    }
+  ]
+}

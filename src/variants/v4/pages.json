@@ -1109,6 +1109,16 @@
             }
           ],
           "sources": []
+        },
+        {
+          "file": "purpose.html",
+          "title": "Our purpose",
+          "kind": "purpose"
+        },
+        {
+          "file": "vote.html",
+          "title": "Vote",
+          "kind": "vote"
         }
       ]
     },

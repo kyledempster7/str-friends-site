@@ -167,6 +167,7 @@ for (const file of audioFiles) {
   if (!fs.existsSync(outputFile) || !fs.readFileSync(file).equals(fs.readFileSync(outputFile))) fail(`${label}: built audio is missing or differs from its source; rebuild`);
 }
 const compactText = value => value.replace(/\s+/g, ' ').trim();
+const plainSentences = value => value.split(/(?<=[.!?])\s+/).map(item => item.trim()).filter(Boolean);
 // Check navigation where it is rendered, so unrelated links elsewhere cannot
 // conceal a missing sidebar list or numbered strip. Single-page topics omit both.
 const guideGroups = [...(audioPages?.chapters ?? []), { label: 'Can I use this?', pages: audioPages?.rules?.pages ?? [] }];
@@ -280,6 +281,53 @@ for (const page of [
   for (const [file, html] of documents) {
     if (path.dirname(file) !== path.join(dist, 'v4')) continue;
     if (!html.includes('href="audio-guide.html"')) fail(`${path.relative(dist, file)}: the Audio guide must be reachable from every page`);
+  }
+}
+// Our purpose and Vote (2026-10-05): six orders, plain short sentences, only installed content, and a vote that never sends data.
+{
+  const purpose = readJson('src/variants/v4/purpose.json');
+  const orders = purpose?.orders ?? [];
+  const purposePage = documents.get(path.join(dist, 'v4', 'purpose.html')) ?? '';
+  const votePage = documents.get(path.join(dist, 'v4', 'vote.html')) ?? '';
+  if (!purposePage) fail('v4/purpose.html: page missing');
+  if (!votePage) fail('v4/vote.html: page missing');
+  if (orders.length !== 6 || orders.map(o => o.letter).join('') !== 'ABCDEF' || new Set(orders.map(o => o.id)).size !== 6) fail('Our purpose: exactly six orders with letters A to F are required');
+  if (purpose?.roleLabels?.length !== 4) fail('Our purpose: four role labels are required');
+  // Quarantined or uninstalled things are never recommended. "Never raise corpses" is the one allowed mention of the topic.
+  const quarantined = /Steady Hand|Strong Reflexes (?:rank )?2|Resurgence|Necromage|\b(?:Mark|Recall)\b|Red Sand Dance|Contingency|Beast Tongue|Spirit Walk|Dark Souls|Dremora Merchant|spectral drum/;
+  for (const order of orders) {
+    const label = `Our purpose: ${order.name ?? order.id}`;
+    if (order.rules?.length !== 3) fail(`${label}: three house rules are required`);
+    if (order.roles?.length !== 4) fail(`${label}: a line for each of the four roles is required`);
+    const text = textOf(order);
+    if (notInOurGame.test(text)) fail(`${label}: names a mod we don't run`);
+    if (quarantined.test(text)) fail(`${label}: recommends something quarantined`);
+    if (!/walk/i.test(textOf(order.rules)) ) fail(`${label}: house rules must keep travel on foot`);
+    // Short plain sentences, about ten words each.
+    for (const part of [order.idea, order.goal, ...order.rules, ...order.roles]) {
+      for (const sentence of plainSentences(textOf(part))) if (sentence.split(/\s+/).length > 20) fail(`${label}: sentence over 20 words: "${sentence.slice(0, 40)}..."`);
+    }
+    if (!purposePage.includes(`id="order-${order.id}"`)) fail(`v4/purpose.html: section for ${order.name} missing`);
+  }
+  if ((purposePage.match(/<table class="d-grid/g) ?? []).length !== 7) fail('v4/purpose.html: one overview grid and six order grids are required');
+  if (/class="d-(?:chapter|episode|lookup)\b/.test(purposePage) || /<button\b/.test(purposePage)) fail('v4/purpose.html: grids and text links only, no cards or buttons');
+  if (!/<h1\b[^>]*>Our purpose<\/h1>/.test(purposePage)) fail('v4/purpose.html: the page title must be Our purpose');
+  if (!/<h1\b[^>]*>Vote<\/h1>/.test(votePage)) fail('v4/vote.html: the page title must be Vote');
+  if ((votePage.match(/<select id="rank-[A-F]"/g) ?? []).length !== 6) fail('v4/vote.html: one number box per order is required');
+  if (!votePage.includes('id="vote-paste"') || !votePage.includes('id="vote-code"')) fail('v4/vote.html: the code box and the paste box are required');
+  if (!/A tie is settled by a coin flip or a group gut pick\./.test(votePage)) fail('v4/vote.html: must say how a tie is settled');
+  if (!/Nothing leaves your browser/.test(votePage)) fail('v4/vote.html: must say nothing leaves the browser');
+  const voteScripts = [...votePage.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]).join('\n');
+  if (!voteScripts) fail('v4/vote.html: vote script missing');
+  if (/\b(?:fetch|XMLHttpRequest|sendBeacon|WebSocket|EventSource|importScripts)\b|navigator\.share|\.src\s*=|new Image|<form[^>]*action/i.test(voteScripts + votePage.replace(/<script[\s\S]*?<\/script>/g, ''))) fail('v4/vote.html: the vote must not send data anywhere');
+  const storageUses = (voteScripts.match(/localStorage\./g) ?? []).length;
+  const tried = (voteScripts.match(/try \{[^}]*localStorage\.[^}]*\} catch/g) ?? []).length;
+  if (!storageUses || storageUses !== tried) fail('v4/vote.html: every localStorage use must sit inside try/catch');
+  if (/sessionStorage|indexedDB|document\.cookie/.test(voteScripts)) fail('v4/vote.html: only localStorage may hold the friend\'s own draft');
+  const home = documents.get(path.join(dist, 'v4', 'index.html')) ?? '';
+  for (const link of ['purpose.html', 'vote.html']) if (!home.includes(`href="${link}"`)) fail(`v4/index.html: missing link to ${link}`);
+  for (const [file, html] of documents) {
+    if (path.dirname(file) === path.join(dist, 'v4') && !html.includes('href="purpose.html"')) fail(`${path.relative(dist, file)}: the sidebar must link Our purpose`);
   }
 }
 for (const file of audioFiles) if (!declaredAudio.has(file)) fail(`${path.relative(root, file)}: audio needs a page with a transcript`);

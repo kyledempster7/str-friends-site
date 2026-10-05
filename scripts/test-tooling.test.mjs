@@ -8,6 +8,7 @@ import { parsePasswords, privacyFindings, sha256, treeManifest, mirrorDist, mani
 import { proseHolds, compareSharedFacts, readSharedFacts, catalogRevisions } from './check-shared-facts.mjs';
 import { checkCommittedDocs } from './publish.mjs';
 import { outputBudgetFindings } from './lib/output-budgets.mjs';
+import './lib/v4-vote-core.js';
 
 test('audio clips do not consume the 2 MiB static output budget', () => {
   assert.deepEqual(outputBudgetFindings([
@@ -245,4 +246,65 @@ test('missing external sources produce warnings while available repo comparisons
   assert.equal(result.sources.length, 4);
   assert.equal(result.warnings.length, 4);
   assert.ok(compareSharedFacts(result).findings.length > 0);
+});
+
+const vote = globalThis.StrVote;
+const ballot = (letters) => letters.split('');
+
+test('vote codes round-trip, tolerate chat punctuation and reject typos and swaps', () => {
+  const code = vote.encode(ballot('CAEBFD'));
+  assert.match(code, /^V1-CAEBFD-\d$/);
+  assert.deepEqual(vote.parse(code), { ok: true, ranking: ballot('CAEBFD') });
+  assert.equal(vote.parse(code.toLowerCase()).ok, true);
+  assert.equal(vote.parse(code.replace(/-/g, '–')).ok, true);
+  assert.deepEqual(vote.tokens(`here: "${code}", and (v1-abcdef-${vote.encode(ballot('ABCDEF')).slice(-1)}).`), [code, `v1-abcdef-${vote.encode(ballot('ABCDEF')).slice(-1)}`]);
+  // Every adjacent swap changes the check digit, so it is always caught.
+  const letters = 'ABCDEF'.split('');
+  for (let i = 0; i < 5; i++) {
+    const swapped = letters.slice(); [swapped[i], swapped[i + 1]] = [swapped[i + 1], swapped[i]];
+    assert.equal(vote.parse(code.replace('CAEBFD', swapped.join(''))).ok, false);
+    assert.equal(vote.parse(vote.encode(letters).replace('ABCDEF', swapped.join(''))).ok, false);
+  }
+  assert.equal(vote.parse('V1-AACDEF-0').ok, false);
+  assert.equal(vote.parse('V1-ABCDE-0').ok, false);
+  assert.throws(() => vote.encode(ballot('AACDEF')));
+});
+
+test('runoff: a first-round majority wins at once', () => {
+  const result = vote.runoff([ballot('ABCDEF'), ballot('ACBDEF'), ballot('BACDEF')]);
+  assert.equal(result.winner, 'A');
+  assert.equal(result.rounds.length, 1);
+  assert.equal(result.pending, null);
+});
+
+test('runoff: orders with no first choices go out together, then ties wait for the group', () => {
+  const ballots = [ballot('ABCDEF'), ballot('BACDEF'), ballot('CABDEF'), ballot('DABCEF')];
+  const first = vote.runoff(ballots);
+  assert.deepEqual(first.rounds[0].out, ['E', 'F']);
+  assert.equal(first.winner, null);
+  assert.deepEqual(first.pending, ['A', 'B', 'C', 'D']);
+  // Group picks: D out (its ballot moves to A), then C out (its ballot moves to A), then A has 3 of 4.
+  const done = vote.runoff(ballots, ['D', 'C']);
+  assert.equal(done.winner, 'A');
+  assert.equal(done.pending, null);
+  assert.deepEqual(done.rounds.map((r) => r.out), [['E', 'F'], ['D'], ['C'], []]);
+  // A choice that is not among the tied orders does not count.
+  assert.deepEqual(vote.runoff(ballots, ['E']).pending, ['A', 'B', 'C', 'D']);
+});
+
+test('runoff: a two-way tie for the lead is left to a coin flip or gut pick', () => {
+  const ballots = [ballot('ABCDEF'), ballot('ABCDEF'), ballot('BACDEF'), ballot('BACDEF')];
+  const waiting = vote.runoff(ballots);
+  assert.equal(waiting.winner, null);
+  assert.deepEqual(waiting.pending, ['A', 'B']);
+  assert.equal(vote.runoff(ballots, ['A']).winner, 'B');
+  assert.equal(vote.runoff(ballots, ['B']).winner, 'A');
+});
+
+test('runoff: one code decides by its first choice, and a transfer follows later choices', () => {
+  assert.equal(vote.runoff([ballot('FEDCBA')]).winner, 'F');
+  // C is out by group choice; its ballot moves to its next remaining choice, B, which then has the majority.
+  const ballots = [ballot('ABCDEF'), ballot('BACDEF'), ballot('CBADEF')];
+  const result = vote.runoff(ballots, ['A', 'C']);
+  assert.equal(result.winner, 'B');
 });
