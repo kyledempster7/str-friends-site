@@ -41,7 +41,7 @@
       "number": 2,
       "title": "Joining and leaving",
       "summary": "The one-time setup, connecting to the host, getting through a night, and leaving without losing progress.",
-      "duration": 332.3,
+      "duration": 290.8,
       "src": "audio/02-joining-and-leaving.mp3",
       "related": [
         "setup.html",
@@ -71,7 +71,7 @@
       "number": 3,
       "title": "Playing as a party",
       "summary": "Who leads, what is shared and what stays yours, what falling down means now, and the features quarantined until they are tested.",
-      "duration": 493.5,
+      "duration": 496.9,
       "src": "audio/03-playing-as-a-party.mp3",
       "related": [
         "party.html",
@@ -130,7 +130,7 @@
       "number": 5,
       "title": "Races and your racial power",
       "summary": "How Imperious replaces the usual race bonuses, what earning a racial power asks of you, and our small patch that gives two races a power back.",
-      "duration": 553.2,
+      "duration": 536.2,
       "src": "audio/05-races-and-your-racial-power.mp3",
       "related": [
         "races.html"
@@ -166,7 +166,7 @@
       "number": 6,
       "title": "The combat path: blades, shields and armor",
       "summary": "For the melee fighter: One-handed, Two-handed, Block, Heavy Armor and Smithing, and how our fighting mods change them.",
-      "duration": 521,
+      "duration": 510.2,
       "src": "audio/06-the-combat-path.mp3",
       "related": [
         "skills.html",
@@ -203,7 +203,7 @@
       "number": 7,
       "title": "The magic path, part one: attack and control",
       "summary": "For casters: Destruction, Alteration, Illusion and Enchanting, and how Mysticism reworks the spell lists.",
-      "duration": 567.7,
+      "duration": 556.3,
       "src": "audio/07-the-magic-path-part-one.mp3",
       "related": [
         "spells.html",
@@ -239,7 +239,7 @@
       "number": 8,
       "title": "The magic path, part two: healing and summoning",
       "summary": "For healers and summoners: Restoration and Conjuration, where Better Vanilla Perks overrides Mysticism, and the one-summon limit.",
-      "duration": 535.9,
+      "duration": 527.1,
       "src": "audio/08-the-magic-path-part-two.mp3",
       "related": [
         "spells.html",
@@ -273,7 +273,7 @@
       "number": 9,
       "title": "The stealth path: sneak, bow and silver tongue",
       "summary": "For scouts, archers, thieves and talkers: Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak, Speech and Archery, with three other players in the world.",
-      "duration": 532.8,
+      "duration": 519.2,
       "src": "audio/09-the-stealth-path.mp3",
       "related": [
         "skills.html",
