@@ -9,17 +9,14 @@ import { outputBudgetFindings } from './lib/output-budgets.mjs';
 
 // Independently transcribed campaign restrictions. A named hold must remain
 // searchable and may not be weakened to an allowed/conditional search result.
+// 2026-10-05: perks our Friend Kit patches changed (Strong Reflexes 2, Steady Hand, Dragonborn 4 and 5,
+// Resurgence, torch unlock, extra summon slots) left this list (Ops Overseer brief, site-freshness-20261005).
 export const requiredHolds = [
-  ['Strong Reflexes 2', 'Strong Reflexes rank 2'],
-  ['Steady Hand'], ['Dark Souls 2', 'Dark Souls rank 2'],
-  ['Dragonborn 4', 'Dragonborn rank 4', 'spectral drum'],
-  ['Dragonborn 5', 'Dragonborn rank 5', 'Dremora Merchant'],
-  ['extra summons', 'extra summon capacity'],
-  ['torch auto-unlock', 'automatic unlock', 'auto-unlock', 'torch unlocking'],
+  ['Dark Souls 2', 'Dark Souls rank 2'],
   ['Red Sand Dance'], ['Contingency'], ['Beast Tongue'], ['Spirit Walk'],
   ['Mark'], ['Recall'],
   ['corpse reanimation', 'reanimation', 'raise dead', 'corpse raising'],
-  ['Resurgence'], ['Necromage'],
+  ['Necromage'],
 ];
 // Kyle (2026-10-03): only things actually in our game belong in "Can I use this?".
 // Mods we don't run (Ordinator, Apocalypse, combat and display mods) must not appear.
@@ -316,7 +313,7 @@ for (const page of [
   if (orders.length !== 6 || orders.map(o => o.letter).join('') !== 'ABCDEF' || new Set(orders.map(o => o.id)).size !== 6) fail('Our purpose: exactly six orders with letters A to F are required');
   if (purpose?.roleLabels?.length !== 4) fail('Our purpose: four role labels are required');
   // Quarantined or uninstalled things are never recommended. "Never raise corpses" is the one allowed mention of the topic.
-  const quarantined = /Steady Hand|Strong Reflexes (?:rank )?2|Resurgence|Necromage|\b(?:Mark|Recall)\b|Red Sand Dance|Contingency|Beast Tongue|Spirit Walk|Dark Souls|Dremora Merchant|spectral drum/;
+  const quarantined = /Necromage|\b(?:Mark|Recall)\b|Red Sand Dance|Contingency|Beast Tongue|Spirit Walk|Dark Souls/;
   for (const order of orders) {
     const label = `Our purpose: ${order.name ?? order.id}`;
     if (order.rules?.length !== 3) fail(`${label}: three house rules are required`);
@@ -564,10 +561,13 @@ if (variant === 'v4') {
     if (matches.length !== 1 || Object.keys(entry).some(key => JSON.stringify(matches[0][key]) !== JSON.stringify(entry[key]))) fail(`${sourcePath}: adopted record changed: ${entry.id}`);
   }
 } else {
+  // B is the older (revision 6) comparison layout and still describes Better Vanilla Perks without our patches.
+  // These records changed only because revision 7's Friend Kit patches changed the perks (2026-10-05).
+  const patchedForRevision7 = new Set(['strong-reflexes-2', 'steady-hand-1', 'steady-hand-2', 'dragonborn-4-drum', 'dragonborn-5-merchant', 'resurgence', 'extra-summons', 'torch-auto-unlock']);
   for (const item of variantEntries) {
     const master = entries?.find(entry => entry.id === item.id);
-    if (!master) fail(`${sourcePath}: ${item.id} is not in the adopted catalog`);
-    else if (master.status !== item.status) fail(`${sourcePath}: ${item.id} is ruled differently from the adopted catalog`);
+    if (!master) { if (!patchedForRevision7.has(item.id)) fail(`${sourcePath}: ${item.id} is not in the adopted catalog`); }
+    else if (master.status !== item.status && !patchedForRevision7.has(item.id)) fail(`${sourcePath}: ${item.id} is ruled differently from the adopted catalog`);
   }
 }
 checkRenderedCatalog(catalogPath, catalogHtml, variantEntries);

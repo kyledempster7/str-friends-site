@@ -1370,7 +1370,7 @@
      "Our patch rewrites it to 10% less magicka for Restoration spells.",
      [
       {
-       "text": "Quarantined: don't use yet",
+       "text": "Allowed",
        "href": "rules.html#rule-resurgence"
       }
      ]

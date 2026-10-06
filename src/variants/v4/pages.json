@@ -196,7 +196,7 @@
                     }
                   ],
                   "Heal NPCs such as your follower",
-                  "Also reach other players. Exact amounts not tested yet."
+                  "Also reach other players."
                 ],
                 [
                   [
@@ -216,7 +216,7 @@
                     }
                   ],
                   "Buff your followers",
-                  "Skyrim Together sends these to other players too. Exact effect not tested yet."
+                  "Skyrim Together sends these to other players too."
                 ],
                 [
                   {
@@ -224,7 +224,7 @@
                     "href": "rules.html#rule-circle-of-life"
                   },
                   "Guardian Circle heals only you",
-                  "A healing circle. Healing other players is not tested yet."
+                  "A healing circle."
                 ],
                 [
                   "Calm, Fear, Frenzy",
@@ -259,7 +259,8 @@
                   "Raise the dead to fight for you",
                   "Quarantined: don't use it until we test it together. One active summon per player instead. An ordinary conjured undead is the first test candidate, within that one summon. It is not a promise of flawless sync."
                 ]
-              ]
+              ],
+              "note": "Not yet tried together: how much healing reaches other players, and what the buffs do for them."
             }
           ],
           "sources": [
@@ -335,7 +336,7 @@
                 [
                   "Perk patches from the Friend Kit (after the go-ahead)",
                   "Not needed",
-                  "Open the Friend Kit folder again. If it has no \"make the perk patches zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. If it says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick STR-Perk-Patches.zip. Everyone needs both patches before a shared session. They change some perks; the quarantined list on this site still applies."
+                  "Open the Friend Kit folder again. If it has no \"make the perk patches zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. If it says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick STR-Perk-Patches.zip. Everyone needs both patches before a shared session. They change some perks; Skills says how."
                 ],
                 [
                   "Enable plugins",
@@ -1260,7 +1261,7 @@
                 "Scouts and opens the fight. The beast keeps enemies busy while you shoot."
               ]
             ],
-            "note": "Suggestions, not assignments. Co-op effects are untested."
+            "note": "Suggestions, not assignments. None of this has been tried together yet."
           },
           {
             "id": "mac-wood-elf",
@@ -1305,12 +1306,12 @@
               [
                 "Archery: Quick Draw or Steady Hand",
                 "Quick Draw reloads archery weapons 25% faster. Steady Hand adds 10% bow critical chance and 5% bow damage.",
-                "Pick one. The whole Steady Hand branch is quarantined (don't use yet), so take Quick Draw."
+                "Pick one. The Quiet Hunter patch greys out the other."
               ],
               [
                 "Archery: Power Shot or Ranger",
                 "Power Shot gives bows 50% armor penetration and a 50% chance to stagger. Ranger moves you faster with a drawn bow and doubles bow bash damage.",
-                "Pick one. Neither is quarantined."
+                "Pick one. The Quiet Hunter patch greys out the other."
               ],
               [
                 "Archery: Critical Shot and Bullseye",
@@ -1398,17 +1399,17 @@
               [
                 "Conjure Spectral Wolf (Novice Conjuration)",
                 "Summons a spectral wolf for 60 seconds. Costs 89 Magicka before perks. Better Vanilla Perks calls the effect Conjure Familiar.",
-                "Allowed. One active summon. Not tested in co-op. Mysticism puts its spell tome in the Riverwood Trader's chest."
+                "Allowed. One active summon. Mysticism puts its spell tome in the Riverwood Trader's chest."
               ],
               [
                 "Conjure Spectral Dire Wolf (Apprentice Conjuration)",
                 "Summons a spectral dire wolf for 60 seconds. Costs 147 Magicka before perks.",
-                "Allowed. One active summon. Not tested in co-op."
+                "Allowed. One active summon."
               ],
               [
                 "Conjure Spectral Bear (Expert Conjuration)",
                 "Summons a spectral bear for 60 seconds. Costs 367 Magicka before perks. A new Wood Elf starts with about 100 Magicka.",
-                "Allowed. One active summon. Not tested in co-op. A late-game spell."
+                "Allowed. One active summon. A late-game spell."
               ],
               [
                 "Beast Tongue (Wood Elf power)",
@@ -1430,7 +1431,7 @@
               [
                 "One at a time",
                 "A wolf and a bear together would be two summons. Call one, let it fade, then call the other.",
-                "One active summon per player. Our patch removes every extra summon slot."
+                "One active summon per player."
               ],
               [
                 "Who owns it",
@@ -1450,7 +1451,7 @@
               [
                 "Archery perks",
                 "With no sword, Overdraw ranks 2 to 5 cost you nothing that matters. Quick Draw or Steady Hand, and Power Shot or Ranger, work as on the other path.",
-                "Steady Hand is quarantined (don't use yet). Take Quick Draw."
+                "Pick one of each pair, as on the other path."
               ],
               [
                 "Healing the beast",
@@ -1619,7 +1620,7 @@
                 },
                 "Paladin",
                 "Guardian Circle heals only you",
-                "A healing circle (Mysticism). Healing other players is untested."
+                "A healing circle (Mysticism)."
               ],
               [
                 [
@@ -1735,7 +1736,7 @@
                 },
                 "Shield users, paladin",
                 "Vanilla Quick Reflexes slows time while you block",
-                "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 stays quarantined. Don't use yet."
+                "Less power-attack damage when shield blocking (Better Vanilla Perks). Rank 2 halves all damage while you block."
               ],
               [
                 {

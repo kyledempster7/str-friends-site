@@ -6,8 +6,8 @@
       "name": "Better Vanilla Perks",
       "category": "mod",
       "status": "allowed",
-      "summary": "Reworks skill perks; use it with the group's named quarantines.",
-      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. Two Friend Kit perk patches change many of its perks (summons, slowed time, torch unlocking, Archery choices) and lock Necromage and Dark Souls 2. Exact effects with this party are not tested in co-op yet.",
+      "summary": "Reworks skill perks. Two Friend Kit patches change some of them.",
+      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. The patches remove slowed time, extra summon slots and torch unlocking, add the Archery choices, and lock Necromage and Dark Souls 2. Not tested with a full party yet.",
       "aliases": [
         "BVP",
         "Better Vanilla Perks Anniversary Edition 2023"
@@ -46,7 +46,7 @@
       "category": "perk",
       "status": "allowed",
       "summary": "Halve power-attack damage while blocking with a shield.",
-      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 remains quarantined (don't use yet). Not tested in co-op yet.",
+      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 is allowed too.",
       "aliases": [
         "Strong Reflexes",
         "Quick Reflexes",
@@ -60,9 +60,9 @@
       "id": "strong-reflexes-2",
       "name": "Strong Reflexes rank 2 — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Halves damage while you block. Better Vanilla Perks alone also slows time when you block a power attack.",
-      "detail": "In our game the held-perk patch removes the slowdown. The Block 50 rank still halves damage while blocking. Leave it unselected; rank 1's shield protection is allowed.",
+      "status": "allowed",
+      "summary": "Halves all damage while you block. Our perk patch removes the time slowdown Better Vanilla Perks adds.",
+      "detail": "The Block 50 rank. Changed for co-op by the held-perk patch.",
       "aliases": [
         "Strong Reflexes",
         "Strong Reflexes 2",
@@ -76,9 +76,9 @@
       "id": "steady-hand-1",
       "name": "Steady Hand rank 1 — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Adds 10% bow critical chance and 5% more bow damage in our game.",
-      "detail": "The Archery 40 rank no longer slows aiming in our game: the held-perk patch removes the slowdown. Quiet Hunter makes it either-or with Quick Draw. Leave the entire branch unselected until the group clears it.",
+      "status": "allowed",
+      "summary": "Adds 10% bow critical chance and 5% more bow damage. No time slowdown in our game.",
+      "detail": "The Archery 40 rank. Take Steady Hand or Quick Draw, not both (Quiet Hunter patch).",
       "aliases": [
         "Steady Hand",
         "Steady Hand 1",
@@ -92,9 +92,9 @@
       "id": "steady-hand-2",
       "name": "Steady Hand rank 2 — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Adds critical chance and prevents ranged-weapon disarming.",
-      "detail": "The Archery 60 rank is not changed by our patches. It is only reachable through rank 1. Keep both Steady Hand ranks unselected.",
+      "status": "allowed",
+      "summary": "Adds critical chance and protection against disarming. Our patches do not change it.",
+      "detail": "The Archery 60 rank. It needs rank 1, so it follows the Steady Hand choice.",
       "aliases": [
         "Steady Hand",
         "Steady Hand 2",
@@ -108,7 +108,7 @@
       "category": "perk",
       "status": "hold",
       "summary": "Reanimated bodies can explode when combat starts.",
-      "detail": "Do not take this perk or use its corpse explosions. The held-perk patch also greys it out. Raising the body is also quarantined (don't use yet).",
+      "detail": "Locked by our perk patch: it shows greyed out. Raising corpses is also quarantined.",
       "aliases": [
         "Dark Souls",
         "Dark Souls II",
@@ -119,11 +119,11 @@
     },
     {
       "id": "dragonborn-4-drum",
-      "name": "Dragonborn rank 4: spectral drum — Better Vanilla Perks",
+      "name": "Dragonborn rank 4 (Speech 60) — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Quarantined (don't use yet): the Speech 60 perk. It improves prices by 25%.",
-      "detail": "Better Vanilla Perks alone also summons a spectral drum; in our game the held-perk patch removes the drum. The perk's effect on friends is not verified; do not take it.",
+      "status": "allowed",
+      "summary": "Buying and selling prices are 25% better. Our perk patch removes the spectral drum.",
+      "detail": "The price bonus is the whole perk in our game.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 4",
@@ -135,11 +135,11 @@
     },
     {
       "id": "dragonborn-5-merchant",
-      "name": "Dragonborn rank 5: Dremora Merchant — Better Vanilla Perks",
+      "name": "Dragonborn rank 5 (Speech 80) — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Quarantined (don't use yet): the Speech 80 perk. It improves prices by 30%.",
-      "detail": "Better Vanilla Perks alone also summons a Dremora Merchant; in our game the held-perk patch removes the merchant. Do not take this perk until the group clears it.",
+      "status": "allowed",
+      "summary": "Buying and selling prices are 30% better. Our perk patch removes the Dremora Merchant.",
+      "detail": "The price bonus is the whole perk in our game.",
       "aliases": [
         "Dragonborn",
         "Dragonborn 5",
@@ -150,32 +150,19 @@
       "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
     },
     {
-      "id": "torch-auto-unlock",
-      "name": "Torch-assisted automatic unlocking — Better Vanilla Perks",
-      "category": "mechanic",
-      "status": "hold",
-      "summary": "Better Vanilla Perks alone lets a torch open locks automatically.",
-      "detail": "In our game the held-perk patch removes the torch bypass: Novice through Master Locks only make locks easier to pick. The quarantine stays. Pick locks manually in our campaign.",
-      "aliases": [
-        "torch",
-        "auto unlock",
-        "auto-unlock",
-        "automatic lockpicking",
-        "torch unlocking"
-      ],
-      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
-    },
-    {
       "id": "manual-lockpicking",
       "name": "Manual lockpicking",
       "category": "mechanic",
       "status": "allowed",
       "summary": "Open locks with lockpicks.",
-      "detail": "Opened locks synchronize. Torch-assisted automatic opening remains quarantined (don't use yet).",
+      "detail": "Opened locks synchronize. Our perk patch removes Better Vanilla Perks' torch unlock, so you pick every lock by hand.",
       "aliases": [
         "locks",
         "pick locks",
-        "lockpicks"
+        "lockpicks",
+        "torch auto-unlock",
+        "torch unlocking",
+        "automatic unlock"
       ],
       "sourceUrl": "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
     },
@@ -183,9 +170,9 @@
       "id": "extra-summons",
       "name": "More than one active summon per player",
       "category": "mechanic",
-      "status": "hold",
-      "summary": "Quarantined (don't use yet): extra helpers; keep one active summon per player.",
-      "detail": "Better Vanilla Perks adds summon slots, but the held-perk patch removes the extra slots and our party limit stays one. Corpse raising, Beast Tongue, Spirit Walk and the quarantined Speech perks remain excluded.",
+      "status": "conditional",
+      "summary": "Keep one active summon per player. Our perk patch removes the extra slots Better Vanilla Perks adds.",
+      "detail": "Corpse raising, Beast Tongue and Spirit Walk stay excluded.",
       "aliases": [
         "summon limit",
         "summon army",
@@ -201,7 +188,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Summoning spells can be cast twice as far away. It adds no summon slot in our game; keep one active summon.",
-      "detail": "The held-perk patch removes the extra slot. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "detail": "The held-perk patch removes the extra slot.",
       "aliases": [
         "Summoner30"
       ],
@@ -213,7 +200,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Summoning spells can be cast three times as far away. It adds no summon slot in our game; keep one active summon.",
-      "detail": "The held-perk patch removes the extra slot. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "detail": "The held-perk patch removes the extra slot.",
       "aliases": [
         "Summoner70"
       ],
@@ -225,7 +212,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Conjuration spells cost 10% less magicka. It adds no summon slots in our game; keep one active summon.",
-      "detail": "The held-perk patch replaces the two extra summons with a cheaper-spell bonus. Corpse raising remains quarantined (don't use yet). Not tested in co-op yet.",
+      "detail": "The held-perk patch replaces the two extra summons with a cheaper-spell bonus.",
       "aliases": [
         "TwinSouls"
       ],
@@ -237,7 +224,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "Buying and selling prices are 15% better. It adds no summon in our game; keep one active summon.",
-      "detail": "The Speech 20 rank no longer lets you command an extra summoned or reanimated follower: the held-perk patch removes that. Corpse raising remains quarantined (don't use yet).",
+      "detail": "The Speech 20 rank no longer lets you command an extra follower: the held-perk patch removes that.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -248,15 +235,15 @@
       "id": "resurgence",
       "name": "Resurgence — Better Vanilla Perks",
       "category": "perk",
-      "status": "hold",
-      "summary": "Quarantined (don't use yet) until the group's first healer test. In our game it makes Restoration spells cost 10% less magicka.",
-      "detail": "The held-perk patch replaces Better Vanilla Perks' 30% Restoration strength bonus with 10% cheaper Restoration spells. Its effect on friends is unknown until we test it.",
+      "status": "allowed",
+      "summary": "Restoration spells cost 10% less magicka in our game.",
+      "detail": "The held-perk patch replaces Better Vanilla Perks' 30% Restoration strength bonus. It only lowers your own spell cost.",
       "aliases": [
         "Regeneration",
         "Restoration healing bonus",
         "healing scaling"
       ],
-      "sourceUrl": "https://github.com/tiltedphoques/TiltedEvolution/blob/v1.8.2/Code/client/Games/Skyrim/Magic/MagicTarget.cpp"
+      "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
     },
     {
       "id": "staff-of-atronach",
@@ -264,7 +251,7 @@
       "category": "perk",
       "status": "conditional",
       "summary": "An atronach is a summoned elemental spirit.",
-      "detail": "Strengthens certain staff spells and summons. Potent atronachs and thralls use Better Vanilla Perks' level scaling. One active summon. Corpse raising stays quarantined (don't use yet). Staff and summon bonuses remain untested in co-op.",
+      "detail": "Strengthens certain staff spells and summons. Potent atronachs and thralls use Better Vanilla Perks' level scaling. One active summon.",
       "aliases": [
         "Elemental Potency",
         "staff perks"
@@ -455,7 +442,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a basic skeleton; keep one active summon.",
-      "detail": "Novice Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains quarantined (don't use yet).",
+      "detail": "Novice Conjuration. Creates a helper without using a corpse. Corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -470,7 +457,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton warrior; keep one active summon.",
-      "detail": "Expert Conjuration. Creates a helper without using a corpse. Not tested in co-op yet; corpse raising remains quarantined (don't use yet).",
+      "detail": "Expert Conjuration. Creates a helper without using a corpse. Corpse raising remains quarantined (don't use yet).",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -485,7 +472,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton archer; keep one active summon.",
-      "detail": "Apprentice Conjuration. Brings a ranged helper without raising a corpse. Not tested in co-op yet.",
+      "detail": "Apprentice Conjuration. Brings a ranged helper without raising a corpse.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -500,7 +487,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton mage; keep one active summon.",
-      "detail": "Adept Conjuration. Brings a magical helper without raising a corpse. Not tested in co-op yet.",
+      "detail": "Adept Conjuration. Brings a magical helper without raising a corpse.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -515,7 +502,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton champion; keep one active summon.",
-      "detail": "Master Conjuration. Creates a powerful skeleton without raising a corpse. Not tested in co-op yet.",
+      "detail": "Master Conjuration. Creates a powerful skeleton without raising a corpse.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -530,7 +517,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons an undead archer; keep one active summon if obtained normally.",
-      "detail": "In our game files; getting it normally is (not verified). The public list omits it. Separate from Conjure Wrathman. Not tested in co-op yet.",
+      "detail": "In our game files; getting it normally is (not verified). The public list omits it. Separate from Conjure Wrathman.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -545,7 +532,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Summon a creature to fight beside you; keep one active summon.",
-      "detail": "Conjure Familiar keeps Mysticism's spell and wolf. Better Vanilla Perks supplies its text and look. Corpse raising and quarantined racial or Speech summons remain excluded. Not tested in co-op yet.",
+      "detail": "Conjure Familiar keeps Mysticism's spell and wolf. Better Vanilla Perks supplies its text and look. Corpse raising and quarantined racial summons remain excluded.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -576,7 +563,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Send a burst of healing to your target.",
-      "detail": "Apprentice Restoration in Mysticism, earlier than vanilla's Adept version. Aim at a living ally. Not tested in co-op yet.",
+      "detail": "Apprentice Restoration in Mysticism, earlier than vanilla's Adept version. Aim at a living ally.",
       "aliases": [
         "Restoration",
         "heal player",
@@ -604,7 +591,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Restore your own Health with healing spells.",
-      "detail": "Healing and Fast Healing are continuous casts in Mysticism; Close Wounds gives a burst. These do not resurrect players. Not tested in co-op yet.",
+      "detail": "Healing and Fast Healing are continuous casts in Mysticism; Close Wounds gives a burst. These do not resurrect players.",
       "aliases": [
         "Healing",
         "Fast Healing",
@@ -661,7 +648,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Steal Health from a living enemy within melee range.",
-      "detail": "Adept Destruction. The absorbed Health heals you. It does not require raising a corpse. Not tested in co-op yet.",
+      "detail": "Adept Destruction. The absorbed Health heals you. It does not require raising a corpse.",
       "aliases": [
         "blood magic",
         "death knight",
@@ -675,7 +662,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Fire a bolt that steals Health from a living enemy.",
-      "detail": "Adept Destruction. A ranged drain spell that heals you as it harms its target. Not tested in co-op yet.",
+      "detail": "Adept Destruction. A ranged drain spell that heals you as it harms its target.",
       "aliases": [
         "blood magic",
         "death knight",
@@ -703,7 +690,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Attack with fire, frost or shock.",
-      "detail": "Flames, Frostbite and Sparks keep Mysticism's extra effects. Flames damages and burns; Intense Flames can cause fear. Frostbite drains health and stamina, slows, and can freeze. Sparks damages; Disintegrate can trigger. Avoid friendly NPCs. Not tested in co-op yet.",
+      "detail": "Flames, Frostbite and Sparks keep Mysticism's extra effects. Flames damages and burns; Intense Flames can cause fear. Frostbite drains health and stamina, slows, and can freeze. Sparks damages; Disintegrate can trigger. Avoid friendly NPCs.",
       "aliases": [
         "Flames",
         "Firebolt",
@@ -721,7 +708,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Allowed on enemies: stop fights, frighten targets or turn them against each other.",
-      "detail": "Target eligible NPCs; these spells cannot control human players. Mysticism changes names and level limits. Not tested in co-op yet.",
+      "detail": "Target eligible NPCs; these spells cannot control human players. Mysticism changes names and level limits.",
       "aliases": [
         "Calm",
         "Fear",
@@ -739,7 +726,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Heal nearby summoned helpers; use on your one allowed summon.",
-      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays quarantined (don't use yet). Not tested in co-op yet.",
+      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays quarantined (don't use yet).",
       "aliases": [
         "Conjurer's Cure",
         "Dark Deal",
@@ -759,7 +746,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Invisibility returns after you break it.",
-      "detail": "Master Illusion. The current changelog says invisibility refreshes after roughly three seconds. It does not teleport you. Not tested in co-op yet.",
+      "detail": "Master Illusion. The current changelog says invisibility refreshes after roughly three seconds. It does not teleport you.",
       "aliases": [
         "Ghostwalk",
         "invisibility"
@@ -786,7 +773,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "A stronger burst of healing for yourself and nearby allies.",
-      "detail": "Expert Restoration. A single cast heals nearby living allies; it does not revive dead players. Not tested in co-op yet.",
+      "detail": "Expert Restoration. A single cast heals nearby living allies; it does not revive dead players.",
       "aliases": [
         "Restoration",
         "area heal",
@@ -800,7 +787,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "A powerful burst of healing for yourself and nearby allies.",
-      "detail": "Master Restoration. A late healing option for living allies nearby. It does not resurrect players. Not tested in co-op yet.",
+      "detail": "Master Restoration. A late healing option for living allies nearby. It does not resurrect players.",
       "aliases": [
         "Stendarr’s Mercy",
         "Restoration",
@@ -830,7 +817,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Place a circle that restores Health inside it.",
-      "detail": "Adept Restoration. Try it as a healing spot; healing other players inside the circle is (not verified). Not tested in co-op yet.",
+      "detail": "Adept Restoration. Try it as a healing spot; healing other players inside the circle is (not verified).",
       "aliases": [
         "Restoration",
         "healing circle",
@@ -844,7 +831,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "See more clearly in the dark.",
-      "detail": "Apprentice Illusion. Any race can learn this spell. Vanilla already gives night vision to Khajiit and vampires. Not tested in co-op yet.",
+      "detail": "Apprentice Illusion. Any race can learn this spell. Vanilla already gives night vision to Khajiit and vampires.",
       "aliases": [
         "Night Eye",
         "night vision",
@@ -858,7 +845,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a Wrathman to fight beside you; keep one active summon.",
-      "detail": "Master Conjuration. Its tome is found in the Soul Cairn. Summons a helper without raising a corpse. Not tested in co-op yet.",
+      "detail": "Master Conjuration. Its tome is found in the Soul Cairn. Summons a helper without raising a corpse.",
       "aliases": [
         "Wrathman",
         "Soul Cairn",
@@ -871,8 +858,8 @@
       "name": "Necromage — Better Vanilla Perks",
       "category": "perk",
       "status": "hold",
-      "summary": "Quarantined (don't use yet): the Restoration 70 perk. The held-perk patch locks it, so it shows greyed out.",
-      "detail": "It needs Resurgence and gives a 30% bonus against undead. Taking Resurgence does not unlock it. The host will say if it opens.",
+      "summary": "The Restoration 70 perk. Locked by our perk patch, so it shows greyed out.",
+      "detail": "It needs Resurgence and gives a 30% bonus against undead. Taking Resurgence does not unlock it.",
       "aliases": [
         "Restoration 70",
         "Resurgence branch",

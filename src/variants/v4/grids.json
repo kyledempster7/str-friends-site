@@ -148,20 +148,20 @@
         [
           "Archery",
           "Overdraw raises bow damage. Power Shot adds stagger. Steady Hand slows time while zooming.",
-          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming. The Quiet Hunter perk patch adds choices: Steady Hand or Quick Draw, and Power Shot or Ranger. Overdraw ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage. Critical Shot and Bullseye give no critical bonus while you sneak. The held-perk patch changes Steady Hand rank 1: it no longer slows time. It adds 10% bow critical chance and 5% more bow damage.",
-          "Quarantined: the whole Steady Hand branch, from Archery 40. Don't use yet. Quiet Hunter makes Steady Hand and Quick Draw either-or, and Power Shot and Ranger either-or. Steady Hand is quarantined, so if you want one of that pair, the allowed pick is Quick Draw."
+          "Overdraw adds armor penetration and longer arrow poisons. Power Shot adds penetration. Bullseye adds critical damage and disarming. Steady Hand rank 1 adds 10% bow critical chance and 5% more bow damage, with no time slowdown. Overdraw ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage. Critical Shot and Bullseye give no critical bonus while you sneak.",
+          "Pick one of each pair: Steady Hand or Quick Draw, Power Shot or Ranger. The Quiet Hunter patch greys out the other."
         ],
         [
           "Block",
           "Shield Wall improves blocking. Quick Reflexes slows time while blocking a power attack.",
-          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking. Rank 2 halves all damage while you block. Our held-perk patch removes its slowdown.",
-          "Quarantined (don't use yet): Strong Reflexes rank 2, Block 50. Rank 1, Block 30, is allowed."
+          "Shield Wall becomes Iron Will, adding unarmed damage. Strong Reflexes rank 1 halves power-attack damage when shield-blocking. Rank 2 halves all damage while you block; our held-perk patch removes its slowdown.",
+          "No extra rule"
         ],
         [
           "Conjuration",
           "Summoner increases casting distance. Twin Souls allows two summons. Elemental Potency strengthens atronachs. An atronach is a summoned elemental spirit.",
           "Summoner and Puppeteer cast summons twice and three times as far away. Twin Souls makes Conjuration spells cost 10% less magicka. Our held-perk patch removes the extra summon slots Better Vanilla Perks would add. Staff of the Atronach strengthens certain spells. Potent atronachs and thralls scale with your level.",
-          "One active summon per player. Quarantined: corpse raising, Dark Souls 2 explosions. Don't use yet."
+          "One active summon per player. Quarantined (don't use yet): corpse raising and Dark Souls 2, which is locked and greyed out."
         ],
         [
           "Destruction",
@@ -196,8 +196,8 @@
         [
           "Lockpicking",
           "Novice through Master Locks make matching locks easier to pick.",
-          "Novice through Master Locks make matching locks easier to pick. Better Vanilla Perks also lets a torch open them outside combat; our held-perk patch removes that. Quick Hands no longer needs earlier perks.",
-          "Quarantined (don't use yet): torch auto-unlock, which our held-perk patch already removes. Use lockpicks manually."
+          "Novice through Master Locks make matching locks easier to pick. Quick Hands no longer needs earlier perks. Our held-perk patch removes Better Vanilla Perks' torch unlock, so you pick every lock by hand.",
+          "No extra rule"
         ],
         [
           "One-Handed",
@@ -215,7 +215,7 @@
           "Restoration",
           "Regeneration strengthens healing by 50%. Recovery improves Magicka regeneration.",
           "Regeneration becomes Resurgence. In our game it makes Restoration spells cost 10% less magicka; Better Vanilla Perks alone makes them 30% stronger. Mastery perks add Magicka regeneration. Recovery also improves Stamina regeneration.",
-          "Resurgence: quarantined until our first healer test. Don't use yet. Necromage (Restoration 70) is locked: it shows greyed out and cannot be picked."
+          "Quarantined (don't use yet): Necromage (Restoration 70). It is locked and shows greyed out."
         ],
         [
           "Smithing",
@@ -233,7 +233,7 @@
           "Speech",
           "Haggling improves prices. Intimidation improves threatening dialogue.",
           "Dragonborn replaces Haggling: better prices (rank 2: 15%, rank 4: 25%, rank 5: 30%), skill-books and steam. Better Vanilla Perks also adds an extra summon, a drum and a Dremora merchant; our held-perk patch removes all three. Intimidation also grants Battlecry.",
-          "Quarantined: Dragonborn rank 4 (Speech 60) and rank 5 (Speech 80). Don't use yet. Rank 2 only improves prices in our game; the one-summon limit stays."
+          "No extra rule"
         ],
         [
           "Two-Handed",
@@ -242,7 +242,7 @@
           "No extra rule"
         ]
       ],
-      "note": "Vanilla means the unmodded game. Mods describes our game: Better Vanilla Perks (part of revision 7, which is being prepared) with the held-perk and Quiet Hunter patches from the Friend Kit."
+      "note": "Vanilla means the unmodded game. Mods describes our game: Better Vanilla Perks (part of revision 7, which is being prepared) with the held-perk and Quiet Hunter patches from the Friend Kit. Perks the patches changed end with “(changed for co-op)” in the perk menu. Nobody has played them together yet."
     },
     {
       "id": "races",
@@ -356,36 +356,20 @@
           "Restoration",
           "Healing Hands channels healing onto NPCs. Heal Other gives an Adept burst. Grand Healing is an Expert area burst.",
           "Heal Other becomes Apprentice. Close Greater Wounds adds Adept area healing. Grand Healing stays Expert but channels. Sunbeam damages undead. Circle of Life heals. Stendarr's Aura, Poison Rune: partly Better Vanilla Perks effects.",
-          "Ordinary healing allowed. Player healing amounts, circle effects and Resurgence bonuses (not verified)."
+          "Ordinary healing allowed. Player healing amounts and circle effects (not verified)."
         ]
       ]
     },
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says \"held\" for the same thing. The Friend Kit perk patches (see First-time setup) change how some of these perks work, but the host has not lifted any of these rules. Some follow old bug reports. Others cover behavior we haven't tested. A quarantine doesn't mean a crash is proven. Check Spells for spell restrictions. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says “held” for the same thing. Perks our Friend Kit patches changed are not on this list: they are fine to take, but nobody has played them together yet. A quarantine does not mean a crash is proven. Spells are on the Spells page. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",
         "Co-op"
       ],
       "rows": [
-        [
-          {
-            "text": "Strong Reflexes rank 2 (Block 50)",
-            "href": "rules.html#rule-strong-reflexes-2"
-          },
-          "Halves blocking damage. Better Vanilla Perks alone also slows time when you block a power attack; in our game the held-perk patch removes the slowdown.",
-          "Quarantined (don't use yet): rank 2. Rank 1's shield protection at Block 30 is allowed."
-        ],
-        [
-          {
-            "text": "Steady Hand, whole branch (from Archery 40)",
-            "href": "rules.html#rule-steady-hand-1"
-          },
-          "Rank 1 adds 10% bow critical chance and 5% more bow damage in our game. Better Vanilla Perks alone also slows time while you zoom; the held-perk patch removes that. Rank 2 adds critical chance and protection against disarming. Quiet Hunter makes Steady Hand and Quick Draw either-or.",
-          "Quarantined (don't use yet): both ranks. Quick Draw is not on the quarantine list."
-        ],
         [
           {
             "text": "Red Sand Dance (Redguard)",
@@ -424,7 +408,7 @@
             "href": "rules.html#rule-extra-summons"
           },
           "Better Vanilla Perks lets Summoner, Puppeteer, Twin Souls and Dragonborn rank 2 add summon slots. In our game the held-perk patch removes every extra slot.",
-          "Keep one active summon per player, regardless of unlocked capacity. Quarantined summons and corpse raising remain excluded. One summon is our starting test budget, not an engine limit."
+          "Keep one active summon per player. One summon is our starting test budget, not an engine limit."
         ],
         [
           {
@@ -432,39 +416,7 @@
             "href": "rules.html#rule-dark-souls-2"
           },
           "Reanimated bodies can explode in flames when combat begins.",
-          "Quarantined (don't use yet): the perk and its corpse explosions."
-        ],
-        [
-          {
-            "text": "Dragonborn rank 4: spectral drum (Speech 60)",
-            "href": "rules.html#rule-dragonborn-4-drum"
-          },
-          "Improves prices by 25%. Better Vanilla Perks alone also summons a spectral drum; in our game the held-perk patch removes the drum.",
-          "Quarantined (don't use yet): rank 4. Its effect on other players (not verified)."
-        ],
-        [
-          {
-            "text": "Dragonborn rank 5: Dremora Merchant (Speech 80)",
-            "href": "rules.html#rule-dragonborn-5-merchant"
-          },
-          "Improves prices by 30%. Better Vanilla Perks alone also summons a Dremora to buy and sell goods; in our game the held-perk patch removes the merchant.",
-          "Quarantined (don't use yet): rank 5."
-        ],
-        [
-          {
-            "text": "Torch auto-unlock (Lockpicking)",
-            "href": "rules.html#rule-torch-auto-unlock"
-          },
-          "Better Vanilla Perks alone lets Novice through Master Locks open matching locks outside combat with a torch. In our game the held-perk patch removes that. They only make locks easier to pick.",
-          "Quarantined (don't use yet): automatic unlocking. Use lockpicks manually."
-        ],
-        [
-          {
-            "text": "Resurgence (Restoration)",
-            "href": "rules.html#rule-resurgence"
-          },
-          "In our game Restoration spells cost 10% less magicka. Better Vanilla Perks alone makes them 30% stronger.",
-          "Quarantined (don't use yet) until the group's first healer test. Don't promise another player a particular bonus."
+          "Quarantined (don't use yet): the perk and its corpse explosions. The held-perk patch locks it, so it shows greyed out."
         ],
         [
           {
@@ -472,11 +424,11 @@
             "href": "rules.html#rule-necromage"
           },
           "Needs Resurgence. Gives a 30% bonus against undead.",
-          "Quarantined (don't use yet): the held-perk patch locks it. It shows greyed out and cannot be picked. Taking Resurgence does not unlock it."
+          "Quarantined (don't use yet): the held-perk patch locks it, so it shows greyed out. Taking Resurgence does not unlock it."
         ],
         [
           "Time-slowing effects",
-          "Better Vanilla Perks alone slows time for Strong Reflexes rank 2 and Steady Hand. Our held-perk patch removes both slowdowns. Red Sand Dance still slows time for you.",
+          "Our patches removed the slowdowns from Strong Reflexes rank 2 and Steady Hand. Red Sand Dance still slows time for you.",
           [
             "Quarantined (don't use yet) for group pacing and testing. Skyrim Together can sync slow time. We don't claim all slow time breaks sync. ",
             {
@@ -707,7 +659,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. It is being prepared: wait for the owner's go-ahead before you install it. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",
