@@ -273,7 +273,7 @@ export async function renderV4(root) {
   const shell = ({ file, title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· revision 7 is live</small></span></a></div></header><main id="main" tabindex="-1">
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us</span></a></div></header><main id="main" tabindex="-1">
 ${body}
 </main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer></body></html>
 `;
@@ -375,7 +375,7 @@ ${rows}
     return { html: `<p class="d-lead">absol89 wrote a big Skyrim Together mod list. This page shows all ${absolCount} mods on it.</p>
 <p class="d-lead">It was built for a different game version. Most of it does not fit our setup.</p>
 <p class="d-lead">Only rows marked <strong>In our game</strong> are in our pack. No other row is installed. Nothing is recommended unless the row says Fit.</p>
-<p class="d-lead">Our revision 7 pack has ${byId.get('mods').rows.length} mods. ${absolOurs} of them are on this list. The rest are not on absol89's list.</p>
+<p class="d-lead">Our pack has ${byId.get('mods').rows.length} mods. ${absolOurs} of them are on this list. The rest are not on absol89's list.</p>
 <p class="d-lead">Being on absol89's list means the mod was in his pack, built for game version 1.6.1170; it does not prove it works in co-op or on our game version.</p>
 <section class="d-section d-key" aria-labelledby="absol-key-title"><h2 id="absol-key-title">How to read it</h2>
 <div class="d-wrap"><table class="d-grid"><thead><tr><th scope="col">Word</th><th scope="col">Means</th></tr></thead><tbody>

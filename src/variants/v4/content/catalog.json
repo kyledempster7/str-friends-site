@@ -7,7 +7,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Reworks skill perks. Two Friend Kit patches change some of them.",
-      "detail": "Our revision 7 perk overhaul adds weapon, armor, crafting and magic bonuses. The patches remove slowed time, extra summon slots and torch unlocking, add the Archery choices, and lock Necromage and Dark Souls 2. Not tested with a full party yet.",
+      "detail": "Our perk overhaul adds weapon, armor, crafting and magic bonuses. The patches remove slowed time, extra summon slots and torch unlocking, add the Archery choices, and lock Necromage and Dark Souls 2. Not tested with a full party yet.",
       "aliases": [
         "BVP",
         "Better Vanilla Perks Anniversary Edition 2023"
@@ -20,7 +20,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Rebalances old spells and adds new ones; use the main package only.",
-      "detail": "Better Vanilla Perks changes some spells and summon strength. Part of revision 7. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
+      "detail": "Better Vanilla Perks changes some spells and summon strength. Mark, Recall and corpse raising stay quarantined (don't use yet); one active summon each. Optional addons are outside our setup.",
       "aliases": [
         "magic overhaul",
         "Mysticism 2.5"
@@ -33,7 +33,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Gives each race distinct abilities and an unlockable power; four powers stay quarantined (don't use yet).",
-      "detail": "Part of revision 7. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. Our Friend Kit race patch gives High Elves Highborn, Redguards Adrenaline Rush and Wood Elves Hunter's Mark; Races has the details. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
+      "detail": "Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. Our Friend Kit race patch gives High Elves Highborn, Redguards Adrenaline Rush and Wood Elves Hunter's Mark; Races has the details. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
       "aliases": [
         "Imperious",
         "race overhaul"

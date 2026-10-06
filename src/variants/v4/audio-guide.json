@@ -1,6 +1,6 @@
 {
   "title": "Audio guide",
-  "recordedFor": "Twelve short listens, recorded for revision 7 of the collection.",
+  "recordedFor": "Twelve short listens about our collection.",
   "gap": "Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods. It also covers the world and house mods: trading posts, bandit camps, Skyshards, Elysium Estate and Harborwatch.",
   "episodes": [
     {
@@ -398,7 +398,7 @@
       "id": "ep12",
       "number": 12,
       "title": "What to go looking for",
-      "summary": "A short shopping list of spells, racial goals, perks and revision 7 additions worth hunting for because they are new or work differently.",
+      "summary": "A short shopping list of spells, racial goals, perks and new additions worth hunting for because they are new or work differently.",
       "duration": 509.9,
       "src": "audio/12-what-to-go-looking-for.mp3",
       "related": [

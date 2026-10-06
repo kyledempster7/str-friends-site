@@ -281,7 +281,6 @@ for (const page of [
   if (episodes.length !== 12) fail('Audio guide: expected twelve episodes');
   if (!guidePage) fail('v4/audio-guide.html: page missing');
   if (!/<h1\b[^>]*>Audio guide<\/h1>/.test(guidePage)) fail('v4/audio-guide.html: the page title must be Audio guide');
-  if (!/recorded for revision 7 of the collection/i.test(guidePage)) fail('v4/audio-guide.html: must say the set was recorded for revision 7');
   if (!/Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods\. It also covers the world and house mods: trading posts, bandit camps, Skyshards, Elysium Estate and Harborwatch/.test(guidePage)) fail('v4/audio-guide.html: must state what the set now covers');
   if ((guidePage.match(/<section class="d-episode"/g) ?? []).length !== episodes.length) fail('v4/audio-guide.html: one boxed segment per episode is required');
   const known = new Map([...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.characters?.pages ?? []), ...(audioPages?.rules?.pages ?? [])].map(page => [page.file, page.title]));
@@ -587,7 +586,7 @@ for (const [file, html] of documents) {
     if (topLinks.length !== 3 || expectTop.some(([text, href], i) => topLinks[i]?.text !== text || topLinks[i]?.href !== href)) fail(`${relative}: top navigation must be Field guide, Characters, Audio guide`);
     if (!/<header\b[\s\S]*?<\/a><nav class="primary-nav"[\s\S]*?<\/nav><a class="leave-link d-join"/.test(html)) fail(`${relative}: header order must be brand, top navigation, Join us`);
     if (!headerLinks.some(([, attributes, href]) => /class="brand"/.test(attributes) && href === 'index.html')) fail(`${relative}: header brand must link home`);
-    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · revision 7 is live')) fail(`${relative}: header must retain the Join us button (revision 7 is live) and its collection link`);
+    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us')) fail(`${relative}: header must retain the Join us button and its collection link`);
     for (const [, attributes, href] of headerLinks) {
       if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
       if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);

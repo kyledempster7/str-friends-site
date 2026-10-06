@@ -427,10 +427,9 @@
               "list": [
                 "In Vortex, open the Plugins view.",
                 {
-                  "text": "Enable the plugins of the revision the host names:",
+                  "text": "Enable these plugins:",
                   "sub": [
-                    "Revision 7, the live collection: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
-                    "Revision 6, the older collection: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                    "SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp."
                   ]
                 },
                 "Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp."
@@ -1019,13 +1018,13 @@
                 [
                   "Stealth ranger",
                   "Archery, Sneak, Light Armor. Our archery patch removes critical bonuses while you sneak.",
-                  "Wood Elf or Nord (Wood Elf: Hunter's Mark in revision 7, not tested yet)",
+                  "Wood Elf or Nord (Wood Elf: Hunter's Mark not tested yet)",
                   "Thief; switch to Lord later"
                 ],
                 [
                   "Gandalf-style wizard",
                   "Destruction, Alteration, some Restoration",
-                  "Breton or High Elf (High Elf: Highborn in revision 7)",
+                  "Breton or High Elf (High Elf: Highborn)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -1055,7 +1054,7 @@
                 [
                   "Skeleton archer commander",
                   "Conjuration, Archery",
-                  "Wood Elf or Breton (Wood Elf: Hunter's Mark in revision 7, not tested yet)",
+                  "Wood Elf or Breton (Wood Elf: Hunter's Mark not tested yet)",
                   "Your choice"
                 ],
                 [
@@ -1067,7 +1066,7 @@
                 [
                   "Staff summoner",
                   "Conjuration, Enchanting",
-                  "Breton or High Elf (High Elf: Highborn in revision 7)",
+                  "Breton or High Elf (High Elf: Highborn)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -1398,7 +1397,7 @@
               [
                 "Racial power",
                 "Imperious's Wood Elf power is Beast Tongue. It recruits the nearest carnivorous animal.",
-                "Revision 7: the Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue."
+                "The Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue."
               ],
               [
                 "Other changes",
