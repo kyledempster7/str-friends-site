@@ -246,8 +246,8 @@ export async function renderV4(root) {
   const characters = data.characters;
   if (!characters?.pages?.length) throw new Error('Version D: the Characters section needs pages');
   const label = (p) => p.navLabel ?? p.title;
-  // While revision 7 is not on Nexus, pages with install or join steps say so. Set "release" to false (or remove it) once the owner gives the go-ahead.
-  const releaseNote = (flag) => flag ? `<p class="d-lead d-release">Revision 7 is being prepared. Wait for the owner's go-ahead before you install it. <a href="${esc(data.collectionUrl)}">Our Nexus collection page</a> still shows revision 6.</p>` : '';
+  // Revision 7 is the live collection: pages with install or join steps say so and link the Nexus collection page. Set "release" to false (or remove it) to drop the note.
+  const releaseNote = (flag) => flag ? `<p class="d-lead d-release">Revision 7 is the live collection. <a href="${esc(data.collectionUrl)}">Our Nexus collection page</a> has it.</p>` : '';
 
   // Audio guide: which episodes relate to which content page, so each page can offer "Listen to this section".
   const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...characters.pages, ...data.rules.pages].map((p) => [p.file, p.title]));
@@ -276,7 +276,7 @@ export async function renderV4(root) {
   const shell = ({ file, title, description, body }) => {
     return `<!doctype html>
 <html lang="en" id="top"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#101a20"><meta name="referrer" content="no-referrer"><title>${esc(title)} · Fellowship</title><meta name="description" content="${esc(description)}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/d.css"><script src="assets/d.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· revision 7 is being prepared: wait for the go-ahead</small></span></a></div></header><main id="main" tabindex="-1">
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Fellowship, home">${mark}<span>Fellowship<small>A Skyrim Together field guide</small></span></a>${topNav(file)}<a class="leave-link d-join" href="${esc(data.collectionUrl)}">${joinIcon}<span>Join us <small>· revision 7 is live</small></span></a></div></header><main id="main" tabindex="-1">
 ${body}
 </main><footer class="d-footer"><span>Updated <time datetime="${esc(data.updated)}">${esc(data.updated)}</time></span><nav aria-label="Site"><a href="audio-guide.html">Audio guide</a><a href="#top">Back to top ↑</a></nav></footer></body></html>
 `;

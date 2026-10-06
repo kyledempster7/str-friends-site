@@ -242,7 +242,7 @@
           "No extra rule"
         ]
       ],
-      "note": "Vanilla means the unmodded game. Mods describes our game: Better Vanilla Perks (part of revision 7, which is being prepared) with the held-perk and Quiet Hunter patches from the Friend Kit. Perks the patches changed end with “(changed for co-op)” in the perk menu. Nobody has played them together yet."
+      "note": "Vanilla means the unmodded game. Mods describes our game: Better Vanilla Perks (part of revision 7) with the held-perk and Quiet Hunter patches from the Friend Kit. Perks the patches changed end with “(changed for co-op)” in the perk menu. Nobody has played them together yet."
     },
     {
       "id": "races",
@@ -659,7 +659,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches and two private race patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is revision 7: these 38 installed mods, 26 Required and 12 Optional. The older collection had 19 mods. Two private perk patches and two private race patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",

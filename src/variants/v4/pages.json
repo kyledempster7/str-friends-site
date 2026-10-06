@@ -103,7 +103,7 @@
               "id": "oct-6",
               "title": "October 6: revision 7",
               "paragraphs": [
-                "Revision 7 is the next list of mods and Friend Kit patches. This is what it adds and changes."
+                "Revision 7 is our current list of mods and Friend Kit patches. This is what it adds and changes."
               ],
               "items": [
                 [
@@ -156,7 +156,8 @@
               ],
               "items": [
                 "Episodes 1, 5 and 9 still say High Elves, Redguards and Wood Elves have no racial power. High Elves and Redguards have theirs back, and Wood Elves have Hunter's Mark. Episode 12 covers all three.",
-                "Episode 2 still says revision 7 needs two perk patches from the Friend Kit. It is one zip now."
+                "Episode 2 still says revision 7 needs two perk patches from the Friend Kit. It is one zip now.",
+                "Episodes 1, 2, 7, 9 and 12 still tell you to wait before you install revision 7. Revision 7 is the live collection: install it from our Nexus collection page."
               ]
             }
           ],
@@ -392,12 +393,12 @@
                 "Settings → Interface → Profile Management: enable it.",
                 "Create and enable a profile named STR (for Skyrim Together Reborn). Choose own game settings.",
                 [
-                  "After the owner's go-ahead, open ",
+                  "Open ",
                   {
                     "text": "our collection on Nexus",
                     "href": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
                   },
-                  " and click Add collection. Follow its installer choices. Nexus still shows revision 6 until then."
+                  " and click Add collection. Follow its installer choices."
                 ]
               ]
             },
@@ -429,8 +430,8 @@
                 {
                   "text": "Enable the plugins of the revision the host names:",
                   "sub": [
-                    "Revision 7 (after the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
-                    "Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                    "Revision 7, the live collection: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
+                    "Revision 6, the older collection: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                   ]
                 },
                 "Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp."

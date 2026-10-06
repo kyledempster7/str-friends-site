@@ -496,11 +496,11 @@ for (const page of [
   if (!/\.d-page-strip\{display:none/.test(css)) fail('v4/assets/d.css: the page strip must be hidden by default');
   if (!/@media \(max-width:899px\)\{\.d-layout:has\(\.d-guide:not\(\[open\]\)\) \.d-page-strip\{display:flex\}/.test(css)) fail('v4/assets/d.css: the page strip may show only on narrow screens where the sidebar is collapsed');
   if (/\.d-page-strip\{[^}]*display:(?:flex|block)/.test(css.replace(/@media[^{]*\{[^{}]*(?:\{[^}]*\}[^{}]*)*\}/g, ''))) fail('v4/assets/d.css: the page strip must not be visible on wide screens');
-  // Site audit (2026-10-05): while revision 7 is not on Nexus, every page with install or join steps says so and keeps the Nexus link.
+  // Site audit (2026-10-05): revision 7 is the live collection; every page with install or join steps says so and keeps the Nexus link.
   if (audioPages?.home?.release === true) {
     for (const name of ['index.html', 'setup.html', 'join.html', 'skills.html', 'mods.html', 'rules.html', 'rules-perks.html', 'rules-spells.html', 'rules-powers.html', 'rules-mods.html']) {
       const html = v4(name);
-      if (!/Revision 7 is being prepared\. Wait for the owner(?:'|&#39;)s go-ahead before you install it\./.test(html)) fail(`v4/${name}: must say revision 7 is being prepared and to wait for the owner's go-ahead`);
+      if (!/Revision 7 is the live collection\./.test(html)) fail(`v4/${name}: must say revision 7 is the live collection`);
       if (!html.includes(`href="${audioPages.collectionUrl}"`)) fail(`v4/${name}: must keep the link to the Nexus collection page`);
     }
   }
@@ -595,7 +595,7 @@ for (const [file, html] of documents) {
     if (topLinks.length !== 3 || expectTop.some(([text, href], i) => topLinks[i]?.text !== text || topLinks[i]?.href !== href)) fail(`${relative}: top navigation must be Field guide, Characters, Audio guide`);
     if (!/<header\b[\s\S]*?<\/a><nav class="primary-nav"[\s\S]*?<\/nav><a class="leave-link d-join"/.test(html)) fail(`${relative}: header order must be brand, top navigation, Join us`);
     if (!headerLinks.some(([, attributes, href]) => /class="brand"/.test(attributes) && href === 'index.html')) fail(`${relative}: header brand must link home`);
-    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · revision 7 is being prepared: wait for the go-ahead')) fail(`${relative}: header must retain the Join us button (revision 7 is being prepared: wait for the go-ahead) and its collection link`);
+    if (!headerLinks.some(([, attributes, href, body]) => /class="[^"]*\bd-join\b/.test(attributes) && decode(href) === audioPages?.collectionUrl && compactText(decode(body.replace(/<[^>]*>/g, ' '))) === 'Join us · revision 7 is live')) fail(`${relative}: header must retain the Join us button (revision 7 is live) and its collection link`);
     for (const [, attributes, href] of headerLinks) {
       if (href.startsWith('leave-now.html')) fail(`${relative}: header must not link to Leave now`);
       if (/^(?:index\.html(?:[?#]|$)|\.\/|\/$)/.test(href) && !/class="brand"/.test(attributes)) fail(`${relative}: only the header brand may link home`);
