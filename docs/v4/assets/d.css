@@ -15,7 +15,6 @@
 .d-grid.cols-3 td:nth-child(2){color:#b2bfc2;width:28%}
 .d-grid a{color:var(--gold)}
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
-.d-quick .d-grid tbody th{width:32%}
 .d-quotes .d-grid tbody th{width:46%;font-weight:400;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;line-height:1.55}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
 .d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
