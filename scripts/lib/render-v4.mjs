@@ -6,7 +6,7 @@ import path from 'node:path';
 // eight numbered topics, walked first to last. Every subpage uses the same guide navigation.
 // The top navigation has three entries (Field guide, Characters, Audio guide) plus the Join button.
 // Characters is its own section with its own sidebar; the field guide sidebar lists the eight topics and the lookup.
-// Quick answers live on the subpage that owns them.
+// There are no quick-answer boxes: every fact lives once, in the page body.
 // The big header button is Join, linking to the Nexus collection.
 const esc = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const statusLabels = { allowed: 'Allowed', conditional: 'Conditional', hold: "Quarantined — don't use yet", blocked: 'Blocked' };
@@ -43,7 +43,6 @@ const css = `/* Version D: grids on the original look. */
 .d-grid.cols-3 td:nth-child(2){color:#b2bfc2;width:28%}
 .d-grid a{color:var(--gold)}
 .d-grid tr.d-urgent th,.d-grid tr.d-urgent td{color:#f0d099}
-.d-quick .d-grid tbody th{width:32%}
 .d-quotes .d-grid tbody th{width:46%;font-weight:400;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;line-height:1.55}
 .s-hold{color:#f0d099}.s-blocked{color:#efb9b1}.s-conditional{color:#bddce5}.s-allowed{color:#b5dac4}
 .d-search{margin:8px 0 32px}.d-chapters+.d-search-hint{margin-top:40px}.d-chapters~.d-search{margin-bottom:0}.d-search-hint{margin:0 0 12px;color:#b2bfc2}
@@ -184,14 +183,13 @@ const grid = (g, pageTitle) => {
     return `<tr${urgent}><th scope="row">${cell(r[0])}</th>${cells}</tr>`;
   }).join('\n');
   const open = repeatsTitle(g.title, pageTitle)
-    ? `<section class="d-section${g.quick ? ' d-quick' : ''}${g.cls ? ` ${g.cls}` : ''}" id="${esc(g.id)}" aria-label="${esc(g.title)}">`
-    : `<section class="d-section${g.quick ? ' d-quick' : ''}${g.cls ? ` ${g.cls}` : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>`;
+    ? `<section class="d-section${g.cls ? ` ${g.cls}` : ''}" id="${esc(g.id)}" aria-label="${esc(g.title)}">`
+    : `<section class="d-section${g.cls ? ` ${g.cls}` : ''}" aria-labelledby="${esc(g.id)}"><h2 id="${esc(g.id)}">${esc(g.title)}</h2>`;
   return `${open}
 <div class="d-wrap"><table class="d-grid${cls}">${g.note ? `<caption>${esc(g.note)}</caption>` : ''}<thead><tr>${head}</tr></thead><tbody>
 ${rows}
 </tbody></table></div></section>`;
 };
-const quickGrid = (q) => q ? grid({ id: 'quick-answer', quick: true, title: 'Quick answer', columns: ['Question', 'Short answer'], rows: [q] }) : '';
 // Step layout: a big number on the left, a title, a line or two, and a numbered sub-list when a step has several actions.
 // Items are cells (text, {text, href}, or a list of both); an item may also be {text, sub: [...]} for a short bulleted list.
 const subItem = (item) => item && typeof item === 'object' && !Array.isArray(item) && item.sub
@@ -413,24 +411,29 @@ ${pager}</div></div>${custom.script ?? ''}`
       return;
     }
     // Extra voiced clips on a content page use the Audio guide's boxed player. Each keeps its transcript on the same page.
-    const clipBoxes = (p.clips ?? []).map((clip, i, all) => `<section class="d-episode" id="${clip.id}" aria-labelledby="${clip.id}-title">
-<p class="d-episode-kicker">Listen ${i + 1} of ${all.length} · ${episodeTime(clip.duration)}</p>
+    // A grids entry of {"clip": "<id>"} places that clip's box at that point (a divider between grids); clips not placed come last.
+    // "Listen n of N" counts the clips in the order they appear on the page.
+    const placedClips = (p.grids ?? []).filter((g) => g && typeof g === 'object' && g.clip).map((g) => g.clip);
+    for (const id of placedClips) if (!(p.clips ?? []).some((clip) => clip.id === id)) throw new Error(`Version D: ${p.file} places an unknown clip ${id}`);
+    const clipsInOrder = [...placedClips.map((id) => p.clips.find((clip) => clip.id === id)), ...(p.clips ?? []).filter((clip) => !placedClips.includes(clip.id))];
+    const clipBox = (clip) => `<section class="d-episode" id="${clip.id}" aria-labelledby="${clip.id}-title">
+<p class="d-episode-kicker">Listen ${clipsInOrder.indexOf(clip) + 1} of ${clipsInOrder.length} · ${episodeTime(clip.duration)}</p>
 <h2 id="${clip.id}-title">${esc(clip.title)}</h2>
 <p class="d-episode-summary">${esc(clip.summary)}</p>
 ${episodePlayer(clip)}
 ${audioTranscript({ transcriptAnchor: `${clip.id}-transcript`, title: clip.title, transcript: clip.transcript })}
-</section>`).join('\n');
+</section>`;
+    const clipBoxes = clipsInOrder.filter((clip) => !placedClips.includes(clip.id)).map(clipBox).join('\n');
     pages.set(p.file, shell({
       file: p.file,
       title: p.title,
       description: p.description ?? `${p.title}: comparisons for our Skyrim Together campaign.`,
       body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
-${quickGrid(p.quick)}
 ${textBlocks(p.before)}
 ${p.lead ? `<p class="d-lead">${cell(p.lead)}</p>` : ''}
 ${stepList(p.steps)}
-${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
+${p.grids.map((g) => g.clip ? clipBox(p.clips.find((clip) => clip.id === g.clip)) : grid(resolve(g), p.title)).join('\n')}
 ${textBlocks(p.after)}
 ${clipBoxes}
 ${audioTranscript(p.audio)}
@@ -494,7 +497,6 @@ ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means un
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
 ${releaseNote(rulesRelease)}${audioBar(rulesAudio)}
 ${ruleGrid(entries, { search: true })}
-${quickGrid(['Can I use this spell or perk?', "Quarantined: don't use yet. Allowed: go ahead. Conditional: follow the stated limit. Unlisted: ask the host."])}
 <section class="d-section" aria-labelledby="key"><h2 id="key">What the statuses mean</h2><div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Status</th><th scope="col">How many</th><th scope="col">Means</th></tr></thead><tbody>${keyRows}</tbody></table></div></section>
 ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}</script>` : ''}`
   }));

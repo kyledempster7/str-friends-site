@@ -363,7 +363,7 @@
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says “held” for the same thing. Perks our Friend Kit patches changed are not on this list: they are fine to take, but nobody has played them together yet. Highborn and Adrenaline Rush, which the Friend Kit race patch gives back in revision 7, are not quarantined either. A quarantine does not mean a crash is proven. Spells are on the Spells page. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says “held” for the same thing. Perks our Friend Kit patches changed are not on this list: they are fine to take, but nobody has played them together yet. Highborn and Adrenaline Rush, which the Friend Kit race patch gives back in revision 7, and Hunter's Mark, which the Friend Kit adds for Wood Elves, are not quarantined either. A quarantine does not mean a crash is proven. Spells are on the Spells page. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-06",
   "entries": [
     {
       "id": "bvp-main",
@@ -33,7 +33,7 @@
       "category": "mod",
       "status": "allowed",
       "summary": "Gives each race distinct abilities and an unlockable power; four powers stay quarantined (don't use yet).",
-      "detail": "Part of revision 7. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
+      "detail": "Part of revision 7. Quarantined (don't use yet): Contingency, Red Sand Dance, Beast Tongue and Spirit Walk. Our Friend Kit race patch gives High Elves Highborn, Redguards Adrenaline Rush and Wood Elves Hunter's Mark; Races has the details. NPCs gain racial abilities too; co-op effects and unlocks are untested.",
       "aliases": [
         "Imperious",
         "race overhaul"
@@ -46,7 +46,7 @@
       "category": "perk",
       "status": "allowed",
       "summary": "Halve power-attack damage while blocking with a shield.",
-      "detail": "The Block 30 rank protects you without slowing time. Rank 2 at Block 50 is allowed too.",
+      "detail": "The Block 30 rank protects you without slowing time.",
       "aliases": [
         "Strong Reflexes",
         "Quick Reflexes",
@@ -62,7 +62,7 @@
       "category": "perk",
       "status": "allowed",
       "summary": "Halves all damage while you block. Our perk patch removes the time slowdown Better Vanilla Perks adds.",
-      "detail": "The Block 50 rank. Changed for co-op by the held-perk patch.",
+      "detail": "The Block 50 rank.",
       "aliases": [
         "Strong Reflexes",
         "Strong Reflexes 2",
@@ -187,8 +187,8 @@
       "name": "Summoner — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Summoning spells can be cast twice as far away. It adds no summon slot in our game; keep one active summon.",
-      "detail": "The held-perk patch removes the extra slot.",
+      "summary": "Summoning spells can be cast twice as far away.",
+      "detail": "It adds no summon slot in our game (the held-perk patch removes it); keep one active summon.",
       "aliases": [
         "Summoner30"
       ],
@@ -199,8 +199,8 @@
       "name": "Puppeteer — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Summoning spells can be cast three times as far away. It adds no summon slot in our game; keep one active summon.",
-      "detail": "The held-perk patch removes the extra slot.",
+      "summary": "Summoning spells can be cast three times as far away.",
+      "detail": "It adds no summon slot in our game (the held-perk patch removes it); keep one active summon.",
       "aliases": [
         "Summoner70"
       ],
@@ -211,8 +211,8 @@
       "name": "Twin Souls — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Conjuration spells cost 10% less magicka. It adds no summon slots in our game; keep one active summon.",
-      "detail": "The held-perk patch replaces the two extra summons with a cheaper-spell bonus.",
+      "summary": "Conjuration spells cost 10% less magicka.",
+      "detail": "It adds no summon slots in our game: the held-perk patch replaces the two extra summons with this bonus. Keep one active summon.",
       "aliases": [
         "TwinSouls"
       ],
@@ -223,8 +223,8 @@
       "name": "Dragonborn rank 2 — Better Vanilla Perks",
       "category": "perk",
       "status": "conditional",
-      "summary": "Buying and selling prices are 15% better. It adds no summon in our game; keep one active summon.",
-      "detail": "The Speech 20 rank no longer lets you command an extra follower: the held-perk patch removes that.",
+      "summary": "Buying and selling prices are 15% better.",
+      "detail": "The Speech 20 rank adds no summon in our game and no longer lets you command an extra follower: the held-perk patch removes both. Keep one active summon.",
       "aliases": [
         "Dragonborn 2",
         "Speech 20"
@@ -350,7 +350,7 @@
       "category": "race",
       "status": "conditional",
       "summary": "Ancestors mark enemies for gold and Spirit Favor.",
-      "detail": "Slay marked humanoids to earn the reward. Personal progress is not tested in co-op yet; Spirit Walk remains quarantined (don't use yet).",
+      "detail": "Slay marked humanoids to earn the reward. Personal progress is not tested in co-op yet.",
       "aliases": [
         "Dunmer",
         "Dark Elf",
@@ -364,7 +364,7 @@
       "category": "race",
       "status": "conditional",
       "summary": "Quieter sneaking and a powerful leap.",
-      "detail": "Leap while sneaking with weapons sheathed, spending Stamina. It is movement, not teleportation. Not tested in co-op yet; stay with the party.",
+      "detail": "Leap while sneaking with weapons sheathed, spending Stamina. It is movement, not teleportation. Stay with the party.",
       "aliases": [
         "Khajiit",
         "leap",
@@ -378,7 +378,7 @@
       "category": "race",
       "status": "conditional",
       "summary": "Borrow a human or elf's racial power; all existing quarantines still apply.",
-      "detail": "The Breton power borrows a living target's racial power for five minutes. Never use it to bypass quarantined powers. Not tested in co-op yet.",
+      "detail": "The Breton power borrows a living target's racial power for five minutes.",
       "aliases": [
         "Breton",
         "borrow racial power"
@@ -442,7 +442,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a basic skeleton; keep one active summon.",
-      "detail": "Novice Conjuration. Creates a helper without using a corpse. Corpse raising remains quarantined (don't use yet).",
+      "detail": "Novice Conjuration. Creates a helper without using a corpse.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -457,7 +457,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Summons a skeleton warrior; keep one active summon.",
-      "detail": "Expert Conjuration. Creates a helper without using a corpse. Corpse raising remains quarantined (don't use yet).",
+      "detail": "Expert Conjuration. Creates a helper without using a corpse.",
       "aliases": [
         "summoned undead",
         "conjured undead",
@@ -532,7 +532,7 @@
       "category": "mechanic",
       "status": "conditional",
       "summary": "Summon a creature to fight beside you; keep one active summon.",
-      "detail": "Conjure Familiar keeps Mysticism's spell and wolf. Better Vanilla Perks supplies its text and look. Corpse raising and quarantined racial summons remain excluded.",
+      "detail": "Conjure Familiar keeps Mysticism's spell and wolf. Better Vanilla Perks supplies its text and look.",
       "aliases": [
         "atronach",
         "Conjure Familiar",
@@ -577,7 +577,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Keep casting to heal yourself and nearby allies.",
-      "detail": "Expert Restoration. Mysticism changes the vanilla burst into continuous healing while you cast. It is not a starter spell; not tested in co-op yet.",
+      "detail": "Expert Restoration. Mysticism changes the vanilla burst into continuous healing while you cast. It is not a starter spell.",
       "aliases": [
         "Restoration",
         "heal player",
@@ -726,7 +726,7 @@
       "category": "spell",
       "status": "conditional",
       "summary": "Heal nearby summoned helpers; use on your one allowed summon.",
-      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends. Corpse raising stays quarantined (don't use yet).",
+      "detail": "Daedric Cure and Oblivion's Embrace heal summons. Player healing is (not verified); use ordinary Restoration for friends.",
       "aliases": [
         "Conjurer's Cure",
         "Dark Deal",
@@ -802,7 +802,7 @@
       "category": "spell",
       "status": "allowed",
       "summary": "Channel sunlight to damage undead.",
-      "detail": "Novice Restoration. Keep casting to burn an undead target. A starting anti-undead option; not tested in co-op yet.",
+      "detail": "Novice Restoration. Keep casting to burn an undead target. A starting anti-undead option.",
       "aliases": [
         "Restoration",
         "sun magic",

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "collectionUrl": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy",
   "home": {
     "titleBefore": "The North is better",
@@ -59,10 +59,6 @@
         {
           "file": "together.html",
           "title": "What changes in multiplayer",
-          "quick": [
-            "What changes from single player?",
-            "One quest leader. Nothing pauses. Master difficulty for everyone."
-          ],
           "grids": [
             "multiplayer"
           ],
@@ -98,6 +94,77 @@
           "release": true
         },
         {
+          "file": "patch-notes.html",
+          "title": "Patch notes",
+          "description": "What changed in our campaign setup, newest first. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
+          "release": true,
+          "before": [
+            {
+              "id": "oct-6",
+              "title": "October 6: revision 7",
+              "paragraphs": [
+                "Revision 7 is the next list of mods and Friend Kit patches. This is what it adds and changes."
+              ],
+              "items": [
+                [
+                  "New required mods: Random Dragons No More, Cathedral Weathers and Seasons, Disable Fast Travel, Simplest Survival (with Keyword Item Distributor and our 30-minute patch), The Notice Board, Vampire Attacks Restored (with our Gentle Start patch), Elysium Estate, Skyrim Trading Posts, Skyrim Bandit Expansion, Skyshards and PapyrusUtil. ",
+                  {
+                    "text": "Our mods",
+                    "href": "mods.html"
+                  },
+                  " lists all 38."
+                ],
+                "New optional mods: Sounds of Skyrim Complete, Playable Greybeard Robes, Wizard Hats - Simple, Weapon Collection LotR and Harborwatch.",
+                "In the game: map fast travel is off. Hunger and thirst arrive about 30 real minutes after you eat or drink. Vampires attack towns at night, never before level 12. Random dragon attacks are off.",
+                "Friend Kit: one zip, STR-Friend-Kit-2026-10-06.zip, and one double-click. Extract it and double-click START HERE - double-click me.bat. It builds STR-Patches.zip (four private plugins) and runs the Creation Club cleanup.",
+                [
+                  "Perks: our patches changed some Better Vanilla Perks perks. Strong Reflexes rank 2, Steady Hand, Dragonborn ranks 4 and 5 and Resurgence are no longer quarantined. Torch unlocking and the extra summon slots are removed, so keep one active summon. Archery asks you to pick one of each pair: Steady Hand or Quick Draw, Power Shot or Ranger. Dark Souls 2 and Necromage stay locked. ",
+                  {
+                    "text": "Skills",
+                    "href": "skills.html"
+                  },
+                  " says how."
+                ],
+                [
+                  "Races: the race patch gives High Elves Highborn and Redguards Adrenaline Rush back, once a day. It is tested alone, not yet with two players. New: Wood Elves get Hunter's Mark, 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf still has no racial power. ",
+                  {
+                    "text": "Races",
+                    "href": "races.html"
+                  },
+                  " says more."
+                ],
+                [
+                  "Setup and joining: ",
+                  {
+                    "text": "First-time setup",
+                    "href": "setup.html"
+                  },
+                  " and ",
+                  {
+                    "text": "Joining a session",
+                    "href": "join.html"
+                  },
+                  " are now numbered steps. Joining has a new section, Leaving and coming back later."
+                ]
+              ]
+            },
+            {
+              "id": "audio-differences",
+              "title": "Audio guide: known differences",
+              "paragraphs": [
+                "The written pages are correct. Where the audio guide and a page disagree, follow the page."
+              ],
+              "items": [
+                "Episodes 1, 5, 9, 11 and 12 still say High Elves, Redguards and Wood Elves have no racial power. High Elves and Redguards have theirs back, and Wood Elves have Hunter's Mark.",
+                "No episode covers Hunter's Mark yet.",
+                "Episode 2 still says revision 7 needs two perk patches from the Friend Kit. It is one zip now.",
+                "Episodes 3, 6, 8, 9, 11 and 12 still call Strong Reflexes rank 2, Steady Hand, Dragonborn ranks 4 and 5 and Resurgence held. They are not quarantined now."
+              ]
+            }
+          ],
+          "grids": []
+        },
+        {
           "file": "absol-list.html",
           "title": "absol89's list",
           "kind": "absol"
@@ -127,10 +194,6 @@
         {
           "file": "races.html",
           "title": "Races",
-          "quick": [
-            "Before you pick a race",
-            "In revision 7, High Elf and Redguard get Highborn and Adrenaline Rush back. Wood Elf gets Hunter's Mark (not tested in the game yet). Dark Elf has no racial power in our game."
-          ],
           "grids": [
             "races"
           ],
@@ -310,7 +373,7 @@
             {
               "title": "Run the Friend Kit",
               "list": [
-                "Get the Friend Kit zip from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
+                "Get the Friend Kit zip (October 6) from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
                 "Close Skyrim.",
                 "Double-click START HERE - double-click me.bat and press a key. It makes STR-Patches.zip in that folder, then backs up the four bundled Creation Club add-ons (the cleanup).",
                 "Read the result. It must end with \"Your game is ready for Skyrim Together.\" When it offers to freeze Skyrim updates, press Y (recommended).",
@@ -421,13 +484,39 @@
           "file": "tailscale.html",
           "title": "Tailscale: connecting to our game",
           "navLabel": "Tailscale",
-          "description": "What Tailscale is, why we use it, how to get ready, what is safe and what happens on game day, with two short recordings and their transcripts.",
-          "quick": [
-            "Where is my join link?",
-            "The host sends your personal join link privately on game day. It is never on this site."
-          ],
+          "description": "How to get ready, what Tailscale is and why we use it, what is safe and what happens on game day, with two short recordings and their transcripts.",
           "grids": [
-            {
+              {
+              "id": "get-ready",
+              "title": "Get ready",
+              "note": "Do steps 1 and 2 before game day. Steps 3 and 4 happen when your link arrives.",
+              "columns": [
+                "Step",
+                "What you do"
+              ],
+              "rows": [
+                [
+                  "1. Install Tailscale",
+                  "Go to tailscale.com/download/windows. Click the Windows download. Open the file. Windows asks for permission once. Check the publisher says Tailscale Inc., then click Yes. Tick the license box. Click Install, then Close. Every click is spelled out in the audio below."
+                ],
+                [
+                  "2. Sign in",
+                  "Right-click the Tailscale icon by the clock. Click Log in. Pick Google, Microsoft, Apple or GitHub. Use a personal account, not a work or school one. If it asks, choose Personal use. Remember which account you used."
+                ],
+                [
+                  "3. Get your join link",
+                  "The host sends you your personal join link privately on game day. It is never on this site, and nobody posts it in public."
+                ],
+                [
+                  "4. Accept the share",
+                  "Open your link in your browser. If asked, sign in with the same account as step 2. Click the button that accepts. Right-click the Tailscale icon and open Network devices. You should see the host’s PC listed."
+                ]
+              ]
+            },
+              {
+                "clip": "tailscale-steps"
+              },
+              {
               "id": "what-and-why",
               "title": "What Tailscale is, and why we use it",
               "note": "Tailscale is an app. It is how your PC reaches the host’s game PC.",
@@ -450,34 +539,7 @@
                 ]
               ]
             },
-            {
-              "id": "get-ready",
-              "title": "Get ready",
-              "note": "Do steps 1 and 2 before game day. Steps 3 and 4 happen when your link arrives.",
-              "columns": [
-                "Step",
-                "What you do"
-              ],
-              "rows": [
-                [
-                  "1. Install Tailscale",
-                  "Go to tailscale.com/download/windows. Click the Windows download. Open the file. Windows asks for permission once. Check the publisher says Tailscale Inc., then click Yes. Tick the license box. Click Install, then Close. Every click is spelled out in the audio below."
-                ],
-                [
-                  "2. Sign in",
-                  "Right-click the Tailscale icon by the clock. Click Log in. Pick Google, Microsoft, Apple or GitHub. Use a personal account, not a work or school one. If it asks, choose Personal use. Remember which account you used."
-                ],
-                [
-                  "3. Get your join link",
-                  "The host sends you your personal join link privately on game day. Nobody posts it in public."
-                ],
-                [
-                  "4. Accept the share",
-                  "Open your link in your browser. If asked, sign in with the same account as step 2. Click the button that accepts. Right-click the Tailscale icon and open Network devices. You should see the host’s PC listed."
-                ]
-              ]
-            },
-            {
+              {
               "id": "is-this-safe",
               "title": "Is this safe?",
               "note": "Each statement below matches Tailscale’s own documentation.",
@@ -516,7 +578,10 @@
                 ]
               ]
             },
-            {
+              {
+                "clip": "tailscale-safe"
+              },
+              {
               "id": "game-day",
               "title": "What happens on game day",
               "columns": [
@@ -546,7 +611,7 @@
                 ]
               ]
             }
-          ],
+            ],
           "clips": [
             {
               "id": "tailscale-safe",
@@ -620,10 +685,6 @@
         {
           "file": "join.html",
           "title": "Joining a session",
-          "quick": [
-            "How do I join tonight?",
-            "Double-click your configured SkyrimTogether.exe shortcut. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
-          ],
           "steps": [
             {
               "title": "Launch the co-op game",
@@ -738,10 +799,6 @@
         {
           "file": "leave-now.html",
           "title": "Leaving",
-          "quick": [
-            "I have to leave right now.",
-            "Save if possible (Esc → Save). Let it finish. Press F2, choose Disconnect, then Proceed. Quit to Main Menu (Esc → System → Quit)."
-          ],
           "grids": [
             {
               "id": "leave",
@@ -791,22 +848,6 @@
         {
           "file": "builds.html",
           "title": "Build ideas",
-          "quick": [
-            "What should I play?",
-            [
-              "Anything you enjoy. For ideas, see ",
-              {
-                "text": "Build sheets",
-                "href": "build-sheets.html"
-              },
-              " and the ",
-              {
-                "text": "Roster",
-                "href": "ledger.html"
-              },
-              "."
-            ]
-          ],
           "grids": [
             {
               "id": "builds",
@@ -929,7 +970,7 @@
                   "One-handed, Block and Restoration. Block enemies, then switch to healing."
                 ]
               ],
-              "note": "Suggestions using our installed mods. Co-op effects remain untested."
+              "note": "Suggestions using our installed mods. Play anything you enjoy. Co-op effects remain untested."
             }
           ],
           "sources": []
@@ -1195,10 +1236,6 @@
         {
           "file": "ownership.html",
           "title": "Ownership",
-          "quick": [
-            "Where do I keep my things?",
-            "Use your pack until you own a home. Test home chests with a cheap item first."
-          ],
           "grids": [
             "ownership"
           ],
@@ -1298,10 +1335,6 @@
         "title": "Mac's character: a Wood Elf hunter",
         "navLabel": "Mac's Wood Elf hunter",
         "description": "Two equal build paths for Mac's Wood Elf hunter: bow and blade, or beast companions with a spectral wolf and bear. Skills, perks, gear and how each fits the party.",
-        "quick": [
-          "Which path?",
-          "Bow and blade, or bow and beast. Both use the bow. Pick the one that sounds fun."
-        ],
         "seeAlso": {
           "lead": "The Wood Elf racial power and its quarantine are on",
           "href": "races.html",
@@ -1331,7 +1364,7 @@
                 "Scouts and opens the fight. The beast keeps enemies busy while you shoot."
               ]
             ],
-            "note": "Suggestions, not assignments. None of this has been tried together yet."
+            "note": "Suggestions, not assignments: pick the path that sounds fun. None of this has been tried together yet."
           },
           {
             "id": "mac-wood-elf",
@@ -1349,8 +1382,8 @@
               ],
               [
                 "Racial power",
-                "Beast Tongue is the Wood Elf power. It recruits the nearest carnivorous animal.",
-                "No racial power in our game. Quarantined (don't use yet): Beast Tongue."
+                "Imperious's Wood Elf power is Beast Tongue. It recruits the nearest carnivorous animal.",
+                "Revision 7: the Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue."
               ],
               [
                 "Other changes",
