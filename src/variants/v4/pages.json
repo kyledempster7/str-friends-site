@@ -374,7 +374,7 @@
                 "Get the Friend Kit zip (October 6) from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
                 "Close Skyrim.",
                 "Double-click START HERE - double-click me.bat and press a key. It makes STR-Patches.zip in that folder, then backs up the four bundled Creation Club add-ons (the cleanup).",
-                "Read the result. It must end with \"Your game is ready for Skyrim Together.\" When it offers to freeze Skyrim updates, press Y (recommended).",
+                "Read the result. The line \"Your game is ready for Skyrim Together.\" must appear. The window then offers to freeze Skyrim updates (optional; press Y, recommended) and ends with \"All done. Close this window.\"",
                 "If it says SOMETHING WENT WRONG, stop and send the host a screenshot."
               ],
               "note": "Never use Steam's \"Verify integrity\" afterwards. It puts the add-ons back. If you did, run the .bat again."
