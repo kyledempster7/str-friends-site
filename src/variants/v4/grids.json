@@ -287,7 +287,7 @@
         [
           "Imperial",
           "+10 Restoration. +5 Block, Destruction, Enchanting, Heavy Armor, One-Handed. Imperial Luck finds gold. Voice of the Emperor calms nearby people.",
-          "Discipline boosts nearby allies' armor/damage. Random resource regeneration in combat. Permanent attribute/resistance/skill tradeoffs. Colovian Star refills and temporarily boosts Magicka and Stamina.",
+          "Block starts at +10. Imperial Luck and Voice of the Emperor are not in our game. Discipline boosts nearby allies' armor/damage. Random resource regeneration in combat. Permanent attribute/resistance/skill tradeoffs. Colovian Star refills and temporarily boosts Magicka and Stamina.",
           "Discipline's benefit to players (not verified). Do not count on it as a party buff."
         ],
         [
@@ -299,7 +299,7 @@
         [
           "Nord",
           "+10 Two-Handed. +5 Block, Light Armor, One-Handed, Smithing, Speech. 50% frost resistance. Battle Cry makes nearby enemies flee.",
-          "25% frost resistance. Choose racial enemies for damage bonuses. Missing Health strengthens attacks/spells. Avatar restores Magicka/Stamina and adds frost resistance.",
+          "One-Handed starts at +10. 25% frost resistance. Battle Cry is not a Nord power in our game; the Speech perk Intimidation (Speech 70) gives it to any race. Choose racial enemies for damage bonuses. Missing Health strengthens attacks/spells. Avatar restores Magicka/Stamina and adds frost resistance.",
           "No quarantined power. Co-op racial effects and unlocks (not verified)."
         ],
         [
@@ -315,7 +315,7 @@
           "Revision 7: the Friend Kit race patch gives back Adrenaline Rush, once a day. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Vanilla means the unmodded game. Imperious changes racial traits. Complete racial objectives to unlock powers. In revision 7 the Friend Kit race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. In revision 7 the Friend Kit also gives Wood Elves Hunter's Mark: 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf has no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
+      "note": "Vanilla means the unmodded game. Imperious changes racial traits: Battle Cry (Nord), Imperial Luck and Voice of the Emperor (Imperial) appear only in the Vanilla column. Complete racial objectives to unlock powers. In revision 7 the Friend Kit race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. In revision 7 the Friend Kit also gives Wood Elves Hunter's Mark: 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf has no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
     },
     {
       "id": "spells",
