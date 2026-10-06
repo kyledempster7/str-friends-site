@@ -750,25 +750,42 @@
               "id": "leaving-and-returning",
               "title": "Leaving and coming back later",
               "items": [
-                "Your progress lives in your own save, on your own PC. The server keeps no save of your character or the world.",
+                "The server keeps no save of your character or the world.",
+                "Your save holds your character and your copy of the world.",
+                "The server keeps the clock while it runs. A restart resets the clock.",
                 [
-                  "Save before you leave. Then disconnect and quit to the main menu: ",
+                  "Leaving: save, disconnect, then quit to the main menu. ",
                   {
                     "text": "Leaving",
                     "href": "leave-now.html"
                   },
                   " has the steps."
                 ],
-                "To come back, load your latest campaign save and connect the usual way. Check the usual leader and regroup before questing. Rejoining with a full group is not tested yet.",
-                "The server is its own program on the host's PC, so it can run while the host is not in the game. Nobody has tested friends playing without the host in the game yet.",
+                "Coming back: load your latest save, then connect.",
+                "The sky racing to the server's hour on join is normal.",
+                "Your date may differ from your friends' dates. That is normal too.",
+                "The server is its own program on the host's PC. Friends can play while the host is out of the game. This is likely from the mod's code. Nobody has tried it yet.",
+                "Playing apart: the first player to load an area decides what is there.",
+                "A dead NPC can come back alive when you rejoin. A chest outside a home can be replaced by a friend's version.",
+                "Quest steps only reach players who are connected at that moment. Nobody catches up later.",
+                "All of this is read from the mod's code. We have not seen it in a game with the full group."
+              ]
+            },
+            {
+              "id": "group-rules",
+              "title": "Group rules",
+              "items": [
+                "Play the group character only while connected.",
+                "Keep a separate character for solo play.",
                 [
-                  "Playing your campaign character alone, offline, moves your save on. Quests you advance alone may not match the group's. Our rule: do not advance the main campaign without missing players, and do not quest alone to catch up (",
+                  "Only the leader uses console fixes on NPCs. The host has the steps (",
                   {
                     "text": "The party leader",
                     "href": "leader.html"
                   },
-                  "). For solo time, use a separate character, as a smaller-party night does."
-                ]
+                  ")."
+                ],
+                "Stash loot only in player homes."
               ]
             }
           ],
