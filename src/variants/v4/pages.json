@@ -1223,6 +1223,264 @@
         "kind": "vigilant"
       },
       {
+        "file": "mac-hunter.html",
+        "title": "Mac's character: a Wood Elf hunter",
+        "navLabel": "Mac's Wood Elf hunter",
+        "description": "Two equal build paths for Mac's Wood Elf hunter: bow and blade, or beast companions with a spectral wolf and bear. Skills, perks, gear and how each fits the party.",
+        "quick": [
+          "Which path?",
+          "Bow and blade, or bow and beast. Both use the bow. Pick the one that sounds fun."
+        ],
+        "seeAlso": {
+          "lead": "The Wood Elf racial power and its quarantine are on",
+          "href": "races.html",
+          "text": "Races"
+        },
+        "grids": [
+          {
+            "id": "mac-paths",
+            "title": "Two paths",
+            "columns": [
+              "Path",
+              "How you fight",
+              "Main skills",
+              "How it fits the party"
+            ],
+            "rows": [
+              [
+                "Bow and blade",
+                "Shoot first. Draw a sword when enemies reach you. One-handed or two-handed.",
+                "Archery, Sneak, Light Armor, and One-Handed or Two-Handed",
+                "Scouts and opens the fight. Steps in beside the frontliner when enemies close."
+              ],
+              [
+                "Beast companions",
+                "Shoot from behind a spectral wolf or bear. One beast at a time.",
+                "Archery, Sneak, Conjuration",
+                "Scouts and opens the fight. The beast keeps enemies busy while you shoot."
+              ]
+            ],
+            "note": "Suggestions, not assignments. Co-op effects are untested."
+          },
+          {
+            "id": "mac-wood-elf",
+            "title": "What a Wood Elf gets",
+            "columns": [
+              "Part",
+              "In our game",
+              "Our rule"
+            ],
+            "rows": [
+              [
+                "Starting skills",
+                "Archery +10 and Sneak +10. Alchemy, Light Armor, Lockpicking and Pickpocket +5.",
+                "No extra rule"
+              ],
+              [
+                "Racial power",
+                "Beast Tongue is the Wood Elf power. It recruits the nearest carnivorous animal.",
+                "No racial power in our game. Quarantined (don't use yet): Beast Tongue."
+              ],
+              [
+                "Other changes",
+                "Eat corpses for attributes. Harrier marks prey and weakens foes. Sense movement while still. Innate poison and disease resistance is gone.",
+                "Harrier's effects for friends are not verified."
+              ]
+            ]
+          },
+          {
+            "id": "mac-bow-blade",
+            "title": "Path 1: bow and blade",
+            "columns": [
+              "Pick",
+              "What it does in our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Archery: Overdraw",
+                "Bows do more damage with each rank. Ranks 2 to 5 cost 5, 10, 15 and 20% of your melee and unarmed damage.",
+                "A swordsman pays for this. Stop at rank 1 for full sword damage, or take more and accept weaker swings."
+              ],
+              [
+                "Archery: Quick Draw or Steady Hand",
+                "Quick Draw reloads archery weapons 25% faster. Steady Hand adds 10% bow critical chance and 5% bow damage.",
+                "Pick one. The whole Steady Hand branch is quarantined (don't use yet), so take Quick Draw."
+              ],
+              [
+                "Archery: Power Shot or Ranger",
+                "Power Shot gives bows 50% armor penetration and a 50% chance to stagger. Ranger moves you faster with a drawn bow and doubles bow bash damage.",
+                "Pick one. Neither is quarantined."
+              ],
+              [
+                "Archery: Critical Shot and Bullseye",
+                "They add no critical bonus while you sneak. Sneak attacks keep the Sneak tree's multipliers.",
+                "Open with a sneak shot. Fight in the open for critical hits."
+              ],
+              [
+                "One-Handed sword",
+                "Armsman raises damage and adds critical chance. Bladesman adds bleeding. Flurry speeds main-hand attacks.",
+                "No extra rule"
+              ],
+              [
+                "Two-Handed greatsword",
+                "Barbarian raises damage, adds armor penetration and makes greatswords bleed targets.",
+                "No extra rule. A greatsword means swapping weapons, so keep the bow ready."
+              ],
+              [
+                "Sneak",
+                "Backstab extends sneak bonuses to melee and spell attacks. Shadow Warrior adds night vision and greatsword sneak damage. Its second rank adds combat invisibility.",
+                "No extra rule"
+              ],
+              [
+                "Light Armor",
+                "Agile Defender adds material bonuses, such as cheaper power attacks and stagger resistance. Custom Fit and Matching Set need only three pieces.",
+                "A Wood Elf starts with +5 Light Armor."
+              ],
+              [
+                "Perk points",
+                "A hybrid spends perks in two trees. Skyshards give 1 perk point for every 3 you absorb.",
+                "Each player collects their own. Not tested with two players."
+              ],
+              [
+                "Shared experience",
+                "When anyone earns combat experience, everyone gets that amount. Your last-used combat skill gains it.",
+                "Draw the bow or the sword before a fight to train the one you want."
+              ]
+            ],
+            "note": "Archery perks come from Better Vanilla Perks and our Quiet Hunter patch. Not tested with two players: whether your bow perks count on an enemy another player's game controls."
+          },
+          {
+            "id": "mac-gear",
+            "title": "Gear for bow and blade",
+            "columns": [
+              "Gear",
+              "What it is",
+              "Note"
+            ],
+            "rows": [
+              [
+                "Bow",
+                "A bow from the base game. Weapon Collection LotR adds no bows.",
+                "Carry plenty of arrows."
+              ],
+              [
+                "Sword",
+                "Any sword from the base game. Weapon Collection LotR adds 26 craftable weapons, including swords such as Narsil and Glamdring in one-handed and two-handed versions.",
+                "Optional gear mod. Players without it will not see your weapon, and you will not see theirs."
+              ],
+              [
+                "Armor",
+                "Light Armor, such as leather or hide.",
+                "Keeps you quiet and quick."
+              ],
+              [
+                "Swing care",
+                "Precision gives real weapon hitboxes. Wide swings hit several enemies.",
+                "Take care around friendly non-player characters."
+              ],
+              [
+                "Standing stone",
+                "Thief, as the Stealth ranger sheet says. Switch to Lord later.",
+                "Find the stones southwest of Riverwood."
+              ]
+            ]
+          },
+          {
+            "id": "mac-beasts",
+            "title": "Path 2: beast companions",
+            "columns": [
+              "Option",
+              "What it does",
+              "Our rule"
+            ],
+            "rows": [
+              [
+                "Conjure Spectral Wolf (Novice Conjuration)",
+                "Summons a spectral wolf for 60 seconds. Costs 89 Magicka before perks. Better Vanilla Perks calls the effect Conjure Familiar.",
+                "Allowed. One active summon. Not tested in co-op. Mysticism puts its spell tome in the Riverwood Trader's chest."
+              ],
+              [
+                "Conjure Spectral Dire Wolf (Apprentice Conjuration)",
+                "Summons a spectral dire wolf for 60 seconds. Costs 147 Magicka before perks.",
+                "Allowed. One active summon. Not tested in co-op."
+              ],
+              [
+                "Conjure Spectral Bear (Expert Conjuration)",
+                "Summons a spectral bear for 60 seconds. Costs 367 Magicka before perks. A new Wood Elf starts with about 100 Magicka.",
+                "Allowed. One active summon. Not tested in co-op. A late-game spell."
+              ],
+              [
+                "Beast Tongue (Wood Elf power)",
+                "Befriends the nearest carnivorous animal as a companion.",
+                "Quarantined (don't use yet). Use the spells above instead."
+              ]
+            ],
+            "note": "These come from Mysticism. No other installed mod gives a player a bear or wolf. Spell tomes turn up with vendors and loot. We have not checked in the game where each one appears."
+          },
+          {
+            "id": "mac-beast-coop",
+            "title": "Beasts in co-op, and with the bow",
+            "columns": [
+              "Topic",
+              "What to know",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "One at a time",
+                "A wolf and a bear together would be two summons. Call one, let it fade, then call the other.",
+                "One active summon per player. Our patch removes every extra summon slot."
+              ],
+              [
+                "Who owns it",
+                "Skyrim Together gives a summon an owner: the player who cast it. It stays with that player.",
+                "From reading Skyrim Together's code. Not tested here with two players."
+              ],
+              [
+                "Early to late",
+                "Wolf first. Dire wolf at Apprentice. Bear once you reach Expert.",
+                "Cast from cover, then shoot while the beast fights."
+              ],
+              [
+                "Conjuration perks",
+                "Summoner and Puppeteer let you cast summons twice and three times as far away. Twin Souls makes Conjuration spells cost 10% less Magicka.",
+                "They add no summon slots in our game."
+              ],
+              [
+                "Archery perks",
+                "With no sword, Overdraw ranks 2 to 5 cost you nothing that matters. Quick Draw or Steady Hand, and Power Shot or Ranger, work as on the other path.",
+                "Steady Hand is quarantined (don't use yet). Take Quick Draw."
+              ],
+              [
+                "Healing the beast",
+                "Daedric Cure heals nearby summoned helpers.",
+                "Use it on your one allowed summon."
+              ],
+              [
+                "Magicka and Stamina",
+                "The beast spends Magicka. The bow spends Stamina. Split your levelling between both.",
+                "No extra rule"
+              ]
+            ]
+          }
+        ],
+        "sources": [
+          [
+            "Better Vanilla Perks",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+          ],
+          [
+            "Imperious",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+          ],
+          [
+            "Mysticism",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+          ]
+        ]
+      },
+      {
         "file": "ledger.html",
         "title": "Roster",
         "grids": [
@@ -1245,8 +1503,11 @@
               ],
               [
                 "Mac",
-                "Stealth archer and hunter.",
-                "Not yet"
+                "A Wood Elf archer and hunter. Two paths: bow and blade, or beast companions.",
+                {
+                  "text": "Mac's build help",
+                  "href": "mac-hunter.html"
+                }
               ],
               [
                 "Skylur",
