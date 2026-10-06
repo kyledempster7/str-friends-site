@@ -27,7 +27,7 @@ const playIcon = svg('<path d="m9 5 11 7-11 7Z" fill="currentColor"/>', 'icon d-
 const pauseIcon = svg('<path d="M8 5v14M16 5v14" stroke-width="4"/>', 'icon d-audio-pause-icon');
 
 // The one external embed on the site: the teaser on the home page. Replace the placeholder with the video id.
-export const TRAILER_VIDEO_ID = 'PLACEHOLDER';
+export const TRAILER_VIDEO_ID = 'e19Oz6DDCis';
 const trailerEmbed = `<div class="d-trailer"><iframe src="https://www.youtube-nocookie.com/embed/${TRAILER_VIDEO_ID}" title="Skyrim Together teaser" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
 
 const css = `/* Version D: grids on the original look. */
