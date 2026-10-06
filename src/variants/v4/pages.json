@@ -281,86 +281,134 @@
         {
           "file": "setup.html",
           "title": "First-time setup",
-          "grids": [
+          "before": [
             {
-              "id": "setup",
-              "title": "First-time setup",
-              "note": "After the owner's go-ahead, follow our Nexus collection page for installer choices.",
-              "columns": [
-                "Step",
-                "Single player",
-                "Co-op"
+              "id": "disk-space",
+              "title": "Disk space",
+              "paragraphs": [
+                "About 25 GB for Skyrim, our mods and room to spare.",
+                "Start with 75 GB free on the drive you use."
+              ]
+            }
+          ],
+          "lead": "Step 1 is crossed out. Everyone in the group already owns Skyrim, so start at step 2.",
+          "steps": [
+            {
+              "title": "Get Skyrim on Steam",
+              "struck": true,
+              "text": "Skyrim Special Edition on Steam. You don't need the Anniversary Upgrade. Already own it? Steam → DLC: disable the Anniversary Upgrade."
+            },
+            {
+              "title": "Launch Skyrim once",
+              "list": [
+                "Open the normal Skyrim launcher from Steam.",
+                "Choose your display settings.",
+                "Reach the main menu, then quit."
               ],
-              "rows": [
+              "note": "Do this before the cleanup."
+            },
+            {
+              "title": "Run the Friend Kit",
+              "list": [
+                "Get the Friend Kit zip from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
+                "Close Skyrim.",
+                "Double-click START HERE - double-click me.bat and press a key. It makes STR-Patches.zip in that folder, then backs up the four bundled Creation Club add-ons (the cleanup).",
+                "Read the result. It must end with \"Your game is ready for Skyrim Together.\" When it offers to freeze Skyrim updates, press Y (recommended).",
+                "If it says SOMETHING WENT WRONG, stop and send the host a screenshot."
+              ],
+              "note": "Never use Steam's \"Verify integrity\" afterwards. It puts the add-ons back. If you did, run the .bat again."
+            },
+            {
+              "title": "Set up Vortex and add the collection",
+              "list": [
                 [
-                  "Get Skyrim on Steam",
-                  "Skyrim Special Edition on Steam",
-                  "Special Edition. You don't need the Anniversary Upgrade. Already own it? Steam → DLC: disable the Anniversary Upgrade."
-                ],
-                [
-                  "Free disk space",
-                  "Skyrim alone",
-                  "Fresh setup: allow 25 GB. Skyrim already installed: allow 5 GB extra. Also keep 50 GB free on each drive you use. Everything on one drive? Start with 75 GB free, or 55 GB if you own the game. Downloads can live on another drive. These are planning budgets, not measured peaks. Big game updates may need more. GB here is decimal; Windows may label it GiB."
-                ],
-                [
-                  "Disk space we measured",
-                  "Skyrim alone",
-                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 38 unpacked mods of revision 7 use about 1.2 GB. Their download files use about 0.6 GB if you keep them. Revision 7 adds about 1.8 GB to an existing game. That fits inside the 5 GB planning budget above. Measured on 5 October 2026; the three private patches are tiny."
-                ],
-                [
-                  "Open the normal Skyrim launcher once",
-                  "Choose display settings before playing",
-                  "Choose display settings. Reach the main menu, then quit. Do this before the cleanup below."
-                ],
-                [
-                  "Run the cleanup kit",
-                  "Nothing to do",
-                  "Nexus → Friend Kit: Download ZIP, then Extract All. Close Skyrim. Run the Creation Club cleanup. Read its result and README before continuing. It backs up the four bundled Creation Club add-ons. Never use Steam's \"Verify integrity\" afterwards."
-                ],
-                [
-                  "Set up Vortex",
-                  "Optional",
                   {
-                    "text": "Install Vortex. Sign in. Settings → Interface → Profile Management: enable it. Create and enable a profile named STR (for Skyrim Together Reborn). Choose own game settings.",
+                    "text": "Install Vortex",
                     "href": "https://www.nexusmods.com/vortex"
-                  }
+                  },
+                  ". Sign in."
                 ],
+                "Settings → Interface → Profile Management: enable it.",
+                "Create and enable a profile named STR (for Skyrim Together Reborn). Choose own game settings.",
                 [
-                  "Add our mod collection",
-                  "Optional, one at a time",
+                  "After the owner's go-ahead, open ",
                   {
-                    "text": "Wait for the owner's go-ahead first. Then, on Nexus, click Add collection. Follow the listed installer choices. The Nexus page still shows revision 6 until the go-ahead.",
+                    "text": "our collection on Nexus",
                     "href": "https://www.nexusmods.com/games/skyrimspecialedition/collections/tv1bdy"
-                  }
-                ],
+                  },
+                  " and click Add collection. Follow its installer choices. Nexus still shows revision 6 until then."
+                ]
+              ]
+            },
+            {
+              "title": "Install the Friend Kit patches",
+              "list": [
+                "In Vortex, open the Mods tab and click Install From File.",
+                "Pick STR-Patches.zip from your Friend Kit folder. Not there? Double-click the START HERE .bat again.",
+                "Let it install. Enable it if Vortex asks."
+              ],
+              "note": [
+                "Everyone needs every plugin in it before a shared session. The perk plugins change some perks (",
+                {
+                  "text": "Skills",
+                  "href": "skills.html"
+                },
+                " says how). The race plugin gives High Elves and Redguards their vanilla racial power back (",
+                {
+                  "text": "Races",
+                  "href": "races.html"
+                },
+                " says how)."
+              ]
+            },
+            {
+              "title": "Enable plugins",
+              "list": [
+                "In Vortex, open the Plugins view.",
+                {
+                  "text": "Enable the plugins of the revision the host names:",
+                  "sub": [
+                    "Revision 7 (after the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
+                    "Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                  ]
+                },
+                "Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp."
+              ]
+            },
+            {
+              "title": "Tailscale",
+              "text": [
+                "Do steps 1 and 2 before game day. Every click is on the ",
+                {
+                  "text": "Tailscale page",
+                  "href": "tailscale.html"
+                },
+                "."
+              ],
+              "list": [
+                "Install Tailscale from tailscale.com/download/windows.",
+                "Sign in with a personal Google, Microsoft, Apple or GitHub account.",
+                "On game day the host sends your join link privately. Open it and accept the share."
+              ]
+            },
+            {
+              "title": "First join",
+              "list": [
+                "Make a desktop shortcut to SkyrimTogether.exe in Skyrim Special Edition\\Data\\SkyrimTogetherReborn. Always start the game from it. Steam's Play button starts the single-player game.",
+                "Double-click the shortcut. Finish Helgen Express offline. Tip: on the starting screen, each click on a choice changes it. Keep clicking a choice until it shows the one you want.",
+                "Save outside Helgen before connecting.",
                 [
-                  "Perk patches and race patch from the Friend Kit (after the go-ahead)",
-                  "Not needed",
-                  "Open the Friend Kit folder again. If it has no \"make the race patch zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. Then double-click 3 - DOUBLE-CLICK ME (make the race patch zip).bat, which makes STR-Race-Patch.zip the same way. If either says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick each zip. Everyone needs all three plugins before a shared session. The perk patches change some perks; Skills says how. The race patch gives High Elves and Redguards their vanilla racial power back; Races says how."
-                ],
-                [
-                  "Enable plugins",
-                  "Not needed",
-                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7 (wait for the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
-                ],
-                [
-                  "Launch the co-op game",
-                  "Steam's Play button",
-                  "Double-click your configured SkyrimTogether.exe shortcut. Steam's Play button starts the single-player game."
-                ],
-                [
-                  "Save your new character",
-                  "Play through Helgen",
-                  "Finish Helgen Express offline. Tip: on the starting screen, each click on a choice changes it. Keep clicking a choice until it shows the one you want. Save outside before connecting."
-                ],
-                [
-                  "Check setup is complete",
-                  "The main menu loads",
-                  "Skyrim Together reaches the main menu. Your character is saved outside Helgen."
+                  "Setup is complete when Skyrim Together reaches the main menu and your character is saved outside Helgen. Then follow ",
+                  {
+                    "text": "Joining a session",
+                    "href": "join.html"
+                  },
+                  "."
                 ]
               ]
             }
           ],
+          "grids": [],
           "sources": [
             [
               "Our collection on Nexus",
@@ -576,67 +624,89 @@
             "How do I join tonight?",
             "Double-click your configured SkyrimTogether.exe shortcut. Load your campaign character. Press F2. Choose Connect. Follow the party steps below."
           ],
-          "grids": [
+          "steps": [
             {
-              "id": "join",
-              "title": "Joining a session",
-              "columns": [
-                "Step",
-                "Single player",
-                "Co-op"
+              "title": "Launch the co-op game",
+              "text": "Double-click your configured SkyrimTogether.exe shortcut."
+            },
+            {
+              "title": "Load your campaign character",
+              "text": "Load your campaign character, never a solo save."
+            },
+            {
+              "title": "Get connection details on Discord",
+              "text": [
+                "Install ",
+                {
+                  "text": "Tailscale",
+                  "href": "tailscale.html"
+                },
+                ". Then accept the host's invite, sent privately on Discord."
+              ]
+            },
+            {
+              "title": "Connect",
+              "list": [
+                "Press F2 or Right Ctrl.",
+                "Choose Connect.",
+                "Enter the server details the host sends privately on Discord."
               ],
-              "rows": [
+              "note": "Keep passwords and addresses out of public screenshots and posts."
+            },
+            {
+              "title": "Create the party (leader)",
+              "list": [
+                "Leader: press F2.",
+                "Open Player Manager, then Party Menu.",
+                "Click Launch party. Connected players join automatically."
+              ]
+            },
+            {
+              "title": "Check the party",
+              "list": [
+                "Press F2. Open Player Manager, then Party Menu.",
+                "Check Name, Lv. (level) and Location for everyone.",
+                "Missing your invite? In Player Manager, open Invites and choose \"Accept invite from\" your leader.",
+                "Still missing someone? Tell the leader."
+              ]
+            },
+            {
+              "title": "Meet and say READY",
+              "list": [
+                "Go to the spot the host names on Discord.",
+                "Press F2 or Right Ctrl.",
+                "Type READY. Press Enter."
+              ]
+            },
+            {
+              "title": "Connection problem?",
+              "text": "Stop. Send the host the exact error message. Keep server details private."
+            }
+          ],
+          "grids": [],
+          "after": [
+            {
+              "id": "leaving-and-returning",
+              "title": "Leaving and coming back later",
+              "items": [
+                "Your progress lives in your own save, on your own PC. The server keeps no save of your character or the world.",
                 [
-                  "Launch the co-op game",
-                  "Press Play on Steam",
-                  "Double-click your configured SkyrimTogether.exe shortcut."
+                  "Save before you leave. Then disconnect and quit to the main menu: ",
+                  {
+                    "text": "Leaving",
+                    "href": "leave-now.html"
+                  },
+                  " has the steps."
                 ],
+                "To come back, load your latest campaign save and connect the usual way. Check the usual leader and regroup before questing. Rejoining with a full group is not tested yet.",
+                "The server is its own program on the host's PC, so it can run while the host is not in the game. Nobody has tested friends playing without the host in the game yet.",
                 [
-                  "Load your campaign character",
-                  "Load any save",
-                  "Load your campaign character, never a solo save."
-                ],
-                [
-                  "Get connection instructions on Discord",
-                  "Not needed",
-                  [
-                    "Install ",
-                    {
-                      "text": "Tailscale",
-                      "href": "tailscale.html"
-                    },
-                    ". Then accept the host's invite, sent privately on Discord."
-                  ]
-                ],
-                [
-                  "F2 → Connect",
-                  "Not needed",
-                  "Press F2 or Right Ctrl. Choose Connect. Enter the server details the host sends privately on Discord. Keep passwords and addresses out of public screenshots and posts."
-                ],
-                [
-                  "Create the party (leader)",
-                  "Not needed",
-                  "Leader: press F2. Open Player Manager, then Party Menu. Click Launch party. Connected players join automatically."
-                ],
-                [
-                  "Find everyone in the party",
-                  "Not needed",
-                  "Press F2. Open Player Manager, then Party Menu. Check Name, Lv. (level) and Location for everyone. Missing someone? Tell the leader."
-                ],
-                [
-                  "Accept a missing invitation",
-                  "Not needed",
-                  "In Player Manager, open Invites. Choose \"Accept invite from\" your leader. Still missing? Tell the leader."
-                ],
-                [
-                  "Meet and say READY",
-                  "Just play",
-                  "Go to the spot the host names on Discord. Press F2 or Right Ctrl. Type READY. Press Enter."
-                ],
-                [
-                  "Report a connection problem",
-                  "Reload or restart",
-                  "Stop. Send the host the exact error message. Keep server details private."
+                  "Playing your campaign character alone, offline, moves your save on. Quests you advance alone may not match the group's. Our rule: do not advance the main campaign without missing players, and do not quest alone to catch up (",
+                  {
+                    "text": "The party leader",
+                    "href": "leader.html"
+                  },
+                  "). For solo time, use a separate character, as a smaller-party night does."
                 ]
               ]
             }

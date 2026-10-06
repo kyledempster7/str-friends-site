@@ -34,6 +34,7 @@ const css = `/* Version D: grids on the original look. */
 .d-section{margin-top:40px}.d-section:first-of-type{margin-top:24px}
 .d-section h2{font-size:1.6rem;margin:0 0 .8rem}
 .d-wrap{overflow-x:auto}
+.d-steps{list-style:none;margin:0;padding:0;counter-reset:step;max-width:70ch}.d-step{counter-increment:step;display:grid;grid-template-columns:76px minmax(0,1fr);column-gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}.d-step::before{content:counter(step);grid-row:1/span 4;font:400 3.2rem/1 Georgia,'Times New Roman',serif;color:var(--gold-dark);text-align:right}.d-step>*{grid-column:2;min-width:0}.d-step h2{font:600 1.15rem/1.35 var(--sans);margin:4px 0 6px;color:#f6f2e9}.d-step p{margin:0 0 6px;color:#c2cdcd;line-height:1.6}.d-step a,.d-block a{color:var(--gold)}.d-substeps{margin:6px 0 4px;padding:0 0 0 1.4rem;color:#c2cdcd}.d-substeps>li{margin:0 0 6px;padding-left:4px;line-height:1.6}.d-substeps>li::marker{color:var(--gold);font-weight:600}.d-subpoints{margin:4px 0 0;padding:0 0 0 1.1rem;list-style:disc}.d-subpoints li{margin:0 0 4px}.d-step-struck h2,.d-step-struck p,.d-step-struck .d-substeps{text-decoration:line-through;color:#8a9a9e}.d-step-struck::before{text-decoration:line-through;opacity:.55}.d-block+.d-lead{margin-top:24px}.d-block{max-width:70ch}.d-block p{margin:0 0 8px;color:#c2cdcd;line-height:1.6}.d-block ul{margin:0;padding:0 0 0 1.2rem;color:#c2cdcd}.d-block li{margin:0 0 8px;line-height:1.6}@media (max-width:700px){.d-step{grid-template-columns:44px minmax(0,1fr);column-gap:12px}.d-step::before{font-size:2.2rem}.d-substeps{padding-left:1.2rem}}
 .d-grid{width:100%;min-width:0;border-collapse:collapse;font-size:.95rem;line-height:1.55}
 .d-grid caption{text-align:left;caption-side:top;padding:0 0 10px;color:#b2bfc2;font-size:.9rem}
 .d-grid th,.d-grid td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
@@ -191,6 +192,15 @@ ${rows}
 </tbody></table></div></section>`;
 };
 const quickGrid = (q) => q ? grid({ id: 'quick-answer', quick: true, title: 'Quick answer', columns: ['Question', 'Short answer'], rows: [q] }) : '';
+// Step layout: a big number on the left, a title, a line or two, and a numbered sub-list when a step has several actions.
+// Items are cells (text, {text, href}, or a list of both); an item may also be {text, sub: [...]} for a short bulleted list.
+const subItem = (item) => item && typeof item === 'object' && !Array.isArray(item) && item.sub
+  ? `<li>${cell(item.text)}<ul class="d-subpoints">${item.sub.map((x) => `<li>${cell(x)}</li>`).join('')}</ul></li>`
+  : `<li>${cell(item)}</li>`;
+const stepList = (steps) => steps?.length ? `<section class="d-section d-steps-section" id="steps" aria-label="Steps"><ol class="d-steps">
+${steps.map((st) => `<li class="d-step${st.struck ? ' d-step-struck' : ''}"><h2>${esc(st.title)}${st.struck ? '<span class="d-sr-only"> (crossed out: not needed)</span>' : ''}</h2>${st.text ? `<p>${cell(st.text)}</p>` : ''}${st.list?.length ? `<ol class="d-substeps">${st.list.map(subItem).join('')}</ol>` : ''}${st.note ? `<p>${cell(st.note)}</p>` : ''}</li>`).join('\n')}
+</ol></section>` : '';
+const textBlocks = (blocks) => (blocks ?? []).map((b) => `<section class="d-section d-block" id="${esc(b.id)}" aria-labelledby="${esc(b.id)}-title"><h2 id="${esc(b.id)}-title">${esc(b.title)}</h2>${(b.paragraphs ?? []).map((t) => `<p>${cell(t)}</p>`).join('')}${b.items?.length ? `<ul>${b.items.map((t) => `<li>${cell(t)}</li>`).join('')}</ul>` : ''}</section>`).join('\n');
 const sources = (list) => list?.length ? `<p class="d-sources">Sources: ${list.map(([label, url]) => `<a href="${esc(url)}">${esc(label)}</a>`).join('')}</p>` : '';
 const audioTime = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 const audioBar = (audio) => audio ? `<section class="d-audio" aria-labelledby="audio-title" data-transcript="${esc(audio.transcriptAnchor)}">
@@ -417,7 +427,11 @@ ${audioTranscript({ transcriptAnchor: `${clip.id}-transcript`, title: clip.title
       body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${quickGrid(p.quick)}
+${textBlocks(p.before)}
+${p.lead ? `<p class="d-lead">${cell(p.lead)}</p>` : ''}
+${stepList(p.steps)}
 ${p.grids.map((g) => grid(resolve(g), p.title)).join('\n')}
+${textBlocks(p.after)}
 ${clipBoxes}
 ${audioTranscript(p.audio)}
 ${sources(p.sources)}
