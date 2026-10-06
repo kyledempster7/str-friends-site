@@ -129,7 +129,7 @@
           "title": "Races",
           "quick": [
             "Before you pick a race",
-            "High Elf, Wood Elf, Dark Elf and Redguard have no racial power in our game."
+            "In revision 7, High Elf and Redguard get Highborn and Adrenaline Rush back. Wood Elf and Dark Elf have no racial power in our game."
           ],
           "grids": [
             "races"
@@ -305,7 +305,7 @@
                 [
                   "Disk space we measured",
                   "Skyrim alone",
-                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 38 unpacked mods of revision 7 use about 1.2 GB. Their download files use about 0.6 GB if you keep them. Revision 7 adds about 1.8 GB to an existing game. That fits inside the 5 GB planning budget above. Measured on 5 October 2026; the two private perk patches are tiny."
+                  "On the host PC, the game and its four bundled add-ons use 16.09 GB. The 38 unpacked mods of revision 7 use about 1.2 GB. Their download files use about 0.6 GB if you keep them. Revision 7 adds about 1.8 GB to an existing game. That fits inside the 5 GB planning budget above. Measured on 5 October 2026; the three private patches are tiny."
                 ],
                 [
                   "Open the normal Skyrim launcher once",
@@ -334,14 +334,14 @@
                   }
                 ],
                 [
-                  "Perk patches from the Friend Kit (after the go-ahead)",
+                  "Perk patches and race patch from the Friend Kit (after the go-ahead)",
                   "Not needed",
-                  "Open the Friend Kit folder again. If it has no \"make the perk patches zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. If it says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick STR-Perk-Patches.zip. Everyone needs both patches before a shared session. They change some perks; Skills says how."
+                  "Open the Friend Kit folder again. If it has no \"make the race patch zip\" file, download the Friend Kit again (Download ZIP) and Extract All. Double-click 2 - DOUBLE-CLICK ME (make the perk patches zip).bat. It makes STR-Perk-Patches.zip in that folder and says its check matches. Then double-click 3 - DOUBLE-CLICK ME (make the race patch zip).bat, which makes STR-Race-Patch.zip the same way. If either says something went wrong, stop and send the host a screenshot. In Vortex, open the Mods tab, click Install From File and pick each zip. Everyone needs all three plugins before a shared session. The perk patches change some perks; Skills says how. The race patch gives High Elves and Redguards their vanilla racial power back; Races says how."
                 ],
                 [
                   "Enable plugins",
                   "Not needed",
-                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7 (wait for the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
+                  "In Vortex's Plugins view, enable the plugins of the revision the host names. Revision 7 (wait for the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp. Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp. Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                 ],
                 [
                   "Launch the co-op game",
@@ -899,7 +899,7 @@
                 [
                   "Gandalf-style wizard",
                   "Destruction, Alteration, some Restoration",
-                  "Breton or High Elf (High Elf: no racial power in our game)",
+                  "Breton or High Elf (High Elf: Highborn in revision 7)",
                   "Mage; switch to Lord later"
                 ],
                 [
@@ -941,7 +941,7 @@
                 [
                   "Staff summoner",
                   "Conjuration, Enchanting",
-                  "Breton or High Elf (High Elf: no racial power in our game)",
+                  "Breton or High Elf (High Elf: Highborn in revision 7)",
                   "Mage; switch to Lord later"
                 ],
                 [
