@@ -285,7 +285,7 @@ for (const page of [
   if (!guidePage) fail('v4/audio-guide.html: page missing');
   if (!/<h1\b[^>]*>Audio guide<\/h1>/.test(guidePage)) fail('v4/audio-guide.html: the page title must be Audio guide');
   if (!/recorded for revision 7 of the collection/i.test(guidePage)) fail('v4/audio-guide.html: must say the set was recorded for revision 7');
-  if (!/Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods/.test(guidePage)) fail('v4/audio-guide.html: must state what the set now covers');
+  if (!/Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods\. It also covers the world and house mods: trading posts, bandit camps, Skyshards, Elysium Estate and Harborwatch/.test(guidePage)) fail('v4/audio-guide.html: must state what the set now covers');
   if ((guidePage.match(/<section class="d-episode"/g) ?? []).length !== episodes.length) fail('v4/audio-guide.html: one boxed segment per episode is required');
   const known = new Map([...(audioPages?.chapters?.flatMap(chapter => chapter.pages) ?? []), ...(audioPages?.characters?.pages ?? []), ...(audioPages?.rules?.pages ?? [])].map(page => [page.file, page.title]));
   for (const ep of episodes) {
