@@ -26,7 +26,12 @@ const arrowIcon = svg('<path d="M4 12h15m-6-6 6 6-6 6"/>');
 const playIcon = svg('<path d="m9 5 11 7-11 7Z" fill="currentColor"/>', 'icon d-audio-play-icon');
 const pauseIcon = svg('<path d="M8 5v14M16 5v14" stroke-width="4"/>', 'icon d-audio-pause-icon');
 
+// The one external embed on the site: the teaser on the home page. Replace the placeholder with the video id.
+export const TRAILER_VIDEO_ID = 'PLACEHOLDER';
+const trailerEmbed = `<div class="d-trailer"><iframe src="https://www.youtube-nocookie.com/embed/${TRAILER_VIDEO_ID}" title="Skyrim Together teaser" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+
 const css = `/* Version D: grids on the original look. */
+.d-trailer{position:relative;aspect-ratio:16/9;width:100%;max-width:960px;margin:0 auto 32px;background:#000}.d-trailer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .hero h1 em,em{font-style:normal}
 .d-hero .hero-inner{grid-template-columns:minmax(0,1fr);padding-top:72px;padding-bottom:64px}
 .d-page{max-width:1236px;margin:auto;padding:48px 42px 64px;min-width:0}
@@ -321,7 +326,7 @@ ${body}
     title: 'The North is better together',
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
-<div class="d-page">${releaseNote(h.release)}${audioBar(h.audio)}
+<div class="d-page">${trailerEmbed}${releaseNote(h.release)}${audioBar(h.audio)}
 <section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 

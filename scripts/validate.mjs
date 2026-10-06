@@ -618,7 +618,15 @@ for (const [file, html] of documents) {
   if (!/<main\b/i.test(html)) fail(`${relative}: main landmark missing`);
   const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
   if (new Set(ids).size !== ids.length) fail(`${relative}: duplicate element IDs`);
-  if (/<(?:iframe|object|embed)\b/i.test(html) || /<form\b[^>]*\baction=["'](?:https?:)?\/\//i.test(html)) fail(`${relative}: unexpected embedded service or external form`);
+  // The home page may carry exactly one iframe: the teaser, from youtube-nocookie.com, lazy-loaded, titled.
+  let embedCheck = html;
+  if (relative === path.join('v4', 'index.html')) {
+    const frames = html.match(/<iframe\b[^>]*><\/iframe>/gi) ?? [];
+    if (frames.length !== 1 || !/^<iframe src="https:\/\/www\.youtube-nocookie\.com\/embed\/[A-Za-z0-9_-]{11}" title="Skyrim Together teaser" loading="lazy"[^>]*>/.test(frames[0])) fail(`${relative}: the teaser iframe must be the one lazy-loaded youtube-nocookie embed titled "Skyrim Together teaser"`);
+    else if (/embed\/PLACEHOLDER"/.test(frames[0]) && process.env.STR_ALLOW_TRAILER_PLACEHOLDER !== '1') fail(`${relative}: the teaser still has the placeholder video id`);
+    embedCheck = html.replace(frames[0] ?? '', '');
+  }
+  if (/<(?:iframe|object|embed)\b/i.test(embedCheck) || /<form\b[^>]*\baction=["'](?:https?:)?\/\//i.test(html)) fail(`${relative}: unexpected embedded service or external form`);
   if (/<(?:script|img|source|audio|video|link)\b[^>]*\b(?:src|href)=["'](?:https?:)?\/\//i.test(html)) fail(`${relative}: external loaded resource`);
   for (const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)) {
     const url = decode(match[1]);
