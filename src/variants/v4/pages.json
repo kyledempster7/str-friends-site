@@ -1602,6 +1602,353 @@
         ]
       },
       {
+        "file": "dk-warrior.html",
+        "title": "DK's character: a strong-arm warrior",
+        "navLabel": "DK's strong-arm warrior",
+        "description": "Two equal options for DK's strong-arm warrior: a Nord or an Imperial. What each race gets in our game, two-handed or one-handed-and-shield perks, heavy armor and how the warrior fits the party.",
+        "seeAlso": {
+          "lead": "The full race table and its quarantines are on",
+          "href": "races.html",
+          "text": "Races"
+        },
+        "grids": [
+          {
+            "id": "dk-options",
+            "title": "Two options",
+            "columns": [
+              "Option",
+              "What the race gives you",
+              "How you fight",
+              "How it fits the party"
+            ],
+            "rows": [
+              [
+                "Nord warrior",
+                "Two-Handed +10 and One-Handed +10 at the start. 25% frost resistance. Damage that rises as your Health falls.",
+                "Greatsword or battleaxe, or a one-handed weapon with a shield. Heavy armor.",
+                "Stands in front. The healer keeps you standing. The archer and the wizard stay behind you."
+              ],
+              [
+                "Imperial warrior",
+                "Block +10 and Heavy Armor +5 at the start. Discipline for nearby allies. Level-up choices that reshape your character.",
+                "The same two weapon paths. The same heavy armor.",
+                "Stands in front, in the same place. Discipline may help friends near you. That is not tested with two players."
+              ]
+            ],
+            "note": "Suggestions, not assignments: pick the option that sounds fun. The weapon paths and armor perks below work for either race. None of this has been tried together yet."
+          },
+          {
+            "id": "dk-nord",
+            "title": "Option 1: what a Nord gets",
+            "columns": [
+              "Part",
+              "In our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Starting skills",
+                "Two-Handed +10 and One-Handed +10. Block, Light Armor, Smithing and Speech +5.",
+                "No extra rule. Vanilla Nords start with One-Handed +5. Imperious raises it."
+              ],
+              [
+                "Starting stats",
+                "About 110 Health, 85 Magicka and 105 Stamina.",
+                "No extra rule"
+              ],
+              [
+                "Frost resistance",
+                "Son of Skyrim or Daughter of Skyrim: 25% frost resistance. The Avatar power adds 50% more while it lasts.",
+                "No extra rule. Vanilla Nords have 50%. Imperious lowers it to 25%."
+              ],
+              [
+                "Warrior's Heart",
+                "In combat, your attack damage and elemental damage rise by up to 40% as your Health falls.",
+                "Healing lowers the bonus. Take the healing anyway."
+              ],
+              [
+                "History of War",
+                "At levels 10, 20 and 30 you choose a race. Weapons and spells are 35% more effective against it. Each choice is permanent.",
+                "Co-op effects are not verified."
+              ],
+              [
+                "Avatar (power)",
+                "Restores 10% of your total Magicka and Stamina every second for 30 seconds. Adds frost resistance. Unlock it by clearing dungeons: the quest counts up to 10.",
+                "No quarantined power. Co-op unlocks are not verified."
+              ],
+              [
+                "Battle Cry",
+                "Vanilla Nords have a Battle Cry power. Imperious removes it from the Nord. The Speech perk Intimidation (Speech 70) gives a Battlecry power to any race. Nearby enemies flee for 30 seconds.",
+                "Not quarantined. Not tested in co-op."
+              ],
+              [
+                "Quarantined (don't use yet)",
+                "Nothing. Every Nord trait above is allowed.",
+                "Racial effects and unlocks in co-op are not verified."
+              ]
+            ]
+          },
+          {
+            "id": "dk-imperial",
+            "title": "Option 2: what an Imperial gets",
+            "columns": [
+              "Part",
+              "In our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Starting skills",
+                "Restoration +10 and Block +10. Destruction, Enchanting, Heavy Armor and One-Handed +5.",
+                "No extra rule. Vanilla Imperials start with Block +5. Imperious raises it."
+              ],
+              [
+                "Starting stats",
+                "About 100 Health, 100 Magicka and 100 Stamina.",
+                "No extra rule"
+              ],
+              [
+                "Imperial Luck and Voice of the Emperor",
+                "Vanilla Imperials find extra gold and can calm nearby people. Imperious takes both away from the Imperial.",
+                "Not in our game. The Races page lists them in its Vanilla column."
+              ],
+              [
+                "Discipline",
+                "In armed combat, allies within 15 feet gain 150 points of armor and 15% more attack damage.",
+                "Its effect on other players is not tested. The two-player test will show it. Do not count on it. It does not heal."
+              ],
+              [
+                "Imperial Virtues",
+                "In combat, one random resource (Health, Magicka or Stamina) regenerates 100% faster until the fight ends.",
+                "No extra rule"
+              ],
+              [
+                "The Human Spirit",
+                "Level 10: one attribute +100 and one attribute -50. Level 20: one resistance +50% and one resistance -25%. Level 30: +20 to one Mage, one Thief and one Warrior skill, and -10 to one of each. Each choice is permanent.",
+                "A warrior might take Health, then a resistance, then Two-Handed or Heavy Armor. Co-op effects are not verified."
+              ],
+              [
+                "Colovian Star (power)",
+                "Refills your Magicka and Stamina, then raises both by the amount refilled for 30 seconds. Unlock it by finishing 20 quests for the people of Skyrim.",
+                "No quarantined power. Co-op unlocks are not verified."
+              ],
+              [
+                "Quarantined (don't use yet)",
+                "Nothing. Every Imperial trait above is allowed.",
+                "Discipline's benefit to other players is the open question."
+              ]
+            ]
+          },
+          {
+            "id": "dk-two-handed",
+            "title": "Path 1: two-handed",
+            "columns": [
+              "Pick",
+              "What it does in our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Barbarian",
+                "Two-handed weapons do 20% more damage at rank 1 and 100% more at rank 5. They also ignore 10% of armor at rank 1 and 40% at rank 5. Better greatswords bleed targets as ranks rise.",
+                "No extra rule"
+              ],
+              [
+                "Deep Wounds",
+                "Greatswords have a 15%, then 25%, then 35% chance of extra critical damage.",
+                "No extra rule"
+              ],
+              [
+                "Axes and hammers",
+                "Limbsplitter makes battleaxe power attacks do 20% more damage, rising to 50%. Skullcrusher makes warhammers do 20% more damage to armor and undead, rising to 60%.",
+                "No extra rule"
+              ],
+              [
+                "Sweep",
+                "Sideways power attacks hit every enemy in front of you. The second rank makes every attack do it.",
+                "Players can't hurt players. Friendly non-player characters can still be hit."
+              ],
+              [
+                "Flurry",
+                "Your main-hand attacks are 20% faster. It needs One-Handed or Two-Handed at 30.",
+                "No extra rule"
+              ],
+              [
+                "Blocking",
+                "Block with the weapon. Shield perks, such as Deflect Arrows and rank 1 of Strong Reflexes, need a shield.",
+                "Take Block perks only if you plan to carry a shield."
+              ]
+            ],
+            "note": "Two-handed perks come from Better Vanilla Perks. A two-handed weapon means no shield, so a healer or a friend covers the hard hits."
+          },
+          {
+            "id": "dk-shield",
+            "title": "Path 2: one-handed and shield",
+            "columns": [
+              "Pick",
+              "What it does in our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Armsman",
+                "One-handed weapons do 20% more damage at rank 1 and 100% more at rank 5, with 15% to 35% extra critical chance.",
+                "No extra rule"
+              ],
+              [
+                "Weapon perks",
+                "Bladesman adds critical chance and bleeding to swords. Bone Breaker makes maces do more damage to armor and undead. Hack and Slash makes war-axe power attacks do more damage.",
+                "No extra rule"
+              ],
+              [
+                "Iron Will",
+                "Shield Wall is now called Iron Will. Blocking is 20% more effective at rank 1 and 40% at rank 5. It also adds unarmed damage.",
+                "No extra rule"
+              ],
+              [
+                "Strong Reflexes",
+                "Rank 1: you take half damage from power attacks while blocking with a shield. Rank 2: you take half damage from every attack while you block.",
+                "Our held-perk patch removed rank 2's slow-motion effect. The perk menu says \"(changed for co-op)\"."
+              ],
+              [
+                "Deflect Arrows",
+                "You resist 75% of the arrows that hit your shield.",
+                "No extra rule"
+              ],
+              [
+                "Bashes",
+                "Disarming Bash makes power bashes disarm foes and do double damage. Deadly Bash makes bashes with weapons or shields hit much harder.",
+                "No extra rule"
+              ]
+            ],
+            "note": "This path trades some damage for safety. Armsman still does most of the work."
+          },
+          {
+            "id": "dk-armor",
+            "title": "Heavy armor, for either path",
+            "columns": [
+              "Pick",
+              "What it does in our game",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Juggernaut",
+                "Heavy Armor rating rises 20% at rank 1 and 100% at rank 5. Two matching pieces add a bonus. Iron or steel deflects 25% of arrows. Dwarven or orcish gives 60% stagger resistance. Dragonplate, Nordic or Falmer gives 20% magic resistance.",
+                "No extra rule"
+              ],
+              [
+                "Well Fitted and Matching Set",
+                "Well Fitted adds 25% armor with 3 heavy pieces. Matching Set adds another 25% with 3 matching pieces.",
+                "Three pieces are enough. Choose any helmet."
+              ],
+              [
+                "Conditioning",
+                "Heavy armor weighs nothing and does not slow you down.",
+                "No extra rule"
+              ],
+              [
+                "Cushioned and Reflect Blows",
+                "With 3 heavy pieces, you take half fall damage and have a 10% chance to reflect melee damage back at the attacker.",
+                "No extra rule"
+              ],
+              [
+                "Smithing",
+                "Improve your own weapon and armor at a forge.",
+                "Crafting experience isn't shared."
+              ]
+            ]
+          },
+          {
+            "id": "dk-gear",
+            "title": "Gear and play",
+            "columns": [
+              "Topic",
+              "What to know",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Weapons",
+                "Any weapon from the base game works. Weapon Collection LotR adds 26 craftable weapons. They include two-handed swords such as Narsil, Anduril and Glamdring, Gimli's two-handed axes, and one-handed swords.",
+                "Optional gear mod. Players without it will not see your weapon, and you will not see theirs."
+              ],
+              [
+                "Fighting style",
+                "Mortal Enemies makes enemies commit to their swings, so you can sidestep and strike. Precision gives real weapon hitboxes, so wide swings hit several enemies.",
+                "Both are Required. Take care around friendly non-player characters."
+              ],
+              [
+                "Standing stone",
+                "Warrior, as the Two-handed guardian sheet says. Switch to Lord later.",
+                "Find the stones southwest of Riverwood."
+              ],
+              [
+                "Hunger and thirst",
+                "Each one halves your health, magicka and stamina regeneration. Food clears Hunger. A potion clears Thirst.",
+                "They come about 30 real minutes after you last ate or drank."
+              ],
+              [
+                "Perk points",
+                "Skyshards give 1 perk point for every 3 you absorb.",
+                "Each player collects their own. Not tested with two players."
+              ],
+              [
+                "Shared experience",
+                "When anyone earns combat experience, everyone gets that amount. Your last-used combat skill gains it.",
+                "Draw the weapon you want to train before a fight."
+              ]
+            ]
+          },
+          {
+            "id": "dk-party",
+            "title": "In the party",
+            "columns": [
+              "Topic",
+              "What to know",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Where you stand",
+                "In front, between the enemies and your friends. When a friend says \"On me\", step in.",
+                "The frontliner steps in."
+              ],
+              [
+                "Your healer",
+                "Kyle's Vigilant of Stendarr heals and protects. When you are hurt, say \"Healing here\" and stay within reach.",
+                "Healing is not resurrection."
+              ],
+              [
+                "Mac and Skylur",
+                "Mac shoots and Skylur casts from behind you. Players can't hurt players in our setup, so their arrows and spells will not hurt you.",
+                "Friendly non-player characters can still be hit."
+              ],
+              [
+                "Dangerous casters",
+                "Say \"Caster first\" and focus the caster.",
+                "Keep a retreat route open."
+              ],
+              [
+                "Following quests",
+                "Keep one party leader. They handle quest dialogue, scenes and items. Everyone fights bosses.",
+                "No extra rule"
+              ]
+            ]
+          }
+        ],
+        "sources": [
+          [
+            "Better Vanilla Perks",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+          ],
+          [
+            "Imperious",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+          ]
+        ]
+      },
+      {
         "file": "ledger.html",
         "title": "Roster",
         "grids": [
@@ -1637,8 +1984,11 @@
               ],
               [
                 "DK",
-                "Strong-arm warrior.",
-                "Not yet"
+                "A strong-arm warrior. Two options: a Nord or an Imperial. Two-handed, or one-handed and shield.",
+                {
+                  "text": "DK's build help",
+                  "href": "dk-warrior.html"
+                }
               ]
             ]
           },
