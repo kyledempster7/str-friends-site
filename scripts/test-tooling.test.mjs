@@ -4,7 +4,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
-import { parsePasswords, privacyFindings, sha256, treeManifest, mirrorDist, manifestDifference, compareLive, identity, repository, verifyIdentityLog, verifyRemoteUrls } from './lib/publish-checks.mjs';
+import { parsePasswords, privacyFindings, sha256, treeManifest, mirrorDist, manifestDifference, compareLive, identity, repository, verifyIdentityLog, verifyRemoteUrls, complaintScan, doneCheck, releaseGateDefault } from './lib/publish-checks.mjs';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { proseHolds, compareSharedFacts, readSharedFacts, catalogRevisions } from './check-shared-facts.mjs';
 import { checkCommittedDocs } from './publish.mjs';
 import { outputBudgetFindings } from './lib/output-budgets.mjs';
@@ -307,4 +309,111 @@ test('runoff: one code decides by its first choice, and a transfer follows later
   const ballots = [ballot('ABCDEF'), ballot('BACDEF'), ballot('CBADEF')];
   const result = vote.runoff(ballots, ['A', 'C']);
   assert.equal(result.winner, 'B');
+});
+
+// --- owner-complaint gate wiring (2026-10-06) ---------------------------------------------------------------
+// A stand-in gate is a small node script run with node itself, so these tests need no Python and no network.
+async function fakeGate(body) {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'str-gate-'));
+  const gate = path.join(directory, 'fake_gate.mjs');
+  await fs.writeFile(gate, body);
+  return { directory, gate, options: { python: process.execPath, gate } };
+}
+const gateReplies = (lines, code = 0) => `console.log(${JSON.stringify(lines.join('\n'))}); process.exit(${code});`;
+
+test('complaint scan passes only on exit 0 with the SCAN-DIR: PASS line, and hands the gate the folder', async () => {
+  const stub = await fakeGate(`if (process.argv[2] !== '--scan-dir' || !process.argv[3]) process.exit(9);\n${gateReplies(['5 complaint checks x 36 built pages: no hits', 'SCAN-DIR: PASS'])}`);
+  const result = complaintScan('some/docs/v4', stub.options);
+  assert.equal(result.ok, true);
+  assert.equal(result.status, 0);
+  await fs.rm(stub.directory, { recursive: true, force: true });
+});
+
+test('complaint scan fails with the hit listed when the gate exits 1', async () => {
+  const stub = await fakeGate(gateReplies(['status-version-words on mods.html x1: ...revision 7 is live...', 'SCAN-DIR: FAIL - fix every hit before pushing'], 1));
+  const result = complaintScan('x', stub.options);
+  assert.equal(result.ok, false);
+  assert.match(result.output, /status-version-words on mods\.html/);
+  await fs.rm(stub.directory, { recursive: true, force: true });
+});
+
+test('complaint scan fails closed: exit 0 without the PASS line, a crash, and a missing gate are all failures', async () => {
+  const quiet = await fakeGate(gateReplies(['nothing useful'], 0));
+  assert.equal(complaintScan('x', quiet.options).ok, false);
+  const crash = await fakeGate('throw new Error("boom");');
+  assert.equal(complaintScan('x', crash.options).ok, false);
+  const missing = complaintScan('x', { python: process.execPath, gate: path.join(quiet.directory, 'no-such-gate.py') });
+  assert.equal(missing.ok, false);
+  assert.match(missing.output, /not found/);
+  const noPython = complaintScan('x', { python: path.join(quiet.directory, 'no-such-python'), gate: quiet.gate });
+  assert.equal(noPython.ok, false);
+  await fs.rm(quiet.directory, { recursive: true, force: true });
+  await fs.rm(crash.directory, { recursive: true, force: true });
+});
+
+test('done-check needs exit 0, the DONE CHECK: PASS line and a DONE-RECEIPT id; it returns every receipt id', async () => {
+  const stub = await fakeGate(`if (process.argv[2] !== '--done-check') process.exit(9);\n${gateReplies(['PASS  owner-complaints-live  DONE-RECEIPT 5f5d4b798458  5 complaint checks x 35 live pages: no hits', 'DONE CHECK: PASS - you may report DONE (quote the DONE-RECEIPT line)'])}`);
+  const result = doneCheck(stub.options);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.receipts, ['5f5d4b798458']);
+  await fs.rm(stub.directory, { recursive: true, force: true });
+});
+
+test('done-check fails on a FAIL exit, on a PASS line with no receipt, and when the gate is missing', async () => {
+  const failing = await fakeGate(gateReplies(['FAIL  owner-complaints-live  DONE-RECEIPT 0123456789ab  1 complaint hit(s)', 'DONE CHECK: FAIL - not done; fix the hits and re-run'], 1));
+  assert.equal(doneCheck(failing.options).ok, false);
+  const noReceipt = await fakeGate(gateReplies(['DONE CHECK: PASS'], 0));
+  assert.equal(doneCheck(noReceipt.options).ok, false);
+  assert.equal(doneCheck({ python: process.execPath, gate: path.join(failing.directory, 'gone.py') }).ok, false);
+  await fs.rm(failing.directory, { recursive: true, force: true });
+  await fs.rm(noReceipt.directory, { recursive: true, force: true });
+});
+
+test('publish --done-check runs only the gate: prints the receipt, exits 0 on PASS and 1 on FAIL, and takes no other option', async () => {
+  const publish = fileURLToPath(new URL('./publish.mjs', import.meta.url));
+  const pass = await fakeGate(gateReplies(['PASS  owner-complaints-live  DONE-RECEIPT abcdef012345  ok', 'DONE CHECK: PASS - you may report DONE']));
+  const fail = await fakeGate(gateReplies(['FAIL  owner-complaints-live  DONE-RECEIPT 111111111111  hit', 'DONE CHECK: FAIL - not done'], 1));
+  const run = (stub, args = ['--done-check']) => spawnSync(process.execPath, [publish, ...args], { encoding: 'utf8', env: { ...process.env, STR_PYTHON: process.execPath, STR_RELEASE_GATE: stub.gate } });
+  const ok = run(pass);
+  assert.equal(ok.status, 0, ok.stdout + ok.stderr);
+  assert.match(ok.stdout, /"result":"DONE_CHECK_PASS"/);
+  assert.match(ok.stdout, /"doneReceipt":"abcdef012345"/);
+  const bad = run(fail);
+  assert.equal(bad.status, 1);
+  assert.match(bad.stdout, /NOT DONE/);
+  assert.doesNotMatch(bad.stdout, /DONE_CHECK_PASS/);
+  const mixed = run(pass, ['--done-check', '--dry-run']);
+  assert.equal(mixed.status, 1);
+  assert.match(mixed.stdout, /stands alone/);
+  await fs.rm(pass.directory, { recursive: true, force: true });
+  await fs.rm(fail.directory, { recursive: true, force: true });
+});
+
+test('publish.mjs runs the scan after the privacy scan and before any commit, and the done-check after the live parity wait', async () => {
+  const source = await fs.readFile(new URL('./publish.mjs', import.meta.url), 'utf8');
+  const at = text => source.indexOf(text);
+  assert.ok(at("phase('privacy scan')") > 0);
+  assert.ok(at("complaintScan(builtV4)") > at("phase('privacy scan')"));
+  assert.ok(at("complaintScan(builtV4)") < at("git(cwd, ['add', '--', 'docs'])"));
+  assert.ok(source.indexOf('doneCheck()', at("phase('wait for live build and HTML parity')")) > at("phase('wait for live build and HTML parity')"));
+  assert.ok(at("receipt.result = 'PUBLISHED_AND_VERIFIED'") > at("PUBLISHED_NOT_DONE"));
+  // Pushing happens before the done-check, never after the result is declared.
+  assert.ok(at("git(cwd, ['push', 'origin', 'HEAD:main'])") < at("receipt.result = 'PUBLISHED_AND_VERIFIED'"));
+});
+
+// The real gate, when this machine has it: a clean page passes the scan and a banned status note fails it.
+const realGate = spawnSync(process.env.STR_PYTHON ?? 'python', ['--version'], { encoding: 'utf8' }).status === 0
+  && await fs.stat(process.env.STR_RELEASE_GATE ?? releaseGateDefault).then(() => true, () => false);
+test('the real release gate passes a clean page and fails a built page that says "revision 7 is live"', { skip: !realGate && 'release gate or python not on this machine' }, async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'str-built-'));
+  const page = body => `<!doctype html><html><head><title>t</title></head><body><main><h1>Mods</h1>${body}</main></body></html>`;
+  await fs.writeFile(path.join(directory, 'join.html'), page('<p>Pick your race on the start screen.</p>'));
+  assert.equal(complaintScan(directory).ok, true);
+  await fs.writeFile(path.join(directory, 'join.html'), page('<p>Join us · revision 7 is live</p>'));
+  const bad = complaintScan(directory);
+  assert.equal(bad.ok, false);
+  assert.match(bad.output, /status-version-words on join\.html/);
+  await fs.writeFile(path.join(directory, 'join.html'), page('<p>Coming soon: new builds</p>'));
+  assert.equal(complaintScan(directory).ok, false);
+  await fs.rm(directory, { recursive: true, force: true });
 });

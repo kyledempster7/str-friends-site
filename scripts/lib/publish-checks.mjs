@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { isIP } from 'node:net';
 import { isUtf8 } from 'node:buffer';
@@ -164,4 +166,31 @@ export async function compareLive(manifest, { base = liveBase, fetcher = fetch, 
     }
   }));
   return { total: files.length, matched, htmlTotal: files.filter(([name]) => name.endsWith('.html')).length, htmlMatched, failures: failures.sort() };
+}
+
+// ---------------------------------------------------------------------------
+// Owner-complaint gate (added 2026-10-06). The owner's wording complaints live in the release gate's register
+// (banned-phrases.json in the release gate's folder, site_complaints). Publication runs the register on the built pages
+// BEFORE the push (--scan-dir) and on the live pages AFTER the last push (--done-check, which prints a DONE-RECEIPT line).
+// Both fail closed: a missing gate, a crash or output without the PASS marker is a failure, never a pass.
+export const releaseGateDefault = path.join(process.env.SystemDrive ?? 'C:', path.sep, 'Modding', 'STR-Kit', 'release', 'release_gate.py');
+
+function runGate(args, { python = process.env.STR_PYTHON ?? 'python', gate = process.env.STR_RELEASE_GATE ?? releaseGateDefault, timeoutMs = 300000 } = {}) {
+  if (!existsSync(gate)) return { ran: false, status: null, output: `Release gate not found at ${gate}; publication needs it.` };
+  const result = spawnSync(python, [gate, ...args], { encoding: 'utf8', windowsHide: true, maxBuffer: 16 * 1024 * 1024, timeout: timeoutMs });
+  if (result.error) return { ran: false, status: null, output: `Release gate could not run (${result.error.code ?? 'error'}).` };
+  return { ran: true, status: result.status, output: `${result.stdout ?? ''}${result.stderr ?? ''}`.trim() };
+}
+
+/** Run every owner-complaint entry on the built pages (all *.html in directory). ok only on exit 0 and the PASS line. */
+export function complaintScan(directory, options) {
+  const result = runGate(['--scan-dir', directory], options);
+  return { ok: result.ran && result.status === 0 && /^SCAN-DIR: PASS/m.test(result.output), status: result.status, output: result.output };
+}
+
+/** Live re-fetch of every page against every complaint. ok only on exit 0, the PASS line and at least one DONE-RECEIPT id. */
+export function doneCheck(options) {
+  const result = runGate(['--done-check'], options);
+  const receipts = [...result.output.matchAll(/DONE-RECEIPT ([0-9a-f]{12})/g)].map(match => match[1]);
+  return { ok: result.ran && result.status === 0 && /^DONE CHECK: PASS/m.test(result.output) && receipts.length > 0, status: result.status, receipts, output: result.output };
 }

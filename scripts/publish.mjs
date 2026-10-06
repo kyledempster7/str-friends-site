@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
-import { identity, repository, liveBase, parsePasswords, privacyFindings, treeManifest, manifestDifference, mirrorDist, compareLive, sha256, verifyIdentityLog, verifyRemoteUrls } from './lib/publish-checks.mjs';
+import { identity, repository, liveBase, parsePasswords, privacyFindings, treeManifest, manifestDifference, mirrorDist, compareLive, sha256, verifyIdentityLog, verifyRemoteUrls, complaintScan, doneCheck } from './lib/publish-checks.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const env = { ...process.env, GIT_AUTHOR_NAME: identity.name, GIT_AUTHOR_EMAIL: identity.email, GIT_COMMITTER_NAME: identity.name, GIT_COMMITTER_EMAIL: identity.email, GIT_TERMINAL_PROMPT: '0', GH_PROMPT_DISABLED: '1' };
@@ -24,15 +24,20 @@ function run(program, args, cwd, { echo = false, accepted = [0] } = {}) {
 }
 const git = (cwd, args, options) => run('git', args, cwd, options);
 const phase = label => { receipt.phase = label; console.log(`[publish] ${label}`); };
+// The release gate prints page names and short wording snippets only; page text was privacy-scanned before this runs.
+const showGate = output => { if (output) console.log(redacted(output).split('\n').map(line => `[release gate] ${line}`).join('\n')); };
 
 function options() {
-  const result = { dryRun: false, timeout: 600, worktree: undefined, branch: undefined, serverIni: undefined };
+  const result = { dryRun: false, doneCheckOnly: false, timeout: 600, worktree: undefined, branch: undefined, serverIni: undefined };
   const args = process.argv.slice(2);
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
     if (arg === '--dry-run') result.dryRun = true;
+    else if (arg === '--done-check') result.doneCheckOnly = true;
     else if (arg === '--help') {
       console.log('Usage: node scripts/publish.mjs [--branch feature/name | --worktree PATH] [--dry-run] [--server-ini PATH] [--timeout-seconds 600]');
+      console.log('       node scripts/publish.mjs --done-check   (read-only: re-fetch every live page against every owner complaint; prints DONE-RECEIPT)');
+      console.log('Before the push the release gate runs every owner complaint on the built pages; after the live parity wait it re-fetches the live pages (DONE definition). Either failing means NOT DONE.');
       console.log('Requires committed feature work. Dry-run builds, validates, mirrors and commits in a disposable clone; it performs read-only live comparison. Pushes, PR creation and waiting for an unpublished deployment are skipped.');
       return;
     } else if (['--branch', '--worktree', '--server-ini', '--timeout-seconds'].includes(arg) && args[i + 1] && !args[i + 1].startsWith('--')) {
@@ -42,6 +47,7 @@ function options() {
     } else throw new Error('Unknown or incomplete argument; use --help.');
   }
   if (result.branch && result.worktree) throw new Error('Choose --branch or --worktree, not both.');
+  if (result.doneCheckOnly && (result.dryRun || result.branch || result.worktree || result.serverIni)) throw new Error('--done-check stands alone; it publishes nothing.');
   if (!Number.isInteger(result.timeout) || result.timeout < 1 || result.timeout > 3600) throw new Error('timeout-seconds must be an integer from 1 to 3600.');
   return result;
 }
@@ -128,6 +134,17 @@ async function main() {
   const config = options();
   if (!config) { receipt.result = 'HELP'; return; }
   receipt.mode = config.dryRun ? 'dry-run' : 'publish';
+  if (config.doneCheckOnly) {
+    receipt.mode = 'done-check';
+    phase('release gate done-check: live re-fetch of every page against every owner complaint');
+    const done = doneCheck();
+    showGate(done.output);
+    receipt.doneReceipt = done.receipts[0] ?? null;
+    receipt.doneCheck = done.ok ? 'PASS' : 'FAIL';
+    if (!done.ok) throw new Error('Owner-complaint done-check FAILED: NOT DONE. Fix every listed hit, publish, and run it again.');
+    receipt.result = 'DONE_CHECK_PASS';
+    return;
+  }
   phase('preflight');
   secrets = parsePasswords(await serverIni(config.serverIni));
   const original = path.resolve(config.worktree ?? root);
@@ -179,6 +196,14 @@ async function main() {
   phase('privacy scan');
   receipt.scannedFiles = await scanDocs(cwd, manifest);
   receipt.secretHits = 0;
+  phase('owner-complaint scan of the built pages (release gate --scan-dir)');
+  const builtV4 = path.join(cwd, 'docs', 'v4');
+  const scan = await fs.stat(builtV4).then(stat => stat.isDirectory(), () => false)
+    ? complaintScan(builtV4)
+    : { ok: false, output: 'docs/v4 is missing, so there is nothing to scan.' };
+  showGate(scan.output);
+  receipt.complaintScan = scan.ok ? 'PASS' : 'FAIL';
+  if (!scan.ok) throw new Error('Owner-complaint scan failed before the push; nothing was committed or pushed. Remove the wording (do not convert it into another status note), rebuild and publish again.');
   phase('commit docs with noreply author and committer');
   git(cwd, ['add', '--', 'docs']);
   const docsChanged = git(cwd, ['diff', '--cached', '--name-only']);
@@ -201,7 +226,7 @@ async function main() {
     const result = await compareLive(manifest, { deadline: Date.now() + config.timeout * 1000, allPublicFiles: true });
     receipt.live = { ...result, status: result.failures.length ? 'DIFFERENT_OR_UNAVAILABLE_NOT_PUBLISHED' : 'MATCH' };
     receipt.result = 'PASS_LOCAL';
-    receipt.skipped = ['branch push', 'PR creation', 'main push', 'deployment wait'];
+    receipt.skipped = ['branch push', 'PR creation', 'main push', 'deployment wait', 'live done-check'];
     return;
   }
   phase('push feature branch');
@@ -234,6 +259,15 @@ async function main() {
     await delay(Math.min(10000, deadline - Date.now()));
   }
   receipt.site = liveBase.href;
+  phase('release gate done-check: live re-fetch of every page against every owner complaint');
+  const done = doneCheck();
+  showGate(done.output);
+  receipt.doneReceipt = done.receipts[0] ?? null;
+  receipt.doneCheck = done.ok ? 'PASS' : 'FAIL';
+  if (!done.ok) {
+    receipt.result = 'PUBLISHED_NOT_DONE';
+    throw new Error('Published and byte-identical to the build, but the owner-complaint done-check FAILED: NOT DONE. Fix the listed hits and publish again; quote no parity result as done.');
+  }
   receipt.result = 'PUBLISHED_AND_VERIFIED';
 }
 
