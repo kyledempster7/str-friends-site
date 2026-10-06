@@ -496,14 +496,6 @@ for (const page of [
   if (!/\.d-page-strip\{display:none/.test(css)) fail('v4/assets/d.css: the page strip must be hidden by default');
   if (!/@media \(max-width:899px\)\{\.d-layout:has\(\.d-guide:not\(\[open\]\)\) \.d-page-strip\{display:flex\}/.test(css)) fail('v4/assets/d.css: the page strip may show only on narrow screens where the sidebar is collapsed');
   if (/\.d-page-strip\{[^}]*display:(?:flex|block)/.test(css.replace(/@media[^{]*\{[^{}]*(?:\{[^}]*\}[^{}]*)*\}/g, ''))) fail('v4/assets/d.css: the page strip must not be visible on wide screens');
-  // Site audit (2026-10-05): revision 7 is the live collection; every page with install or join steps says so and keeps the Nexus link.
-  if (audioPages?.home?.release === true) {
-    for (const name of ['index.html', 'setup.html', 'join.html', 'skills.html', 'mods.html', 'rules.html', 'rules-perks.html', 'rules-spells.html', 'rules-powers.html', 'rules-mods.html']) {
-      const html = v4(name);
-      if (!/Revision 7 is the live collection\./.test(html)) fail(`v4/${name}: must say revision 7 is the live collection`);
-      if (!html.includes(`href="${audioPages.collectionUrl}"`)) fail(`v4/${name}: must keep the link to the Nexus collection page`);
-    }
-  }
   // Skyshards and PapyrusUtil are installed, so the absol89 list must mark them In our game.
   {
     const rows = readJson('src/variants/v4/absol-list.json')?.rows ?? [];

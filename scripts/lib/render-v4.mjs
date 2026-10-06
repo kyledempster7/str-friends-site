@@ -99,7 +99,6 @@ const css = `/* Version D: grids on the original look. */
 .d-page-strip a{color:var(--gold);text-underline-offset:3px}.d-page-strip a:hover{color:#f6f2e9}
 .d-page-strip strong{color:#f6f2e9}.d-page-count{white-space:nowrap}.d-page-next{margin-left:4px}
 .header-inner .d-join{margin-left:0}
-.d-release{margin:0 0 18px;max-width:none;font-size:.9rem}
 .d-footer{max-width:1236px;margin:auto;padding:16px 42px;font-size:.8rem;color:#b2bfc2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}.d-footer a{color:var(--gold)}
 .d-side-home{margin:14px 0 0;font-size:.85rem}.d-side-home a{color:var(--gold);text-decoration:none;padding:0 10px}
 .d-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
@@ -246,8 +245,6 @@ export async function renderV4(root) {
   const characters = data.characters;
   if (!characters?.pages?.length) throw new Error('Version D: the Characters section needs pages');
   const label = (p) => p.navLabel ?? p.title;
-  // Revision 7 is the live collection: pages with install or join steps say so and link the Nexus collection page. Set "release" to false (or remove it) to drop the note.
-  const releaseNote = (flag) => flag ? `<p class="d-lead d-release">Revision 7 is the live collection. <a href="${esc(data.collectionUrl)}">Our Nexus collection page</a> has it.</p>` : '';
 
   // Audio guide: which episodes relate to which content page, so each page can offer "Listen to this section".
   const pageTitles = new Map([...chapters.flatMap((c) => c.pages), ...characters.pages, ...data.rules.pages].map((p) => [p.file, p.title]));
@@ -326,7 +323,7 @@ ${body}
     title: 'The North is better together',
     description: 'Compare single player with co-op, and vanilla with our mods.',
     body: `<section class="hero d-hero"><div class="hero-inner"><div class="hero-copy"><h1>${esc(h.titleBefore)} <em>${esc(h.titleAccent)}</em></h1></div></div></section>
-<div class="d-page">${trailerEmbed}${releaseNote(h.release)}${audioBar(h.audio)}
+<div class="d-page">${trailerEmbed}${audioBar(h.audio)}
 <section aria-labelledby="topics"><div class="d-chapters-head"><h2 id="topics">${esc(h.chaptersTitle)}</h2><div class="d-home-links"><p class="d-home-audio">Prefer to listen? <a href="audio-guide.html">Audio guide</a></p></div></div><div class="d-chapters">${tiles}</div>${searchForm('home-search')}</section>${audioTranscript(h.audio)}</div>${h.audio ? `<script>${audioScript}</script>` : ''}`
   }));
 
@@ -433,7 +430,7 @@ ${audioTranscript({ transcriptAnchor: `${clip.id}-transcript`, title: clip.title
       file: p.file,
       title: p.title,
       description: p.description ?? `${p.title}: comparisons for our Skyrim Together campaign.`,
-      body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
+      body: `<div class="d-layout">${side}<div class="d-page"><p class="eyebrow">${eyebrow}</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${p.seeAlso ? `<p class="d-lead">${esc(p.seeAlso.lead)} <a href="${esc(p.seeAlso.href)}">${esc(p.seeAlso.text)}</a></p>` : ''}
 ${audioBar(p.audio)}
 ${textBlocks(p.before)}
 ${p.lead ? `<p class="d-lead">${cell(p.lead)}</p>` : ''}
@@ -494,13 +491,12 @@ ${search ? '<tr id="no-match" hidden><td colspan="4">No match. Unlisted means un
 </tbody></table></div></section>`;
   const lookup = `<section class="lookup-banner d-lookup" aria-labelledby="lookup-title"><div class="lookup-icon">${searchIcon}</div><div class="d-lookup-copy"><p class="eyebrow">Before you spend that perk point</p><h1 id="lookup-title">Can I use this?</h1>${pageStrip('rules.html')}<p>Search a spell, perk, power or mod. Unlisted? Ask the host.</p></div><form class="home-search" action="rules.html" method="get" role="search"><label class="d-sr-only" for="filter">Spell, perk, power or mod</label><input id="filter" type="search" name="q" placeholder="Try Strong Reflexes or Ghostwalk" autocomplete="off"><button class="button" type="submit">Check ${arrowIcon}</button></form><p class="d-count" id="count" role="status" aria-live="polite">Showing all ${catalog.entries.length}.</p></section>`;
   const rulesAudio = data.rules.pages.find(p => p.file === 'rules.html')?.audio;
-  const rulesRelease = data.rules.pages.find(p => p.file === 'rules.html')?.release;
   pages.set('rules.html', shell({
     file: 'rules.html',
     title: 'Can I use this?',
     description: 'Check whether a spell, perk, power or mod is okay to use in our campaign.',
     body: `<div class="d-layout">${sidebar('rules.html')}<div class="d-page">${lookup}
-${releaseNote(rulesRelease)}${audioBar(rulesAudio)}
+${audioBar(rulesAudio)}
 ${ruleGrid(entries, { search: true })}
 <section class="d-section" aria-labelledby="key"><h2 id="key">What the statuses mean</h2><div class="d-wrap"><table class="d-grid cols-3"><thead><tr><th scope="col">Status</th><th scope="col">How many</th><th scope="col">Means</th></tr></thead><tbody>${keyRows}</tbody></table></div></section>
 ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}</script>` : ''}`
@@ -509,7 +505,7 @@ ${audioTranscript(rulesAudio)}</div></div>${rulesAudio ? `<script>${audioScript}
     const list = entries.filter(e => p.categories.includes(e.category));
     pages.set(p.file, shell({
       file: p.file, title: p.title, description: `${p.title}: what you can use in our campaign.`,
-      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${releaseNote(p.release)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
+      body: `<div class="d-layout">${sidebar(p.file)}<div class="d-page"><p class="eyebrow">Can I use this?</p><h1>${esc(p.title)}</h1>${pageStrip(p.file)}${listenLinks(p.file)}${audioBar(p.audio)}${ruleGrid(list)}${audioTranscript(p.audio)}</div></div>${p.audio ? `<script>${audioScript}</script>` : ''}`
     }));
   }
 
