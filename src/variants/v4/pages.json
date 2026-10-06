@@ -129,7 +129,7 @@
           "title": "Races",
           "quick": [
             "Before you pick a race",
-            "In revision 7, High Elf and Redguard get Highborn and Adrenaline Rush back. Wood Elf and Dark Elf have no racial power in our game."
+            "In revision 7, High Elf and Redguard get Highborn and Adrenaline Rush back. Wood Elf gets Hunter's Mark (not tested in the game yet). Dark Elf has no racial power in our game."
           ],
           "grids": [
             "races"
@@ -353,7 +353,7 @@
                   "text": "Skills",
                   "href": "skills.html"
                 },
-                " says how). The race plugin gives High Elves and Redguards their vanilla racial power back (",
+                " says how). The race plugins give High Elves and Redguards their vanilla racial power back and Wood Elves a new one, Hunter's Mark (",
                 {
                   "text": "Races",
                   "href": "races.html"
@@ -368,7 +368,7 @@
                 {
                   "text": "Enable the plugins of the revision the host names:",
                   "sub": [
-                    "Revision 7 (after the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
+                    "Revision 7 (after the owner's go-ahead): SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp.",
                     "Revision 6, the one on Nexus now: SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp and Imperious - Races of Skyrim.esp."
                   ]
                 },
@@ -963,7 +963,7 @@
                 [
                   "Stealth ranger",
                   "Archery, Sneak, Light Armor. Our archery patch removes critical bonuses while you sneak.",
-                  "Wood Elf or Nord (Wood Elf: no racial power in our game)",
+                  "Wood Elf or Nord (Wood Elf: Hunter's Mark in revision 7, not tested yet)",
                   "Thief; switch to Lord later"
                 ],
                 [
@@ -999,7 +999,7 @@
                 [
                   "Skeleton archer commander",
                   "Conjuration, Archery",
-                  "Wood Elf or Breton (Wood Elf: no racial power in our game)",
+                  "Wood Elf or Breton (Wood Elf: Hunter's Mark in revision 7, not tested yet)",
                   "Your choice"
                 ],
                 [

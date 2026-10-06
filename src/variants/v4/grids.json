@@ -270,7 +270,7 @@
           "Wood Elf",
           "+10 Archery. +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak. Poison/disease resistance. Command Animal temporarily recruits an animal.",
           "Eat corpses for attributes. Harrier marks prey and weakens foes. Sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance.",
-          "No racial power in our game. Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
+          "Revision 7: the Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue. Harrier's effects for friends and racial unlocks (not verified)."
         ],
         [
           "Breton",
@@ -315,7 +315,7 @@
           "Revision 7: the Friend Kit race patch gives back Adrenaline Rush, once a day. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Vanilla means the unmodded game. Imperious changes racial traits. Complete racial objectives to unlock powers. In revision 7 the Friend Kit race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. Wood Elf and Dark Elf have no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
+      "note": "Vanilla means the unmodded game. Imperious changes racial traits. Complete racial objectives to unlock powers. In revision 7 the Friend Kit race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. In revision 7 the Friend Kit also gives Wood Elves Hunter's Mark: 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf has no racial power in our game. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
     },
     {
       "id": "spells",
@@ -659,7 +659,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches and one private race patch from the Friend Kit come on top. Mods marked new are not in the older collection.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus is still the one before revision 7, with 19 mods. Revision 7 is these 38 installed mods: 26 Required and 12 Optional. It is not on Nexus yet. Two private perk patches and two private race patches from the Friend Kit come on top. Mods marked new are not in the older collection.",
       "columns": [
         "Mod",
         "Vanilla",
