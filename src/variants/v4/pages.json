@@ -96,9 +96,51 @@
         {
           "file": "patch-notes.html",
           "title": "Patch notes",
-          "description": "What changed in our campaign setup, newest first. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
+          "updated": "2026-10-07",
+          "description": "What changed in our campaign setup, newest first. October 7: the Five Races patch. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
           "release": true,
           "before": [
+            {
+              "id": "oct-7",
+              "title": "October 7: Five Races patch",
+              "paragraphs": [
+                "The Friend Kit has a new small plugin, STR-FiveRaces-Stability.esp. It makes Imperious safer for a shared world. Every player needs it."
+              ],
+              "items": [
+                "Racial goals are no longer shared. Finishing your High Elf, Breton, Imperial, Nord or Wood Elf goal used to hand the power to everyone in the party. Now it stays in your own game.",
+                "Contingency (High Elf) and Beast Tongue (Wood Elf) are locked. The goals that earned them are switched off, so you cannot get them. Harrier's armor mark in combat still works.",
+                "Shared Ancestry (Breton) can no longer borrow Contingency, Beast Tongue, Spirit Walk or Red Sand Dance.",
+                "NPCs no longer cast Harrier, Avatar, Colovian Star, Spirit Walk or Ancestral Guardian on their own.",
+                "Do not use the Imperious menu option \"Debug: manual\". It still lets a player give themselves any power.",
+                "Not tested in the game yet. A two-player check is on the test list.",
+                [
+                  "Friend Kit: the new zip is STR-Friend-Kit-2026-10-07.zip. It is still one zip and one double-click, and it now builds STR-Patches.zip with five private plugins. Extract it and double-click START HERE - double-click me.bat again, then install the new STR-Patches.zip in Vortex. ",
+                  {
+                    "text": "Races",
+                    "href": "races.html"
+                  },
+                  " has the five rows this changes."
+                ],
+                [
+                  "The three race plugins are also on Nexus: ",
+                  {
+                    "text": "Race Power Fallback",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194430"
+                  },
+                  ", ",
+                  {
+                    "text": "Hunter's Mark",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194431"
+                  },
+                  " and ",
+                  {
+                    "text": "Five Races Stability",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194433"
+                  },
+                  ". Use the Friend Kit copy, not both."
+                ]
+              ]
+            },
             {
               "id": "oct-6",
               "title": "October 6: revision 7",
@@ -197,6 +239,7 @@
         {
           "file": "races.html",
           "title": "Races",
+          "updated": "2026-10-07",
           "grids": [
             "races"
           ],
@@ -419,7 +462,7 @@
                   "text": "Skills",
                   "href": "skills.html"
                 },
-                " says how). The race plugins give High Elves and Redguards their vanilla racial power back and Wood Elves a new one, Hunter's Mark (",
+                " says how). The race plugins give High Elves and Redguards their vanilla racial power back and Wood Elves a new one, Hunter's Mark. The Five Races plugin stops racial goals being shared with the party and locks two powers (",
                 {
                   "text": "Races",
                   "href": "races.html"
@@ -434,7 +477,7 @@
                 {
                   "text": "Enable these plugins:",
                   "sub": [
-                    "SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp."
+                    "SkyrimTogether.esp, SkyrimTogetherQuestPatches.esp, MysticismMagic.esp, better vanilla perks.esp, STR-HeldPerks-Lock.esp, STR-QuietHunter.esp, Imperious - Races of Skyrim.esp, STR-RaceFallback-HighElf-Redguard.esp, STR-WoodElf-HuntersMark.esp, STR-FiveRaces-Stability.esp, Cathedral Weathers.esp, RandomDragonsNoMore.esl, SimplestSurvival.esp, STR-SimplestSurvival-Needs30min.esp, notice board.esp, VampireAttacksRestored.esp, STR-VampireCadence.esp, ElysiumEstate.esp, Skyrim Trading Posts.esp, Skyrim Bandit Expansion.esp and Skyshards.esp."
                   ]
                 },
                 "Also enable the plugins of any Optional mods you installed. Harborwatch's plugin is SToghouse.esp."
@@ -2157,7 +2200,7 @@
               [
                 "Contingency (power)",
                 "Stores equipped spells and casts them free when a condition you choose occurs.",
-                "Not yet. Held for co-op. Do not use it. The race patch does not remove it from your list."
+                "Not yet. Held for co-op. Do not use it. The Five Races patch stops you earning it (the butterfly-wing goal is gone)."
               ]
             ]
           },
@@ -2253,7 +2296,7 @@
               ],
               [
                 "Same Friend Kit",
-                "Every player needs the same Friend Kit, including the race patch, or Highborn will not match.",
+                "Every player needs the same Friend Kit, including the race patches, or Highborn will not match.",
                 "The sword needs Weapon Collection LotR on both machines."
               ],
               [
