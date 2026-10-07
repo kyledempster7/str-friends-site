@@ -108,8 +108,8 @@
               ],
               "items": [
                 "The collection gains three Required mods from Nexus: Race Power Fallback, Hunter's Mark and Five Races Stability. Vortex installs them with the collection and they load after Imperious. They are the same plugin files as before, so what they do has not changed.",
-                "Friend Kit: the new zip is STR-Friend-Kit-rev8.zip. It is still one zip and one double-click, and it now builds STR-Patches.zip with two private plugins, the held-perk lock and Quiet Hunter. Extract it, double-click START HERE - double-click me.bat, then install the new STR-Patches.zip in Vortex.",
-                "Already installed the October 7 kit with five plugins? In Vortex, remove the mod called STR-Patches before you update the collection, then install the new STR-Patches.zip. If you skip that, the same plugins are installed twice.",
+                "Friend Kit: the patches are one file now, STR-Patches - install this in Vortex.zip. It holds the two private plugins, the held-perk lock and Quiet Hunter. In Vortex use Install From File and pick that zip itself. The Creation Club cleanup is a separate download, STR-Cleanup-Tools.zip. If Vortex shows a mod named STR-Friend-Kit-... with a yellow warning triangle, remove it. It is the old wrapper zip, not the patches.",
+                "Already installed the October 7 kit with five plugins? In Vortex, remove the mod called STR-Patches before you update the collection, then install STR-Patches - install this in Vortex.zip. If you skip that, the same plugins are installed twice.",
                 [
                   "The three mods on Nexus: ",
                   {
@@ -448,12 +448,12 @@
               "note": "Do this before the cleanup."
             },
             {
-              "title": "Run the Friend Kit",
+              "title": "Run the cleanup",
               "list": [
-                "Get the newest Friend Kit zip (STR-Friend-Kit-rev8.zip) from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
+                "Get STR-Cleanup-Tools.zip from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop. This zip is the cleanup only. The patches are a separate file (see Install the Friend Kit patches).",
                 "Close Skyrim.",
-                "Already used the October 7 kit? In Vortex, remove the mod called STR-Patches before you update the collection (Mods tab, right-click it, Remove).",
-                "Double-click START HERE - double-click me.bat and press a key. It makes STR-Patches.zip in that folder, then backs up the four bundled Creation Club add-ons (the cleanup).",
+                "Already used the October 7 kit? In Vortex, remove the mod called STR-Patches before you update the collection (Mods tab, right-click it, Remove). If you see a mod named STR-Friend-Kit-... with a yellow warning triangle, remove that too. It is the old wrapper zip, not the patches.",
+                "Double-click START HERE - cleanup.bat and press a key. It backs up the four bundled Creation Club add-ons (the cleanup). It installs no mods.",
                 "Read the result. The line \"Your game is ready for Skyrim Together.\" must appear. The window then offers to freeze Skyrim updates (optional; press Y, recommended) and ends with \"All done. Close this window.\"",
                 "If it says SOMETHING WENT WRONG, stop and send the host a screenshot."
               ],
@@ -485,8 +485,8 @@
               "title": "Install the Friend Kit patches",
               "list": [
                 "In Vortex, open the Mods tab and click Install From File.",
-                "Pick STR-Patches.zip from your Friend Kit folder. Not there? Double-click the START HERE .bat again.",
-                "Let it install. Enable it if Vortex asks."
+                "Pick STR-Patches - install this in Vortex.zip from Kyle's message. Pick the zip itself and do not extract it first.",
+                "Let it install. Enable it if Vortex asks. Vortex should show one new mod called STR-Patches. If Vortex instead shows a mod named STR-Friend-Kit-... with a yellow warning triangle, remove it. It is the wrapper, not the patches."
               ],
               "note": [
                 "Everyone needs both plugins in it before a shared session. They change some perks (",
