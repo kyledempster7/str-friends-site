@@ -156,7 +156,12 @@
               ],
               "items": [
                 "Episodes 1, 5 and 9 still say High Elves, Redguards and Wood Elves have no racial power. High Elves and Redguards have theirs back, and Wood Elves have Hunter's Mark. Episode 12 covers all three.",
-                "Episode 2 still says revision 7 needs two perk patches from the Friend Kit. It is one zip now."
+                "Episode 2 still says revision 7 needs two perk patches from the Friend Kit. It is one zip now.",
+                "Episode 1 still says revision 7 is being prepared, to wait for the owner's go-ahead before installing it, and that the Nexus page still shows revision 6. Revision 7 is live on Nexus now.",
+                "Episode 2 still says the same about revision 7 being prepared and the go-ahead, and to follow the Nexus page after it. Revision 7 is live, so follow the Nexus page now.",
+                "Episode 7 still says revision 7 is being prepared when it mentions the weather mod. It is live.",
+                "Episode 9 still says revision 7 is being prepared when it mentions the trading posts. It is live.",
+                "Episode 12 still says revision 7 is being prepared and to wait for the owner's go-ahead before installing it. It is live, so install it from the Nexus page."
               ]
             }
           ],
@@ -1952,6 +1957,7 @@
       },
       {
         "file": "sky-gandalf.html",
+        "updated": "2026-10-07",
         "title": "Skylur's character: a Gandalf-style High Elf wizard",
         "navLabel": "Skylur's Gandalf wizard",
         "description": "A guide for Skylur's High Elf wizard with a staff in one hand and the one-handed Glamdring in the other: how to get Glamdring, the best staffs, the High Elf powers, sword-and-staff fighting tips and co-op cautions.",
