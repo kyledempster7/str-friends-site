@@ -1,6 +1,6 @@
 {
   "title": "Audio guide",
-  "recordedFor": "Twelve short listens about our collection.",
+  "recordedFor": "Thirteen short listens about our collection.",
   "gap": "Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods. It also covers the world and house mods: trading posts, bandit camps, Skyshards, Elysium Estate and Harborwatch.",
   "episodes": [
     {
@@ -433,6 +433,34 @@
         "Our game also has two group houses. Elysium Estate, southwest of Whiterun, is required. Harborwatch, in Solitude, is optional. Chests inside Elysium Estate are private to each player. For Harborwatch, that comes from its files and our server settings, and it has not been tested in the game. We have not tested how you get into either house.",
         "And one more thing to try. At your first quest hand-in, write down each player's gold, items and skills before and after. Nobody has tested who receives quest rewards in multiplayer, and your own notes will settle it faster than any guide.",
         "That is the end of this episode."
+      ]
+    },
+    {
+      "id": "ep13",
+      "number": 13,
+      "title": "Racial goals and the five races we play",
+      "summary": "What a racial goal is, what each of our five races earns, and why two of the powers are held.",
+      "duration": 209.0,
+      "src": "audio/13-racial-goals-and-the-five-races-we-play.mp3",
+      "related": [
+        "races.html",
+        "skills.html",
+        "mods.html"
+      ],
+      "transcript": [
+        "This is a short episode for anyone playing High Elf, Breton, Imperial, Nord or Wood Elf. It makes sense after episode five. It explains what a racial goal is, what each race earns, and why two of the powers are held.",
+        "First, what a racial goal is. Imperious gives every race passive abilities from the first minute. Each of our five races also has a power you do not start with. You earn it by doing one thing a set number of times. The game counts it with its own statistics, and your journal shows an objective with a number, such as stones found out of ten. When the count is full, the power appears under Powers in your Magic menu.",
+        "Now the five races.",
+        "High Elves find that a skill at level one hundred becomes ten percent more effective. Enchantments on their gear are fifteen percent stronger, but weapons and armor are fifteen percent weaker. Their goal is to pluck forty butterfly wings, and the power is Contingency, which is held.",
+        "Bretons resist magic by fifteen percent, and absorb some spells when their magicka is low. Each standing stone also gives them an extra. Their goal is to discover ten standing stones. The power is Shared Ancestry, which lets a Breton borrow another race's power for five minutes.",
+        "Imperials get one random attribute that regenerates faster when a fight begins. Their goal is to complete twenty quests. The power is Colovian Star, which fills magicka and stamina, then adds the same amount on top for thirty seconds, once a day.",
+        "Nords hit harder as their health falls. Their goal is to clear ten dungeons. The power is Avatar, which gives thirty seconds of fast magicka and stamina recovery, once a day.",
+        "Wood Elves mark the nearest foe in a fight, which lowers its armor and magic resistance. Their goal is to hunt ten animals that the spirit bird marks. The power is Beast Tongue, which is held.",
+        "Our Friend Kit adds two once-a-day powers of its own: Highborn for High Elves and Hunter's Mark for Wood Elves. Highborn has been tested alone, not yet with two players, and Hunter's Mark is not tested in the game yet.",
+        "Why are Contingency and Beast Tongue held? Contingency stores the spells in your hands, then casts them for you when a trigger happens. It could fire a spell the group has restricted, at a moment nobody chose. Beast Tongue turns a wild animal into a permanent follower, and that animal may belong to another player's game. We have no recorded failure of either one. They are held until we test them with two players.",
+        "There is one more worry. Your goal counts in your own game, but we think the game may share the finishing step between players. If so, one player finishing a goal could hand that power to everyone. Nobody has seen it happen, and it is not yet tested with two players.",
+        "So a stability patch is coming to the Friend Kit. It is approved, and it is not installed yet. In plain words, it stops these goals from being shared between players. It makes sure nobody can earn Contingency or Beast Tongue, including by borrowing them with Shared Ancestry. And it turns down how often non-player characters use these powers. When it arrives, everyone installs it.",
+        "Until then, do not pluck forty butterfly wings or hunt ten marked animals, and do not use Shared Ancestry on a High Elf or a Wood Elf."
       ]
     }
   ]

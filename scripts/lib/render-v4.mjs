@@ -527,7 +527,7 @@ ${audioTranscript({ transcriptAnchor: `${ep.id}-transcript`, title: ep.title, tr
   pages.set('audio-guide.html', shell({
     file: 'audio-guide.html',
     title: guide.title,
-    description: 'Twelve short listens about our Skyrim Together setup, with a transcript for each.',
+    description: 'Thirteen short listens about our Skyrim Together setup, with a transcript for each.',
     body: `<div class="d-page"><h1>${esc(guide.title)}</h1>
 <p class="d-guide-intro">${esc(guide.recordedFor)} ${audioTime(Math.round(totalSeconds))} in all. Links to related pages open in a new tab, so the audio keeps playing. This page remembers where you stopped in each episode on this device, if your browser allows it.</p>
 <p class="d-guide-gap">${esc(guide.gap)}</p>

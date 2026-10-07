@@ -278,7 +278,7 @@ for (const page of [
 {
   const episodes = audioGuide?.episodes ?? [];
   const guidePage = documents.get(path.join(dist, 'v4', 'audio-guide.html')) ?? '';
-  if (episodes.length !== 12) fail('Audio guide: expected twelve episodes');
+  if (episodes.length !== 13) fail('Audio guide: expected thirteen episodes');
   if (!guidePage) fail('v4/audio-guide.html: page missing');
   if (!/<h1\b[^>]*>Audio guide<\/h1>/.test(guidePage)) fail('v4/audio-guide.html: the page title must be Audio guide');
   if (!/Now covers hunger and thirst, no fast travel by the map, job boards, vampire attacks and the optional gear mods\. It also covers the world and house mods: trading posts, bandit camps, Skyshards, Elysium Estate and Harborwatch/.test(guidePage)) fail('v4/audio-guide.html: must state what the set now covers');
