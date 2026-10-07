@@ -258,7 +258,7 @@
           "High Elf",
           "+10 Illusion. +5 Alteration, Conjuration, Destruction, Enchanting, Restoration. +50 Magicka. Highborn rapidly restores Magicka for one minute.",
           "Level-100 skills improve. Low Magicka/Stamina recover faster but weaken defenses. Gear weakens, enchantments strengthen. Contingency stores spells for automatic casting.",
-          "The Friend Kit race patch gives back Highborn, once a day. The Five Races patch locks Contingency: the butterfly-wing goal that earned it is removed, so you cannot get it. Your racial goal is no longer shared with the party. Quarantined (don't use yet): Contingency. The patch is not tested in the game yet."
+          "The race patch gives back Highborn, once a day. The Five Races patch locks Contingency: the butterfly-wing goal that earned it is removed, so you cannot get it. Your racial goal is no longer shared with the party. Quarantined (don't use yet): Contingency. The patch is not tested in the game yet."
         ],
         [
           "Argonian",
@@ -270,7 +270,7 @@
           "Wood Elf",
           "+10 Archery. +5 Alchemy, Light Armor, Lockpicking, Pickpocket, Sneak. Poison/disease resistance. Command Animal temporarily recruits an animal.",
           "Eat corpses for attributes. Harrier marks prey and weakens foes. Sense movement while still. Beast Tongue recruits animals. Loses innate poison/disease resistance.",
-          "The Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). The Five Races patch locks Beast Tongue: the Harrier hunt that earned it is switched off, so you cannot get it, and your racial goal is no longer shared with the party. Harrier's armor mark in combat still works. Quarantined (don't use yet): Beast Tongue."
+          "The Wood Elf patch gives Hunter's Mark, once a day (not tested in the game yet). The Five Races patch locks Beast Tongue: the Harrier hunt that earned it is switched off, so you cannot get it, and your racial goal is no longer shared with the party. Harrier's armor mark in combat still works. Quarantined (don't use yet): Beast Tongue."
         ],
         [
           "Breton",
@@ -312,10 +312,10 @@
           "Redguard",
           "+10 One-Handed. +5 Alteration, Archery, Block, Destruction, Smithing. 50% poison resistance. Adrenaline Rush rapidly restores Stamina.",
           "Disease resistance replaces poison resistance. Unlimited travel Stamina, recovery when injured, kill bonuses. Red Sand Dance slows time while sprinting.",
-          "The Friend Kit race patch gives back Adrenaline Rush, once a day. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
+          "The race patch gives back Adrenaline Rush, once a day. Quarantined (don't use yet): Red Sand Dance. Co-op racial effects and unlocks (not verified)."
         ]
       ],
-      "note": "Vanilla means the unmodded game. Imperious changes racial traits: Battle Cry (Nord), Imperial Luck and Voice of the Emperor (Imperial) appear only in the Vanilla column. Complete racial objectives to unlock powers. The Friend Kit race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. The Friend Kit also gives Wood Elves Hunter's Mark: 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf has no racial power in our game. The Friend Kit also has a Five Races patch for Imperious. It stops the High Elf, Breton, Imperial, Nord and Wood Elf racial goals from being shared with the party, locks Contingency and Beast Tongue, stops Shared Ancestry borrowing held powers, and turns off NPCs casting Harrier, Avatar, Colovian Star, Spirit Walk and Ancestral Guardian on their own. Every player needs it, and it is not tested in the game yet. Do not use the Imperious menu option \"Debug: manual\": it still lets a player give themselves any power. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
+      "note": "Vanilla means the unmodded game. Imperious changes racial traits: Battle Cry (Nord), Imperial Luck and Voice of the Emperor (Imperial) appear only in the Vanilla column. Complete racial objectives to unlock powers. The race patch gives High Elves Highborn (faster Magicka regeneration) and Redguards Adrenaline Rush (faster Stamina regeneration) back, for a minute, once a day. Tested alone, not yet with two players. The Wood Elf patch also gives Wood Elves Hunter's Mark: 20 seconds of double bow damage that marks what your arrows hit, once a day. It is not tested in the game yet. Dark Elf has no racial power in our game. The collection also has a Five Races patch for Imperious. It stops the High Elf, Breton, Imperial, Nord and Wood Elf racial goals from being shared with the party, locks Contingency and Beast Tongue, stops Shared Ancestry borrowing held powers, and turns off NPCs casting Harrier, Avatar, Colovian Star, Spirit Walk and Ancestral Guardian on their own. Every player needs it, and it is not tested in the game yet. Do not use the Imperious menu option \"Debug: manual\": it still lets a player give themselves any power. Harrier, Whispers and racial progression still need testing from both sides. Prowl is a leap, not a verified teleport. Its co-op behavior is unverified. Don't count on Imperial Discipline as a party buff. Its armor and damage effects are not healing. NPCs can get racial abilities too, so avoiding a quarantined power doesn't prove all race behavior is tested."
     },
     {
       "id": "spells",
@@ -363,7 +363,7 @@
     {
       "id": "cannot-use",
       "title": "Quarantined perks and powers",
-      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says “held” for the same thing. Perks our Friend Kit patches changed are not on this list: they are fine to take, but nobody has played them together yet. Highborn and Adrenaline Rush, which the Friend Kit race patch gives back, and Hunter's Mark, which the Friend Kit adds for Wood Elves, are not quarantined either. A quarantine does not mean a crash is proven. Spells are on the Spells page. Can I use this? lists everything.",
+      "note": "Quarantined means don't take, cast or use it until the host announces that its co-op test passed. These are agreed campaign rules. The audio guide says “held” for the same thing. Perks our Friend Kit patches changed are not on this list: they are fine to take, but nobody has played them together yet. Highborn and Adrenaline Rush, which the race patch gives back, and Hunter's Mark, which the Wood Elf patch adds, are not quarantined either. A quarantine does not mean a crash is proven. Spells are on the Spells page. Can I use this? lists everything.",
       "columns": [
         "Perk or power",
         "Single player",
@@ -659,7 +659,7 @@
     {
       "id": "mods",
       "title": "Our mods",
-      "note": "Vanilla means the unmodded game. The collection on Nexus has these 38 installed mods, 26 Required and 12 Optional. Two private perk patches and three private race patches from the Friend Kit come on top.",
+      "note": "Vanilla means the unmodded game. The collection on Nexus has these 41 installed mods, 29 Required and 12 Optional. Two private perk patches from the Friend Kit come on top.",
       "columns": [
         "Mod",
         "Vanilla",
@@ -767,6 +767,36 @@
           },
           "Required",
           "It changes every race, and the race patch needs it."
+        ],
+        [
+          "STR Race Power Fallback",
+          "Vanilla races have their own racial power. Imperious takes them away.",
+          {
+            "text": "Gives High Elves Highborn and Redguards Adrenaline Rush back, once a day. Tested alone, not yet with two players. See Races",
+            "href": "races.html"
+          },
+          "Required",
+          "It is our own patch for Imperious, so every player needs the same file."
+        ],
+        [
+          "STR Wood Elf Hunter's Mark",
+          "Wood Elves have Command Animal.",
+          {
+            "text": "Gives Wood Elves Hunter's Mark, once a day: 20 seconds of double bow damage that marks what your arrows hit. Not tested in the game yet. See Races",
+            "href": "races.html"
+          },
+          "Required",
+          "It is our own patch for Imperious, so every player needs the same file."
+        ],
+        [
+          "STR Five Races Stability",
+          "No racial goals to share.",
+          {
+            "text": "Keeps Imperious racial goals from being shared with the party, locks Contingency and Beast Tongue, and stops NPCs using some racial powers. Not tested in the game yet. See Races",
+            "href": "races.html"
+          },
+          "Required",
+          "It is our own patch for Imperious. It needs the two patches above, and every player needs it."
         ],
         [
           "Random Dragons No More",

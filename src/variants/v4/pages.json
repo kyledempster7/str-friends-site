@@ -97,14 +97,45 @@
           "file": "patch-notes.html",
           "title": "Patch notes",
           "updated": "2026-10-07",
-          "description": "What changed in our campaign setup, newest first. October 7: the Five Races patch. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
+          "description": "What changed in our campaign setup, newest first. October 7: revision 8 and the Five Races patch. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
           "release": true,
           "before": [
+            {
+              "id": "oct-7-rev8",
+              "title": "October 7: revision 8",
+              "paragraphs": [
+                "Revision 8 moves the three race plugins out of the Friend Kit and into the collection. The collection now has 41 mods (29 Required, 12 Optional) and the Friend Kit has two private plugins."
+              ],
+              "items": [
+                "The collection gains three Required mods from Nexus: Race Power Fallback, Hunter's Mark and Five Races Stability. Vortex installs them with the collection and they load after Imperious. They are the same plugin files as before, so what they do has not changed.",
+                "Friend Kit: the new zip is STR-Friend-Kit-rev8.zip. It is still one zip and one double-click, and it now builds STR-Patches.zip with two private plugins, the held-perk lock and Quiet Hunter. Extract it, double-click START HERE - double-click me.bat, then install the new STR-Patches.zip in Vortex.",
+                "Already installed the October 7 kit with five plugins? In Vortex, remove the mod called STR-Patches before you update the collection, then install the new STR-Patches.zip. If you skip that, the same plugins are installed twice.",
+                [
+                  "The three mods on Nexus: ",
+                  {
+                    "text": "Race Power Fallback",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194430"
+                  },
+                  ", ",
+                  {
+                    "text": "Hunter's Mark",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194431"
+                  },
+                  " and ",
+                  {
+                    "text": "Five Races Stability",
+                    "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194433"
+                  },
+                  "."
+                ],
+                "The Wood Elf and Five Races plugins have not been tested in the game yet, and nothing here has had a two-player test."
+              ]
+            },
             {
               "id": "oct-7",
               "title": "October 7: Five Races patch",
               "paragraphs": [
-                "The Friend Kit has a new small plugin, STR-FiveRaces-Stability.esp. It makes Imperious safer for a shared world. Every player needs it."
+                "The October 7 Friend Kit got a new small plugin, STR-FiveRaces-Stability.esp (a Required Nexus mod since revision 8, see above). It makes Imperious safer for a shared world. Every player needs it."
               ],
               "items": [
                 "Racial goals are no longer shared. Finishing your High Elf, Breton, Imperial, Nord or Wood Elf goal used to hand the power to everyone in the party. Now it stays in your own game.",
@@ -114,7 +145,7 @@
                 "Do not use the Imperious menu option \"Debug: manual\". It still lets a player give themselves any power.",
                 "Not tested in the game yet. A two-player check is on the test list.",
                 [
-                  "Friend Kit: the new zip is STR-Friend-Kit-2026-10-07.zip. It is still one zip and one double-click, and it now builds STR-Patches.zip with five private plugins. Extract it and double-click START HERE - double-click me.bat again, then install the new STR-Patches.zip in Vortex. ",
+                  "Friend Kit: the new zip is STR-Friend-Kit-2026-10-07.zip. It is still one zip and one double-click, and it now builds STR-Patches.zip with five private plugins. Extract it and double-click START HERE - double-click me.bat again, then install the new STR-Patches.zip in Vortex. Revision 8 replaced this kit: use STR-Friend-Kit-rev8.zip.",
                   {
                     "text": "Races",
                     "href": "races.html"
@@ -137,7 +168,7 @@
                     "text": "Five Races Stability",
                     "href": "https://www.nexusmods.com/skyrimspecialedition/mods/194433"
                   },
-                  ". Use the Friend Kit copy, not both."
+                  ". Since revision 8 they are Required mods in the collection and the Friend Kit no longer has them."
                 ]
               ]
             },
@@ -145,7 +176,7 @@
               "id": "oct-6",
               "title": "October 6: revision 7",
               "paragraphs": [
-                "Revision 7 is our current list of mods and Friend Kit patches. This is what it adds and changes."
+                "Revision 7 was our list of mods and Friend Kit patches on October 6. This is what it added and changed."
               ],
               "items": [
                 [
@@ -419,8 +450,9 @@
             {
               "title": "Run the Friend Kit",
               "list": [
-                "Get the Friend Kit zip (October 6) from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
+                "Get the newest Friend Kit zip (STR-Friend-Kit-rev8.zip) from Kyle's Discord message. Right-click it, choose Extract All and pick a short folder, like your Desktop.",
                 "Close Skyrim.",
+                "Already used the October 7 kit? In Vortex, remove the mod called STR-Patches before you update the collection (Mods tab, right-click it, Remove).",
                 "Double-click START HERE - double-click me.bat and press a key. It makes STR-Patches.zip in that folder, then backs up the four bundled Creation Club add-ons (the cleanup).",
                 "Read the result. The line \"Your game is ready for Skyrim Together.\" must appear. The window then offers to freeze Skyrim updates (optional; press Y, recommended) and ends with \"All done. Close this window.\"",
                 "If it says SOMETHING WENT WRONG, stop and send the host a screenshot."
@@ -457,12 +489,12 @@
                 "Let it install. Enable it if Vortex asks."
               ],
               "note": [
-                "Everyone needs every plugin in it before a shared session. The perk plugins change some perks (",
+                "Everyone needs both plugins in it before a shared session. They change some perks (",
                 {
                   "text": "Skills",
                   "href": "skills.html"
                 },
-                " says how). The race plugins give High Elves and Redguards their vanilla racial power back and Wood Elves a new one, Hunter's Mark. The Five Races plugin stops racial goals being shared with the party and locks two powers (",
+                " says how). The three race plugins come with the collection and are Required: they give High Elves and Redguards their vanilla racial power back, Wood Elves a new one (Hunter's Mark), stop racial goals being shared with the party and lock two powers (",
                 {
                   "text": "Races",
                   "href": "races.html"
@@ -1450,7 +1482,7 @@
               [
                 "Racial power",
                 "Imperious's Wood Elf power is Beast Tongue. It recruits the nearest carnivorous animal.",
-                "The Friend Kit gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue."
+                "The Wood Elf patch gives Hunter's Mark, once a day (not tested in the game yet). Quarantined (don't use yet): Beast Tongue."
               ],
               [
                 "Other changes",
@@ -2021,7 +2053,7 @@
             "rows": [
               [
                 "Race",
-                "High Elf. Imperious gives it +10 Illusion, +5 in the other magic schools and +50 Magicka. The Friend Kit race patch gives back Highborn.",
+                "High Elf. Imperious gives it +10 Illusion, +5 in the other magic schools and +50 Magicka. The race patch gives back Highborn.",
                 "Quarantined (don't use yet): Contingency. The Races page has the full row."
               ],
               [
@@ -2175,7 +2207,7 @@
               [
                 "Highborn (power)",
                 "Restores Magicka quickly for 60 seconds, once a day. Press it at the start of a hard fight.",
-                "From the Friend Kit race patch. Tested alone: 90 Magicka came back in about 3 seconds instead of about 10. Not tested with two players."
+                "From the race patch. Tested alone: 90 Magicka came back in about 3 seconds instead of about 10. Not tested with two players."
               ],
               [
                 "Elven Supremacy (always on)",
@@ -2295,8 +2327,8 @@
                 "Report what you see."
               ],
               [
-                "Same Friend Kit",
-                "Every player needs the same Friend Kit, including the race patches, or Highborn will not match.",
+                "Same collection",
+                "Every player needs the same collection and the same race patches, or Highborn will not match.",
                 "The sword needs Weapon Collection LotR on both machines."
               ],
               [
