@@ -992,6 +992,11 @@
         {
           "file": "build-sheets.html",
           "title": "Build sheets",
+          "seeAlso": {
+            "lead": "A Gandalf-style wizard with a staff and a sword has a page of its own:",
+            "href": "sky-gandalf.html",
+            "text": "Skylur's Gandalf guide"
+          },
           "grids": [
             {
               "id": "build-sheets",
@@ -1946,6 +1951,363 @@
         ]
       },
       {
+        "file": "sky-gandalf.html",
+        "title": "Skylur's character: a Gandalf-style High Elf wizard",
+        "navLabel": "Skylur's Gandalf wizard",
+        "description": "A guide for Skylur's High Elf wizard with a staff in one hand and the one-handed Glamdring in the other: how to get Glamdring, the best staffs, the High Elf powers, sword-and-staff fighting tips and co-op cautions.",
+        "seeAlso": {
+          "lead": "The full race table and its quarantines are on",
+          "href": "races.html",
+          "text": "Races"
+        },
+        "grids": [
+          {
+            "id": "sky-glance",
+            "title": "The build at a glance",
+            "columns": [
+              "Part",
+              "What it is",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Race",
+                "High Elf. Imperious gives it +10 Illusion, +5 in the other magic schools and +50 Magicka. The Friend Kit race patch gives back Highborn.",
+                "Quarantined (don't use yet): Contingency. The Races page has the full row."
+              ],
+              [
+                "Right hand",
+                "Glamdring, the one-handed sword from Weapon Collection LotR.",
+                "Optional gear mod. Players without it will not see your sword."
+              ],
+              [
+                "Left hand",
+                "A staff from Mysticism. Fire, frost or shock.",
+                "One summon at a time. Never raise corpses."
+              ],
+              [
+                "Main skills",
+                "Destruction, Alteration, some Restoration. One-Handed for the sword.",
+                "Better Vanilla Perks gives the One-Handed perks. Our held-perk patch does not lock them."
+              ],
+              [
+                "Does it work in co-op?",
+                "Yes, with care. Skyrim Together syncs equipment, enchanted items, projectiles, spell effects and Magicka. Nothing public says that a staff in one hand and a sword in the other breaks anything.",
+                "Not tested with two players yet. Treat the first dungeon as the test."
+              ]
+            ]
+          },
+          {
+            "id": "sky-gandalf-match",
+            "title": "What is Gandalf in our game?",
+            "columns": [
+              "From the story",
+              "In our game",
+              "Where to get it",
+              "How we know"
+            ],
+            "rows": [
+              [
+                "Glamdring",
+                "Glamdring, the one-handed sword (Weapon Collection LotR)",
+                "Craft it at the Skyforge.",
+                "Read from the mod's crafting recipe. Not yet tried in the game."
+              ],
+              [
+                "Gandalf's staff",
+                "A Destruction staff from Mysticism, such as the Staff of Fireballs or the Staff of Firebolts",
+                "Found as loot or sold by mages. Which vendor sells which staff is not checked.",
+                "The staffs are in Mysticism. Where each one turns up is not tested."
+              ],
+              [
+                "Grey robes",
+                "Greybeard Robes (Playable Greybeard Robes)",
+                "Craft them at a tanning rack.",
+                "Read from the mod's crafting recipe. Not yet tried in the game."
+              ],
+              [
+                "Pointed hat",
+                "The Grey and White Wizard Hats (Wizard Hats - Simple)",
+                "Craft them at a forge.",
+                "Read from the mod's crafting recipes. Not yet tried in the game."
+              ],
+              [
+                "\"You shall not pass!\"",
+                "Unrelenting Force, a shout from the base game",
+                "Learn it in the main quest.",
+                "A base-game shout. Not changed by our mods."
+              ],
+              [
+                "A High Elf's long life",
+                "The High Elf race: Highborn and the always-on traits below. Contingency is not yet, held for co-op.",
+                "You pick the race when you make your character.",
+                "Read from Imperious and our race patch. Highborn tested alone."
+              ]
+            ],
+            "note": "Only things that are in the game are listed. Optional gear mods show only to players who have them."
+          },
+          {
+            "id": "sky-glamdring",
+            "title": "How to get Glamdring",
+            "columns": [
+              "Step",
+              "What to do",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Install the mod",
+                "Weapon Collection LotR adds 26 craftable weapons. Glamdring is one of them.",
+                "It is optional. Everyone who should see your sword needs it too."
+              ],
+              [
+                "Pick the right one",
+                "The mod has two Glamdrings: a one-handed sword and a two-handed sword. Take the one-handed Glamdring. The two-handed one fills both hands and leaves no room for the staff.",
+                "Check the weapon type in the crafting list before you spend materials."
+              ],
+              [
+                "Craft it",
+                "It is a craftable weapon. Smithing makes it better, as with any sword.",
+                "Where it sits in the crafting menu is not checked in the game yet."
+              ],
+              [
+                "Put it in your right hand",
+                "Open Favorites, choose the sword for the right hand and the staff for the left. Do it before a fight.",
+                "Menus do not pause."
+              ]
+            ],
+            "note": "A friend without Weapon Collection LotR will not see your Glamdring, and you will not see theirs. Handing one to a player without the mod has not been tested."
+          },
+          {
+            "id": "sky-staffs",
+            "title": "Staffs for a wizard with a sword",
+            "columns": [
+              "Staff",
+              "Use it?",
+              "Why"
+            ],
+            "rows": [
+              [
+                "Staff of Firebolts, Staff of Fireballs, Staff of Flames, Staff of Lightning Bolts",
+                "Best picks",
+                "Mysticism adds these. They are plain Destruction staffs: a bolt, a blast or a stream. They need no summon and no corpse."
+              ],
+              [
+                "Frost, shock and light staffs of the same kind",
+                "Good picks",
+                "Same idea, other damage types. Pick the type that matches the Destruction perks you took."
+              ],
+              [
+                "Summon staffs, such as the Sanguine Rose and the Staff of the Familiar",
+                "One at a time",
+                "Skyrim Together used to spawn two creatures from these two staffs. That is fixed. Other summon staffs were not checked. Do not summon again while one is out."
+              ],
+              [
+                "Staff of the Zombie, Staff of Reanimation, Staff of Revenant, Staff of the Dread Zombie, Staff of Dead Thrall",
+                "Avoid",
+                "They raise corpses. Our party rule is never to raise corpses."
+              ],
+              [
+                "Fear and frenzy staffs",
+                "Avoid",
+                "Fear-type spells cannot be used on other players. They can still hit townspeople."
+              ]
+            ]
+          },
+          {
+            "id": "sky-powers",
+            "title": "Your High Elf powers",
+            "columns": [
+              "Power",
+              "What it does",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Highborn (power)",
+                "Restores Magicka quickly for 60 seconds, once a day. Press it at the start of a hard fight.",
+                "From the Friend Kit race patch. Tested alone: 90 Magicka came back in about 3 seconds instead of about 10. Not tested with two players."
+              ],
+              [
+                "Elven Supremacy (always on)",
+                "Skills at 100 are 10% more effective.",
+                "No extra rule"
+              ],
+              [
+                "Gold and Glass (always on)",
+                "Magicka and Stamina recover faster when they fall below half. The price is up to 100 less armor and 50% less magic resistance.",
+                "Stay behind the front line. Armor and magic resistance drop when you are low."
+              ],
+              [
+                "Shimmering Threads (always on)",
+                "Weapons and armor are 15% weaker. Enchantments are 15% stronger.",
+                "Your staff is an enchantment, so it gains. Your Glamdring loses a little."
+              ],
+              [
+                "Living Arcana (always on)",
+                "Our notes name it as a combat effect.",
+                "What it does is not checked yet. Do not count on it."
+              ],
+              [
+                "Contingency (power)",
+                "Stores equipped spells and casts them free when a condition you choose occurs.",
+                "Not yet. Held for co-op. Do not use it. The race patch does not remove it from your list."
+              ]
+            ]
+          },
+          {
+            "id": "sky-fighting",
+            "title": "Fighting with a staff and a sword",
+            "columns": [
+              "Tip",
+              "What to do",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Perks for the sword",
+                "Take Armsman first, then Bladesman. Armsman makes one-handed weapons do 20% more damage at rank 1 and 100% more at rank 5. Bladesman adds critical chance and bleeding to swords.",
+                "From Better Vanilla Perks. The held-perk patch leaves both open."
+              ],
+              [
+                "Perks for the staff",
+                "Take the Destruction perks for the damage type of your staff. Staff of the Atronach strengthens summoned atronachs.",
+                "Leave Staff of the Atronach until the group is happy with one summon."
+              ],
+              [
+                "Lead with the staff",
+                "Shoot from range. Draw Glamdring when an enemy reaches you.",
+                "Shimmering Threads makes the staff stronger than the sword. This is our suggestion, not a tested rule."
+              ],
+              [
+                "Use Highborn early",
+                "Press it when a hard fight starts, so staff and spells keep flowing for the full minute.",
+                "Once a day."
+              ],
+              [
+                "Carry soul gems",
+                "Carry filled soul gems. Recharge the staff between fights at an Arcane Enchanter.",
+                "The staff's charge count is not named as synced. Watch your own charge."
+              ],
+              [
+                "Target lock",
+                "The target lock in True Directional Movement keeps an enemy in view while you cast from the staff and swing.",
+                "Both mods are installed. Not tested with two players."
+              ],
+              [
+                "No blocking",
+                "You cannot block with a staff in one hand and a sword in the other. Keep moving, and save Stamina so you can sprint out of danger.",
+                "Precision swings cost Stamina. Stand behind DK."
+              ],
+              [
+                "Set favorites first",
+                "Put the sword and the staff in Favorites before you go in.",
+                "Menus do not pause."
+              ],
+              [
+                "Your spells and arrows",
+                "A bolt from you will not hurt a friend. It will hurt a guard.",
+                "Players cannot hurt players in our setup. Friendly non-player characters can still be hit."
+              ],
+              [
+                "Sword swings",
+                "Precision and True Directional Movement give real hitboxes. On a friend's screen your swing may look late, even when the hit counts.",
+                "Remote melee is not proved in our notes."
+              ]
+            ]
+          },
+          {
+            "id": "sky-coop",
+            "title": "Cautions for co-op",
+            "columns": [
+              "Topic",
+              "What to know",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "One summon at a time",
+                "Keep one summoned creature out. Wait for it to fade before the next.",
+                "Our held-perk patch also stops the summon perks from adding extra summons."
+              ],
+              [
+                "Menus do not pause",
+                "Skyrim Souls keeps the world running while a menu is open. Heal, swap weapons and read spells before the fight, not in it.",
+                "No extra rule"
+              ],
+              [
+                "Carry soul gems",
+                "Fill them at the start of the day. A staff with no charge is a stick.",
+                "No extra rule"
+              ],
+              [
+                "Not tested on two machines",
+                "Nobody has yet watched a High Elf with a staff and a sword on two screens. The first dungeon is the test: both players should see the sword, the staff, the bolt and one summon.",
+                "Report what you see."
+              ],
+              [
+                "Same Friend Kit",
+                "Every player needs the same Friend Kit, including the race patch, or Highborn will not match.",
+                "The sword needs Weapon Collection LotR on both machines."
+              ],
+              [
+                "Fear and frenzy",
+                "They do not work on other players.",
+                "They can still hit townspeople."
+              ]
+            ]
+          },
+          {
+            "id": "sky-party",
+            "title": "In the party",
+            "columns": [
+              "Topic",
+              "What to know",
+              "Our rule or note"
+            ],
+            "rows": [
+              [
+                "Where you stand",
+                "Behind DK, who stands in front. Shoot past the front line. Step in with Glamdring only when something slips through.",
+                "You are fragile: Gold and Glass lowers your armor."
+              ],
+              [
+                "Your healer",
+                "Kyle's Vigilant of Stendarr heals and protects. Say \"Healing here\" and stay within reach.",
+                "Healing is not resurrection."
+              ],
+              [
+                "Mac",
+                "Mac shoots from range too. Call \"Caster first\" and focus the caster together.",
+                "No extra rule"
+              ]
+            ]
+          }
+        ],
+        "sources": [
+          [
+            "Imperious",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/1315"
+          ],
+          [
+            "Better Vanilla Perks",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/3939"
+          ],
+          [
+            "Mysticism",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/27839"
+          ],
+          [
+            "Weapon Collection LotR",
+            "https://www.nexusmods.com/skyrimspecialedition/mods/127522"
+          ],
+          [
+            "Skyrim Together features",
+            "https://wiki.tiltedphoques.com/tilted-online/general-information/features"
+          ]
+        ]
+      },
+      {
         "file": "ledger.html",
         "title": "Roster",
         "grids": [
@@ -1976,8 +2338,11 @@
               ],
               [
                 "Skylur",
-                "Gandalf-style mage.",
-                "Not yet"
+                "A High Elf wizard in the Gandalf style. A staff in one hand and the one-handed Glamdring in the other. Fire, light and protection from range.",
+                {
+                  "text": "Skylur's Gandalf guide",
+                  "href": "sky-gandalf.html"
+                }
               ],
               [
                 "DK",
