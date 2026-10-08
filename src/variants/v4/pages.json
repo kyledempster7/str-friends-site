@@ -97,9 +97,22 @@
           "file": "patch-notes.html",
           "title": "Patch notes",
           "updated": "2026-10-07",
-          "description": "What changed in our campaign setup, newest first. October 7: revision 8 and the Five Races patch. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
+          "description": "What changed in our campaign setup, newest first. October 7: the host's load order, revision 8 and the Five Races patch. October 6: what revision 7 adds and changes, and where the audio guide still differs from the pages.",
           "release": true,
           "before": [
+            {
+              "id": "oct-7-load-order",
+              "title": "October 7: the host's load order",
+              "paragraphs": [
+                "Two players with the same 44 plugins loaded them in a different order, because Vortex sorts each PC by itself. The Friend Kit now carries the host's exact load order."
+              ],
+              "items": [
+                "New separate download: STR-Load-Order.zip. It holds the host's plugins.txt and loadorder.txt, a read-only Check load order.bat and a READ ME. Turn Vortex's Autosort off, close Vortex, copy the two files into the Skyrim Special Edition folder under %LOCALAPPDATA%, and never click Sort Now.",
+                "Check load order.bat must say MATCH before you join a session. The server itself still does not compare the order.",
+                "STR-Patches - install this in Vortex.zip is unchanged. Its READ ME no longer says to click Sort Now.",
+                "Not tested on a friend's PC yet. The check has only been run on the host's PC."
+              ]
+            },
             {
               "id": "oct-7-rev8",
               "title": "October 7: revision 8",
@@ -516,6 +529,19 @@
               ]
             },
             {
+              "title": "Copy the host's load order",
+              "text": "Do this after the collection and the patches are installed and ticked, and before you start Skyrim Together. It is a separate download, STR-Load-Order.zip, with its own READ ME.",
+              "list": [
+                "In Vortex, open the Plugins view. Click the top-bar button that says Autosort Enabled once. It must now say Autosort Disabled. Never click Sort Now.",
+                "Close Vortex completely, also from its icon by the clock.",
+                "Press the Windows key + R, paste %LOCALAPPDATA%\\Skyrim Special Edition and press Enter. Copy plugins.txt and loadorder.txt from there into a new Desktop folder called old load order, as a backup.",
+                "Extract STR-Load-Order.zip. Copy its plugins.txt and loadorder.txt into that Skyrim Special Edition folder and replace the two files.",
+                "Double-click Check load order.bat. The last line must say RESULT: MATCH. If it says DIFFERENT, do not start the game: redo the steps, or send the host a screenshot.",
+                "Open Vortex again. It must still say Autosort Disabled. Run Check load order.bat once more before every session."
+              ],
+              "note": "Why: the server checks that you have the same plugins, not their order. Two PCs with the same 44 plugins can load them in a different order, and then a player can look frozen on someone else's screen. Vortex sorts each PC by itself, so the host's exact order is copied in. Install, update or remove no mods without telling the host, because that can change the order."
+            },
+            {
               "title": "Tailscale",
               "text": [
                 "Do steps 1 and 2 before game day. Every click is on the ",
@@ -763,6 +789,15 @@
           "file": "join.html",
           "title": "Joining a session",
           "steps": [
+            {
+              "title": "Check your load order",
+              "list": [
+                "Close Vortex and Skyrim.",
+                "Double-click Check load order.bat (it is in STR-Load-Order.zip).",
+                "The last line must say RESULT: MATCH. If it says DIFFERENT, do not connect. Send the host a screenshot."
+              ],
+              "note": "Run it before every session. Changing any mod can change the order."
+            },
             {
               "title": "Launch the co-op game",
               "text": "Double-click your configured SkyrimTogether.exe shortcut."
